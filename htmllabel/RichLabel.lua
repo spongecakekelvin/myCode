@@ -161,6 +161,7 @@ function RichLabel:ctor(params)
 	local fontName 	= params.fontName
 	local fontSize 	= params.fontSize
 	local fontColor = params.fontColor or cc.c3b(0xff, 0xff, 0xff)
+	local dimensions = params.dimensions
 	local maxWidth 	= params.maxWidth or 0
 	local linespace = params.lineSpace or 0 -- 行间距
 	local charspace = params.charSpace or 0 -- 字符距
@@ -176,6 +177,7 @@ function RichLabel:ctor(params)
 	self._animationCounter = 0
 
 	self._default = {}
+	self._default.dimensions = dimensions
 	self._default.fontName = fontName
 	self._default.fontSize = fontSize
 	self._default.fontColor = fontColor
@@ -220,7 +222,7 @@ function RichLabel:setString(text)
 		-- yzjprint("normal return !!!! ", text)
 		self._allnodelist = {}
 		self._alllines = {[1]={}}
-		self._parsedtable = {[1] = {content = text}}
+		self._parsedtable = {[1] = {content = text, dimensions = self._default.dimensions}}
 		
 		local lines, maxwidth, maxheight = self:createLine_(containerNode, self._parsedtable, 1, 1)
 		for i, node in ipairs(lines) do
@@ -246,6 +248,10 @@ function RichLabel:setString(text)
 	self._allnodelist = allnodelist
 	self._parsedtable = parsedtable	
 end 
+
+function RichLabel:getAllLines()
+	return self._alllines
+end
 
 function RichLabel:getString()
 	return self._currentText
@@ -532,7 +538,7 @@ function RichLabel:createLink_(node, params)
 		Helper.setTouchEnable(bgLayer, function(touch, event)
 			local eventCode = event:getEventCode()
 			local target = event:getCurrentTarget()
-			yzjprint(eventCode, tostring(target))
+			-- yzjprint(eventCode, tostring(target))
 			if eventCode == 0 then
 				if Helper.isClickInTarget(target, touch) then
 					target._isLinkTouchBegan = true
@@ -594,7 +600,6 @@ function createExpressAnimation(format, num, time)
 		sp:runAction(cc.RepeatForever:create(animate))
 	else
 		sp = cc.Sprite:create()
-		yzjprint(format)
 	end
 	return sp
 end
@@ -613,7 +618,7 @@ function RichLabel:createLabel_(params)
 		-- local fontSize = ((params.size or params.face) or params.fontSize) or self._default.fontSize
 		local fontSize = (params.face or params.fontSize) or self._default.fontSize
 		local fontColor = params.color or self._default.fontColor
-		node = ui.newLabel(params.content, checkFontSize(fontSize), checkC3b(fontColor))
+		node = ui.newLabel(params.content, checkFontSize(fontSize), checkC3b(fontColor), params.dimensions)
 		if params.labelname == "a" then
 			node = self:createLink_(node, params)
 		end
@@ -649,29 +654,38 @@ function RichLabel:checkStrWidth_(params)
 	local maxWidth = self._maxWidth
 	local isNextLine = (calcWidth > maxWidth)
 	-- yzjprint(content, "==   self.addwidth, box.width, maxWidth = ", self.addwidth, box.width, maxWidth)
-	if isNextLine then
-		local chars = self:stringToChars(content)
-		local width = self.addwidth
-		local breakIndex
 
-		for i, v in ipairs(chars) do
-			local tempNode = self:createLabelTemp_{content = v, face = params.face, fontSize = params.fontSize}
-			width = width + tempNode:getBoundingBox().width
-			if width > maxWidth then
-				breakIndex = i
-				break
-			end
-		end
-		-- yzjprint("== breakIndex = ", breakIndex)
-		curStr = table.concat(getPartTable(chars, 1, breakIndex - 1)) 
-		nextStr = table.concat(getPartTable(chars, breakIndex))
-	else
-		local b, e = string.find(content, "\n")
-		if b then
+	local foundBreakMark = false
+	local b, e = string.find(content, "\n")
+	if b then
+		local tempCurStr = string.sub(content, 1, b - 1)
+		local node = self:createLabelTemp_{content = tempCurStr, face = params.face, fontSize = params.fontSize}
+		if (self.addwidth + node:getBoundingBox().width <= maxWidth) then
 			isNextLine = true
+			foundBreakMark = true
 			curStr = string.sub(content, 1, b - 1)
 			nextStr = string.sub(content, e + 1)
-			-- yzjprint(content, "  break found \\n return !!")
+		end
+		-- yzjprint(content, "  break found \\n return !!")
+	end
+
+	if not foundBreakMark then
+		if isNextLine then
+			local chars = self:stringToChars(content)
+			local width = self.addwidth
+			local breakIndex
+
+			for i, v in ipairs(chars) do
+				local tempNode = self:createLabelTemp_{content = v, face = params.face, fontSize = params.fontSize}
+				width = width + tempNode:getBoundingBox().width
+				if width > maxWidth then
+					breakIndex = i
+					break
+				end
+			end
+			-- yzjprint("== breakIndex = ", breakIndex)
+			curStr = table.concat(getPartTable(chars, 1, breakIndex - 1)) 
+			nextStr = table.concat(getPartTable(chars, breakIndex))
 		else
 			self.addwidth = calcWidth
 		end
@@ -727,7 +741,7 @@ function RichLabel:traverseParsedTable_(parsedtable, index, lineindex)
 		elseif params.labelname == "cs" then --表情动画
 			isNextLine = self:checkAnimWidth_(params)
 		end
-
+		-- yzjprint(" isNextLine ", isNextLine, curStr, " <> ", nextStr)
 		if isNextLine then
 			self.addwidth = 0
 
@@ -770,7 +784,6 @@ function RichLabel:createLine_(containerNode, parsedtable, sIndex, eIndex)
 	local lines = {}
 	local width = 0
 	local height = 0
-
 	for i = sIndex, eIndex do
 		local node = self:createLabel_(parsedtable[i])
 		lines[#lines + 1] = node
@@ -818,8 +831,8 @@ function RichLabel:createLabels_(containerNode, parsedtable)
 		--  调整高度
 		alllines[lineindex] = {}
 		for i, node in ipairs(lines) do
-			-- yzjprint("linewidth, lineheight = ", 0, -maxheight)
 			node:setPositionY(-maxheight)
+			-- yzjprint("        i, h = ", i, -maxheight, node:getPosition())
 			table.insert(alllines[lineindex], node)
 			table.insert(allnodelist, node)
 		end
@@ -843,8 +856,6 @@ function RichLabel:updatePosition(maxwidth, maxheight)
 	local origin_x, origin_y = 0, maxheight
 	local result_x = origin_x - anchor.x * maxwidth
 	local result_y = origin_y - anchor.y * maxheight
-	-- printTable(anchor)
-	-- yzjprint(debug.traceback() .. "========= result_x, result_y = ", result_x, result_y, origin_x, origin_y)
 	containerNode:setPosition(result_x, result_y)
 end
 

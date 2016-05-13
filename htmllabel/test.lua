@@ -15,6 +15,7 @@ local RichLabel = require("gamecore/ui/richlabel/RichLabel")
     -- local text = "死亡时立即原地满血复活"
     -- local text = "送<font color='#23e342'>绝版</font><font color='#d323e3'>神兵玉佩</font>、升阶丹、金砖、修为丹、海量钻石！"
     -- local text = "<font color='#23e342'>装备颜色：</font>  <font color='#ffffff'>白</font>-<font color='#00ff00'>绿</font>-<font color='#0066ff'>蓝</font>-<font color='#9000ff'>紫</font>-<font color='#ff7800'>橙</font>-<font color='#cc0000'>红</font>-<font color='#00fff0'>青</font>-<font color='#fe50a6'>粉</font>-<font color='#fffc00'>金</font>-<font color='#ffffff'>亮白</font>-<font color='#00ff00'>亮绿</font>-<font color='#0066ff'>亮蓝</font>-<font color='#9000ff'>亮紫</font>-<font color='#ff7800'>亮橙</font>-<font color='#cc0000'>亮红</font>-<font color='#00fff0'>亮青</font>-<font color='#fe50a6'>亮粉</font>-<font color='#fffc00'>亮金</font>"
+    local text = "<font color='#23e342'>兑换说明：</font><br/>1、每日可兑换<font color='#23e342'>20</font>次，每次消耗<font color='#23e342'>5000W</font>经验，兑换5000修为；<br/>2、兑换消耗：<font color='#23e342'>20W</font>绑定金币；<br/>3、VIP每日可领取增加兑换修为次数的<font color='#23e342'>修为兑换石</font>。"
     local t1 = os.time()
     local htmlTab = htmlparser.parse(text)
     -- printTable(htmlTab, yzjprint)
@@ -29,7 +30,7 @@ local RichLabel = require("gamecore/ui/richlabel/RichLabel")
     -- local desc = ui.newHtmlLabel(self.data.desc, cc.size(556, 0))
     for i = 1, 1 do
         
-        local label = RichLabel.new{maxWidth = 210, fontSize = 22, lineSpace = 0, callback = function(id, name, href, x, y)
+        local label = RichLabel.new{maxWidth = 370, fontSize = 22, lineSpace = 0, callback = function(id, name, href, x, y)
             yzjprint("==== RichLabel link touch!! ", id, name, href, x, y)
         end}
         self.testLabel = label
@@ -37,10 +38,20 @@ local RichLabel = require("gamecore/ui/richlabel/RichLabel")
         label:debugDraw()
         -- label:playAnimation()
         -- local label =  ui.newLabel("请选择服务器", 24, ui.color.orange)
-        ui.addChild(self, label, 172 + i / 2, 343 - i / 4, nil, nil, 999)
+        ui.addChild(self, label, 42 + i / 2, 153 - i / 4, nil, nil, 999)
         printTable(label:getContentSize(), yzjprint)
         yzjprint(self.testLabel:getPosition())
         printTable(self.testLabel:getAnchorPoint())
+    end
+
+    local lines = self.testLabel:getAllLines()
+    for i, v in ipairs(lines) do
+        yzjprint("==== line ", i, "===========")
+        for j, k in ipairs(v) do
+            local str = k.getString and k:getString() or ""
+            local x, y = k:getPosition()
+            yzjprint(j, "、", x, y, str)
+        end
     end
 
 
