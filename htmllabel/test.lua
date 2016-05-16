@@ -44,29 +44,30 @@ local RichLabel = require("gamecore/ui/richlabel/RichLabel")
         printTable(self.testLabel:getAnchorPoint())
     end
 
-    local lines = self.testLabel:getAllLines()
-    for i, v in ipairs(lines) do
-        yzjprint("==== line ", i, "===========")
-        for j, k in ipairs(v) do
-            local str = k.getString and k:getString() or ""
-            local x, y = k:getPosition()
-            yzjprint(j, "、", x, y, str)
-        end
-    end
-
-
+    -- local lines = self.testLabel:getAllLines()
+    -- for i, v in ipairs(lines) do
+    --     yzjprint("==== line ", i, "===========")
+    --     for j, k in ipairs(v) do
+    --         local str = k.getString and k:getString() or ""
+    --         local x, y = k:getPosition()
+    --         yzjprint(j, "、", x, y, str)
+    --     end
+    -- end
 
     local btn = ui.UIButton.new({
     images = { normal = "#login/login.png", pressed = "#login/login2.png", disabled = "#login/login.png" },})
     ui.addChild(self, btn, 480, 450, 0.5, 0.5, 100)
     
     btn:onClick(nil, function() --登陆按钮
-        local text = "送<font color='#23e342'>绝版</font><font color='#d323e3'>神兵玉佩</font>、升阶丹、金砖、修为丹、海量钻石！"
-        self.testLabel:setString(text)
-        self.testLabel:setAnchorPoint(0, 0)
+        local width = 100 + math.random(400)
+        yzjprint("width = ", width)
+        self.testLabel:setMaxWidth(width)
+        -- local text = "送<font color='#23e342'>绝版</font><font color='#d323e3'>神兵玉佩</font>、升阶丹、金砖、修为丹、海量钻石！"
+        -- self.testLabel:setString(text)
+        -- self.testLabel:setAnchorPoint(0, 0)
         self.testLabel:debugDraw()
-        yzjprint(self.testLabel:getPosition())
-        printTable(self.testLabel:getAnchorPoint())
+        -- yzjprint(self.testLabel:getPosition())
+        -- printTable(self.testLabel:getAnchorPoint())
         -- local text = "可制作5级攻击药剂，使用药剂后可以增加攻击0-3100，持续时间24小时。<br/><font color='#9d1bd4'>最高等级：15级</font>"
         -- self.testLabel:setString(text)
         -- label:debugDraw()

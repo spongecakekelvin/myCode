@@ -139,8 +139,8 @@ local ANIM_WORD_PER_SEC = 15
 local DEBUG_MARK = "richlabel.debug.drawnodes"
 local expressionList = require "gamecore/config/ExpressionConfig"
 local createExpressAnimation
-local expressionScale_ = 0.44
--- local expressionScale_ = 1
+local _expressionScale = 0.44
+-- local _expressionScale = 1
 
 --[[--
 -   ctor: 构造函数
@@ -201,7 +201,7 @@ end
 function RichLabel:setString(text)
 	text = text or ""
 	-- 字符串相同的直接返回
-	if self._currentText == text then
+	if self._currentText == text and self._lastMaxWidth == self._maxWidth then
 		return
 	end
 
@@ -235,6 +235,7 @@ function RichLabel:setString(text)
 		return
 	end
 
+	-- 转换字符串中的特定标签
 	text = self:checkTags_(text)
 	-- yzjprint("==== replaceTag text = ", text)
 
@@ -261,9 +262,17 @@ end
 -   setMaxWidth: 设置行最大宽度
 	@param: maxwidth - 行的最大宽度
 ]]
+
 function RichLabel:setMaxWidth(maxwidth)
+	if self._maxWidth == maxWidth then
+		return
+	end
+	self._lastMaxWidth = self._maxWidth
 	self._maxWidth = maxwidth
-	self:layout()
+	-- self:layout()
+	if self._currentText then
+		self:setString(self._currentText)
+	end
 end
 
 function RichLabel:setAnchorPoint(anchor, anchor_y)
@@ -593,7 +602,7 @@ function createExpressAnimation(format, num, time)
 	local sp
 	if #tab >= 1 then
 		sp = cc.Sprite:createWithSpriteFrame(tab[1])
-		sp:setScale(expressionScale_)
+		sp:setScale(_expressionScale)
 		local animation = cc.Animation:createWithSpriteFrames(tab)
 		animation:setDelayPerUnit(time/num)
 		local animate = cc.Animate:create(animation)
@@ -609,11 +618,9 @@ end
 function RichLabel:createLabel_(params)
 	local node
 	if params.labelname == "cs" then
-		-- params.content = ""
 		local expressionData = expressionList[params.id]
 		node = createExpressAnimation(expressionData[3], expressionData[1], expressionData[2])
 	else
-	-- end
 		--  size属性是字体大小，但是旧的html不支持，需要保持一致
 		-- local fontSize = ((params.size or params.face) or params.fontSize) or self._default.fontSize
 		local fontSize = (params.face or params.fontSize) or self._default.fontSize
@@ -623,8 +630,6 @@ function RichLabel:createLabel_(params)
 			node = self:createLink_(node, params)
 		end
 	end
-	-- local box = node:getBoundingBox()
-	-- yzjprint("== params ", tostring(params.content),  tostring(params.labelname), box.width, box.height)
 	return node
 end
 
@@ -646,13 +651,10 @@ end
 function RichLabel:checkStrWidth_(params)
 	local content = params.content
 	assert(type(content) == 'string', "'params.content' in RichLabelcheckStrWidth_ is not 'string' type")
+	local maxWidth = self._maxWidth
+	local isNextLine
 	local curStr = content
 	local nextStr
-	local node = self:createLabelTemp_(params)
-	local box = node:getBoundingBox()
-	local calcWidth = self.addwidth + box.width
-	local maxWidth = self._maxWidth
-	local isNextLine = (calcWidth > maxWidth)
 	-- yzjprint(content, "==   self.addwidth, box.width, maxWidth = ", self.addwidth, box.width, maxWidth)
 
 	local foundBreakMark = false
@@ -666,10 +668,15 @@ function RichLabel:checkStrWidth_(params)
 			curStr = string.sub(content, 1, b - 1)
 			nextStr = string.sub(content, e + 1)
 		end
-		-- yzjprint(content, "  break found \\n return !!")
 	end
 
 	if not foundBreakMark then
+		local node = self:createLabelTemp_(params)
+		local box = node:getBoundingBox()
+		local calcWidth = self.addwidth + box.width
+		
+		isNextLine = (calcWidth > maxWidth)
+
 		if isNextLine then
 			local chars = self:stringToChars(content)
 			local width = self.addwidth
@@ -702,9 +709,9 @@ function RichLabel:checkAnimWidth_(params)
 		frame = ui.newSprFrame(string.format("#" .. format, 1))
 		sp = cc.Sprite:createWithSpriteFrame(frame)
 	else
-		sp = cc.Sprite:creat()
+		sp = cc.Sprite:create()
 	end
-	sp:setScale(expressionScale_)
+	sp:setScale(_expressionScale)
 
 	local box = sp:getBoundingBox()
 	-- yzjprint(self.addwidth, "====== checkAnimWidth_() ")
@@ -737,10 +744,11 @@ function RichLabel:traverseParsedTable_(parsedtable, index, lineindex)
 		--创建文字
 		if (params.labelname == "font" or params.labelname == "a") then 
 			isNextLine, curStr, nextStr = self:checkStrWidth_(params)
-			-- yzjprint("=====  == == curStr, nextStr= ", tostring(curStr),"   ++  ", tostring(nextStr))
-		elseif params.labelname == "cs" then --表情动画
+		--表情动画
+		elseif params.labelname == "cs" then 
 			isNextLine = self:checkAnimWidth_(params)
 		end
+
 		-- yzjprint(" isNextLine ", isNextLine, curStr, " <> ", nextStr)
 		if isNextLine then
 			self.addwidth = 0
@@ -800,15 +808,11 @@ end
 
 
 function RichLabel:createLabels_(containerNode, parsedtable)
-	
-	local default = self._default
 	local allnodelist = {}
 	local alllines = {}
-	self.lineIndex = 1
-
-	self.addwidth = 0
-
 	self._breakline = {}
+
+	self.addwidth = 0 -- 用于每行长度判断
 	parsedtable = self:traverseParsedTable_(parsedtable, 1, 1)
 	-- printTable(parsedtable, yzjprint)
 	-- printTable(self._breakline, yzjprint)
@@ -824,7 +828,6 @@ function RichLabel:createLabels_(containerNode, parsedtable)
 	local maxheight = 0
 	for lineindex, count in ipairs(self._breakline) do
 		local lines, linewidth, lineheight = self:createLine_(containerNode, parsedtable, index, index + count)
-		-- yzjprint("linewidth, lineheight = ", linewidth, lineheight)
 		maxheight = maxheight + lineheight + linespace
 		maxwidth = linewidth > maxwidth and linewidth or maxwidth
 
@@ -832,7 +835,6 @@ function RichLabel:createLabels_(containerNode, parsedtable)
 		alllines[lineindex] = {}
 		for i, node in ipairs(lines) do
 			node:setPositionY(-maxheight)
-			-- yzjprint("        i, h = ", i, -maxheight, node:getPosition())
 			table.insert(alllines[lineindex], node)
 			table.insert(allnodelist, node)
 		end
@@ -1063,7 +1065,6 @@ function RichLabel:checkTags_(text)
 	for k, v in pairs(replaceMap) do
 		text = string.gsub(text, k, v)
 	end
-
 	return text
 end
 
