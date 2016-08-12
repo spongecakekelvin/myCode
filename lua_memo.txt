@@ -1,9 +1,414 @@
-﻿--- 命令行签名
-jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore "E:/st5_svn/mobile/publish/android/s3arpg.keystore" -storepass "123456" -keypass "123456" -signedjar "E:/st5_svn/mobile/publish/android/arpgQQ_signed.apk" "E:/st5_svn/mobile/publish/android/arpgQQ.apk" "s3arpg.keystore"
+﻿了解并写炉石脚本lua python ? 并没有提供api
+抓取内存地址
+按键精灵、autoHotKey
+ce修改器
+炉石兄弟
 
 
-1、kkuu工程 替换图标
-2、扫码的 功能
+makefile 那个，你需要的是 $(wildcard test*.c)
+
+goagent翻墙
+
+
+项目流程：
+1、AI行为树的工具
+2、自动化回归测试, 
+3、脚本虚拟机profile程序性能监测,Valgrind
+4、异步，函数挂起，等待资源/数据加载完后再调用
+
+android 4大组件
+
+
+CCFileUtil.cpp
+class DictMaker : public SAXDelegator
+
+1、使用lua实现一遍解析plist文件， 参考 cocos2dx 源码 DictMaker tMaker; return tMaker.dictionaryWithContentsOfFil
+    static void startElement(void *ctx, const CC_XML_CHAR *name, const CC_XML_CHAR **atts);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static void endElement(void *ctx, const CC_XML_CHAR *name);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static void textHandler(void *ctx, const CC_XML_CHAR *name, int len);
+
+2、编译原理书籍
+3、unity 5.x
+4、git wuyinjie's https://github.com/Manistein
+5、用QT开发工具， 为项目定制工具
+	e.g. texture packer
+6、饥荒源码
+7、显示目录结构的图片, 目录下可以加上readme.txt文件， 显示在最后，没有readme文件默认翻译文件夹的名字(http://www.cnblogs.com/BeginMan/p/3644283.html)
+
+├─bin  二进制程序文件
+├─data 数据目录
+│  ├─anim             放置动画
+│  ├─bigportraits     人物肖像纹理
+│  ├─fonts            字体文件
+│  ├─fx               好像是用来放置于天气相关纹理的
+│  ├─images           主要纹理放置目录
+│  ├─levels           放置地皮纹理
+│  ├─minimap          地图图标
+│  ├─models           未知，猜测与洞穴有关
+│  ├─scriptlibs       一些用lua实现的库，用来网络通信与json字符串处理
+│  ├─scripts          主要的lua脚本目录
+│  │  ├─behaviours        控制行为*
+│  │  ├─brains            大脑AI*
+│  │  ├─cameras           相机，用来控制玩家所能看到的视野*
+│  │  ├─components        组件，一组通用的，用来描述物品的代码*
+│  │  ├─languages         语言文件，国际化用的
+│  │  ├─map               地图相关代码*
+│  │  │  ├─levels             世界模式，有生存，冒险，洞穴等等
+│  │  │  ├─rooms              Room
+│  │  │  ├─static_layouts     静态布局  
+│  │  │  └─tasks              Tasks，上面那些具体去看博客
+│  │  ├─nis               卖萌用的，直接在命令行运行，有只会动的大象^.^
+│  │  ├─prefabs           定义世界里所有的物品
+│  │  ├─scenarios         场景，也就是贴吧所说的彩蛋
+│  │  ├─screens           界面*
+│  │  ├─stategraphs       状态机或状态图，用来和AI一起控制动物（和植物？）的运动
+│  │  └─widgets           界面小部件（按钮，文本框etc.）*
+│  ├─shaders          未知
+│  └─sound            声音
+└─mods 插件放置目录
+
+
+
+jit  JIT编译器，英文写作Just-In-Time Compiler，中文意思是即时编译器
+JIT编译器能够将MSIL编译成为各种不同的机器代码，以适应对应的系统平台，最终使得程序在目标系统中得到顺利地运行。
+
+
+http://gad.qq.com/article/detail/7151532帧同步
+http://gafferongames.com/networking-for-game-programmers/what-every-programmer-needs-to-know-about-game-networking/同步机制概要
+http://www.gameres.com/478430.html
+http://www.skywind.me/blog/archives/131帧同步算法
+http://www.skywind.me/blog/archives/112同步法则
+http://www.skywind.me/blog/archives/1145航位推测法变种
+http://www.gamasutra.com/view/feature/3230/dead_reckoning_latency_hiding_for_.php航位推测法
+http://www.gamasutra.com/view/feature/3227/designing_fastaction_for_the_.php动作游戏同步机制设计
+http://www.gamedev.net/page/resources/_/technical/multiplayer-and-network-programming/defeating-lag-with-cubic-splines-r914
+
+
+
+resu record 
+
+todo：
+1、查看终端打印的网络交互模块 --\/ CCLuaStack 中print绑定lua_print 函数，使用socket发送到终端ip，第一次会自动连上终端， CCLOG有打印到eclipse功能, 再没连上终端时调试会麻烦
+
+2a、 数据结构
+2b、a*算法，寻路的大小根堆，快速、冒泡排序
+
+冒泡排序 稳定，两次循环逐个对比交换
+选择排序 找最大，放到第i位置
+插入排序  不稳定 遍历i = 1 to len， 保存i的值temp ， 遍历j= 1 to i-1, 比较大小j元素向i移动，直到不符合顺序
+void insert_sort(int*array,unsignedintn)
+{
+int i,j;
+int temp;
+for(i=1;i<n;i++)
+{
+temp=*(array+i);
+for(j=i;j>0&&*(array+j-1)>temp;j--)
+{
+*(array+j)=*(array+j-1);
+}
+*(array+j)=temp;
+}
+}
+二叉树排序  构建二叉树，从做导游遍历节点即是排序，构建后方便查询
+快速排序
+
+
+
+3、用fusion sdk工具一键生成项目，整理bat需求
+4、地图切割、绘制，人物行走时地图绘制逻辑 --SceneView:centerView
+5、复查简历，针对每个文字为可能提到的问题作准备
+6、c++基础，看绿皮书
+7、redis键值型数据库、mssql导入到项目中 lua中使用，参考ejoyworlds项目
+8、ccScrollview的封装 --\/继承了 ccclippingNode, 提供回调create update selected 、接口flushView
+9、扫码功能接入，
+10、baidu地图sdk接入，附近玩家
+11、编写python 加上ui.addplist判断  openview return
+
+
+
+lua 源码：
+string：
+少于40个字符的string会被重用
+checks whether short string exists and reuses it or creates a new one
+table:
+get 连续数组内 直接索引 ，key或者不连续索引中  链表中查询
+newkey 没有空余空间会重hash
+find: First goes allelements in the array part, then elements in the hash part
+
+
+cannot get data of main.lua 
+LUA_PATH
+;f:\Program Files (x86)\Lua\5.1\lua\?.luac
+改为：
+;;f:\Program Files (x86)\Lua\5.1\lua\?.luac
+就可以了
+
+LUA_DEV
+F:\Program Files (x86)\Lua\5.1
+
+
+
+coc建筑单位阻挡算法，排序
+四方形的建筑可以使用射线扫描优化，每个单位建立一样44*44的数据图 重绘O(n) 查询O(1)
+
+
+
+
+引入并使用数据库
+
+A*寻路算法：
+1、一堆怪物寻路过程中不重叠在一起，像coc cor 动态阻挡
+2、目标有站位圈，怪物群分布在站位圈上进行攻击，cor的小骷髅
+3a、怪物群寻路中 要先进行预判，x单位时间内的碰撞结果 来判断是否发生碰撞
+3b、怪物群寻路中 要先进行预判，再行进方向一定距离内作射线检测、 来判断是否发生碰撞
+4、发生碰撞时，重新寻路
+http://blog.codingnow.com/2014/01/routemap.html
+云风的blog介绍了coc的寻路
+
+
+
+
+
+
+广州简悦2011年成立 ，上线项目有：天天来战，陌陌争霸，暴击英雄等 
+  U3D客户端 服务器开发工程师（木有语言限制） lua开发工程师
+网站：www.ejoy.com 
+talent@ejoy.com 招聘邮箱，双休 福利齐全 珠江新城 13薪 项目奖金  最高薪酬15-20K 欢迎来M
+
+
+
+apktool dex2jar gui反编译套装
+
+畅游
+工作内容/职位描述：
+1、参与公司项目组项目制作 
+2、能与人良好沟通，了解与改进参与的项目。 
+3、面对困难具有挑战性，能在面临困难问题的时候有独立解决问题的能力 
+4、较强的学习能力，不断学习新的技术，使项目不断往更好的技术发展。 
+5、熟悉Cocos2D引擎的使用，能够攻克技术难关
+任职资格：
+1、负责Cocos2D游戏的内容模块开发； 
+2、能承担起独立模块的研究与开发工作，并能制作相应工具是相关人员能配合实现效果； 
+3、2年以上游戏开发经验，1年以上Cocos2D开发经验，完整参与过至少一款游戏项目； 
+4、熟悉C++或者C，对lua语言有一定了解，对数据结构、算法、性能优化有一定的了解； 
+5、能承受工作压力，心态积极向上。
+
+cocos键盘事件 lua
+local function onKeyPressed(keyCode, event)
+        --        local buf = string.format("Key %d was pressed!",keyCode)
+        --       ccprint(buf)
+        Dispatcher.dispatchEvent(EventType.KEYBOARD_PRESS, keyCode)
+    end
+
+    local function onKeyReleased(keyCode, event)
+        --        local buf = string.format("Key %d was released!",keyCode)
+        --        ccprint(buf)
+        Dispatcher.dispatchEvent(EventType.KEYBOARD_RELEASE, keyCode)
+    end
+
+
+
+    if self._keyboradListener then
+        eventDispatcher:removeEventListener(self._keyboradListener)
+    end
+    self._keyboradListener = nil
+    local listenerkeyboard = cc.EventListenerKeyboard:create()
+    listenerkeyboard:registerScriptHandler(onKeyPressed, cc.Handler.EVENT_KEYBOARD_PRESSED )
+    listenerkeyboard:registerScriptHandler(onKeyReleased, cc.Handler.EVENT_KEYBOARD_RELEASED )
+
+
+
+-- 元表方式检查新增的全局变量
+-- if GameGlobal.isDebug and GameGlobal.targetPlatform == cc.PLATFORM_OS_WINDOWS then
+-- 	local globalTab = {} 
+-- 	local mt    = {
+-- 	    __newindex =  function (t ,k ,v)
+-- 	        if not globalTab[k] then 
+-- 	            -- if type(v) == "function" then 
+-- 	            --     --gprint("_G->函数：",k)
+-- 	            -- elseif type(v) == "table" then 
+-- 	            --     --gprint("_G->表名：",k)
+-- 	            -- else 
+-- 	                gprint("===== 新增加全局变量名:" .. k ..  "（"  .. type(v) .. "）" )--.. tostring(v))
+-- 	            -- end 
+-- 	        end
+-- 	        globalTab[k] = v 
+-- 	        rawset(t, k, v)
+-- 	    end
+-- 	} 
+-- 	setmetatable(_G,mt)
+-- end
+
+--- windows上调试不同分辨率
+ glview = GLView::createWithRect(title.c_str(), Rect(0,0,viewSize.width,viewSize.height));
+st5中修改config.json的
+    "width": 1280,
+    "height": 720,
+
+s2中修改GameConfig.lua的
+
+wndRect = cc.rect(0,0,1136*0.8, 640*0.8),
+
+一项长线收入，就这样被买断了
+1、定制英语计划
+2、敏成人高考
+3、Unity lua demo
+4、actGame demo
+5、github answer question
+
+2016年新个税起征点3500
+级数	税率(%)	速算扣除数
+3	20	555
+公式：其应缴个人所得税=（工薪收入-个人缴纳的四险一金金额-个人所得税扣除额3500）*税率-速算扣除数
+我的计算： 10000-((10000-270.67-250-3500)*0.2-555)-270.67-250
+
+todo：
+2、kkuu 平台， role_add_tos的时候，发送了"arpg"到后端，可是配置中没有arpg项,  channelNumber的值是arpg 赋值到platform中去了 --\/后端用其他值
+3、扫码的工程 也支持kkuu的接口 和登录方式 -- 不需要
+调试方法：修改channelNumber = "kkuu", config.json中platform = "kkuu"
+4、saomabangding工程的 支付方式 待定
+5、扫二维码 需要加上版本号判断ScanQRCode，ScanLogin 
+6、摄像头权限，要玩家点击允许才能运行。点击“禁止”就没反应或者闪退 ,是否能自定义权限，permission protectionLevel设为普通 -- 陈智在
+
+----- 获取服务器列表的url 格式：
+http://172.22.0.33/debug//newnewserverlists.php?platform=kkuu&channelnumber=all&device=android&version=1.0.1.20140
+
+
+
+---- win显示环境变量 保存到txt文件下
+set >> d:\environment.txt
+
+to review:
+1、xlrd , the server python config tools
+2、build python in sublime (windows set system path/ mac how)
+3、
+
+
+1、收到icon 请求festival
+2、收到festival 处理关闭界面等
+3、收到celebration_toc返回 才创建界面内容
+4、副本中机上元宝炸弹图标 mainui_goldbomb.png
+
+
+
+1、停止重连 --\/ 
+2、账号过期是返回哪一条协议m_role_auth_toc err_code == 3003
+
+看
+
+
+
+
+公司
+svn://svn.kkuu.com:3711/client/android/qrLogin4SDK_release
+
+
+1、图标出现后端加上协议控制 --\/
+2、token超时 返回qr_code  重新扫描 --\/
+3、点击切换账号后，NetManager.停止自动尝试登录账号 --不需要 --\/
+
+
+
+{PlatformName,AccountName,RoleID}={"debug",<<"cyc005">>,10001000061}. 
+rp(mod_qrlogin4sdk:getUrlByAccount(PlatformName,AccountName,RoleID)).
+
+到时你直接转发这两行代码给他们，让他们在debug外服1上帮你执行，把结果发给你。
+
+
+1、保存accountInfo到本地UserDefault.xml --\/
+2、有信息 直接选中服，--\/
+3、无信息或二维码超时，则重新扫码 --\/
+4、可选选服 选服后修改 CommonConfig.ip, CommonConfig.port 登录-- \/
+5、切换账号按钮-- \/
+6、美术资源
+
+
+
+
+接口都放在xxxPlugin 里面
+子模块 创建时 传入xxxPlugin的实例。调用它提供的接口
+
+problems：
+xxxPlugin 等全是全局变量
+没有用到事件，xxxPlugin不是对象，需要提供onEnter/onExit，监听和取消监听只能放在当中去
+使用了很多EventDispatcher
+
+
+全局对象需要统一放在一个地方
+
+接口名字不统一
+互相引用调用
+
+
+
+
+1、serverid 获取服务器信息的方式是正则匹配，不便于测试，newFormatUnpack_2 中直接加上 server_id的字段
+2、下载apk包，放到http服务器
+3、多个平台，新建多个工程 kkuu_qrlogin, qq_qrlogin 不需要，直接用原来工程
+4、登录界面 是否需要将LoginViewQR 分离-- 不需要赋值额外的代码，已改回来，都写在loginView中好 --\/
+
+
+根据版本号等 获取 服务器列表
+扫码 获得serverid
+从服务器列表中匹配对应 服务器信息，
+获得并保存 服务器的ip 和端口
+连接socket
+发送登录协议
+
+
+if not self.serverList or #self.serverList <= 0 then
+            gprint("=== no self.serverList ")
+            return
+        end
+        printTable(self.serverList)
+
+
+
+if not pcall(function()
+                    local num = string.gsub(self.severNameStr, "%D", "")
+                    GameGlobal.server_name = self.currentServerInfo[1]
+                    CommonConfig.serverId = tonumber(num)
+                end) then
+                    CommonConfig.serverId = 0
+                    gprint("服务器名称错误，分离不出服务器id")
+                end
+
+
+["Functions.lua":1816]	== if AndroidMessageQueue then ==
+table: 0x79f7c680 = {
+	[1] = 11,
+	[2] = debug,
+	[3] = cyc005,
+	[4] = 1,
+	[5] = 10001000061,
+	[6] = jytk_87ef4fc98f9d4db5a6675319824fb7da,
+	[7] = 1457756257,
+}
+["LoginController.lua":549]	======================  onQRLoginHandler 
+ble: 0x79f06150 = {
+sdk_channel = ,
+client_version = 1.0.1.9999,
+os_type = 0,
+fac_no = A08354CA4C9DF02E583BE52976297443,
+	iostoken = ,
+	login_platform = debug,
+	extra_params = {
+	}
+	ccencode = function: 0x79ed8258,
+	channel_tag = debug,
+}
+
+测试代码 -- for tesing
+
 
 
 新建android工程： s3
@@ -1026,7 +1431,7 @@ java调用c++
 
 java保存xml路径失败 why？
 
-
+------ eclipse没有log打印输出
 adb kill-server
 adb start-server
 
@@ -2796,6 +3201,7 @@ svn://s1.cqsvn.com:8004/cehua/策划文档/D锻造/装备的重铸和打造系�
 
 Android SDK更新 Connection to http://dl-ssl.google.com refused 解决方法
 
+C:\WINDOWS\system32\drivers\etc
 最好的方法还是改hosts文件的方法，更新速度较快。Windows在
 C:\WINDOWS\system32\drivers\etc
 目录下，Linux用户打开/etc/hosts文件。
@@ -3411,6 +3817,10 @@ http://kezhan.trip.taobao.com/hotel_detail2.htm? spm=181.7025333.1.1.1_181.70873
 
 --svn密码
 yuzhenjian
+new：
+1BYq4aZYIXc190Xd20
+
+old:
 50J0fdaMeDkvdSTVK
 yuzhenjian=50J0fdaMeDkvdSTVK
 
@@ -7064,7 +7474,7 @@ cocos compile -p android -m release
 cocos compile -h 帮组
 或者在上一级目录：
 cocos compile -p android -m release  -user proj.android_jinli  --ndk-mode release -j 2 --compile-script 0 
-
+10:12 2016/4/19
 a、python cocos.py文件放在 F:\cocos\cocos2d-x-3.2\cocos2d-x-3.2\tools\cocos2d-console\bin
 b、build_android.py project_compile.py 两个文件放在 F:\cocos\cocos2d-x-3.2\cocos2d-x-3.2\tools\cocos2d-console\plugins\project_compile
 c、把trunk目录下的cocos.py文件删掉，控制台运行trunk下的compile_android.bat, 开始编译
@@ -7317,3 +7727,25 @@ skynet http
 接入腾讯open sdk
 
 http上传下载 android和ios分开实现， 也可以c++的curl(个人感觉麻烦)
+
+
+=========== 
+kimi appId 账号:
+帐号  abc123737260357@qq. com
+密码  13433393601zkM
+
+九龙湖欧陆小镇公主酒店
+韶关大学 丹霞山南华寺
+湖南凤凰古城
+桂林阳朔
+
+======== gmail邮箱账号
+kelvindesus@gmail.com
+kelvinyzj
+
+有道翻译API申请成功
+API key：1147521808
+keyfrom：KelvinDemo-001
+创建时间：2016-08-10
+网站名称：KelvinDemo-001
+网站地址：http://weibo.com/kelvinshere

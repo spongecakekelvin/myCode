@@ -3,110 +3,70 @@
 
 	富文本标签
 	---
-	RichLabel基于Cocos2dx+Lua v3.x  
-	扩展标签极其简单，只需添加一个遵守规则的标签插件即可，无需改动已存在代码！！！  
+	RichLabel基于Cocos2d-x 3.x + Lua
 
 	**特性：**
-	    
-	*   支持标签定义富文本展示格式
-	*   支持图片(缩放，旋转，是否可见)
-	*   支持文本属性(字体，大小，颜色，阴影，描边，发光)
-	*   支持标签嵌套修饰文本，但是内部标签不会继承嵌套标签的属性
-	*   支持标签扩展(labels文件夹中可添加标签支持)
-	*   支持渐入动画，动画逐字回调
-	*   支持设置最大宽度，自动换行布局
-	*   支持手动换行，使用'\n'换行
+	*   兼容项目组旧版本C++实现的Html控件
+	*   多颜色字体、字体大小 <font face="font21" color ="#f39800">
+	*   颜色格式支持 #000000、0x000000
+	*   支持表情动画 <cs id="$34"/>
+	*   支持文本属性(颜色，渐变颜色，字体大小)
+	*   自动换行，支持换行符 '\n' 、 '<br/>'
 	*   支持设置行间距，字符间距
-	*   支持添加debug绘制文字范围和锚点
-	*   支持获得文字的精灵节点
-	*   支持设置标签锚点，透明度，颜色...
-	*   支持遍历字符，行等
-	*   支持获得任意行的行高
-	        
-	**标签支持：**  
-
-	`<div>` - 文本标签，用于修饰文件，非自闭和标签，必须配对出现    
-	属性： fontname, fontsize, fontcolor, outline, glow, shadow   
-	注意：
-
-	* *outline, glow 不能同时生效*
-	* *使用glow会自动修改ttfConfig.distanceFieldEnabled=true，否则没有效果*
-	* *使用描边效果后，ttfConfig.distanceFieldEnabled=false，否则没有效果*
-
-	格式：
-
-	+ fontname='pathto/msyh.ttf'
-	+ fontsize=30
-	+ fontcolor=#ff0099
-	+ shadow=10,10,10,#ff0099 - (offset_x, offset_y, blur_radius, shadow_color)
-	+ outline=1,#ff0099       - (outline_size, outline_color)
-	+ glow=#ff0099            - (glow_color) 
-	    
-	`<img />` - 图像标签，用于添加图片，自闭合标签，必须自闭合<img />  
-	属性：src, scale, rotate, visible  
-	注意：*图片会首先在帧缓存中加载，否则直接在磁盘上加载*  
-	格式：  
-	+ src="pathto/avator.png"
-	+ scale=0.5
-	+ rotate=90
-	+ visible=false
-
-	**注意：**  
-
-	+ 内部使用Cocos2dx的TTF标签限制，要设置默认的正确的字体，否则无法显示  
-	+ 如果要设置中文，必须使用含有中文字体的TTF
-
-	**示例：**
-	```
-	------------------------------------------------------
-	------------  TEST RICH-LABEL
-	------------------------------------------------------ 
-
-	local test_text = {
-	    "<div fontcolor=#ff0000>hello</div><div fontcolor=#00ff00>hello</div><div fontsize=12>你</div><div fontSize=26 fontcolor=#ff00bb>好</div>ok",
-	    "<div outline=1,#ff0000 >hello</div>",
-	    "<div glow=#ff0000 >hello</div>",
-	    "<div shadow=2,-2,0.5,#ff0000 >hello</div>",
-	    "hello<img src='res/test.png' scale=0.5 rotate=90 visible=true />world",
-	}
-	for i=1, #test_text do
-	    local RichLabel = require("richlabel.RichLabel")
-	    local label = RichLabel.new {
-	        fontName = "res/msyh.ttf",
-	        fontSize = 20,
-	        fontColor = cc.c3b(255, 255, 255),
-	        maxWidth=200,
-	        lineSpace=0,
-	        charSpace=0,
-	    }
-	    label:setString(test_text[i])
-	    label:setPosition(cc.p(380,500-i*30))
-	    label:playAnimation()
-	    sceneGame:addChild(label)
-
-	    label:debugDraw()
-	end 
 	
-	```
+	**示例：**
+
+    if not ui.addPlist("allPlist/expression.plist") then return end
+    local textlist  = {}
+    textlist[#textlist + 1] = "CLICK <a href='http://example.com/'>here!</a>"
+    textlist[#textlist + 1] = '奥斯卡的卷发洛杉矶佛按摩法<font face="font21" color ="#f39800">kkk<cs id="$34"/>hh</font>'
+    textlist[#textlist + 1] = '<font face="font21" color ="#f39800">kkk<cs id="$34"/><cs id="$34"></cs>hh</font>'
+    textlist[#textlist + 1] = '<font face="font16" color="#ffffff">击杀</font><font face="font16" color="#57d0f8">黑鳄甲虫</font><font face="font16" color="#ff0000">（0/15）</font><br/><font face="font16" color="#ffffff">击杀</font><font face="font16" color="#57d0f8">蛊晶蚊</font><font face="font16" color="#ff0000">（0/15）</font><br/>'
+    textlist[#textlist + 1] = '<font face="font16">可制作5级攻击药<font color="#ffff00"><a face="font16" href="10086">剂，使用药</a>剂</font>后可以增加<a href="attack">攻击</a>0-3100，持续<cs id="$01"/>时间24小时。<br/><font color="#9d1bd4">最高等级：15级</font></font>'
+    textlist[#textlist + 1] = '可制作5级攻击药<font color="#ffff00"><a href="10086">剂，使用药</a>剂</font>后可以增加<a href="attack">攻击</a>0-3100，持续时间24小时。<br/><font color="#9d1bd4">最高等级：15级</font>'
+    textlist[#textlist + 1] = "<font color='#ebebeb' size='13'>使用<u><a href='event:get|57|1'><font color='#23e342' size='13'>VIP1大礼包</font></a></u>可获得</font>"
+    textlist[#textlist + 1] = "死亡时立即原地满血复活"
+    textlist[#textlist + 1] = "送<font color='#23e342'>绝版</font><font color='#d323e3'>神兵玉佩</font>、升阶丹、金砖、修为丹、海量钻石！"
+    textlist[#textlist + 1] = "<font color='#23e342'>装备颜色：</font>  <font color='#ffffff'>白</font>-<font color='#00ff00'>绿</font>-<font color='#0066ff'>蓝</font>-<font color='#9000ff'>紫</font>-<font color='#ff7800'>橙</font>-<font color='#cc0000'>红</font>-<font color='#00fff0'>青</font>-<font color='#fe50a6'>粉</font>-<font color='#fffc00'>金</font>-<font color='#ffffff'>亮白</font>-<font color='#00ff00'>亮绿</font>-<font color='#0066ff'>亮蓝</font>-<font color='#9000ff'>亮紫</font>-<font color='#ff7800'>亮橙</font>-<font color='#cc0000'>亮红</font>-<font color='#00fff0'>亮青</font>-<font color='#fe50a6'>亮粉</font>-<font color='#fffc00'>亮金</font>"
+    textlist[#textlist + 1] = "<font color='#23e342'>兑换说明：</font><br/><br/>1、每日可兑换<font color='#23e342'>20</font>次，每次消耗<font color='#23e342'>5000W</font>经验，兑换5000修为；<br/>2、兑换消耗：<font color='#23e342'>20W</font>绑定金币；<br/>3、VIP每日可领取增加兑换修为次数的<font color='#23e342'>修为兑换石</font>。"
+    textlist[#textlist + 1] = "<font color='#FF00'><a href='event:OPEN_OPENSERVERACT_PANEL|3'> <u>详情点击查看 </u></a></font>"
+    textlist[#textlist + 1] = "对狂战士增加攻击力126<br/><br/>圣器效果随圣器等级提高而提升<br/><br/>获取途径：<br/><font color='#23e342'>开服活动、累计充值</font><br/><font color='#23e342'>进阶返利、BOSS掉落</font><br/><font color='#23e342'>玩家分享</font>"
+    textlist[#textlist + 1] = "abc<br/><br/><br/>defg"
+    textlist[#textlist + 1] = '<font color="#16ffca" start_color="#16ffca" end_color="#ff42ff" >[真理手镯（右）]</font>'
+
+    for i, text in ipairs(textlist) do
+        local label = RichLabel.new{maxWidth = 370, fontSize = 22, lineSpace = 0, callback = function(id, name, href, x, y)
+            yzjprint("==== RichLabel link touch!! ", id, name, href, x, y)
+        end}
+        self.testLabel = label
+        label:setString(text)
+        label:debugDraw()
+        ui.addChild(self, label, 42 + i * 10, 153 + i * 10, nil, nil, 999)
+    end
+
+	---示例结束---
+
+
+	** 默认属性 **
+	self._default.dimensions = dimensions
+	self._default.fontName = fontName
+	self._default.fontSize = fontSize
+	self._default.fontColor = fontColor
+	self._default.lineSpace = linespace
+	self._default.charSpace = charspace -undone
 
 	**基本接口：**
 
 	* setString - 设置要显示的富文本   
 	* getSize - 获得Label的大小  
-
-	*当前版本：v1.0.1*  
-	v1.0.0 - 支持`<div>`标签，仅支持基本属性(fontname, fontsize, fontcolor)  
-	v1.0.1 - 增加`<div>`标签属性(shadow, outline, glow)的支持，增加`<img>`标签的支持(labelparser增加解析自闭和标签支持) 
+	* setMaxWidth - 设置宽度
+	* setAnchorPoint - 设置宽度
+	* debugDraw 调试模式，显示字体包围框
 
 ]]--
 
 local CURRENT_MODULE = ...
-ccprint(CURRENT_MODULE)
---local dotindex = string.find(CURRENT_MODULE, "%.%w+$")
---local currentpath = string.sub(CURRENT_MODULE, 1, dotindex-1)
---local parserpath = string.format("%s.labelparser", currentpath, label)
---local labelparser = require(parserpath)
--- local labelparser = require("gamecore/ui/richlabel/labelparser")
+
 require("gamecore/ui/richlabel/htmlparser")
 local labelparser = htmlparser
 
@@ -115,7 +75,7 @@ local RichLabel = class("RichLabel", function()
 end)	
 
 -- 文本的默认属性
-RichLabel._default = nil
+RichLabel._default = {}
 
 -- 属性
 RichLabel._maxWidth = nil
@@ -146,12 +106,12 @@ local _expressionScale = 0.44
 -   ctor: 构造函数
 	@param: 
 		params - 可选参数列表
-		params.fontName - 默认的字体名称
-		params.fontSize - 默认字体大小
-		params.fontColor - 默认字体颜色
-		params.maxWidth - Label最大宽度
-		params.lineSpace - 行间距
-		params.charSpace - 字符间距
+		params.dimensions  - 默认的字体名称
+		params.fontName - 默认字体大小
+		params.fontSize - 默认字体颜色
+		params.fontColor - Label最大宽度
+		params.linespace - 行间距
+		params.charspace - 字符间距 -- undone
 ]]
 local checkFontSize
 local checkC3b
@@ -207,9 +167,9 @@ function RichLabel:setString(text)
 
 	-- 若之前存在字符串，要先清空
 	if self._currentText then
-		self._allnodelist = nil
-		self._parsedtable = nil
-		self._alllines = nil
+		self._allnodelist = {}
+		self._parsedtable = {}
+		self._alllines = {}
 		self._containerNode:removeAllChildren()
 	end
 
@@ -328,30 +288,6 @@ function RichLabel:getElementWithRowCol(rowindex, colindex)
 	end
 end
 
---[[--
--   getElementsWithLetter: 获取字母匹配的元素集合
-]]
-function RichLabel:getElementsWithLetter(letter)
-	local nodelist = {}
-	for _, node in pairs(self._allnodelist) do
-		-- 若为Label则存在此方法
-		if node.getString then
-			local str = node:getString()
-			-- 若存在换行符，则换行
-			if str==letter then 
-				table.insert(nodelist, node)
-			end
-		end
-	end
-	return nodelist
-end
-
---[[--
--   getElementsWithGroup: 通过属性分组顺序获取一组的元素集合
-]]
-function RichLabel:getElementsWithGroup(groupIndex)
-	return self._parsedtable[groupIndex].nodelist
-end
 
 --[[--
 -   walkElements: 遍历元素
@@ -423,46 +359,6 @@ end
 
 
 
--- 一般情况下无需手动调用，设置setMaxWidth, setString, setAnchorPoint时自动调用
--- 自动布局文本，若设置了最大宽度，将自动判断换行
--- 否则一句文本中的内容'\n'换行
-function RichLabel:layout()
-	local parsedtable = self._parsedtable
-	local basepos = cc.p(0, 0)
-	local col_idx = 0
-	local row_idx = 0
-
-	local containerNode = self._containerNode
-	local allnodelist = self._allnodelist
-	local linespace = self._default.lineSpace
-	local charspace = self._default.charSpace
-
-	local maxwidth = 0
-	local maxheight = 0
-	-- 处理所有的换行，返回换行后的数组
-	local alllines = self:adjustLineBreak_(allnodelist, charspace)
-	self._alllines = alllines
-	for index, line in pairs(alllines) do
-		local linewidth, lineheight = self:layoutLine_(basepos, line, 1, charspace)
-		local offset = lineheight + linespace
-		basepos.y = basepos.y - offset
-		maxheight = maxheight + offset
-		if maxwidth < linewidth then maxwidth = linewidth
-		end
-	end
-	-- 减去最后多余的一个行间距
-	maxheight = maxheight - linespace
-	self._currentWidth = maxwidth
-	self._currentHeight = maxheight
-
-	-- 根据锚点重新定位
-	local anchor = self:getAnchorPoint()
-	local origin_x, origin_y = 0, maxheight
-	local result_x = origin_x - anchor.x * maxwidth
-	local result_y = origin_y - anchor.y * maxheight
-	containerNode:setPosition(result_x, result_y)
-end
-
 --
 -- Debug
 --
@@ -514,30 +410,8 @@ function RichLabel:debugDraw(level)
 	end
 end
 
---
--- Internal Method
---
 
--- 加载标签解析器，在labels文件夹下查找
-function RichLabel:loadLabelParser_(label)
-	local labelparserlist = shared_parserlist
-	local parser = labelparserlist[label]
-	if parser then return parser
-	end
-	-- 组装解析器名
---    local dotindex = string.find(CURRENT_MODULE, "%.%w+$")
---    if not dotindex then return
---    end
---    local currentpath = string.sub(CURRENT_MODULE, 1, dotindex-1)
-	local parserpath = string.format("gamecore/ui/richlabel/labels/label_%s", label)
-	-- 检测是否存在解析器
-	local parser = require(parserpath)
-	if parser then
-		labelparserlist[label] = parser
-	end
-	return parser
-end
-
+--- 超链接
 function RichLabel:createLink_(node, params)
 	local box = node:getBoundingBox()
 	local size = cc.size(box.width, box.height)
@@ -564,10 +438,11 @@ function RichLabel:createLink_(node, params)
 			end
 		end, true, false, true, true)
 	else
-		gprint("Tag '<a>' of html label has no callback !!")
+		-- yzjprint("Tag '<a>' of html label has no callback !!")
 	end
 
 	local fontColor = params.color or self._default.fontColor
+
 	fontColor = checkC3b(fontColor)
 	local line = ui.drawLine(nil,size,{fontColor.r, fontColor.g, fontColor.b, 255})
 	line:setPosition(0, 2)
@@ -580,7 +455,7 @@ function RichLabel:createLink_(node, params)
 	return bgLayer
 end
 
-
+-- 创建临时对象用于计算宽高，内存命中率
 function RichLabel:createLabelTemp_(params)
 	--  size属性是字体大小，但是旧的html不支持，需要保持一致
 	-- local fontSize = ((params.size or params.face) or params.fontSize) or self._default.fontSize
@@ -624,8 +499,13 @@ function RichLabel:createLabel_(params)
 		--  size属性是字体大小，但是旧的html不支持，需要保持一致
 		-- local fontSize = ((params.size or params.face) or params.fontSize) or self._default.fontSize
 		local fontSize = (params.face or params.fontSize) or self._default.fontSize
+		fontSize = checkFontSize(fontSize)
 		local fontColor = params.color or self._default.fontColor
-		node = ui.newLabel(params.content, checkFontSize(fontSize), checkC3b(fontColor), params.dimensions)
+		if params.start_color and params.end_color then
+			node = ui.newGradientLabel(params.content, fontSize, checkC3b(params.start_color), checkC3b(params.end_color), params.dimensions)
+		else
+			node = ui.newLabel(params.content, fontSize, checkC3b(fontColor), params.dimensions)
+		end
 		if params.labelname == "a" then
 			node = self:createLink_(node, params)
 		end
@@ -667,6 +547,10 @@ function RichLabel:checkStrWidth_(params)
 			foundBreakMark = true
 			curStr = string.sub(content, 1, b - 1)
 			nextStr = string.sub(content, e + 1)
+
+			if curStr == "" then
+				curStr = " " -- 用于换行高度计算
+			end
 		end
 	end
 
@@ -792,16 +676,19 @@ function RichLabel:createLine_(containerNode, parsedtable, sIndex, eIndex)
 	local lines = {}
 	local width = 0
 	local height = 0
-	for i = sIndex, eIndex do
-		local node = self:createLabel_(parsedtable[i])
-		lines[#lines + 1] = node
-		local box = node:getBoundingBox()
-		node:setAnchorPoint(cc.p(0, 0))
-		node:setPosition(width, 0)
-		containerNode:addChild(node)
-		width = width + box.width
-		height = box.height > height and box.height or height
-
+	if parsedtable then
+		for i = sIndex, eIndex do
+			if parsedtable[i] then
+				local node = self:createLabel_(parsedtable[i])
+				lines[#lines + 1] = node
+				local box = node:getBoundingBox()
+				node:setAnchorPoint(cc.p(0, 0))
+				node:setPosition(width, 0)
+				containerNode:addChild(node)
+				width = width + box.width
+				height = box.height > height and box.height or height
+			end
+		end
 	end
 	return lines, width, height
 end
@@ -809,7 +696,6 @@ end
 
 function RichLabel:createLabels_(containerNode, parsedtable)
 	local allnodelist = {}
-	local alllines = {}
 	self._breakline = {}
 
 	self.addwidth = 0 -- 用于每行长度判断
@@ -849,6 +735,7 @@ function RichLabel:createLabels_(containerNode, parsedtable)
 	return allnodelist, alllines
 end
 
+
 function RichLabel:updatePosition(maxwidth, maxheight)
 	local containerNode = self._containerNode
 	self._currentWidth = maxwidth
@@ -859,115 +746,6 @@ function RichLabel:updatePosition(maxwidth, maxheight)
 	local result_x = origin_x - anchor.x * maxwidth
 	local result_y = origin_y - anchor.y * maxheight
 	containerNode:setPosition(result_x, result_y)
-end
-
-
--- 布局单行中的节点的位置，并返回行宽和行高
-function RichLabel:layoutLine_(basepos, line, anchorpy, charspace)
-	anchorpy = anchorpy or 0.5
-	local pos_x = basepos.x
-	local pos_y = basepos.y
-	local lineheight = 0
-	local linewidth = 0
-	for index, node in pairs(line) do
-		local box = node:getBoundingBox()
-		-- 设置位置
-		node:setPosition((pos_x + linewidth + box.width/2), pos_y)
-		-- 累加行宽度
-		linewidth = linewidth + box.width + charspace
-		-- 查找最高的元素，为行高
-		if lineheight < box.height then lineheight = box.height
-		end
-	end
-	-- 重新根据排列位置排列
-	-- anchorpy代表文本上下对齐的位置，0.5代表中间对齐，1代表上部对齐
-	if anchorpy ~= 0.5 then
-		local offset = (anchorpy-0.5)*lineheight
-		for index, node in pairs(line) do
-			local yy = node:getPositionY()
-			node:setPositionY(yy-offset)
-		end
-	end
-	return linewidth - charspace, lineheight
-end
-
--- 自动适应换行处理方法，内部会根据最大宽度设置和'\n'自动换行
--- 若无最大宽度设置则不会自动换行
-function RichLabel:adjustLineBreak_(allnodelist, charspace)
-	-- 如果maxwidth等于0则不自动换行
-	local maxwidth = self._maxWidth
-	-- 存放每一行的nodes
-	local alllines = {{}, {}, {}}
-	-- 当前行的累加的宽度
-	local addwidth = 0
-	local rowindex = 1
-	local colindex = 0
-	for _, node in pairs(allnodelist) do
-		colindex = colindex + 1
-		-- 为了防止存在缩放后的node
-		local box = node:getBoundingBox()
-		addwidth = addwidth + box.width
-		local totalwidth = addwidth + (colindex - 1) * charspace
-		local breakline = false
-		-- 若累加宽度大于最大宽度
-		-- 则当前元素为下一行第一个元素
-		if totalwidth > maxwidth then
-			rowindex = rowindex + 1
-			addwidth = box.width -- 累加数值置当前node宽度(为下一行第一个)
-			colindex = 1
-			breakline = true
-		end
-
-		-- 在当前行插入node
-		local curline = alllines[rowindex] or {}
-		alllines[rowindex] = curline
-		table.insert(curline, node)
-
-		-- 若还没有换行，并且换行符存在，则下一个node直接转为下一行
-		if not breakline and self:adjustContentLinebreak_(node) then
-			rowindex = rowindex + 1
-			colindex = 0
-			addwidth = 0 -- 累加数值置0
-		end
-	end
-	return alllines
-end
-
--- 判断是否为文本换行符
-function RichLabel:adjustContentLinebreak_(node)
-	-- 若为Label则有此方法
-	if node.getString then
-		local str = node:getString() 
-		-- 查看是否为换行符
-		if str == "\n" then
-			return true
-		end
-	end
-	return false
-end
-
--- 
--- utils
---
-
--- 解析16进制颜色rgb值
-function  RichLabel:convertColor(xstr)
-	if not xstr then return 
-	end
-    local toTen = function (v)
-        return tonumber("0x" .. v)
-    end
-
-    local b = string.sub(xstr, -2, -1) 
-    local g = string.sub(xstr, -4, -3) 
-    local r = string.sub(xstr, -6, -5)
-
-    local red = toTen(r)
-    local green = toTen(g)
-    local blue = toTen(b)
-    if red and green and blue then 
-    	return cc.c4b(red, green, blue, 255)
-    end
 end
 
 
@@ -1001,21 +779,7 @@ function RichLabel:stringToChars(str)
 	return list, len
 end
 
-function RichLabel:split(str, delimiter)
-    if (delimiter=='') then return false end
-    local pos,arr = 0, {}
-    -- for each divider found
-    for st,sp in function() return string.find(str, delimiter, pos, true) end do
-        table.insert(arr, string.sub(str, pos, st - 1))
-        pos = sp + 1
-    end
-    table.insert(arr, string.sub(str, pos))
-    return arr
-end
 
-function RichLabel:printf(fmt, ...)
-	return print(string.format("RichLabel# "..fmt, ...))
-end
 
 -- drawdot(self, cc.p(200, 200))
 function RichLabel:drawdot(canvas, pos, radius, color4f)
@@ -1045,28 +809,20 @@ function RichLabel:drawrect(canvas, rect, borderwidth, color4f, isfill)
     return drawnode
 end
 
--- 创建精灵，现在帧缓存中找，没有则直接加载
--- 屏蔽了使用图集和直接使用碎图创建精灵的不同
-function RichLabel:getSprite(filename)
-	local spriteFrameCache = cc.SpriteFrameCache:getInstance()
-    local spriteFrame = spriteFrameCache:getSpriteFrameByName(filename)
 
-	if spriteFrame then
-		return cc.Sprite:createWithSpriteFrame(spriteFrame)
-	end
-	return cc.Sprite:create(filename)
-end
 
 local replaceMap = {
 	["<br/>"] = "\n",
 	["<cs id=\"($%d%d)\"/>"] = "<cs id=\"%1\"></cs>",
 }
+
 function RichLabel:checkTags_(text)
 	for k, v in pairs(replaceMap) do
 		text = string.gsub(text, k, v)
 	end
 	return text
 end
+
 
 function checkFontSize(fs)
 	if type(fs) == "string" then
@@ -1075,10 +831,23 @@ function checkFontSize(fs)
 	return tonumber(fs)
 end
 
+
+
+local function subColorStr(str, s, e)
+	local ret = string.sub(str, s, e)
+	return ret ~= "" and ret or "00"
+end
+
+-- 解析16进制颜色rgb值, 支持格式 #000000、0x000000
 function checkC3b(c)
 	if type(c) == "string" then
-		local r, g, b = "0x" .. string.sub(c, 2, 3), "0x" .. string.sub(c, 4, 5), "0x" .. string.sub(c, 6, 7)
-		return cc.c3b(r, g, b)
+		local r, g, b
+		if string.sub(c, 1, 1) == "#" then
+			r, g, b = "0x" .. subColorStr(c, 2, 3), "0x" .. subColorStr(c, 4, 5), "0x" .. subColorStr(c, 6, 7)
+		else
+			r, g, b = "0x" .. subColorStr(c, 3, 4), "0x" .. subColorStr(c, 5, 6), "0x" .. subColorStr(c, 7, 8)
+		end
+		return cc.c3b(tonumber(r), tonumber(g), tonumber(b))
 	else
 		return c
 	end

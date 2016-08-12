@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $TexturePacker:SmartUpdate:b6207c2dd95765a7af9cc50447a8d3db$ -->
+<x2d version="1.0">
+    <texture n="picture" path="res/graphics/picture.png">
+        <sprite n="picture" x="2" y="2" w="1648" h="208" />
+    </texture>
+</x2d>

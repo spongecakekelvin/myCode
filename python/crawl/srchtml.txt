@@ -1,0 +1,1116 @@
+<html lang="zh-cn"><head>
+<meta charset="utf-8">
+<title>python实现简单爬虫功能 - 虫师 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=umTYGJ1Xbo61obX_Gqsil3krUSBXOilTLax6nesdN401">
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/Minyx2_Lite/bundle-Minyx2_Lite.css?v=box8Dmmj5G0VFMZyypCbLIqNJsuu5lz6TpJ4OOK0WkE1">
+<link type="text/css" rel="stylesheet" href="/blog/customcss/91739.css?v=LfcVDbX80919KwJm7jT6CZkrcrc%3d">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/fnng/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/fnng/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/fnng/wlwmanifest.xml">
+<script type="text/javascript" src="http://common.cnblogs.com/script/encoder.js"></script><script src="http://common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'fnng', cb_enable_mathjax=false;</script>
+<script src="/bundles/blog-common.js?v=XKoehlJN5H21FBVcSKsnT53hGsKVYw1yJ99ZTW__hhA1" type="text/javascript"></script>
+<script src="/skins/Minyx2_Lite/bundle-Minyx2_Lite.js?v=dAK2Rw4GyogXqBvhMZEW0IkYD2kjtuL3y_BKRj-vp4g1" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+
+<div id="container">
+    <a class="minyx" href="http://www.cnblogs.com/">代码改变世界</a>
+    <ul id="topMnu">
+        <!-- 统计数据 -->
+        <li>
+            
+                
+Posts - 255, 
+Articles - 1, 
+Comments - 1979
+<!---->
+            
+        </li>
+        <!-- 这边可以增加一些链接 -->
+        <!-- 博客园 -->
+        <li><a href="http://www.cnblogs.com">Cnblogs</a></li>
+        <!-- 管理 -->
+        <li id="topMnu-dashboard">
+            <a id="lnkDashboard" href="http://www.cnblogs.com/fnng/admin/EditPosts.aspx">Dashboard</a></li>
+        <li>
+            <a id="lnkLogin" href="http://passport.cnblogs.com/logout.aspx?ReturnUrl=http://www.cnblogs.com/fnng/p/3576154.html">Logout</a></li>
+    </ul>
+
+    <script type="text/javascript">
+        var m = window.__blog.topMenuRendered;
+        if (m) { m(__$("topMnu")); }
+    </script>
+
+    <div id="header">
+        <ul id="menu">
+            <!-- 首页，当前section加上current类 -->
+            <li id="menu-home" class="current">
+                <a id="lnkHome" href="http://www.cnblogs.com/fnng/">Home</a></li>
+            <!-- 联系 -->
+            <li id="menu-contact">
+                <a id="lnkContact" href="http://space.cnblogs.com/msg/send/%e8%99%ab%e5%b8%88">Contact</a></li>
+            <!-- 相册 -->
+            <li id="menu-gallary">
+                <a id="lnkGallery" href="http://www.cnblogs.com/fnng/gallery.html">Gallery</a></li>
+            <!-- Rss订阅 -->
+            <li id="rss">
+                <a id="lnkRss" href="http://www.cnblogs.com/fnng/rss">RSS</a></li>
+        </ul>
+        <div id="newmsg"></div>
+        <h1>
+            <!-- 主标题 -->
+            <a id="lnkBlogTitle" href="http://www.cnblogs.com/fnng/">虫师</a>
+            <!-- 子标题 -->
+            <small>
+                大人不华，君子务实。
+独立博客：http://www.testpub.cn</small>
+        </h1>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.headerRendered;
+        if (m) { m(__$("header")); }
+    </script>
+
+    <div id="wrapper">
+        <div id="content">
+            <script type="text/javascript">
+                var m = window.__blog.preRenderPosts;
+                if (m) { m(); }
+            </script>
+            
+<div id="post_detail">
+<div class="post" id="post">
+    <a name="top"></a>
+    <h2><a id="cb_post_title_url" href="http://www.cnblogs.com/fnng/p/3576154.html">python实现简单爬虫功能</a></h2>
+    <small>2014-03-02 00:18 by 虫师, <span id="post_view_count">214601</span> 阅读, <span id="post_comment_count">45</span> 评论, <a href="#" onclick="AddToWz(3576154);return false;">收藏</a>,  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=3576154" rel="nofollow">编辑</a></small>
+    <div class="entry">
+        <div id="cnblogs_post_body"><p class="p0">&nbsp;</p>
+<p class="p0"><span style="font-size: 15px;">　　在我们日常上网浏览网页的时候，经常会看到一些好看的图片，我们就希望把这些图片保存下载，或者用户用来做桌面壁纸，或者用来做设计的素材。</span></p>
+<p class="p0"><span style="font-size: 15px;">　　我们最常规的做法就是通过鼠标右键，选择另存为。但有些图片鼠标右键的时候并没有另存为选项，还有办法就通过就是通过截图工具截取下来，但这样就降低图片的清晰度。好吧～！其实你很厉害的，右键查看页面源代码。</span></p>
+<p class="p0"><span style="font-size: 15px;">　　我们可以通过<span style="font-family: 'Times New Roman';">python&nbsp;</span><span style="font-family: 宋体;">来实现这样一个简单的爬虫功能，把我们想要的代码爬取到本地。下面就看看如何使用</span><span style="font-family: 'Times New Roman';">python</span><span style="font-family: 宋体;">来实现这样一个功能。</span></span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><strong><span style="font-size: 15px;">一，获取整个页面数据</span></strong></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><span style="font-size: 15px;">首先我们可以先获取要下载图片的整个页面信息。</span></p>
+<p class="p0"><span style="font-size: 15px;">getjpg.py</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="font-size: 14px;"><span style="color: #008000;">#</span><span style="color: #008000;">coding=utf-8</span>
+<span style="color: #0000ff;">import</span><span style="color: #000000;"> urllib
+
+</span><span style="color: #0000ff;">def</span><span style="color: #000000;"> getHtml(url):
+    page </span>=<span style="color: #000000;"> urllib.urlopen(url)
+    html </span>=<span style="color: #000000;"> page.read()
+    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> html
+
+html </span>= getHtml(<span style="color: #800000;">"</span><span style="color: #800000;">http://tieba.baidu.com/p/2738151262</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+</span><span style="color: #0000ff;">print</span> html</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p class="p0">　　<span style="font-size: 15px;">Urllib&nbsp;<span style="font-family: 宋体;">模块提供了读取</span><span style="font-family: 'Times New Roman';">web</span><span style="font-family: 宋体;">页面数据的接口，我们可以像读取本地文件一样读取</span>www<span style="font-family: 宋体;">和</span><span style="font-family: 'Times New Roman';">ftp</span><span style="font-family: 宋体;">上的数据</span>。首先，我们定义了一个<span style="font-family: 'Times New Roman';">getHtml()</span><span style="font-family: 宋体;">函数</span><span style="font-family: 'Times New Roman';">:</span></span></p>
+<p class="p0"><span style="font-size: 15px;">　　urllib.urlopen()<span style="font-family: 宋体;">方法用于打开一个</span><span style="font-family: 'Times New Roman';">URL</span><span style="font-family: 宋体;">地址。</span></span></p>
+<p class="p0"><span style="font-size: 15px;">　　read()<span style="font-family: 宋体;">方法用于读取</span><span style="font-family: 'Times New Roman';">URL</span><span style="font-family: 宋体;">上的数据，向</span>getHtml()<span style="font-family: 宋体;">函数</span>传递一个网址，并把整个页面下载下来。执行程序就会把整个网页打印输出。</span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><strong><span style="font-size: 15px;">二，筛选页面中想要的数据</span></strong></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><span style="font-size: 15px;">　　Python&nbsp;<span style="font-family: 宋体;">提供了非常强大的正则表达式，我们</span>需要先要了解一点<span style="font-family: 'Times New Roman';">python&nbsp;</span><span style="font-family: 宋体;">正则表达式的知识才行。</span></span></p>
+<p class="p0"><span style="font-size: 15px;"><a href="http://www.cnblogs.com/fnng/archive/2013/05/20/3089816.html">http://www.cnblogs.com/fnng/archive/2013/05/20/3089816.html</a></span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><span style="font-size: 15px;">假如我们百度贴吧找到了几张漂亮的壁纸，通过到前段查看工具。找到了图片的地址，如：<span style="font-family: 'Times New Roman';">src=”http://imgsrc.baidu.com/forum......jpg”</span>pic_ext=”jpeg”</span></p>
+<p class="p0"><img src="http://images.cnitblog.com/i/311516/201403/020013141657112.png" alt=""></p>
+<p class="p0"><span style="font-size: 15px;">修改代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="font-size: 14px;"><span style="color: #0000ff;">import</span><span style="color: #000000;"> re
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> urllib
+
+</span><span style="color: #0000ff;">def</span><span style="color: #000000;"> getHtml(url):
+    page </span>=<span style="color: #000000;"> urllib.urlopen(url)
+    html </span>=<span style="color: #000000;"> page.read()
+    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> html
+
+</span><span style="color: #0000ff;">def</span><span style="color: #000000;"> getImg(html):
+    reg </span>= r<span style="color: #800000;">'</span><span style="color: #800000;">src="(.+?\.jpg)" pic_ext</span><span style="color: #800000;">'</span><span style="color: #000000;">
+    imgre </span>=<span style="color: #000000;"> re.compile(reg)
+    imglist </span>=<span style="color: #000000;"> re.findall(imgre,html)
+    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> imglist      
+   
+html </span>= getHtml(<span style="color: #800000;">"</span><span style="color: #800000;">http://tieba.baidu.com/p/2460150866</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span> getImg(html)</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p class="p0">　<span style="font-size: 15px;">　我们又创建了<span style="font-family: 'Times New Roman';">getImg()</span><span style="font-family: 宋体;">函数，用于在获取的整个页面中筛选需要的图片连接。</span><span style="font-family: 'Times New Roman';">re</span><span style="font-family: 宋体;">模块主要包含了正则表达式：</span></span></p>
+<p class="p0"><span style="font-size: 15px;">　　re.compile()&nbsp;可以把正则表达式编译成一个正则表达式对象.</span></p>
+<p class="p0"><span style="font-size: 15px;">　　re.findall()&nbsp;<span style="font-family: 宋体;">方法读取</span><span style="font-family: 'Times New Roman';">html&nbsp;</span><span style="font-family: 宋体;">中包含&nbsp;</span><span style="font-family: 'Times New Roman';">imgre</span><span style="font-family: 宋体;">（正则表达式）的数据。</span></span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;　　&nbsp;运行脚本将得到整个页面中包含图片的<span style="font-family: 'Times New Roman';">URL</span><span style="font-family: 宋体;">地址。</span></span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><strong><span style="font-size: 15px;">三，将页面筛选的数据保存到本地</span></strong></p>
+<p class="p0"><span style="font-size: 15px;">&nbsp;</span></p>
+<p class="p0"><span style="font-size: 15px;">把筛选的图片地址通过<span style="font-family: 'Times New Roman';">for</span><span style="font-family: 宋体;">循环遍历并保存到本地，代码如下：</span></span></p>
+<p class="p0">&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="font-size: 14px;"><span style="color: #008000;">#</span><span style="color: #008000;">coding=utf-8</span>
+<span style="color: #0000ff;">import</span><span style="color: #000000;"> urllib
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> re
+
+</span><span style="color: #0000ff;">def</span><span style="color: #000000;"> getHtml(url):
+    page </span>=<span style="color: #000000;"> urllib.urlopen(url)
+    html </span>=<span style="color: #000000;"> page.read()
+    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> html
+
+</span><span style="color: #0000ff;">def</span><span style="color: #000000;"> getImg(html):
+    reg </span>= r<span style="color: #800000;">'</span><span style="color: #800000;">src="(.+?\.jpg)" pic_ext</span><span style="color: #800000;">'</span><span style="color: #000000;">
+    imgre </span>=<span style="color: #000000;"> re.compile(reg)
+    imglist </span>=<span style="color: #000000;"> re.findall(imgre,html)
+    x </span>=<span style="color: #000000;"> 0
+    </span><span style="color: #0000ff;">for</span> imgurl <span style="color: #0000ff;">in</span><span style="color: #000000;"> imglist:
+        urllib.urlretrieve(imgurl,</span><span style="color: #800000;">'</span><span style="color: #800000;">%s.jpg</span><span style="color: #800000;">'</span> %<span style="color: #000000;"> x)
+        x</span>+=1<span style="color: #000000;">
+
+
+html </span>= getHtml(<span style="color: #800000;">"</span><span style="color: #800000;">http://tieba.baidu.com/p/2460150866</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+</span><span style="color: #0000ff;">print</span> getImg(html)</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p class="p0">&nbsp;</p>
+<p class="p0">　<span style="font-size: 15px;">　这里的核心是用到了urllib.urlretrieve()<span style="font-family: 宋体;">方法，直接将远程数据下载到本地。</span></span></p>
+<p class="p0"><span style="font-size: 15px;">　　通过一个<span style="font-family: 'Times New Roman';">for</span><span style="font-family: 宋体;">循环对获取的图片连接进行遍历，为了使图片的文件名看上去更规范，对其进行重命名，命名规则通过</span><span style="font-family: 'Times New Roman';">x</span><span style="font-family: 宋体;">变量加</span><span style="font-family: 'Times New Roman';">1</span><span style="font-family: 宋体;">。保存的位置默认为程序的存放目录。</span></span></p>
+<p class="p0"><span style="font-size: 15px;">程序运行完成，将在目录下看到下载到本地的文件。</span></p>
+<p class="p0">&nbsp;</p>
+<p class="p0"><img src="http://images.cnitblog.com/i/311516/201403/020014265548094.png" alt=""></p>
+<p class="p0">&nbsp;</p>
+<p class="p0">&nbsp;</p>
+<p class="p0">&nbsp;</p></div><div id="MySignature"></div>
+        <div class="clear"></div>
+        <div id="blog_post_info_block">
+        <div id="blog_post_info"><div id="green_channel">
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(3576154,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="//msg.cnblogs.com/send/%E8%99%AB%E5%B8%88" target="_blank">联系我</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="//common.cnblogs.com/images/icon_weibo_24.png" alt=""></a>
+<a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="//common.cnblogs.com/images/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/fnng/" target="_blank"><img src="http://pic.cnblogs.com/face/u311516.png?id=25221546" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/fnng/">虫师</a><br>
+<a href="http://home.cnblogs.com/u/fnng/followees">关注 - 30</a><br>
+<a href="http://home.cnblogs.com/u/fnng/followers">粉丝 - 3698</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">                                     
+    <div class="diggit" onclick="votePost(3576154,'Digg')">
+        <span class="diggnum" id="digg_count">28</span>
+    </div>
+    <div class="buryit" onclick="votePost(3576154,'Bury')"> 
+        <span class="burynum" id="bury_count">2</span>
+    </div>
+    <div class="clear"></div>   
+    <div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>  
+</div>
+</div>
+        <div class="clear"></div>
+        <div id="post_next_prev"><a href="http://www.cnblogs.com/fnng/p/3565912.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/fnng/p/3565912.html" title="发布于2014-02-25 08:54">python使用mysql数据库</a><br><a href="http://www.cnblogs.com/fnng/p/3581433.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/fnng/p/3581433.html" title="发布于2014-03-04 23:43">python读取xml文件</a><br></div>
+    </div>
+</div>
+    <ul class="postmetadata">
+        <li class="icon_cat" id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/fnng/category/454439.html">python</a></li>
+        <li class="icon_bullet" id="EntryTag"></li>
+    </ul>
+</div>
+<script type="text/javascript">var allowComments=true,isLogined=true,cb_blogId=91739,cb_entryId=3576154,cb_blogApp=currentBlogApp,cb_blogUserGuid='f93e222f-6da1-e011-a53f-842b2b196315',cb_entryCreatedDate='2014/3/2 0:18:00';loadViewCount(cb_entryId);</script>
+<script type="text/javascript">
+    var m = window.__blog.postRendered;
+    if (m) { m(__$("post")); }
+</script>
+<script type="text/javascript">
+    var m = window.__blog.postRenderPosts;
+    if (m) { m(); }
+</script>
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<a class="addcomment" href="#comment_tip">Add your comment</a>
+<h3 id="comments"></h3>
+<div class="feedbackNoItems"></div>
+
+
+<ol class="commentlist" id="commentList">   
+
+        <li class="alt">
+            <h5>
+                <cite><a href="#2885921" class="layer">#1楼</a><a name="2885921" id="comment_anchor_2885921"></a></cite> <a id="a_comment_author_2885921" href="http://www.cnblogs.com/52web/" target="_blank">卖知了的老太太</a> <a href="http://msg.cnblogs.com/send/%E5%8D%96%E7%9F%A5%E4%BA%86%E7%9A%84%E8%80%81%E5%A4%AA%E5%A4%AA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-03-02 01:12</span></small>
+            </h5>
+            <div id="comment_body_2885921" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p></p><div class="cnblogs_Highlighter sh-gutter"><div><div id="highlighter_65862" class="syntaxhighlighter  python"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="python comments">#coding=utf-8</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="python keyword">import</code> <code class="python plain">urllib</code></div><div class="line number4 index3 alt1"><code class="python keyword">import</code> <code class="python plain">re</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="python keyword">def</code> <code class="python plain">downloadPage(url):</code></div><div class="line number7 index6 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">h </code><code class="python keyword">=</code> <code class="python plain">urllib.urlopen(url)</code></div><div class="line number8 index7 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python keyword">return</code> <code class="python plain">h.read()</code></div><div class="line number9 index8 alt2">&nbsp;</div><div class="line number10 index9 alt1"><code class="python keyword">def</code> <code class="python plain">downloadImg(content):</code></div><div class="line number11 index10 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">pattern </code><code class="python keyword">=</code> <code class="python plain">r</code><code class="python string">'src="(.+?\.jpg)" pic_ext'</code></div><div class="line number12 index11 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">m </code><code class="python keyword">=</code> <code class="python plain">re.</code><code class="python functions">compile</code><code class="python plain">(pattern)</code></div><div class="line number13 index12 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">urls </code><code class="python keyword">=</code> <code class="python plain">re.findall(m, content)</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python keyword">for</code> <code class="python plain">i, url </code><code class="python keyword">in</code> <code class="python functions">enumerate</code><code class="python plain">(urls):</code></div><div class="line number16 index15 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">urllib.urlretrieve(url, </code><code class="python string">"%s.jpg"</code> <code class="python keyword">%</code> <code class="python plain">(i, ))</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="python plain">content </code><code class="python keyword">=</code> <code class="python plain">downloadPage(</code><code class="python string">"<a href="http://tieba.baidu.com/p/2460150866">http://tieba.baidu.com/p/2460150866</a>"</code><code class="python plain">)</code></div><div class="line number19 index18 alt2"><code class="python plain">downloadImg(content)</code></div></div></td></tr></tbody></table></div></div></div><p></p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2885921,'Digg',this)">支持(4)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2885921,'Bury',this)">反对(0)</a></div><span id="comment_2885921_avatar" style="display:none;">http://pic.cnblogs.com/face/u478017.jpg?id=10160153</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(2885921,'CA/TWLDZ6K8cYxGZtsqt7sTszZDz+kQcVCZ3NWMu7BEnEwZZoBsI6Q==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(2885921,'CA/TWLDZ6K8cYxGZtsqt7sTszZDz+kQcVCZ3NWMu7BEnEwZZoBsI6Q==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#2885944" class="layer">#2楼</a><a name="2885944" id="comment_anchor_2885944"></a></cite> <a id="a_comment_author_2885944" href="http://www.cnblogs.com/shenyun/" target="_blank">沈赟</a> <a href="http://msg.cnblogs.com/send/%E6%B2%88%E8%B5%9F" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-03-02 09:56</span></small>
+            </h5>
+            <div id="comment_body_2885944" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>谢谢分享</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2885944,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2885944,'Bury',this)">反对(0)</a></div><span id="comment_2885944_avatar" style="display:none;">http://pic.cnblogs.com/face/u30988.jpg</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(2885944,'XOGPHJ/dLH4QTF1ZkySLkg3kFhoxorszPQA/fZEtawLGU44ZtfuXtg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(2885944,'XOGPHJ/dLH4QTF1ZkySLkg3kFhoxorszPQA/fZEtawLGU44ZtfuXtg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#2885961" class="layer">#3楼</a><a name="2885961" id="comment_anchor_2885961"></a></cite> <a id="a_comment_author_2885961" href="http://www.cnblogs.com/kaituorensheng/" target="_blank">jihite</a> <a href="http://msg.cnblogs.com/send/jihite" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-03-02 10:47</span></small>
+            </h5>
+            <div id="comment_body_2885961" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>mark</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2885961,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2885961,'Bury',this)">反对(0)</a></div><span id="comment_2885961_avatar" style="display:none;">http://pic.cnblogs.com/face/u408927.jpg?id=16165421</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(2885961,'JuYQKExqUsk8dB/JYI+acnhb3MlGg2vMAaUw3GfTOMLnCqzi+lQD2w==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(2885961,'JuYQKExqUsk8dB/JYI+acnhb3MlGg2vMAaUw3GfTOMLnCqzi+lQD2w==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#2886016" class="layer">#4楼</a><a name="2886016" id="comment_anchor_2886016"></a></cite> <a id="a_comment_author_2886016" href="http://www.cnblogs.com/codefish/" target="_blank">爱吃猫的鱼</a> <a href="http://msg.cnblogs.com/send/%E7%88%B1%E5%90%83%E7%8C%AB%E7%9A%84%E9%B1%BC" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-03-02 13:38</span></small>
+            </h5>
+            <div id="comment_body_2886016" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>虫师这部片子很有感觉，可惜没有出新的了。</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2886016,'Digg',this)">支持(2)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2886016,'Bury',this)">反对(0)</a></div><span id="comment_2886016_avatar" style="display:none;">http://pic.cnblogs.com/face/u396331.jpg?id=27225144</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(2886016,'eAc/mISa7SBE6tRmbb0DJCifyyY1qtzPxCvvfgE+bGwc2LRYG/AKZw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(2886016,'eAc/mISa7SBE6tRmbb0DJCifyyY1qtzPxCvvfgE+bGwc2LRYG/AKZw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#2887334" class="layer">#5楼</a><a name="2887334" id="comment_anchor_2887334"></a></cite> <a id="a_comment_author_2887334" href="http://home.cnblogs.com/u/607959/" target="_blank">xincpp</a> <a href="http://msg.cnblogs.com/send/xincpp" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-03-03 18:33</span></small>
+            </h5>
+            <div id="comment_body_2887334" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>回复界面做得很漂亮</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2887334,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2887334,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(2887334,'lvmJvnFAyvBgzCwBJn+joa9YK3Sog6uNPX7gGOGh2bG5SUjD5nnwhg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(2887334,'lvmJvnFAyvBgzCwBJn+joa9YK3Sog6uNPX7gGOGh2bG5SUjD5nnwhg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#2888889" class="layer">#6楼</a><a name="2888889" id="comment_anchor_2888889"></a></cite> <a id="a_comment_author_2888889" href="http://www.cnblogs.com/comrd/" target="_blank">^懒洋洋^</a> <a href="http://msg.cnblogs.com/send/%5E%E6%87%92%E6%B4%8B%E6%B4%8B%5E" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-03-05 14:31</span></small>
+            </h5>
+            <div id="comment_body_2888889" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>看看回复的泡泡</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2888889,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2888889,'Bury',this)">反对(0)</a></div><span id="comment_2888889_avatar" style="display:none;">http://pic.cnblogs.com/face/u166438.jpg?id=01113515</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(2888889,'fJj/RD6g3qQCXkN74NGw4C/AfeQeD+wRlU3VdkYO99tlSFvgmTCprw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(2888889,'fJj/RD6g3qQCXkN74NGw4C/AfeQeD+wRlU3VdkYO99tlSFvgmTCprw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3022318" class="layer">#7楼</a><a name="3022318" id="comment_anchor_3022318"></a></cite> <a id="a_comment_author_3022318" href="http://www.cnblogs.com/maplechow/" target="_blank">夏目家的猫</a> <a href="http://msg.cnblogs.com/send/%E5%A4%8F%E7%9B%AE%E5%AE%B6%E7%9A%84%E7%8C%AB" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-09-03 12:54</span></small>
+            </h5>
+            <div id="comment_body_3022318" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>想知道这泡泡效果怎么做的</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3022318,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3022318,'Bury',this)">反对(0)</a></div><span id="comment_3022318_avatar" style="display:none;">http://pic.cnblogs.com/face/641029/20160518131913.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3022318,'lx/rS8Te+NYNQbHVYNR0oFOMi7FoUwZhSCqNQRPI05bvRZK96ew+2A==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3022318,'lx/rS8Te+NYNQbHVYNR0oFOMi7FoUwZhSCqNQRPI05bvRZK96ew+2A==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3036958" class="layer">#8楼</a><a name="3036958" id="comment_anchor_3036958"></a></cite> <a id="a_comment_author_3036958" href="http://www.cnblogs.com/jennyhui/" target="_blank">Jenny_HUI</a> <a href="http://msg.cnblogs.com/send/Jenny_HUI" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-09-29 14:37</span></small>
+            </h5>
+            <div id="comment_body_3036958" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>urllib2 也不錯</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3036958,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3036958,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3036958,'eP/WnYvAS6vopnFTS8egpEySvfn0N43h05h+UE4W4Ymwr/UZGw9wJg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3036958,'eP/WnYvAS6vopnFTS8egpEySvfn0N43h05h+UE4W4Ymwr/UZGw9wJg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3086784" class="layer">#9楼</a><a name="3086784" id="comment_anchor_3086784"></a></cite> <a id="a_comment_author_3086784" href="http://www.cnblogs.com/sunlyliuh/" target="_blank">流星飞羽</a> <a href="http://msg.cnblogs.com/send/%E6%B5%81%E6%98%9F%E9%A3%9E%E7%BE%BD" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-12-15 22:44</span></small>
+            </h5>
+            <div id="comment_body_3086784" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>学习了，自己试试看。</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3086784,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3086784,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3086784,'kS1PRlO7YZEacmYp5HMehqC4TXJiFJWkiZ0IPrVOvCPCy7dZE5dVJw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3086784,'kS1PRlO7YZEacmYp5HMehqC4TXJiFJWkiZ0IPrVOvCPCy7dZE5dVJw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3110943" class="layer">#10楼</a><a name="3110943" id="comment_anchor_3110943"></a></cite> <a id="a_comment_author_3110943" href="http://www.cnblogs.com/chuiyuan/" target="_blank">chuiyuan</a> <a href="http://msg.cnblogs.com/send/chuiyuan" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-01-20 20:28</span></small>
+            </h5>
+            <div id="comment_body_3110943" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>aaaa</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3110943,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3110943,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3110943,'Qn4KwHD5mYzokyVeP6QABEBVwrPXuPWzehRBhkOl/vT5PiH8eZPdRg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3110943,'Qn4KwHD5mYzokyVeP6QABEBVwrPXuPWzehRBhkOl/vT5PiH8eZPdRg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3114750" class="layer">#11楼</a><a name="3114750" id="comment_anchor_3114750"></a></cite> <a id="a_comment_author_3114750" href="http://www.cnblogs.com/xlchen/" target="_blank">莲藕排骨汤</a> <a href="http://msg.cnblogs.com/send/%E8%8E%B2%E8%97%95%E6%8E%92%E9%AA%A8%E6%B1%A4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-01-26 10:33</span></small>
+            </h5>
+            <div id="comment_body_3114750" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>不错~</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3114750,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3114750,'Bury',this)">反对(0)</a></div><span id="comment_3114750_avatar" style="display:none;">http://pic.cnblogs.com/face/697981/20141128161856.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3114750,'yx5HEAvOj1Orx5c5i5Eg2ureuG9FY66UZtpmC27sJQCMtoDTrTfTqA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3114750,'yx5HEAvOj1Orx5c5i5Eg2ureuG9FY66UZtpmC27sJQCMtoDTrTfTqA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3123204" class="layer">#12楼</a><a name="3123204" id="comment_anchor_3123204"></a></cite> <a id="a_comment_author_3123204" href="http://www.cnblogs.com/weisljl/" target="_blank">weisljl</a> <a href="http://msg.cnblogs.com/send/weisljl" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-02-04 12:53</span></small>
+            </h5>
+            <div id="comment_body_3123204" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>mark</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3123204,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3123204,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3123204,'Eg5QvHctmn1Zfgp9Gf6vkOIDb4iRzfAOZFozNrzcqQuy8ZypkOP2/w==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3123204,'Eg5QvHctmn1Zfgp9Gf6vkOIDb4iRzfAOZFozNrzcqQuy8ZypkOP2/w==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3130147" class="layer">#13楼</a><a name="3130147" id="comment_anchor_3130147"></a></cite> <a id="a_comment_author_3130147" href="http://www.cnblogs.com/wcLT/" target="_blank">小毛驴</a> <a href="http://msg.cnblogs.com/send/%E5%B0%8F%E6%AF%9B%E9%A9%B4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-02-16 10:52</span></small>
+            </h5>
+            <div id="comment_body_3130147" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>您的 code在python3可以运行吗</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3130147,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3130147,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3130147,'U4NU1SNr2x3vX49PbVOIMt3OS9t40jXbmKy4v0Fs8UPYhHj3F5ndaQ==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3130147,'U4NU1SNr2x3vX49PbVOIMt3OS9t40jXbmKy4v0Fs8UPYhHj3F5ndaQ==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3130943" class="layer">#14楼</a><a name="3130943" id="comment_anchor_3130943"></a></cite> <a id="a_comment_author_3130943" href="http://www.cnblogs.com/blogofwyl/" target="_blank">复制乔布斯</a> <a href="http://msg.cnblogs.com/send/%E5%A4%8D%E5%88%B6%E4%B9%94%E5%B8%83%E6%96%AF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-02-23 23:26</span></small>
+            </h5>
+            <div id="comment_body_3130943" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>真心不錯</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3130943,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3130943,'Bury',this)">反对(0)</a></div><span id="comment_3130943_avatar" style="display:none;">http://pic.cnblogs.com/face/709266/20150702100606.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3130943,'fl1I613qU/VHuNLZxNrsQYmgvcSMqd6iUCy21HERc7tIwgIhe4a5Wg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3130943,'fl1I613qU/VHuNLZxNrsQYmgvcSMqd6iUCy21HERc7tIwgIhe4a5Wg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3149405" class="layer">#15楼</a><a name="3149405" id="comment_anchor_3149405"></a></cite> <a id="a_comment_author_3149405" href="http://www.cnblogs.com/sunnyanna/" target="_blank">夏小莫</a> <a href="http://msg.cnblogs.com/send/%E5%A4%8F%E5%B0%8F%E8%8E%AB" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-03-26 16:57</span></small>
+            </h5>
+            <div id="comment_body_3149405" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>非常不错的demo<br>简单又实用，，赞！</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3149405,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3149405,'Bury',this)">反对(0)</a></div><span id="comment_3149405_avatar" style="display:none;">http://pic.cnblogs.com/face/u248663.jpg?id=27162215</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3149405,'HDFOhnLAj/4J1lq1/UP+Xo7cnJO74R0NyaphcHSE+VtMSuJY0JpS0A==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3149405,'HDFOhnLAj/4J1lq1/UP+Xo7cnJO74R0NyaphcHSE+VtMSuJY0JpS0A==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3153637" class="layer">#16楼</a><a name="3153637" id="comment_anchor_3153637"></a></cite> <a id="a_comment_author_3153637" href="http://home.cnblogs.com/u/738456/" target="_blank">君可</a> <a href="http://msg.cnblogs.com/send/%E5%90%9B%E5%8F%AF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-03-31 18:38</span></small>
+            </h5>
+            <div id="comment_body_3153637" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>想知道这个代码为什么只对百度贴吧的网页有用，换了其他网页就不行了。。。已经匹配了啊</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3153637,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3153637,'Bury',this)">反对(1)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3153637,'IQi8EZPbS2Ij2mAD7u+A4mgSBAfVC00exwrNaoWTHIF76HSTMA17Ig==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3153637,'IQi8EZPbS2Ij2mAD7u+A4mgSBAfVC00exwrNaoWTHIF76HSTMA17Ig==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3156295" class="layer">#17楼</a><a name="3156295" id="comment_anchor_3156295"></a></cite> <a id="a_comment_author_3156295" href="http://www.cnblogs.com/qxzy/" target="_blank">楚兴</a> <a href="http://msg.cnblogs.com/send/%E6%A5%9A%E5%85%B4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-04-04 21:54</span></small>
+            </h5>
+            <div id="comment_body_3156295" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p><a href="#2885921" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2885921);">@</a>
+卖知了的老太太<br>r'src="(.+?\.jpg)" pic_ext'<br>这里为什么要加圆括号？</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3156295,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3156295,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3156295,'LKUvdxJC19XZH0R3j1phlvA0Hwnf6O/RezXODJL+n2QP0uxUN6od0g==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3156295,'LKUvdxJC19XZH0R3j1phlvA0Hwnf6O/RezXODJL+n2QP0uxUN6od0g==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3165006" class="layer">#18楼</a><a name="3165006" id="comment_anchor_3165006"></a></cite> <a id="a_comment_author_3165006" href="http://www.cnblogs.com/larie/" target="_blank">WilliamwAn</a> <a href="http://msg.cnblogs.com/send/WilliamwAn" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-04-17 16:57</span></small>
+            </h5>
+            <div id="comment_body_3165006" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>厉害</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3165006,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3165006,'Bury',this)">反对(0)</a></div><span id="comment_3165006_avatar" style="display:none;">http://pic.cnblogs.com/face/583552/20131119084503.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3165006,'/ldDzXLJb2slf/MOwb9rKGk03JrMqmLO7oQtLlmbBGW5Tbytw+AYhQ==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3165006,'/ldDzXLJb2slf/MOwb9rKGk03JrMqmLO7oQtLlmbBGW5Tbytw+AYhQ==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3169123" class="layer">#19楼</a><a name="3169123" id="comment_anchor_3169123"></a></cite> <a id="a_comment_author_3169123" href="http://www.cnblogs.com/wjx0912/" target="_blank">拥剑公子</a> <a href="http://msg.cnblogs.com/send/%E6%8B%A5%E5%89%91%E5%85%AC%E5%AD%90" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-04-23 15:53</span></small>
+            </h5>
+            <div id="comment_body_3169123" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>用BeautifulSoup解析也不错</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3169123,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3169123,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3169123,'KyOzmt6Va5Dp/eNhR7G9IAc2ApNOSuCFE3mvQtw5fNNr9lTNSql3tg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3169123,'KyOzmt6Va5Dp/eNhR7G9IAc2ApNOSuCFE3mvQtw5fNNr9lTNSql3tg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3176272" class="layer">#20楼</a><a name="3176272" id="comment_anchor_3176272"></a></cite> <a id="a_comment_author_3176272" href="http://www.cnblogs.com/zhangwei595806165/" target="_blank">承影剑</a> <a href="http://msg.cnblogs.com/send/%E6%89%BF%E5%BD%B1%E5%89%91" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-05-05 12:52</span></small>
+            </h5>
+            <div id="comment_body_3176272" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>very good , I want to do it used python</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3176272,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3176272,'Bury',this)">反对(0)</a></div><span id="comment_3176272_avatar" style="display:none;">http://pic.cnblogs.com/face/290106/20130929143841.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3176272,'+0N/6CzP6IaDOTiofzMJPhHmc/AP3JoA+UpFORjJbloKMk6WYnkVMw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3176272,'+0N/6CzP6IaDOTiofzMJPhHmc/AP3JoA+UpFORjJbloKMk6WYnkVMw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3176404" class="layer">#21楼</a><a name="3176404" id="comment_anchor_3176404"></a></cite> <a id="a_comment_author_3176404" href="http://home.cnblogs.com/u/523860/" target="_blank">_dance</a> <a href="http://msg.cnblogs.com/send/_dance" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-05-05 15:03</span></small>
+            </h5>
+            <div id="comment_body_3176404" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>楼主LINUX是什么版本啊</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3176404,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3176404,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3176404,'IqwzgHUM7GVwKgA0jwG8clYDFHvP4pXHXH2dhvIw1IsOl+hLIg4ziw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3176404,'IqwzgHUM7GVwKgA0jwG8clYDFHvP4pXHXH2dhvIw1IsOl+hLIg4ziw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3176489" class="layer">#22楼</a><a name="3176489" id="comment_anchor_3176489"></a></cite> <a id="a_comment_author_3176489" href="http://www.cnblogs.com/wenning/" target="_blank">文宁</a> <a href="http://msg.cnblogs.com/send/%E6%96%87%E5%AE%81" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-05-05 16:25</span></small>
+            </h5>
+            <div id="comment_body_3176489" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p><a href="#3156295" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3156295);">@</a>
+楚兴<br>因为只要找圆括号里的啊，这个可以看看正则表达式</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3176489,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3176489,'Bury',this)">反对(0)</a></div><span id="comment_3176489_avatar" style="display:none;">http://pic.cnblogs.com/face/u383300.jpg?id=11091858</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3176489,'shJdDfOwqVX3GiO0cxUxkgcvJXinKkHN1dTGDrsHQwMeITMe5YKl+g==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3176489,'shJdDfOwqVX3GiO0cxUxkgcvJXinKkHN1dTGDrsHQwMeITMe5YKl+g==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3210099" class="layer">#23楼</a><a name="3210099" id="comment_anchor_3210099"></a></cite> <a id="a_comment_author_3210099" href="http://home.cnblogs.com/u/773489/" target="_blank">菜鸟学飞ing</a> <a href="http://msg.cnblogs.com/send/%E8%8F%9C%E9%B8%9F%E5%AD%A6%E9%A3%9Eing" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-06-17 11:25</span></small>
+            </h5>
+            <div id="comment_body_3210099" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>学习中....感谢大大的分享</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3210099,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3210099,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3210099,'Nd5Iw1hRkhmKIpyySEQcPkG6O8sJ05OvtkeBv4tMxbsCqbKfN9Hl9A==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3210099,'Nd5Iw1hRkhmKIpyySEQcPkG6O8sJ05OvtkeBv4tMxbsCqbKfN9Hl9A==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3243073" class="layer">#24楼</a><a name="3243073" id="comment_anchor_3243073"></a></cite> <a id="a_comment_author_3243073" href="http://www.cnblogs.com/alarm1673/" target="_blank">左心室</a> <a href="http://msg.cnblogs.com/send/%E5%B7%A6%E5%BF%83%E5%AE%A4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-08-07 09:26</span></small>
+            </h5>
+            <div id="comment_body_3243073" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>虫师写的很详细啊,灰常感谢</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3243073,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3243073,'Bury',this)">反对(0)</a></div><span id="comment_3243073_avatar" style="display:none;">http://pic.cnblogs.com/face/778584/20150711142049.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3243073,'tQkTUsVpvpudtdfOwZDyPv+vK4wKy15rdcLbtUeICJ2LSDL2eV9ptw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3243073,'tQkTUsVpvpudtdfOwZDyPv+vK4wKy15rdcLbtUeICJ2LSDL2eV9ptw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3252929" class="layer">#25楼</a><a name="3252929" id="comment_anchor_3252929"></a></cite> <a id="a_comment_author_3252929" href="http://www.cnblogs.com/liujunming/" target="_blank">1163699877</a> <a href="http://msg.cnblogs.com/send/1163699877" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-08-24 10:25</span></small>
+            </h5>
+            <div id="comment_body_3252929" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>赞赞赞</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3252929,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3252929,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3252929,'cVVDKtifCZGM10+9oL0hepZHStyl6foqBq+UBAJb+RgyNFHsVSvqwA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3252929,'cVVDKtifCZGM10+9oL0hepZHStyl6foqBq+UBAJb+RgyNFHsVSvqwA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3275926" class="layer">#26楼</a><a name="3275926" id="comment_anchor_3275926"></a></cite> <a id="a_comment_author_3275926" href="http://home.cnblogs.com/u/445745/" target="_blank">苏三说</a> <a href="http://msg.cnblogs.com/send/%E8%8B%8F%E4%B8%89%E8%AF%B4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-09-28 15:31</span></small>
+            </h5>
+            <div id="comment_body_3275926" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>博客园有这个功能？泡泡</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3275926,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3275926,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3275926,'tXT6fCpSyHJz+wFLGNxGSzLUiiJ2/PN0QHHXAKmtCl3/e4MyolovmA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3275926,'tXT6fCpSyHJz+wFLGNxGSzLUiiJ2/PN0QHHXAKmtCl3/e4MyolovmA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3284888" class="layer">#27楼</a><a name="3284888" id="comment_anchor_3284888"></a></cite> <a id="a_comment_author_3284888" href="http://www.cnblogs.com/toutou/" target="_blank">请叫我头头哥</a> <a href="http://msg.cnblogs.com/send/%E8%AF%B7%E5%8F%AB%E6%88%91%E5%A4%B4%E5%A4%B4%E5%93%A5" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-10-14 23:10</span></small>
+            </h5>
+            <div id="comment_body_3284888" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>不错。</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3284888,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3284888,'Bury',this)">反对(0)</a></div><span id="comment_3284888_avatar" style="display:none;">http://pic.cnblogs.com/face/506684/20150414234658.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3284888,'L0395TzydwBRgljf1barNQ8h/S4VxykQwKnKp2bnDB8h7wvSA+5qFg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3284888,'L0395TzydwBRgljf1barNQ8h/S4VxykQwKnKp2bnDB8h7wvSA+5qFg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3288532" class="layer">#28楼</a><a name="3288532" id="comment_anchor_3288532"></a></cite> <a id="a_comment_author_3288532" href="http://www.cnblogs.com/lgm1999/" target="_blank">悟空救我呀</a> <a href="http://msg.cnblogs.com/send/%E6%82%9F%E7%A9%BA%E6%95%91%E6%88%91%E5%91%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-10-20 17:11</span></small>
+            </h5>
+            <div id="comment_body_3288532" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>干得漂亮</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3288532,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3288532,'Bury',this)">反对(0)</a></div><span id="comment_3288532_avatar" style="display:none;">http://pic.cnblogs.com/face/704917/20150429091638.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3288532,'QEcfLArjJ2r3GT8Ajtp1KTTm5mNLqnxXi9Se0OaeCbD04CMR8cFZ4g==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3288532,'QEcfLArjJ2r3GT8Ajtp1KTTm5mNLqnxXi9Se0OaeCbD04CMR8cFZ4g==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3296270" class="layer">#29楼</a><a name="3296270" id="comment_anchor_3296270"></a></cite> <a id="a_comment_author_3296270" href="http://www.cnblogs.com/reddusty/" target="_blank">孙悟坑</a> <a href="http://msg.cnblogs.com/send/%E5%AD%99%E6%82%9F%E5%9D%91" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-11-01 11:57</span></small>
+            </h5>
+            <div id="comment_body_3296270" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>回复怎么搞得</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3296270,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3296270,'Bury',this)">反对(0)</a></div><span id="comment_3296270_avatar" style="display:none;">http://pic.cnblogs.com/face/734107/20151104211809.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3296270,'XO30PwfyRxxgTK/BCYv50IYxsi85Ywg2cFXUa8E822WVGAMPlGoPzQ==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3296270,'XO30PwfyRxxgTK/BCYv50IYxsi85Ywg2cFXUa8E822WVGAMPlGoPzQ==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3307847" class="layer">#30楼</a><a name="3307847" id="comment_anchor_3307847"></a></cite> <a id="a_comment_author_3307847" href="http://www.cnblogs.com/haohaibo/" target="_blank">haohaibo</a> <a href="http://msg.cnblogs.com/send/haohaibo" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-11-16 23:55</span></small>
+            </h5>
+            <div id="comment_body_3307847" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>请问，为什么我换了一个连接，就无法爬取了呢 ？<br><a href="http://tieba.baidu.com/p/4141604296" target="_blank">http://tieba.baidu.com/p/4141604296</a> 我换了这个连接就爬不到了</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3307847,'Digg',this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3307847,'Bury',this)">反对(0)</a></div><span id="comment_3307847_avatar" style="display:none;">http://pic.cnblogs.com/face/612971/20150506163505.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3307847,'lneFPQlMczWN6yHP1wZpqxWhPDVwfj02sdD000WSxJq1nmWZy4jalA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3307847,'lneFPQlMczWN6yHP1wZpqxWhPDVwfj02sdD000WSxJq1nmWZy4jalA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3312480" class="layer">#31楼</a><a name="3312480" id="comment_anchor_3312480"></a></cite> <a id="a_comment_author_3312480" href="http://www.cnblogs.com/lugisblog/" target="_blank">luqinghui</a> <a href="http://msg.cnblogs.com/send/luqinghui" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-11-23 22:37</span></small>
+            </h5>
+            <div id="comment_body_3312480" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>你好，我想问一下</p><div class="cnblogs_Highlighter sh-gutter"><div><div id="highlighter_628876" class="syntaxhighlighter  python"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="python plain">reg </code><code class="python keyword">=</code> <code class="python plain">r</code><code class="python string">'src="(.+?\.jpg)" pic_ext'</code></div></div></td></tr></tbody></table></div></div></div>，<br>语句中'?'的作用是什么？？直接用'(.*\.jpg)'可以吗？？<br>------------------------------------------------------------------<br>今天早上又看了一下，应该是懒惰匹配吧！！<p></p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3312480,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3312480,'Bury',this)">反对(0)</a></div><span id="comment_3312480_avatar" style="display:none;">http://pic.cnblogs.com/face/650416/20140713214031.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3312480,'HoS5CgZhApb1mv26BNZZ7Z6xIc/gH9wWJW4xRIUp2oPrtFWjWW+qSA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3312480,'HoS5CgZhApb1mv26BNZZ7Z6xIc/gH9wWJW4xRIUp2oPrtFWjWW+qSA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3330365" class="layer">#32楼</a><a name="3330365" id="comment_anchor_3330365"></a></cite> <a id="a_comment_author_3330365" href="http://www.cnblogs.com/xin-hua/" target="_blank">_随心所欲_</a> <a href="http://msg.cnblogs.com/send/_%E9%9A%8F%E5%BF%83%E6%89%80%E6%AC%B2_" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-12-19 21:54</span></small>
+            </h5>
+            <div id="comment_body_3330365" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>赞一个</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3330365,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3330365,'Bury',this)">反对(0)</a></div><span id="comment_3330365_avatar" style="display:none;">http://pic.cnblogs.com/face/448496/20130519135824.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3330365,'KF0xMw0C/qdbFuGvxo7JUb2QN15i3WzzC3eqJk/eyr3xdbryM4toPg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3330365,'KF0xMw0C/qdbFuGvxo7JUb2QN15i3WzzC3eqJk/eyr3xdbryM4toPg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3341020" class="layer">#33楼</a><a name="3341020" id="comment_anchor_3341020"></a></cite> <a id="a_comment_author_3341020" href="http://www.cnblogs.com/on-way/" target="_blank">on-way</a> <a href="http://msg.cnblogs.com/send/on-way" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-01-05 09:15</span></small>
+            </h5>
+            <div id="comment_body_3341020" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>很好 学习中</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3341020,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3341020,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3341020,'k0gy2/j7Z85WKWZcSmZGUFC4VpySMcxg4qi73qF0NLnPgWkm3SdZ5Q==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3341020,'k0gy2/j7Z85WKWZcSmZGUFC4VpySMcxg4qi73qF0NLnPgWkm3SdZ5Q==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3351041" class="layer">#34楼</a><a name="3351041" id="comment_anchor_3351041"></a></cite> <a id="a_comment_author_3351041" href="http://www.cnblogs.com/yufeihlf/" target="_blank">啄木鸟儿</a> <a href="http://msg.cnblogs.com/send/%E5%95%84%E6%9C%A8%E9%B8%9F%E5%84%BF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-01-20 14:36</span></small>
+            </h5>
+            <div id="comment_body_3351041" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>reg = r'src="(.+?\.jpg)" pic_ext'<br><br>为何匹配出来，没有src=“和” pic_ext？<br>虽然匹配出来的地址正好就是我想要的，但是觉得很疑惑</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3351041,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3351041,'Bury',this)">反对(0)</a></div><span id="comment_3351041_avatar" style="display:none;">http://pic.cnblogs.com/face/878193/20160603101149.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3351041,'do5E0yWzZUG7qc/fnEx+V3x0QHna7sZbSILsGTw6u0hrQdgU8RwSxg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3351041,'do5E0yWzZUG7qc/fnEx+V3x0QHna7sZbSILsGTw6u0hrQdgU8RwSxg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3363376" class="layer">#35楼</a><a name="3363376" id="comment_anchor_3363376"></a></cite> <a id="a_comment_author_3363376" href="http://www.cnblogs.com/Lumia1020/" target="_blank">Lumia1020</a> <a href="http://msg.cnblogs.com/send/Lumia1020" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-02-18 23:17</span></small>
+            </h5>
+            <div id="comment_body_3363376" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>刚好用到 先顶一下</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3363376,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3363376,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3363376,'+02iCEB81dUBsa2+12VIBNPTppSQDiixF9x3Y+ePxhe0J1oGlvYnBQ==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3363376,'+02iCEB81dUBsa2+12VIBNPTppSQDiixF9x3Y+ePxhe0J1oGlvYnBQ==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3368715" class="layer">#36楼</a><a name="3368715" id="comment_anchor_3368715"></a></cite> <a id="a_comment_author_3368715" href="http://www.cnblogs.com/duanyan/" target="_blank">煅岩</a> <a href="http://msg.cnblogs.com/send/%E7%85%85%E5%B2%A9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-02-29 15:28</span></small>
+            </h5>
+            <div id="comment_body_3368715" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>还没试</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3368715,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3368715,'Bury',this)">反对(0)</a></div><span id="comment_3368715_avatar" style="display:none;">http://pic.cnblogs.com/face/510954/20130329161015.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3368715,'NsAhkz1XJlWPbL+vlrmkcL3DzX8CiaDurb9aM6c+q/BnyVJ2P3n1tA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3368715,'NsAhkz1XJlWPbL+vlrmkcL3DzX8CiaDurb9aM6c+q/BnyVJ2P3n1tA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3373437" class="layer">#37楼</a><a name="3373437" id="comment_anchor_3373437"></a></cite> <a id="a_comment_author_3373437" href="http://www.cnblogs.com/wpzhan1989/" target="_blank">Janvn</a> <a href="http://msg.cnblogs.com/send/Janvn" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-03-07 11:08</span></small>
+            </h5>
+            <div id="comment_body_3373437" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>博主，请教你一个问题，当连续向服务器发送请求时，就会出现IOError: [Errno socket error] [Errno 10060]，我设置了timeout还是会出现这样的情况，有什么好的办法解决这种问题吗？</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3373437,'Digg',this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3373437,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3373437,'+d2vzwPLfhpDvroEzeYQdmIrlliXKHLY1ZBVwBTAW6bv0xGYD/9YOA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3373437,'+d2vzwPLfhpDvroEzeYQdmIrlliXKHLY1ZBVwBTAW6bv0xGYD/9YOA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3374215" class="layer">#38楼</a><a name="3374215" id="comment_anchor_3374215"></a></cite> <a id="a_comment_author_3374215" href="http://www.cnblogs.com/tdcqma/" target="_blank">漂洋过海来瞅瞅你</a> <a href="http://msg.cnblogs.com/send/%E6%BC%82%E6%B4%8B%E8%BF%87%E6%B5%B7%E6%9D%A5%E7%9E%85%E7%9E%85%E4%BD%A0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-03-08 09:04</span></small>
+            </h5>
+            <div id="comment_body_3374215" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>涨姿势了，谢谢楼主</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3374215,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3374215,'Bury',this)">反对(0)</a></div><span id="comment_3374215_avatar" style="display:none;">http://pic.cnblogs.com/face/799698/20160511092415.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3374215,'xwENzOxm65lqG1cwNERYMh9vUWBa2qf6+FNy/JNhK9cqWR3p+elLSA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3374215,'xwENzOxm65lqG1cwNERYMh9vUWBa2qf6+FNy/JNhK9cqWR3p+elLSA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3409380" class="layer">#39楼</a><a name="3409380" id="comment_anchor_3409380"></a></cite> <a id="a_comment_author_3409380" href="http://home.cnblogs.com/u/937623/" target="_blank">Mecheal</a> <a href="http://msg.cnblogs.com/send/Mecheal" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-04-15 17:46</span></small>
+            </h5>
+            <div id="comment_body_3409380" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p><a href="#3373437" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3373437);">@</a>
+Janvn<br>Hi<br>朋友，你的问题解决了吗？<br>我也遇到了同样的问题，可以告诉我是怎么解决的吗？加我qq1136675201<br><br>谢谢啦</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3409380,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3409380,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3409380,'Xd0kKw/8fbURhC9QYBJCVffvzRITxvcWM2akodz/rgH1LoY/9bUeuw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3409380,'Xd0kKw/8fbURhC9QYBJCVffvzRITxvcWM2akodz/rgH1LoY/9bUeuw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3429579" class="layer">#40楼</a><a name="3429579" id="comment_anchor_3429579"></a></cite> <a id="a_comment_author_3429579" href="http://home.cnblogs.com/u/955054/" target="_blank">geckokuaiyi</a> <a href="http://msg.cnblogs.com/send/geckokuaiyi" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-05-12 14:41</span></small>
+            </h5>
+            <div id="comment_body_3429579" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>分享一些爬虫的源码：github.com/ShenJianShou/crawler_samples</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3429579,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3429579,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3429579,'WYn+N3Z01mgvkeZ7QpCFD6eiceyVqmp9ZLaYQ0CQrYivXsCTEvPjAw==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3429579,'WYn+N3Z01mgvkeZ7QpCFD6eiceyVqmp9ZLaYQ0CQrYivXsCTEvPjAw==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3430958" class="layer">#41楼</a><a name="3430958" id="comment_anchor_3430958"></a></cite> <a id="a_comment_author_3430958" href="http://www.cnblogs.com/cheney0723/" target="_blank">JadenTseng</a> <a href="http://msg.cnblogs.com/send/JadenTseng" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-05-14 10:40</span></small>
+            </h5>
+            <div id="comment_body_3430958" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>自学Python-实现批量抓取妹子图片 <a href="http://www.jianshu.com/p/984315f63982" target="_blank">http://www.jianshu.com/p/984315f63982</a><br><br>代码仓：<a href="https://github.com/JadenTseng/python-get-girl-image" target="_blank">https://github.com/JadenTseng/python-get-girl-image</a></p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3430958,'Digg',this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3430958,'Bury',this)">反对(0)</a></div><span id="comment_3430958_avatar" style="display:none;">http://pic.cnblogs.com/face/u355392.jpg?id=28135841</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3430958,'hGfn4O4Yg/GLZRSamXhtea1OS1io8CGUz6GFPvu597PL+ZPgCdSE5w==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3430958,'hGfn4O4Yg/GLZRSamXhtea1OS1io8CGUz6GFPvu597PL+ZPgCdSE5w==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3438578" class="layer">#42楼</a><a name="3438578" id="comment_anchor_3438578"></a></cite> <a id="a_comment_author_3438578" href="http://www.cnblogs.com/zhaoran8775/" target="_blank">冉阿让</a> <a href="http://msg.cnblogs.com/send/%E5%86%89%E9%98%BF%E8%AE%A9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-05-24 23:00</span></small>
+            </h5>
+            <div id="comment_body_3438578" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>受益了，谢谢。</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3438578,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3438578,'Bury',this)">反对(0)</a></div><span id="comment_3438578_avatar" style="display:none;">http://pic.cnblogs.com/face/961621/20160523215306.png</span>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3438578,'H1KKpR4tdtjUAo58eOrs7CPuo24lrVqHPCz45/vBbJVahL1XbBAIqA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3438578,'H1KKpR4tdtjUAo58eOrs7CPuo24lrVqHPCz45/vBbJVahL1XbBAIqA==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3441096" class="layer">#43楼</a><a name="3441096" id="comment_anchor_3441096"></a></cite> <a id="a_comment_author_3441096" href="http://home.cnblogs.com/u/966533/" target="_blank">lookby</a> <a href="http://msg.cnblogs.com/send/lookby" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-05-28 17:02</span></small>
+            </h5>
+            <div id="comment_body_3441096" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>功能太简单了<br>完善的网络爬虫平台应该具备下面特点<br>友好采集机制，降低目标服务器的负担<br><br> 异常重试机制，增大每个链接的成功率<br><br> 代理池机制，预先检测代理的速度，优先使用高速代理，提高采集效率<br><br> 多种手段识别网页编码，减少乱码的出现概率<br><br> 支持Https访问<br><br> 支持采集策略和采集周期设置<br><br> 具有防止重复采集机制<br><br>参考 数荟集网<br>www.shuhuiji.com</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3441096,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3441096,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3441096,'PxAK2pNAJjH6rE3EEivBHPDLNdLGTe3iSRKY03bCOfwkrJ2Qjc9pYQ==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3441096,'PxAK2pNAJjH6rE3EEivBHPDLNdLGTe3iSRKY03bCOfwkrJ2Qjc9pYQ==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3446096" class="layer">#44楼</a><a name="3446096" id="comment_anchor_3446096"></a></cite> <a id="a_comment_author_3446096" href="http://home.cnblogs.com/u/927447/" target="_blank">changetheworld2</a> <a href="http://msg.cnblogs.com/send/changetheworld2" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-06-05 00:58</span></small>
+            </h5>
+            <div id="comment_body_3446096" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>学习了，新手村，喝喝</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3446096,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3446096,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3446096,'9RFbq+M+XX+6im/3WsyWkGxkR8CiDj9k7PDGjMlgHaEazwVWpwVTrg==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3446096,'9RFbq+M+XX+6im/3WsyWkGxkR8CiDj9k7PDGjMlgHaEazwVWpwVTrg==')">引用</a></span></div>
+        </li>
+    
+        <li class="alt">
+            <h5>
+                <cite><a href="#3456436" class="layer">#45楼</a><a name="3456436" id="comment_anchor_3456436"></a><span id="comment-maxId" style="display:none;">3456436</span><span id="comment-maxDate" style="display:none;">2016/6/21 21:10:23</span></cite> <a id="a_comment_author_3456436" href="http://home.cnblogs.com/u/981158/" target="_blank">lyuqy</a> <a href="http://msg.cnblogs.com/send/lyuqy" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-06-21 21:10</span></small>
+            </h5>
+            <div id="comment_body_3456436" class="blog_comment_body"><div class="list"><table class="out" border="0" cellspacing="0" cellpadding="0"> <tbody><tr><td class="icontd" align="right" valign="bottom"><img src="" width="70px" height="57px"></td><td align="left" valign="bottom" class="q"><table border="0" cellpadding="0" cellspacing="0" style=""> <tbody><tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> <tr><td class="left"></td> <td align="left" class="conmts"><p>按照脚本这种方法，<br>为啥类似于 这种网站的图片就抓不下来啊， <br>{code}<br>www.pythonscraping.com/pages/page3.html<br>{code}<br>执行的时候报错</p> </td> <td class="right"></td></tr> <tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> </tbody></table></td> </tr> </tbody></table> </div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3456436,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3456436,'Bury',this)">反对(0)</a></div>
+            <div class="opt_comment"><span class="comment_actions"><a href="javascript:void(0);" onclick="return ReplyComment(3456436,'DSjsbz4QFlroQBIvM3sUkye1eloCQ3TzGkyVHlewD2+V1KbsYkGTWA==')">回复</a><a href="javascript:void(0);" onclick="return QuoteComment(3456436,'DSjsbz4QFlroQBIvM3sUkye1eloCQ3TzGkyVHlewD2+V1KbsYkGTWA==')">引用</a></span></div>
+        </li>
+    
+</ol>
+
+<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container">
+<div id="commentform_title">发表评论</div>
+<span id="tip_comment" style="color:Red"></span>
+<p>
+昵称：<input type="text" id="tbCommentAuthor" class="author" disabled="disabled" size="50" value="KelvinDesus">
+</p>
+<div class="commentbox_main">
+<div class="commentbox_title">
+<div class="commentbox_title_left">评论内容：</div>
+<div class="commentbox_title_right">
+<img id="ubb_quote" class="comment_icon" src="http://static.cnblogs.com/images/ubb/quote.gif" alt="引用" title="添加引用" onclick="insertUBB('tbCommentBody','quote')">
+<img id="ubb_bold" class="comment_icon" src="http://static.cnblogs.com/images/ubb/b.png" alt="粗体" title="添加粗体" onclick="insertUBB('tbCommentBody','b')">
+<img id="ubb_url" class="comment_icon" src="http://static.cnblogs.com/images/ubb/lk.png" alt="链接" title="添加链接" onclick="insertUbbUrl('tbCommentBody')">
+<img id="ubb_indent" class="comment_icon" src="http://static.cnblogs.com/images/ubb/indent.png" alt="缩进" title="添加首行缩进" onclick="insertIndent('tbCommentBody')">
+<img id="ubb_code" class="comment_icon" src="http://static.cnblogs.com/images/ubb/InsertCode.gif" alt="代码" title="添加代码" onclick="insertUbbCode()">
+<img id="ubb_img" class="comment_icon" src="http://static.cnblogs.com/images/ubb/img.gif" alt="图片" title="上传图片" onclick="OpenImageUploadWindow();">
+</div>
+</div>
+<div class="clear"></div>
+<textarea id="tbCommentBody" class="comment_textarea"></textarea>
+</div>
+<p id="commentbox_opt">
+<input id="btn_comment_submit" type="button" class="comment_btn" value="提交评论">
+<span id="span_comment_canceledit" style="display:none"><a href="javascript:void(0);" onclick="return CancelCommentEdit()">不改了</a></span>
+<a href="javascript:void(0);" onclick="return logout();">退出登录</a>
+        <a id="commentbox_opt_sub" href="javascript:void(0);" title="订阅后有新评论时会邮件通知您" onclick="commentManager.Subscribe()">订阅评论</a>
+</p>
+<div id="tip_comment2" style="color:Red"></div>
+<p>
+[Ctrl+Enter快捷键提交]
+</p>
+<div style="display:none">
+<span id="comment_edit_id"></span><span id="span_parentcomment_id"></span>
+<span id="span_parent_id"></span>
+<span id="span_comment_replyto"></span>
+<span id="span_comment_posted"></span>
+</div>
+</div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/" target="_blank">【推荐】融云即时通讯云－豆果美食、Faceu等亿级APP都在用</a><br><a href="http://www.gcpowertools.com.cn/products/activereports/excel.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank">【推荐】报表开发别头大！类Excel 复杂报表开发实例，即学即用</a><br><a href="http://group.cnblogs.com/topic/74774.html" target="_blank">【推荐】福利Time，讯飞开放平台注册即送好礼！</a><br><a href="http://group.cnblogs.com/topic/74539.html" target="_blank">【推荐】阿里云万网域名：.xin .com将推出重磅优惠</a><br></div>
+<div id="opt_under_post"></div>
+<div id="ad_c1" class="c_ad_block"><a href="https://www.wilddog.com/?utm_source=cnblog&amp;utm_medium=banner&amp;utm_content=contenct_bottom&amp;utm_campaign=suzhoucodingcamp" target="_blank"><img width="300" height="250" src="https://cdn.wilddog.com/images/ads/cnblogs/cnblogs-300x250-x2-1.jpg" alt=""></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/548162/" target="_blank">危机重重的百度 是谁制造了李彦宏的委屈?</a><br> ·  <a href="http://news.cnblogs.com/n/548161/" target="_blank">马云手下最苦逼的员工：每年花1个亿买买买</a><br> ·  <a href="http://news.cnblogs.com/n/548160/" target="_blank">终于来了！微软.Net Core 1.0下载放出</a><br> ·  <a href="http://news.cnblogs.com/n/548159/" target="_blank">超级高铁Hyperloop创始人透露，已经在北京建立研究中心</a><br> ·  <a href="http://news.cnblogs.com/n/548158/" target="_blank">迪信通将推自有手机品牌 扩充渠道年底门店超万家</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="ad_c2" class="c_ad_block"><a href="https://www.jiguang.cn/?from=cnblogs01" target="_blank"><img width="468" height="60" src="http://images2015.cnblogs.com/news/24442/201606/24442-20160613130538213-1713265809.jpg" alt=""></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/514193/" target="_blank">我听到过的最精彩的一个软件纠错故事</a><br> ·  <a href="http://kb.cnblogs.com/page/522554/" target="_blank">如何避免软件工程中最昂贵错误的发生</a><br> ·  <a href="http://kb.cnblogs.com/page/545228/" target="_blank">拒绝传统，看 Facebook 如何以三大法宝化茧成蝶</a><br> ·  <a href="http://kb.cnblogs.com/page/516692/" target="_blank">当我们谈论极简设计，我们在谈些什么</a><br> ·  <a href="http://kb.cnblogs.com/page/547655/" target="_blank">用户体验设计遇见色彩情感</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"><b>历史上的今天:</b><br>2013-03-02 <a href="http://www.cnblogs.com/fnng/archive/2013/03/02/2940284.html">LoadRunner 技巧之 IP欺骗 （推荐）</a><br></div>
+<script type="text/javascript">
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.contentRendered;
+            if (m) { m(__$("content")); }
+        </script>
+
+        <div id="sidebar">
+            
+<div id="about">
+<div>
+<h2 id="about_title">About</h2>
+<div id="about_body">
+<div id="blog-news"><p style="margin-bottom: 3.75pt; margin-top: 3.75pt; line-height: 15.75pt;"><a href="http://item.jd.com/11858013.html"><img src="http://images2015.cnblogs.com/blog/311516/201601/311516-20160113191626944-842201220.jpg" alt="" style="line-height: 1.5;"></a><a target="_blank" href="http://product.dangdang.com/1353137284.html"><span style="line-height: 15.75pt;"> </span></a><span style="line-height: 15.75pt;">
+  </span></p>
+  <p>独立blog：</p>
+  <p><span style="line-height: 1.5;"><a href="http://www.testpub.cn/">http://www.testpub.cn/</a></span></p>
+  <p>&nbsp;</p>
+  <p><span style="font-weight: bold; font-size: 10.5pt; font-family: Verdana;">虫师</span></p>
+  <p><span style="font-size: 10pt; font-family: Verdana; ">&nbsp; &nbsp; &nbsp;毕业于一个三流的学校，大学时与舍友贪玩各种网游，但很少旷课，热爱计算机行业，毕业后没钱培训，在一朋友帮助下，租房闭关苦学java，希望能成为一名苦B程序猿，一次偶然机会步入软件测试，从此在测试的道路坚定不移。因为是找bug(虫)的测试员，故名虫师。</span></p>
+  <p style="margin-bottom:3.7500pt; margin-top:3.7500pt; text-autospace:ideograph-other; line-height:15.7500pt; "><span style="font-size: 10.5pt; font-family: Verdana; ">-----------------------------</span>
+  </p>
+  <div>
+   <span style="color: red;">selenium进阶1群：189116036</span><br>
+   <span style="color: red;">selenium进阶2群：287899100</span><br>
+   <span style="color: red;">selenium进阶3群：304533796</span><br>
+  </div>
+  <p><span style="font-size: 10.5pt; font-family: Verdana; ">----------------------------</span></p>
+  <br>
+  <strong><a href="http://itest.info/courses/2">
+    <span style="color: red;">Python selenium 自动化测试2016年6月5号开班</span></a></strong>
+  <br>
+  <p><br></p>
+  <div>
+  </div>
+  <p style="margin-bottom: 3.75pt; margin-top: 3.75pt; line-height: 13.75pt;"><img src="http://images.cnblogs.com/cnblogs_com/fnng/835722/t_test.png" alt="" style="line-height: 1.5;"><a target="_blank" href="http://product.dangdang.com/1353137284.html"><span style="line-height: 13.75pt;"> </span></a><span style="line-height: 13.75pt;"></span></p><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/fnng/">虫师</a><br>园龄：<a href="http://home.cnblogs.com/u/fnng/" title="入园时间：2011-06-28">4年11个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/fnng/followers/">3698</a><br>关注：<a href="http://home.cnblogs.com/u/fnng/followees/">30</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger('f93e222f-6da1-e011-a53f-842b2b196315')">+加关注</a></div></div></div>
+<script type="text/javascript">loadBlogNews();</script>
+</div>
+</div>
+</div>
+
+            <script type="text/javascript">
+                var m = window.__blog.aboutRendered;
+                if (m) { m(__$("about")); }
+            </script>
+            
+<div id="mySearchWrapper">
+    <div id="mySearch">
+        <input type="image" src="/skins/Minyx2_Lite/images/btnsearch.gif" id="btnZzk" class="submit" onclick="zzk_go();return false;">
+        <label class="lb_search"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="keyword"></label>
+    </div>
+</div>
+
+            <script type="text/javascript">
+                var m = window.__blog.searchFormRendered;
+                if (m) { m(__$("searchform")); }
+            </script>
+            <div id="sideMain">
+            <div id="side-recent-comments">
+        <h2>最新评论</h2>
+        <ul class="voice">
+                <li>
+                    <a href="http://www.cnblogs.com/fnng/p/4119712.html#3459055">Re:Apache部署django项目</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/fnng/p/4119712.html#3459055">
+                        《django学习手册》快出~~~
+                        -- 一点一点
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/fnng/p/5598546.html#3457812">Re:测试驱动开发与Python</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/fnng/p/5598546.html#3457812">
+                        赞
+                        -- Kevin_H
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/fnng/archive/2013/02/26/2934317.html#3457727">Re:JMeter 聚合报告之 90% Line 参数说明</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/fnng/archive/2013/02/26/2934317.html#3457727">
+                        2013年的文章了，不知道你还会不会回复。这篇文章讲解得真清晰，谢谢大神。我有2个问题要请教，盼答复：1.如何判断聚合报告里的avg值是否可取：90%line ，max ，min？2.Jmeter做压......
+                        -- 小小小薏
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/fnng/archive/2013/03/12/2956765.html#3457598">Re:LoadRunner 技巧之 脚本设计</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/fnng/archive/2013/03/12/2956765.html#3457598">
+                        @砸牛顿的苹果
+看到了，又是一年。。。
+                        -- pooja
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/fnng/p/4579152.html#3457086">Re:Appium移动自动化测试（四）--one demo</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/fnng/p/4579152.html#3457086">
+                        appium还是用了eclipse 装完之后，发现selenium webdriver 不能运行了，错误：FAILED CONFIGURATION: @BeforeTest setupjava.la......
+                        -- 心境心静
+                    </a>
+                </li>
+        </ul>
+    </div></div>
+            <div id="sideRight">
+            <div id="side-archives">
+        <h2>随笔档案</h2>
+        <ul class="date">
+                <li><a href="http://www.cnblogs.com/fnng/archive/2016/06.html">2016年6月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2016/05.html">2016年5月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2016/04.html">2016年4月(4)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2016/03.html">2016年3月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2016/02.html">2016年2月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2016/01.html">2016年1月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/12.html">2015年12月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/11.html">2015年11月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/10.html">2015年10月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/09.html">2015年9月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/08.html">2015年8月(5)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/07.html">2015年7月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/06.html">2015年6月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/05.html">2015年5月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/04.html">2015年4月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/03.html">2015年3月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2015/01.html">2015年1月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/12.html">2014年12月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/11.html">2014年11月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/10.html">2014年10月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/09.html">2014年9月(4)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/08.html">2014年8月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/07.html">2014年7月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/06.html">2014年6月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/05.html">2014年5月(6)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/04.html">2014年4月(5)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/03.html">2014年3月(4)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/02.html">2014年2月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2014/01.html">2014年1月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/12.html">2013年12月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/11.html">2013年11月(2)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/10.html">2013年10月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/09.html">2013年9月(4)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/08.html">2013年8月(10)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/07.html">2013年7月(6)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/06.html">2013年6月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/05.html">2013年5月(9)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/04.html">2013年4月(7)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/03.html">2013年3月(9)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/02.html">2013年2月(10)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2013/01.html">2013年1月(6)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/12.html">2012年12月(8)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/11.html">2012年11月(8)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/10.html">2012年10月(9)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/09.html">2012年9月(6)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/08.html">2012年8月(11)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/07.html">2012年7月(10)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/06.html">2012年6月(7)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/05.html">2012年5月(7)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/04.html">2012年4月(1)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/03.html">2012年3月(5)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/02.html">2012年2月(7)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2012/01.html">2012年1月(4)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2011/12.html">2011年12月(4)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2011/11.html">2011年11月(5)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2011/10.html">2011年10月(3)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2011/09.html">2011年9月(8)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2011/08.html">2011年8月(4)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2011/07.html">2011年7月(6)</a></li>
+                <li><a href="http://www.cnblogs.com/fnng/archive/2011/06.html">2011年6月(1)</a></li>
+        </ul>
+    </div></div>
+            <div id="sideLeft">
+            <div id="side-categories">
+        <h2>随笔分类</h2>
+        <ul class="folder">
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/411274.html">Apache(6)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/695788.html">appium(4)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/410088.html">AppScan(2)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/410087.html">AWStats(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/408725.html">BlueStacks(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/387355.html">curl-loader(2)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/581256.html">django(13)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/347981.html">git(2)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/310693.html">Java(6)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/345478.html">jmeter(12)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/345477.html">junit(3)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/355466.html">linux(16)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/389403.html">loadrunner(14)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/345480.html">maven2(2)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/389402.html">oracle(10)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/753331.html">PHP(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/454439.html">python(35)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/598667.html">Robot Framework(8)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/349036.html">selenium(37)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/411276.html">WebLog Expert(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/310692.html">测试工具(6)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/401609.html">测试流程(2)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/321617.html">测试思想(12)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/732258.html">接口测试(5)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/681778.html">前端技术(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/412001.html">协议分析工具(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/387349.html">性能测试思想(21)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/387356.html">页面性能测试(3)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/382389.html">杂谈(20)</a>
+                </li>
+                <li>
+                    
+                    <a href="http://www.cnblogs.com/fnng/category/451824.html">中间件(2)</a>
+                </li>
+        </ul>
+    </div><div id="side-top-posts-custom">
+    <h2>推荐排行榜</h2>
+    <div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/fnng/p/4333977.html">1. Robot Framework自动化测试 ---视频与教程免费分享(90)</a></li><li><a href="http://www.cnblogs.com/fnng/archive/2012/11/25/2787175.html">2. 一个计算机毕业生的经历(57)</a></li><li><a href="http://www.cnblogs.com/fnng/archive/2011/12/02/2272610.html">3. maven环境快速搭建(49)</a></li><li><a href="http://www.cnblogs.com/fnng/p/4064008.html">4. 一个前快播员工眼中的快播(41)</a></li><li><a href="http://www.cnblogs.com/fnng/p/3576154.html">5. python实现简单爬虫功能(28)</a></li></ul></div>
+</div><div id="side-top-posts">
+    <h2>阅读排行榜</h2>
+    <div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/fnng/p/3576154.html">1. python实现简单爬虫功能(214591)</a></li><li><a href="http://www.cnblogs.com/fnng/archive/2011/12/02/2272610.html">2. maven环境快速搭建(184178)</a></li><li><a href="http://www.cnblogs.com/fnng/archive/2011/07/18/2110023.html">3. Eclipse连接MySQL数据库（傻瓜篇）(111922)</a></li><li><a href="http://www.cnblogs.com/fnng/p/3565912.html">4. python使用mysql数据库(88614)</a></li><li><a href="http://www.cnblogs.com/fnng/p/3670789.html">5. python 多线程就这么简单(87836)</a></li></ul></div>
+</div>    
+    
+    
+
+
+        
+<div id="side-link-382669">
+            <h2>友情链接</h2>
+            <ul class="chain">
+                        <li>
+                            <a href="http://blog.csdn.net/fnngj" target="_self">CSDN技术博客</a>
+                        </li>
+                        <li>
+                            <a href="http://www.cnblogs.com/jackei/" target="_self">Jackei测试博客</a>
+                        </li>
+                        <li>
+                            <a href="http://www.cnblogs.com/testermark/" target="_self">tester mark</a>
+                        </li>
+                        <li>
+                            <a href="http://www.testpub.cn/" target="_self">虫师独立博客</a>
+                        </li>
+                        <li>
+                            <a href="http://my.oschina.net/hyp3" target="_self">原配的性能测试</a>
+                        </li>
+                        <li>
+                            <a href="https://yq.aliyun.com/u/defnngj" target="_self">云栖社区blog</a>
+                        </li>
+                        <li>
+                            <a href="http://itest.info/" target="_self">重定向科技</a>
+                        </li>
+            </ul>
+        </div></div>
+            
+                <div id="sideContainer"></div>
+                <script type="text/javascript">
+                    $.ajax({
+                        url: '/' + currentBlogApp + '/mvc/blog/Minyx2_Lite_SideColumn.aspx',
+                        data: '{}',
+                        type: 'post',
+                        dataType: 'text',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            if (data) {
+                                $("#sideContainer").html(data);
+                                loadBlogDefaultCalendar();
+                                loadBlogSideBlocks();
+                                var m = window.__blog.sideContainerRendered;
+                                if (m) { m(__$("sideContainer")); }
+                                window.__blog.sidebar.__layout();
+                            }
+                        }
+                    });
+
+                </script>
+            
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.sidebarRendered;
+            if (m) { m(__$("sidebar")); }
+        </script>
+
+        <div id="footer">
+            
+<p id="logoFoot">
+    <a href="http://www.spiga.com.mx/" title="Agencia Interactiva Spiga">www.spiga.com.mx</a>
+</p>
+<div class="footText">
+<p>
+Copyright ©2016 虫师
+</p>
+<p>
+<a href="http://www.cnblogs.com">博客园</a>
+</p>
+</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.wrapperRendered;
+        if (m) { m(__$("wrapper")); }
+    </script>
+
+</div>
+<script type="text/javascript">
+    var m = window.__blog.containerRendered;
+    if (m) { m(__$("container")); }
+</script>
+<!--PageEndHtml Block Begin-->
+<script src="http://s13.cnzz.com/stat.php?id=3347352&amp;web_id=3347352&amp;show=pic2" language="JavaScript">
+</script><script src="http://c.cnzz.com/core.php?web_id=3347352&amp;show=pic2&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=3347352" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="http://icon.cnzz.com/img/pic2.gif"></a>
+<div align="center"><a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3064217&amp;c=9192964" alt="Web Page Counters"></a><br><a href="http://www.coupons-coupon-codes.com/staples/">Computer Desks</a></div>
+
+
+<!--评论，生成气泡效果标签代码-->
+  <script type="text/javascript" language="javascript"> 
+      $(document).ready(function() {
+          var commentTime = setInterval(function(){if($("#comments_pager_bottom").length>0){CommentBubble();clearTimeout(commentTime);}},50);
+      }); 
+      function CommentBubble()
+      {
+  var w1 = '<div class="list">' +
+          '<table class="out" border="0" cellspacing="0" cellpadding="0"> ' +
+             '<tr>' +
+                 '<td class="icontd" align="right" valign="bottom">' +
+                     '<img src="" width="70px" height="57px"/>' +
+                 '</td>' +
+                 '<td align="left" valign="bottom" class="q">' +
+                     '<table border="0" cellpadding="0" cellspacing="0" style=""> ' +
+                         '<tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> ' +
+                         '<tr><td class="left"></td> <td align="left" class="conmts"><p>';
+  
+  
+         var w2 = '</p> </td> <td class="right"></td></tr> ' +
+                         '<tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> ' +
+                     '</table>' +
+                 '</td> ' +
+             '</tr> ' +
+         '</table> ' +
+     '</div>';
+  
+         $.each($(".blog_comment_body"), function(i, t) {
+             $(t).html(w1 + $(t).html() + w2);
+         });
+ $(".louzhu").closest(".feedbackItem").find(".out").removeClass("out").addClass("inc");
+         /*.find(".q").attr("align","right");*/
+         }
+ </script>
+<!--PageEndHtml Block End-->
+
+
+</body></html>
