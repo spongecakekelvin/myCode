@@ -273,34 +273,34 @@ function HotKeyView:updateShortcutKey(list)
 end
 
 
-function HotKeyView:setShortcut(button)
+function HotKeyView:setShortcut(index, id)
     self.isHotKeyChanged = true
-    SettingModel:setSystemSkillkey(self.selectHotKeyIndex, self.skillList[button.index].id)
-    self:updateShortcutKey()
+    SettingModel:setSystemSkillkey(index, id)
 end
 
 
-function HotKeyView:removeShortcut(button)
+function HotKeyView:removeShortcut(index)
     if not DRAG_MODE then
         if self.curState ~= STATE_SET then
             return 
         end
     end
     self.isHotKeyChanged = true
-    SettingModel:setSystemSkillkey(button.index,0)
-    self:updateShortcutKey()
+    SettingModel:setSystemSkillkey(index,0)
 end
 
 
 function HotKeyView:onSkillBtnClickedHandler(button)
-    if self:isSkillSettable(button) then
-        self:setShortcut(button)
+    if self:isSkillSettable(button:getModel(), self.selectHotKeyIndex) then
+        self:setShortcut(self.selectHotKeyIndex, button:getModel().id)
+        self:updateShortcutKey()
     end
 end
 
 function HotKeyView:onShortcutBtnClickedHandler(button)
     self.selectHotKeyIndex = button.index
-    self:removeShortcut(button)
+    self:removeShortcut(button.index)
+    self:updateShortcutKey()
 end
 
 
@@ -319,19 +319,20 @@ function HotKeyView:onSkillDragEndedHandler(button, target)
             ui.showTip("键位未解锁")
             return
         end
-        self.selectHotKeyIndex = descItem.index
-        if self:isSkillSettable(button) then
+        
+        local srcModel = button:getModel()
+        if self:isSkillSettable(srcModel, descItem.index) then
             -- 删除键位上相同技能
-            local srcModel = button:getModel()
             for i, v in ipairs(self.shortcutItems) do
                 local sid = SettingModel:getSystemSkillkeyByIndex(i)
                 if sid and sid ~= 0 and sid == srcModel.id then
-                    self:removeShortcut(v)
+                    self:removeShortcut(i)
                     break
                 end
             end
-            self:removeShortcut(descItem)
-            self:setShortcut(button)
+            self:removeShortcut(descItem.index)
+            self:setShortcut(descItem.index, button:getModel().id)
+            self:updateShortcutKey()
         end
     end
 end
@@ -359,33 +360,32 @@ function HotKeyView:onShortcutDragEndedHandler(button, target)
         end
         
         local srcModel = button:getModel()
-        local skillItem = nil
-        for i, v in ipairs(self.skillList) do
-            if v.id == srcModel.id then
-                skillItem = self.skillItems[i]
-                break
-            end
-        end
-        if skillItem then
-            self.selectHotKeyIndex = descItem.index
-            if self:isSkillSettable(skillItem) then
+        if srcModel then
+            if self:isSkillSettable(srcModel, descItem.index) then
                 -- 删除键位上相同技能
                 for i, v in ipairs(self.shortcutItems) do
                     local sid = SettingModel:getSystemSkillkeyByIndex(i)
                     if sid and sid ~= 0 and sid == srcModel.id then
-                        self:removeShortcut(v)
+                        self:removeShortcut(i)
                         break
                     end
                 end
+                -- 交换位置
+                local descModel = descItem:getModel()
+                self:setShortcut(descItem.index, srcModel.id)
+                if descModel then
+                    yzjprint(descItem.index, srcModel.id, "<====>", button.index, descModel.id)
+                    self:setShortcut(button.index, descModel.id)
+                end
 
-                self:removeShortcut(descItem)
-                self:setShortcut(skillItem)
+                self:updateShortcutKey()
             end
         else
             gprint("键位槽与技能槽数据不对应")
         end
     else
-        self:removeShortcut(button)
+        self:removeShortcut(button.index)
+        self:updateShortcutKey()
     end
 
     -- for i = 1, 8 do
@@ -395,14 +395,10 @@ function HotKeyView:onShortcutDragEndedHandler(button, target)
 end
 
 
-function HotKeyView:isSkillSettable(skillItem)
-    local srcIndex = skillItem.index
-    local destIndex = self.selectHotKeyIndex
-    -- yzjprint("==== srcIndex, destIndex = ", srcIndex, destIndex)
-
-    local srcType = self.skillList[srcIndex].type
-    local srcId = self.skillList[srcIndex].id
-    yzjprint(srcType, destIndex)
+function HotKeyView:isSkillSettable(model, destIndex)
+    local srcType = model.type
+    local srcId = model.id
+    -- yzjprint(srcType, destIndex)
 
     if not DRAG_MODE then
         if self.curState ~= STATE_SET then
