@@ -1,0 +1,1297 @@
+技能键位调整
+1、键位之间交换 --\/
+2、放入键位中已有的技能 --\/
+3、放入键位的位置检查有误 --\/
+
+影响：
+装备改动： 属性 战力 排行 ，
+装备熔炼： 消耗同级装备  升级
+装备名称： 展示、市场摆摊、行会日志、拾取、售卖、goodsTips、广播、
+
+
+1、市场吆喝、熔炼的广播点击goodsTips显示没有熔炼
+2、熔炼的预览名字不对，最高级的成功率为空
+3、开服的报错
+
+
+android:configChanges="keyboardHidden|orientation|screenSize"
+的作用
+
+SDK接入流程及注意事项（android）
+以下以弘贯 jooyuu_hongguan_lhzg为例
+
+1、融合sdk 平台开发组
+提供参数
+fs_app_id:2111
+fs_app_key:
+在融合后台中可查询http://fusion2sdkadmin.kkuu.com，负责人是森哥（吴泽森）
+
+
+2、运营提供参数
+平台名字:jooyuu_hongguan_lhzg
+包名:
+开服计划：
+游戏名称:
+游戏应用图标icon
+(可选)登陆页资源，在mobile/res/platform/jooyuu_hongguan_lhzg下
+
+配置 frechangeinfo.iex 中客服QQ、扫码互通等内容
+
+
+3、项目开发组
+
+客户端开发相关：
+进入目录 svn://kkuu.cqsvn.com:8018/kkuu/fusionsdk/fusionSDK_v2.0.0/Release/tools
+在子目录\tools\script\img\game_icon中加上游戏图标，以fs_app_id命名  如：2111.png
+运行融合sdk提供的工具fssdkClientTool.exe，填写所需参数，
+
+注意：
+<<项目脚本>>为可选项
+在\mobile\frameworks\runtime-src\FusionSDK_Tools_2\bat\FusionSDK_Tools.bat中
+其中脚本FusionSDK_Tools.py对s5项目处理了以下工作，可根据需要进行修改，或者手工处理：
+1、拷贝copyRes目录到工程目录mobile\frameworks\runtime-src\proj.android_jooyuu_hongguan_lhzg中
+2、拷贝工程的asset到additional\asset中
+3、删除libs\\armeabi目录
+4、新增资源文件夹mobile/res/platform/jooyuu_hongguan_lhzg
+
+
+
+(可选)替换登陆页资源，在mobile/res/platform/jooyuu_hongguan_lhzg下
+
+然后生成工程
+
+
+本地编译工程调试：
+（可选）设置测试机 mobile\config\gamecore\config中device.lua 中添加设备号
+修改项目中mobile/config/template/config.json文件    "gameplatform": "jooyuu_hongguan_lhzg",
+在cmd中运行以下命令（需要设置cocos2dx的环境变量为项目的cocos2dx目录 如E:\st5_svn\mobile\frameworks\cocos2d-x\tools\cocos2d-console\bin）
+cocos compile -p android --ap 20 -g jooyuu_hongguan_lhzg
+
+注意事项：
+* project.properties中目录分隔符需要是'/'，否则服务器打包报错
+* 工程引用关系有两种方式
+旧版本：
+proj.android_jooyuu_baidu_shenzuo -> sdk/SDKbaiduAdapter -> sdk/FusionSDKRelease -> libcocos2dx
+新版本、工具生成的: uc、hongguan
+proj.android_jooyuu_hongguan_lhzg -> sdk/lib_common -> libcocos2dx
+
+*lua中调用java接口在AndroidFusionSdk.lua文件中
+
+
+
+服务器开发相关：
+1、对jooyuu_hongguan_lhzg做相关的处理
+待补充
+
+
+
+
+使用终端打包：
+以下xml改动不需要提交到svn
+mobile\config\templet中，funenable.xml修改为 <apk enabled="opened"/>
+mobile\src\gamecore\config中，platstartversion.xml、 currentandroid.xml、platname.xml新增jooyuu_hongguan_lhzg的项
+
+
+
+
+
+
+
+
+熔炼todo：
+1、gridView有报错bug --\/ 用默认model = model or GoodsModel.new()
+2、根据p_goods.ronglian字段显示属性 和下一级属性 -\/
+3、请求熔炼  刷新界面 -- \/
+4、计算成功率 --\/
+5、写sdk的文档
+6、道具tips的属性显示
+
+
+
+工程关系：
+旧版本fuiosonSDK：
+baidu-> SDKbaiduAdapter -> FusionSDKRelease -> libcocos2dx
+工具生成的fusionSDK:
+hongguan-> lib_common -> libcocos2dx
+
+ps:
+libcommon = SDKxxxAdapter + FusionSDKRelease
+
+
+_hongguan_lhzg
+
+change to check:
+1、取消登录退出游戏的判断加上 or code == “2”
+2、所有平台替换工具生成的工程 
+compile baidu、uc、kkuu、qq工程调试看看qudaoceshi
+3、加上权限
+<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+	<uses-permission android:name="android.permission.SEND_SMS"/>
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />    
+<uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <!-- 可选的权限：异常上报系统log,XG也需要 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- 支付宝 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+
+融合sdk s5的bat脚本需求：
+1、增加additional目录  把assets 拷贝到该目录下
+2、拷贝已有的c++ lib
+3、增加 build-cfg.json
+4、跑编译命令 cocos compile -p android --ap 20 -g jooyuu_baidu_shenzuo
+5、res/menu/目录下多了main.xml
+
+
+local segLoadIndex = SegLoadModule.check()
+
+
+1、邮件图标 #common/letter.png"
+tianjianghongbao
+鼠牛虎兔龙蛇马羊猴鸡狗猪
+
+
+1、kkuu新号支付宝充值成功返回 游戏卡住
+2、小米平板的包进入游戏有问题，delayEnter刷屏
+
+
+		 --    follow_link_param = {
+		-- 	[1] = 2,
+		-- 	[2] = 700001,
+		-- 	[3] = 70000101,
+		-- }
+		-- [329] = {329,5,700001,70000101,144,107},
+
+
+1、测试getNumberOfRunningActions 功能
+2、查看fusion sdk的源码
+3、任务清理魔物10000106反击10000150 有时点击任务栏没反应
+4、扫码成功退出游戏
+5、按钮的image模块化
+
+【开发】真经验任务完成后自动打开界面加上80级限制
+
+
+1、跑流程
+2、修复任务追踪 完成金币副本还在的bug --\/
+3、修复右下角弹窗bug，加上学院的notice --\/
+4、 穿戴装备有问题 --\/
+5、称霸的副本不会自动寻路到传送点
+6、不会自动继续下个任务， 页游会的
+
+
+missiontodo:
+1、
+	--暂时屏蔽，ps: 引导小猫出现时时，这里的动作会导致getPosition有偏差，
+	-- todo：引导那边加上对象是否动作中的判断
+2、加上任务状态判断currentStatus == indo
+
+3、切换标签时候要删掉不对应的guideTip
+4、支线同时存在多个,需要遍历来引导
+5、经验任务:MissionModel:isTask_10000168
+寻路到npc接受任务时m_mission_do_toc，拦截，先弹出界面
+        if missionBaseInfo.isAutoTrans then
+再传送
+
+npc也加上id判断
+
+完成时候 也拦截
+
+再GuideConfig中配置 
+PlayerGuideModule.hookMissionAccept 打开假的接受任务界面
+PlayerGuideModule.hookMissionFinish 任务完成界面
+
+todo:
+加上资源加载判断skillLearnTips
+琶洲转角的太阳光问题
+str = "mainuiview"
+len = string.len(str)
+print(string.sub(str, len-2,len))
+
+-- 引导用
+        PlayerGuideModule.setGuideObject("ZhuShenZhanView", butBg, chapData[i].mapId)
+
+
+改用s2那种用定时器来检查当前任务所需对象是否存在
+
+tolearn:
+针对扫码收到toc就马上调用java扫码接口的问题：
+1、加上tos toc锁，没有收到toc 不能发送tos
+2、加上延时不让连续点击
+3、java中判断摄像头是否打开，打开则忽视
+4、考虑toc的数据重用，数据中带有验证信息，不能缓存重用
+ps:银行系统发送tos带有时间戳  toc返回也带有时间错，网络不好时间差大则直接不处理
+
+
+任务：
+1、ui.newGuideTip引导小猫
+打开界面是  pushView接口，每个界面都注册到GuideModule 中，检查任务id是否对应当前界面__cname， 
+注册对象，检测任务条件和父节点， 对象位置上加上小猫, 检查的参数有：当前任务id，对象的索引
+参考s2的GuideManager
+增加配置 任务id 对应界面-》对象
+2、非自动接收任务时 的界面 对10000168任务特殊处理，复制MissionTaskLoopView， 按钮复制原接任务界面的逻辑
+3、调试新增任务类型 3、42、60、61、62
+
+10000111、10000122、10000126、10000133、10000144、10000155、10000166、10000177
+
+
+
+项目需要加上资源管理：
+遇上了判断资源加载的功能，每个系统判断plist是什么繁琐的，而且脚本不好批量替换， plist命名也不规范
+
+
+
+tolearn:
+游戏内人物寻路 鼠标未放开 一直跟随鼠标，查看代码
+随机地图
+A*寻路
+python登录微博
+c++
+大小根堆
+Android
+skynet
+unity3d
+
+
+可升级提示
+1、监听N提示的接口 
+2、读取remind的配置 
+3、显示升级图标
+
+
+
+玉石
+local GODSTONE_PUT = {133,134,128,129,131,132,135,136}
+local curTypeId,curLevel,gold,nextLevel,nextTypeId = GodStoneModel:getCurLevelAndNextConfig(GODSTONE_PUT[1])
+
+
+	local typeid = 0
+	if self.kind == 140 then ---阵法
+		typeid = self.kind * 10000 + index*100 + 1 
+	else
+		typeid = self.kind * 10000 + index
+	end
+	updateAddAttrFunc(self)
+	local config = gameconfig.mount2[typeid]
+
+
+	----骑乘、穿戴按钮
+	self.curTypeid = typeid
+	if self.kind == 124 then
+		self.curRoleTypeid = myRole.skin.mounts
+	elseif self.kind == 123 then
+		 self.curRoleTypeid = myRole.skin.fashion_wing
+	elseif self.kind == 125 then
+		 self.curRoleTypeid = myRole.skin.seal
+	end
+
+
+1、python test 的报错
+2、确认任务需求 10000124 回收装备
+3、
+
+
+使用python统计观点
+1、抓取文字
+2、字符串分析：人工智能、
+
+
+1、金币副本  自动挂机MapClientVO,isAutoFight字段， 问策划需求
+
+sdk注销流程
+1、登录调用login
+2、增加 logouBtn， 点击后调用logout， 
+3、收到logout success 回调， 游戏则内直接重启（返回登陆页最好），否则调用logout接口
+bug:百度现在logout 没有收到logout succ回调 --\/
+
+baidu --\/
+uc --\/
+qq --\/
+qudaoceshi
+
+
+
+
+1、分支上替换android_v4.jar包 修复baidu录屏编辑闪退问题 --\/ 换上jar包
+2、配置项每个工程都增加kkuu_game_id、替换混淆的fsdk.jar， 修改代码
+3、qq神座的登录平台是否 weixin qq --\/ 以前字符串处理少了第一位和最后一位字符
+4、baidu切换账号 报错 -- 没出现
+
+
+1、用分支打包 看现在lua代码的qq_shenzuo包是否正常
+2、复制到mysq
+3、关于loginView流程的改动,调试uc工程 qudaoceshi工程闪屏是否正常
+
+
+
+0.0397*180/365*120000 = 2349
+0.0397*180/365*110000 = 2153
+			-195
+0.0375*90/365*120000 = 1109
+		
+
+【开发】加上没有sdk的判断,qudaoceshi.debug
+
+todo:
+1、百度闪屏，游戏内对百度再闪一次 --\/
+2、渠道号 改为这个接口Cocos2dxActivity getChannelID, 改fusionSDKUtil接口就好了 --\/
+		iniFusionSDK("jooyuu_baidu_shenzuo");
+	}
+	
+	private void iniFusionSDK(String platformName){
+		String channel_tag = Cocos2dxActivity.getChannelID("fuckverymuch");
+		if (channel_tag == "" || channel_tag == "default"){
+			channel_tag = platformName;
+		}
+		FusionSdkUtils.initSDK(channel_tag);
+	}
+
+
+
+----- windows上跑分支:
+1、将分支下的\src\gamecore\config.json改成跟主版本一样
+    "updateURL": "172.22.0.34/debug/",
+    "gameplatform": "debug",
+2、
+外服用
+svn://st5.svn.com:2712/version/windows/release
+
+
+svn://st5.svn.com:2712/release/jooyuu_qq_shenzuo_platform/code/0.1.7
+
+1、登录提示。 ACT:1,resultCode:-2147483648,resultDesc:数据请求异常，请重试
+ --\/
+	估计是 init之前调用login才出现，现在改在initSucc回调中调用login接口，会自动登录，不会出现以上情况
+2、alipay支付宝充值报错 java.lang.NoClassDefFoundError: com.alipay.sdk.app.PayTask --\/
+3、游戏内闪屏问题 --让融合修改，闪屏完才启动游戏
+4、登录返回 -》退出游戏 -- \/
+5、UC工程 --\/
+6、百度工程 \/
+7、kkuu工程 --\/
+8、shenzuo工程 -\/
+9、去掉 DataGlobal.isQQPlatform接口 --\/
+10、测试支付宝  每个工程 --\/
+	需要添加到工程的libs下才能支付宝， kkuu、baidu也是
+
+baidu工程报错
+06-12 19:12:59.149: E/UCGameSdk(22605): java.lang.Exception: android.content.ActivityNotFoundException: Unable to find explicit activity class {com.jooyuu.baidu.shenzuo/cn.uc.gamesdk.SdkActivity}; have you declared this activity in your AndroidManifest.xml?
+06-12 19:12:59.149: E/UCGameSdk(22605): 	at cn.uc.gamesdk.lib.h.a$1.uncaughtException(Unknown Source)
+
+
+
+
+DataGlobal.kkuuPlatform()
+DataGlobal.isKKUUFusionPlatform
+
+	<channel  path="SDKbaiduDemo" >
+		<param name="sdk_name" value="baidu" />
+		<param name="fs_app_id" value="2101" />
+		<param name="fs_app_key" value="AK9AC0F2C0494F8E73" />
+		
+		<param name="app_id" value="8227229" />
+		<param name="app_key" value="0Xo34XC4dAFdZ4pq7crH36hx" />
+		<param name="is_debug_mode" value="false" />
+
+
+
+	<classpathentry combineaccessrules="false" kind="src" path="/JyFusion2SDK"/>
+
+todo:
+1、去掉qqYsdkPlatform函数 改为isQQ --\/
+2、去掉isFusion代码，不用判断了 旧的非fusion 的sdk --\/
+3、庆典活动改为后端推送 --\/ 不用后端送了，前段使用sdk_platform读配置 --\/
+4、增加onExitSuccess处理，先调用sdk的退出界面 ，再调用游戏本来的 --\/
+5、kkuu  baidu uc 使用2.0  --\/
+
+1、sdkconfig.xml填写fusion参数
+使用bat生成配置
+拷贝到adapter工程asset中
+
+
+《神座》在UC ·九游开放平台的SDK接入参数如下：
+cpId：58660
+gameId：729400
+apiKey：0d1539e4821d0f0cf7251b39739675ea
+serverId：请设置为0
+
+
+
+
+
+
+下载cocoscreator 使用参考
+
+todo： ui布局模块现在基础上改写，具有以下功能：
+参考photoshop
+1、分层布局
+2、控件栏
+3、
+
+具有以下优点：
+1、lua实现 游戏内布局， 支持热更新刷新界面
+2、脚本开发 不需要发布，方便维护
+3、与ui编辑器相比，ui编辑器需要导出资源和布局的约定文件，
+
+考虑问题
+1、在不同环境下使用
+cocos2dx版本
+脚本语言 js lua
+2、资源异步加载问题
+3、替换资源问题 --\/ 除了增删，不影响代码
+
+
+		String fs_app_id = "2013"; // 由融合平台分配
+		String fs_app_key = "AKC909F8360DECA9F1"; // 由融合平台分配
+		String sdk_name = "ysdk";  // kkuu ysdk
+		String channel_tag = "xinmei_qq_mysq"; 
+
+To Merge:
+1、html支持渐变label
+2、公告读guideVO[7]
+3、xinmei_qq_mysq用fusion sdk 1.20
+4、圣器的修改
+5、
+
+【开发】圣器"开孔有几率失败“
+【开发】圣器名字；去掉打印
+【开发】手游公告读取guideVO 7
+【开发】htmlLabel支持颜色渐变label
+【开发】xinmei_qq_mysq用fusion sdk 1.20
+【开发】修复坐骑上下马隐藏；自己的bb不被隐藏
+【开发】getIMEI接口修正
+【开发】增加测试机
+【开发】主界面下方的图标背景适应
+
+
+YSDK参数：
+[手Q]AppId：1105278973
+[手Q]Appkey：bEGowkxdzqGH6Rd1
+[微信]AppId：wxd1c0e5618452de19
+[微信]Appkey：262e0a87d7491c126f430477dcbb7a06
+现网AppKey:yy20cQP5l6q1ulnwlX8zH6DeaOpq707r
+沙箱AppKey：q9C2r9aIkAzldJHG1IAchSnrm1b  LpZ29
+===============
+包名：com.tencent.tmgp.qq_mysq
+登录标识：xinmei_qq_mysq
+渠道号：xinmei_qq_mysq
+服务器组：moyushenqu
+发行商编号：xinmei
+平台编号：weixin/qq
+支付体系：米大师
+
+fs_app_key=AKC909F8360DECA9F1
+平台后端充值KEY=PK3BFDE315F6662ADF
+fs_app_id=2013
+
+a8ae30851f40054125ea5a8e6f19707a
+这个签名
+
+
+[手Q]AppId：1105278973
+应用名称：魔域神曲HD
+正式环境下登录ysdk
+返回信息YSDK Server Error,ret:-2;msg:client request's app is not existed 是什么问题导致的吗？
+这个是新接的YSDK，还没上线
+测试环境下功能没问题。可以排除技术相关问题吗
+是上个月 注册的游戏
+
+
+
+todo:
+1、所有调用sdk的接口 加上 mHandler.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				_entrance.doShowExitView();
+			}
+		});
+
+
+
+        <!-- <activity android:name="org.cocos2dx.lib.Cocos2dxCrashHandler" 
+				  android:process=":Cocos2dxCrashHandler"
+                  android:stateNotNeeded="true"
+                  android:exported="false">
+			<intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity> -->
+        
+2、对比旧的方式 kkuu shoFloatView
+        
+
+
+1、打mysq的包 看qq登录是否没签名
+2、fusion sdk 2.0
+3、答题系统 的层次结构
+
+showFloatView --\/
+fusionLogin --\/
+fusionLogout --\/
+fusionPay -- \/
+
+
+1.
+m_role_auth_tos
+m_qq_auth_tos
+m_role_add_tos
+加上 getPhoneIMEI的参数
+2、替换2.0的FusionSDK
+3、ui布局控件加上 框选功能
+
+
+role_chose
+system_heartbeat
+
+
+
+圣器
+1、misc_config读取开孔总次数
+2、圣器图鉴  激活buff
+hunqiBasic.iex这里有个配置 控制多少个孔的
+
+
+
+闪退问题：
+1、kkuu的 fusionLogout调用的时候闪退，gl线程中调用ul线程导致，
+	看JyFusionSDK.getInstance().login中做了什么线程相关的操作
+2、qq自动登录闪退，网络不好的时候出现
+
+PKModeGuidePanel
+
+1、坐骑bug map_update_actor_mapinfo_roleHandler
+2、技能界面 table'viuew刷新bug，因为翻页后node会公用同一个内存，相同的没刷新到，需要试试
+
+local rewardList = OpenServerActModel:getRewardList(nType)
+self:showGoods(itemData[i])
+
+拆分openServerAct.plist 中的公用资源 --\/
+1、Celebration
+2、RebateActivity
+3、SevenDaysActivity
+
+
+windows 资源管理器不自动刷新  不知道按到键盘上什么组合键了，重启就好了
+
+开服：
+1、登录奖励 标签7
+2、累计充值 标签1
+3、充值返利 标签3，  该开服活动开启时，充值界面按照配置的项 加上返利图标
+
+
+todo:
+1、嵌套font、a标签需要使用外面的font、a的标签属性
+htmlparse带来性能问题， 看怎么优化，
+labelparser却不会
+可在行会日志中看到效果
+2、有一个bug：换行符没有 返回isNextLLine，使得换行符前后的字符串合并在一起了，邮件中，转生帮助界面 可看到
+
+1、解析表
+2、逐项检测，
+yes:添加到containNode中
+no: 重新解析表（拆分本项超出字符串），
+  并返回1、 从本索引开始
+
+检测条件：
+1、宽度超出
+2、有换行符 self:adjustContentLinebreak_(node)
+
+
+local node = self:createLabel_(params)
+	local box = node:getBoundingBox()
+node:setAnchorPoint(cc.p(0, 0))
+		node:setPosition(self.addwidth, 0)
+		containerNode:addChild(node)
+		self.addwidth = calcWidth + charspace 
+local charspace = self._default.charSpace
+	local calcWidth = self.addwidth + box.width
+	local maxWidth = self._maxWidth
+	local isNextLine = (calcWidth > maxWidth)
+
+todo htmlLabel:
+1、表情替换成 <cs id="$34"></cs>, 
+以前是 <cs id="$34"/>
+
+2、分隔成单个字符串 需要优化，合并不换行的相同属性字符
+3、换行有问题,需要判断是否有color 那些字段
+
+现在通行的做法是以下面的这些字符打头：
+【开发】
+【修复】
+【测试】
+【优化】
+其中修复和测试到时候会挑选出来给测试人员查看
+
+kkuu包名
+com.jooyuu.kkuu.shenzuo
+qq包名
+com.tencent.tmgp.szttzg
+
+
+1、setQQBtnState 加上延迟 0.016 * 4
+2、java中 uithread里不调用ui线程
+
+改了appActivity  initsdk 放在oncreate里面
+
+1、androidFusionSdk增加接口调用java exitSDK
+2、loginView的取消登录按钮 增加exitSDK调用
+3、FusionSDKUtil.java 增加接口exitSDK
+
+
+1、充值接口 pay_type传0
+2、参数改成json格式
+
+1、成就  积分次数提醒
+local tConsumeInfo = ExchangeShopModel:getItemConsumeInfo(self.nextID, nil, nil, true)
+local needScore = tonumber(tConsumeInfo.tDeduct3[2]) / 1000
+
+boss的次数， 
+1、每个洗衣来的时候都调用 BossFBModel:updateTipNum()
+2、m_dabao_fb_info_toc boss信息
+3、组队boss登录加上请求 m_team_boss_info_toc  type = 5
+4、boss积分 m_boss_score_info_tos
+5、转生boss  m_grade_boss_info_tos
+
+
+1、升级msdk
+2、调试ysdk
+修改凉点：dataGlobal, sdk的接口 ，即可调用fusionsdk的充值
+3、保存账号功能
+4、加上支付方式 和平台对应限制关系
+
+
+包名
+com.tencent.tmgp.szttzg
+
+-- 旧的 msdk
+MSDK KEY:85ed032a9d59522ff4a8f9c952dc10d0
+手Q AppId:1105254081
+手Q Appkey:oFTt7sI5SJOYFO3v
+微信 AppId:wx00f4313398bcaa03
+微信 Appkey:781cac9912ac16f471a83fb14c3d36d7
+
+--- 签名key
+-- 新的 ysdk
+[手Q] AppId：1105254081
+Appkey：oFTt7sI5SJOYFO3v
+[微信] AppId：wx3d2f30c856de0a76
+Appkey：a89e6242f0ced97d5d14c6fc235ebcfd
+--\/
+
+android_jooyuu_kkuu_shenzuo
+
+
+发行商：万界互娱
+平台：QQ、微信
+登录标识：jooyuu_qq_shenzuo
+渠道号：jooyuu_qq_shenzuo
+游戏名称：神座：热血战歌 --\/
+
+
+[手Q] AppId：1105254081
+Appkey：oFTt7sI5SJOYFO3v
+[微信] AppId：wx3d2f30c856de0a76
+Appkey：a89e6242f0ced97d5d14c6fc235ebcfd
+
+fs_app_id：2008 
+fs_app_key：AK76DB2671E4689985
+平台后端充值KEY：PK70B2A243E281D5F3 这个key给pay_fusion.php用的
+
+
+xinmei_qq_mysq
+
+com.tencent.tmgp.qq_mysq
+
+【开发】成畅 2016/4/26 10:10:36
+发行商编号：xinmei
+平台编号：qq/weixin
+登录体系：qq/weixin
+充值体系：米大师
+登录标识：xinmei_qq_mysq
+渠道名称：xinmei_qq_mysq
+包名：com.tencent.tmgp.qq_mysq
+
+
+--- anndroid下的文件目录
+if cc.Application:getInstance():getTargetPlatform() == cc.PLATFORM_OS_ANDROID then
+        local dataxmlcontent = cc.FileUtils:getInstance():getStringFromFile("gamecore/config/platname.xml")
+        xmlcontent = xml.loadFromData(dataxmlcontent,#dataxmlcontent)
+    else
+        xmlcontent = xml.load( cc.FileUtils:getInstance():fullPathForFilename("gamecore/config/platname.xml"))
+
+    end
+
+
+
+
+
+1、试一试直接拷贝 obj文件 和 编译后的libcocos.lib文件、assert 文件 到新的工程，用eclipse运行
+成功的话 就免除经常编译cpp部分了
+2、luac 反编译
+
+
+zltdxqhzsybb ltgdtbqj wzdsywtll zjgzjdylydl ddgjkcbgqyy gzmsmjz essswydmzmqnl gqsysmsjz sd wxhdbxhw wbxhdyzbtyw ewxhdwybgs ywwkbdxw ewygtbbp hxbszbbzbdwtb wzzdyzyldztdzy hxkyydebg wxyyydmhdaq rhbrhy gstmdgd wbxzjygrl
+
+
+这两天的心情还真是一般般 两天过的的提不起劲 网真的是呀玩太累了 自己给自己的越来越多了 喘不过气一样 该怎么说没记着 饿死是啥玩意都没怎么去哪了  过去所以什么时间在 是的 我喜欢的都不喜欢我 我不喜欢的也准备讨厌我  而我喜欢但我也不敢说  因为我看不到希望  而我也跟她不般配 好像不是治标不治本的问题吧 我只知道一直以来都在他的踪影 好辛苦一样的二表哥  我想要 然后步入婚姻 告诉他们都过得我不想自己一个人了
+
+m_qr_code_get_cfg_tos
+debug现在这个协议没有返回哦
+
+
+
+1、fusion sdk 充值 data cp_notify_url不能为空
+后端的payment_request_toc 返回的 proto.pay_conf_list[1]为空
+2、fusiontInit闪退， 替换新的JyFusionSdkRelease包
+
+
+to test:
+channelNumber 改为 jooyuu_qq_shenzuo
+config.json 改为 jooyuu_qq_shenzuo
+拷贝MicrosoftYaHei.ttf到res/number目录下
+SdkConfig  中的payEnv 改为"test"沙箱测试环境
+
+---- 终端输出lua的打印
+1、cct界面中设置ip， 确认 重启，就可以了
+
+
+1、调试 fusionSdk init 的参数问题
+2、调试 jooyuu_shenzuo_qq的充值方式，(打印看看
+3、工程jooyuu_lib包含了kkuu_sdk_src， 和JyFusionSDKRelease的 支付jar冲突， swiftpass.jar
+
+todo:
+1、先调通qq st3 米大师的msdk工程 ,  proj.android_jooyuu_shenzuo_qq
+1、工程名字改为 jooyuu_shenzuo_qq
+2、签名 微信登录
+3、充值 合并rechargeController midas的处理
+
+包名
+com.tencent.tmgp.szttzg
+
+MSDK KEY:85ed032a9d59522ff4a8f9c952dc10d0
+--- 签名key
+
+手Q AppId:1105254081
+手Q Appkey:oFTt7sI5SJOYFO3v
+微信 AppId:wx00f4313398bcaa03
+微信 Appkey:781cac9912ac16f471a83fb14c3d36d7
+--\/
+
+android_jooyuu_kkuu_shenzuo
+
+
+发行商：万界互娱
+平台：QQ、微信
+登录标识：jooyuu_qq_shenzuo
+渠道号：jooyuu_qq_shenzuo
+游戏名称：神座：热血战歌 --\/
+
+
+172.22.0.34/debug//newnewserverlists.php?platform=debug&channelnumber=all&device=android&version=1.0.0.9999
+
+http://172.22.0.34/debug//newnewserverlists.php?platform=jooyuu_shenzuo_qq&channelnumber=all&device=android&version=1.0.0.9999
+
+
+
+2、ysdk的init参数通过lua传递
+爆粗
+04-18 18:06:15.985: E/dalvikvm(17582): JNI ERROR (app bug): accessed stale weak global reference 0xffffffff (index 65535 in a table of size 0)
+
+04-18 18:06:15.985: W/System.err(17582): 	at org.cocos2dx.lua.AppActivity.fusionInit(AppActivity.java:722)
+
+
+
+problem record:
+1、qq/微信登录 多次的时候  会闪退 -- demo不用管\/
+2、yzjprint在loginView中没打印
+3、确认回调lua是用runOnUiThread 还是runOnGLThread
+4、把04-16 18:20:54.441: W/System.err(6482): java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()
+
+04-16 18:20:54.441: W/System.err(6482): 	at com.jooyuu.FusionSdkUtils.initSDKDemo(FusionSdkUtils.java:74)
+
+5、["LoginView.lua":119]	= 33333333333333 	false
+6、浮窗显示不出来
+04-18 12:23:22.418: E/WindowManager(14558): android.view.WindowLeaked: Activity com.jooyuu.fusionsdk.kkuusdk.ui.JooYuuSDKAcitivity has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView{42def878 V.E..... R.....ID 0,0-603,318} that was originally added here
+
+可能是资源R的问题
+7、充值完成后  游戏关闭到后台了
+
+
+接入融合sdk ysdk, kkuu
+1、发行商 畅哥
+2、game_id 森哥or运营
+3、lua代码
+4、删掉以前的kkuu 和 msdk
+5、修改对应的xml文件
+project.properties
+android.library.reference.2=../../../sdk/qq/MSDKLibrary
+android.library.reference.3=../../../sdk/qq/kkuu_sdk
+6、做成通用的: 都是用fusion_sdk来 splash, (init, login, pay), logout   AndroidFusionSdk 提供通用接口
+7、sharesdk 功能保留
+8、编译proj.android_fusion
+
+main.lua 闪屏 showAppStartScene --\/ 肯定该有闪屏，且是sdk的优先
+
+保留AndroidMessageQueue这种字符串的回调方式
+
+
+
+2、
+BUILD FAILED
+F:\cocos\ADT\sdk\tools\ant\build.xml:892: The following error occurred while exe
+cuting this line:
+F:\cocos\ADT\sdk\tools\ant\build.xml:894: The following error occurred while exe
+cuting this line:
+F:\cocos\ADT\sdk\tools\ant\build.xml:906: The following error occurred while exe
+cuting this line:
+F:\cocos\ADT\sdk\tools\ant\build.xml:283: null returned: 2
+
+
+
+
+
+1、技能设置，用回m_system_config_change_tos skillkey1 字段 m_system_config_toc 登录初始化
+
+2、m_shortcut_init_toc 是页游用的 手游保存默认列表
+学习技能后 saveFlashShortCut 发送m_shortcut_update_tos
+
+
+1、组队boss 寻求好友15秒
+2、神幻家园cs_FamilyBoss放到标签中去
+3、设置修正
+4、技能设置让测试测试
+5、小地图 畅哥看 --
+6、组队boss玩家形象 房哥开发加上skin
+7、组队boss结束后的roll_to
+
+1、调试扫码包, 入口延迟
+2、当前地图位置调整, 王朝皇上的位置不对,有误差？
+3、屏蔽玩家技能效果
+
+
+var pt:p_pt = new p_pt()
+			pt.x=Math.floor(point.x / TileConstant.TILE_SIZE_X);
+			pt.z=Math.floor(point.y / TileConstant.TILE_SIZE_Z);
+			return pt;
+
+
+
+for id, inf in pairs(proto.dropthings) do
+drop.dropInfo.goodstypeid
+
+m_system_config_toc
+m_system_config_change_toc
+getOneDropByDistance 中加上判断
+
+
+dropthings = {repeated = true,id = 0,
+                ismoney = false,
+                num = 0,
+                roles = {repeated = true,datatype = "double"},
+                pos = {tx = 0,
+                ty = 0,
+                dir = 0},
+                money = 0,
+                colour = 0,
+                goodstypeid = 0,
+                reinforce_result = 0,
+                reinforce_rate = 0,
+                stones = {repeated = true,datatype = "int32"},
+                current_endurance = 0,
+                zhuling = 0,
+                index = "",
+                is_role_drop = false,
+                drop_mode = 0,
+                team_id = 0,
+                family_id = 0,
+                engrave = 0}
+
+控件button setString不能用 button.label:setString 代替，button里保存了就的字符串， 点击后会出现文字变回的问题
+
+BANYUEJIANFA = 103
+MOFADUN = 202
+ZHIYUSHU = 304
+
+页游的 自动释放光效是  showMovieFrame
+
+3、释放3个自动技能
+法师的盾 MOFADUN 需要每秒检测，前端释放
+	LoopManager.addToSecond("ccautomfd",autoMoFadun);
+	autoMoFadun(
+战士的剑气 已完成 --\/
+道士 极玄灵气 增加攻击力 问问策划
+
+
+新设置的技能 没有自动释放特效
+
+yzj1是道士
+yzj2是法师
+yzj3是战士
+
+
+1、m_shortcut_init_toc 页游手游切换  没有返回值
+2、新手指南跳转 金币兑换报错 Dispatch.dispatch(ModuleCommand.OPEN_TREAEXCHARGE,object[1]?int(object[1]):0);
+
+
+神幻空间：
+1、Cs_FamilyBossFinishView界面
+2、crossEtc 配置
+3、副本中界面
+4、跨服聊天频道
+
+5、看国华聊天记录 调整界面
+
+
+技能升级不行
+
+新手指南超链接error:
+1、event:open|96  新服特惠
+2、event:open|84 金币兑换
+
+3、变强： 升阶坐骑 --\/
+成就勋章 -- \/
+4、人物界面跳转2345678标签需加上开启条件
+
+
+转生boss todo：
+1、提升按钮 跳转到新手指南 3“我要变强”
+2、没有转生地图
+No file found at map/image/620007/map.jpg. Possible missing file.
+
+3、没有怪物动画 --\/
+186：[19:04:51.777] ["GradeBossView.lua":154]	62000701
+187：[19:04:51.798] can not get file data of f:\Program Files (x86)\Lua\5.1\lua\gamecore/config/movieauto/10057.lua
+
+188：[19:04:51.821] ----------------------------------------
+189：[19:04:51.843] 10001000009
+190：[19:04:51.866] LUA ERROR: [string "gamecore/scene/AnimationView.lua"]:362: module 'gamecore/config/movieauto/10057' not found:
+	no field packag
+4、离开副本按钮处理 发送 Dispatcher.dispatchEvent(EventType.REQUEST_COMMON_FB_ENTER, {fb_map_id = mapId})
+
+5、curMapId有时为空
+6、没调试过胜利，获取奖励
+
+申请列表 offline_request
+
+onResponseFriendRequestList
+添加好友 或者收到好友申请时候，增删requestList
+
+
+private function setRequestFriend(data:Object):void {
+			var vo:m_friend_request_toc=data as m_friend_request_toc;
+			if (vo.succ) {
+				if (vo.return_self) {
+					Tips.getInstance().addTipsMsg("请求添加好友[" + vo.name + "]已发送.");
+				} else {
+					var friendRequestVO:FriendRequestVO = new FriendRequestVO(vo.friend_info);
+					acceptFriendArr.unshift(friendRequestVO);
+					if(WindowManager.getInstance().isPopUp(acceptFriendPanel))
+					{
+						acceptFriendPanel.setFriendList(acceptFriendArr);
+					}
+					else if(GlobalObjectManager.getInstance().getLevel()>11)
+					{
+					}
+				}
+				
+			} else {
+				Tips.getInstance().addTipsMsg(vo.reason);
+			}
+		}
+
+
+排行榜数据将在"+HtmlUtil.font("整点","#e3d823 ")+"刷新";
+第一职业 称号每天23点发放
+称号发放时不计算称号本身战力
+
+
+st5 todo:
+boss界面：
+1、boss信息 
+*前往按钮
+2、个人boss 
+*怪物形象
+3、组队boss
+*密码功能 --\/
+*创建队伍界面 --\/
+*TeamBossSubView中 队伍等待界面 --\/
+*处理协议team_boss_info_toc type=3, 4, 6 -- 信息更新，删除，加入      --\/   
+*bug 打开TeamBossSubView 请求了 两次info_tos, 界面开关两次，资源报错 ,由于self.request 的值是nil       --\/ teamBossSub.plist资源引用计数还是不对
+4、boss积分
+*测试功能 --\/
+5、红点提示
+                            
+
+m_dabao_fb_info_toc  DaBaoOutlineController
+
+
+
+好友
+1、
+2、窗口聊天
+
+
+组队：
+1、附近队伍的加入
+2、我的队伍的加入 跳转到附近队伍页面 --\/
+3、只显示可加入队伍 -- \/
+4、附近玩家的team_id数据来源？
+
+
+技能
+1、 基础技能经验 var exp:int = TreaExchargeModule.getScore( _scoreId );
+2、制药技能经验获得
+3 学习技能
+4、主界面的技能 根据快捷键的数据来显示
+5、原来用DataGlobal.skill_list访问配置数据的地方需要 改成 gameconfig.skillVO , 
+	DataGlobal.skill_list只保存了服务端的数据 skill_id, skill_lv
+6、处理 EventType.SKILL_OPEN事件
+
+1、屏蔽设置 具体功能还没做 
+2、新手指南 event:open界面  抛送事件到ConfigEventController --\/
+3、折叠视图加上滚动条
+
+
+
+技能设置-- \/
+奥义技能  学习、未学习（检查背包）
+
+揺财树
+
+----------------  ST5 常用的接口
+1、 背包中是否有某道具  typeid
+DataGlobal.bag:getKindOfGoodsModelByTypeid(config.item1).p_goods.num
+
+----------------
+
+----------------  ST5的UI控件
+1、标签
+ui.UITabBar.new({
+示例：
+----- 纵向：NewerGuideView
+local btnNameImgs = {
+    "#newerGuide/wysj.png",
+    "#newerGuide/wyzb.png", 
+    "#newerGuide/wyzq.png", 
+    "#newerGuide/wybq.png", 
+    "#newerGuide/zdjq.png", 
+}
+    self.index = 1
+
+    -- 从上到下
+    self.tabbar = ui.UITabBar.new({
+        -- labels = {"强化", "升华", "合成"},
+        images = {normal = "#common/menuBtn1.png", off = "#common/menuBtn1.png", on = "#common/menuBtn2.png"},
+        btnNameImgs = btnNameImgs,
+        direction = ui.UITabPanel.DIRECTION_VERTICAL_TOP,
+        btn_size = cc.size(145, 61),
+        is9Sprite = true,
+        size = cc.size(145, 47),
+        defaultSelected = self.index,
+    })
+    self.tabbar:setContentSize(400, 100)
+    self.tabbar:onButtonSelectChanged(nil, function(event)
+        yzjprint("== self.tabbar:getSelectedIndex()  =", self.tabbar:getSelectedIndex())
+        self:updateTablView(self.tabbar:getSelectedIndex())
+    end)
+    ui.addChildAuto(self.layout, self, self.tabbar, "tabbar", 0, 0)
+
+----- 横向：ForgeBaseView
+
+2、按钮 
+自定义大小的按钮
+ui.newCustomButton({normal="#chat/pos.png"},nil,nil,nil,nil,cc.size(65,65))
+
+3、弹窗 NewerCellView.lua
+ local function onNoHandler()  -- 取消                       
+    end 
+
+    local function onYesHandler() -- 确定
+        BossFBController.m_team_boss_roll_tos({id = self.id, type = 2}) -- 放弃
+    end 
+
+    ui.createAlertView(
+        {{"取消", onNoHandler}, {"确定",onYesHandler}},
+        false,"sureBtn","放弃摇色子》?", nil, true)
+
+local view = ui.createAlertView({
+				{"确定", function() TimerBuyController.m_timer_buy_fetch_tos()end},
+				{"取消", function()end}
+			}, false, nil, "是否确定消耗" .. self.info.cost_gold .. "钻石开启次礼包？", nil, true)
+
+----------------  
+
+
+合成：
+折叠控件优化： --\/
+1、加上滚动条
+2、修复bug，scrollView下的container大小不正确, getContentSize()之后直接不见了，
+	看c++ cc.Node:getContentSize的源码，是否调用了setContentSize 	--\/ 不重写setContentSize 就解决了
+
+强化:
+1、显示部位当前和下级属性 (配置表有问题 --\/) --\/
+2、勾选使用元宝 （元宝消耗）--\/
+3、增加getPower强化战斗力 --\/
+4、显示人物对应部位的装备 -- no need X
+5、显示每个部位的强化等级 -- \/
+6、显示消耗铜币， 监听铜币值变化
+7、调试强化功能，事件EQUIP_SLOT_UPDATE_SINGLE刷新界面 --\/
+8、自动选中可强化的部位 --\/
+9、点击角色身上装备 显示对应部位所加成的（强化）（升华）属性
+
+
+DataGlobal.bag:getAllEquipGoods(GameUtil.exceptEquipTblInForge())
+
+
+
+//================= 装备部位培养 =================
+//ModuleID=44
+//MethodID=5643
+//Mprotona=equip
+message m_equip_slot_foster_info_toc{
+repeated p_slot_foster datas = 1;
+}
+//ModuleID=44
+//MethodID=5644
+//Mprotona=equip
+message m_equip_slot_foster_tos{
+required int32 type        = 1; //1:部位强化 2:部位升华
+required int32 slot        = 0; //哪个部位
+required bool  is_use_gold = 0; //是否使用元宝购买成功率
+}
+//ModuleID=44
+//MethodID=5644
+//Mprotona=equip
+message m_equip_slot_foster_toc{
+required int32 type          = 1; //1:部位强化 2:部位升华
+required bool is_succ        = 2;    //是否成功
+required p_slot_foster data  = 3;
+}
+//================= 装备部位培养 =================
+
+
+
+
+工具流
+----------------  添加协议
+1、在svn/config/trunk/proto目录下的game.proto添加协议的定义
+如：
+//ModuleID=5
+//MethodID=529
+//Mprotona=role2
+message m_role2_kkapk_tos{
+    required string uid = 1    ;
+}
+
+2、用 tools/ proto_generator生成 : ccprotoMember、ccproto 和 ccProtoName lua文件, 提交到mobile对应目录中
+
+
+
+----------------  svn密码
+yuzhenjian
+50J0fdaMeDkvdSTVK
+1BYq4aZYIXc190Xd20
+
+----------------  项目的svn地址和hosts配置
+C:\WINDOWS\system32\drivers\etc
+
+113.107.88.28  st5.svn.com
+113.107.88.28  t5.svn.com
+
+svn://st5.svn.com:2712/config
+svn://st5.svn.com:2712/mobile
+
+svn://t5.svn.com:2708/client/trunk
+svn://t5.svn.com:2708/client/elements
+svn://t5.svn.com:2708/cehua/
+svn://t5.svn.com:2708/client
+svn://t5.svn.com:2708/server
+
+172.22.0.43 	www.t5-debug.com
+172.22.0.43 	static.t5-debug.com
+172.22.0.43 	help.t5-debug.com
+172.22.0.43 	bugs.t5-debug.com
+
+113.107.166.160 help.t5-release.com
+113.107.166.160 www.t5-release.com
+113.107.166.160 static.t5-release.com
+
+http://www.t5-debug.com/user/test.php
+
+-- st5发布地址
+http://172.22.0.34/publish/
+-- s5服务器列表 admin 123456
+http://s5.debug.serverlists.com/index.php/Admin/Index/index.html
+
+
+这两个是st5的页游分支，下面这个是可以连开发人员服的地址
+http://s5.release.jooyuu.com/user/test.php
+http://st5.branch.jooyuu.com/0.1.3/Main.html
+
+--- 
+以下是分支，其中0.1.3这个是版本，地址跟着变，以后自己改这个版本就行
+http://s5.release.jooyuu.com/user/test.php
+http://st5.branch.jooyuu.com/0.1.3/Main.html
+
+以下是主版本
+http://debug.s5.jooyuu.com/user/test.php
+http://s5.logs.jooyuu.com/client/publish/Main.html
+分支和主版本都有两个地址，其中一个是模拟跟外服一样流程的，一个是可以自由选择连开发人员服的，但本质上是一样的
+
+st5常用地址汇总
+http://s5.logs.jooyuu.com/st5address.html
+
+版本已打好
+配置地址svn://st5.svn.com:2712/release/jooyuu_qq_shenzuo_platform/config/1.0.0.5299
+手游版本1.0.0.5299
+页游版本0.1.4
+看下打版本时的版本号，记得合并
+
+
+外服用的包，模拟升级，测试用的
+svn://st5.svn.com:2712/version/windows/release
+-- svn 迁移
+http://st5.svn.com:8888/st5/config
+http://st5.svn.com:8888/st5/mobile
+http://st5.svn.com:8888/st5/release
+http://st5.svn.com:8888/st5/version/windows/release
+
+分支地址
+http://st5.svn.com:8888/st5/release/jooyuu_qq_shenzuo_platform/code/0.1.8 
+
+
+--- a1 svn迁移后
+http://a1.svn.com:8888/a1/mobile
+http://a1.svn.com:8888/a1/config
+http://a1.svn.com:8888/a1/server
+http://a1.svn.com:8888/a1/client/trunk
+http://a1.svn.com:8888/a1/client/elements
+
+svn密码
+yuzhenjian
+1BYq4aZYIXc190Xd20
+
+http://fusion2sdkadmin.kkuu.com/
+120.92.225.218 fusion2sdkadmin.kkuu.com
+
+融合2.x后台账号
+yuzhenjian
+密码 yuzhenjian123
+
+备用的分界线:
+----------------  

@@ -1,0 +1,7751 @@
+﻿了解并写炉石脚本lua python ? 并没有提供api
+抓取内存地址
+按键精灵、autoHotKey
+ce修改器
+炉石兄弟
+
+
+makefile 那个，你需要的是 $(wildcard test*.c)
+
+goagent翻墙
+
+
+项目流程：
+1、AI行为树的工具
+2、自动化回归测试, 
+3、脚本虚拟机profile程序性能监测,Valgrind
+4、异步，函数挂起，等待资源/数据加载完后再调用
+
+android 4大组件
+
+
+CCFileUtil.cpp
+class DictMaker : public SAXDelegator
+
+1、使用lua实现一遍解析plist文件， 参考 cocos2dx 源码 DictMaker tMaker; return tMaker.dictionaryWithContentsOfFil
+    static void startElement(void *ctx, const CC_XML_CHAR *name, const CC_XML_CHAR **atts);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static void endElement(void *ctx, const CC_XML_CHAR *name);
+    /**
+     * @js NA
+     * @lua NA
+     */
+    static void textHandler(void *ctx, const CC_XML_CHAR *name, int len);
+
+2、编译原理书籍
+3、unity 5.x
+4、git wuyinjie's https://github.com/Manistein
+5、用QT开发工具， 为项目定制工具
+	e.g. texture packer
+6、饥荒源码
+7、显示目录结构的图片, 目录下可以加上readme.txt文件， 显示在最后，没有readme文件默认翻译文件夹的名字(http://www.cnblogs.com/BeginMan/p/3644283.html)
+
+├─bin  二进制程序文件
+├─data 数据目录
+│  ├─anim             放置动画
+│  ├─bigportraits     人物肖像纹理
+│  ├─fonts            字体文件
+│  ├─fx               好像是用来放置于天气相关纹理的
+│  ├─images           主要纹理放置目录
+│  ├─levels           放置地皮纹理
+│  ├─minimap          地图图标
+│  ├─models           未知，猜测与洞穴有关
+│  ├─scriptlibs       一些用lua实现的库，用来网络通信与json字符串处理
+│  ├─scripts          主要的lua脚本目录
+│  │  ├─behaviours        控制行为*
+│  │  ├─brains            大脑AI*
+│  │  ├─cameras           相机，用来控制玩家所能看到的视野*
+│  │  ├─components        组件，一组通用的，用来描述物品的代码*
+│  │  ├─languages         语言文件，国际化用的
+│  │  ├─map               地图相关代码*
+│  │  │  ├─levels             世界模式，有生存，冒险，洞穴等等
+│  │  │  ├─rooms              Room
+│  │  │  ├─static_layouts     静态布局  
+│  │  │  └─tasks              Tasks，上面那些具体去看博客
+│  │  ├─nis               卖萌用的，直接在命令行运行，有只会动的大象^.^
+│  │  ├─prefabs           定义世界里所有的物品
+│  │  ├─scenarios         场景，也就是贴吧所说的彩蛋
+│  │  ├─screens           界面*
+│  │  ├─stategraphs       状态机或状态图，用来和AI一起控制动物（和植物？）的运动
+│  │  └─widgets           界面小部件（按钮，文本框etc.）*
+│  ├─shaders          未知
+│  └─sound            声音
+└─mods 插件放置目录
+
+
+
+jit  JIT编译器，英文写作Just-In-Time Compiler，中文意思是即时编译器
+JIT编译器能够将MSIL编译成为各种不同的机器代码，以适应对应的系统平台，最终使得程序在目标系统中得到顺利地运行。
+
+
+http://gad.qq.com/article/detail/7151532帧同步
+http://gafferongames.com/networking-for-game-programmers/what-every-programmer-needs-to-know-about-game-networking/同步机制概要
+http://www.gameres.com/478430.html
+http://www.skywind.me/blog/archives/131帧同步算法
+http://www.skywind.me/blog/archives/112同步法则
+http://www.skywind.me/blog/archives/1145航位推测法变种
+http://www.gamasutra.com/view/feature/3230/dead_reckoning_latency_hiding_for_.php航位推测法
+http://www.gamasutra.com/view/feature/3227/designing_fastaction_for_the_.php动作游戏同步机制设计
+http://www.gamedev.net/page/resources/_/technical/multiplayer-and-network-programming/defeating-lag-with-cubic-splines-r914
+
+
+
+resu record 
+
+todo：
+1、查看终端打印的网络交互模块 --\/ CCLuaStack 中print绑定lua_print 函数，使用socket发送到终端ip，第一次会自动连上终端， CCLOG有打印到eclipse功能, 再没连上终端时调试会麻烦
+
+2a、 数据结构
+2b、a*算法，寻路的大小根堆，快速、冒泡排序
+
+冒泡排序 稳定，两次循环逐个对比交换
+选择排序 找最大，放到第i位置
+插入排序  不稳定 遍历i = 1 to len， 保存i的值temp ， 遍历j= 1 to i-1, 比较大小j元素向i移动，直到不符合顺序
+void insert_sort(int*array,unsignedintn)
+{
+int i,j;
+int temp;
+for(i=1;i<n;i++)
+{
+temp=*(array+i);
+for(j=i;j>0&&*(array+j-1)>temp;j--)
+{
+*(array+j)=*(array+j-1);
+}
+*(array+j)=temp;
+}
+}
+二叉树排序  构建二叉树，从做导游遍历节点即是排序，构建后方便查询
+快速排序
+
+
+
+3、用fusion sdk工具一键生成项目，整理bat需求
+4、地图切割、绘制，人物行走时地图绘制逻辑 --SceneView:centerView
+5、复查简历，针对每个文字为可能提到的问题作准备
+6、c++基础，看绿皮书
+7、redis键值型数据库、mssql导入到项目中 lua中使用，参考ejoyworlds项目
+8、ccScrollview的封装 --\/继承了 ccclippingNode, 提供回调create update selected 、接口flushView
+9、扫码功能接入，
+10、baidu地图sdk接入，附近玩家
+11、编写python 加上ui.addplist判断  openview return
+
+
+
+lua 源码：
+string：
+少于40个字符的string会被重用
+checks whether short string exists and reuses it or creates a new one
+table:
+get 连续数组内 直接索引 ，key或者不连续索引中  链表中查询
+newkey 没有空余空间会重hash
+find: First goes allelements in the array part, then elements in the hash part
+
+
+cannot get data of main.lua 
+LUA_PATH
+;f:\Program Files (x86)\Lua\5.1\lua\?.luac
+改为：
+;;f:\Program Files (x86)\Lua\5.1\lua\?.luac
+就可以了
+
+LUA_DEV
+F:\Program Files (x86)\Lua\5.1
+
+
+
+coc建筑单位阻挡算法，排序
+四方形的建筑可以使用射线扫描优化，每个单位建立一样44*44的数据图 重绘O(n) 查询O(1)
+
+
+
+
+引入并使用数据库
+
+A*寻路算法：
+1、一堆怪物寻路过程中不重叠在一起，像coc cor 动态阻挡
+2、目标有站位圈，怪物群分布在站位圈上进行攻击，cor的小骷髅
+3a、怪物群寻路中 要先进行预判，x单位时间内的碰撞结果 来判断是否发生碰撞
+3b、怪物群寻路中 要先进行预判，再行进方向一定距离内作射线检测、 来判断是否发生碰撞
+4、发生碰撞时，重新寻路
+http://blog.codingnow.com/2014/01/routemap.html
+云风的blog介绍了coc的寻路
+
+
+
+
+
+
+广州简悦2011年成立 ，上线项目有：天天来战，陌陌争霸，暴击英雄等 
+  U3D客户端 服务器开发工程师（木有语言限制） lua开发工程师
+网站：www.ejoy.com 
+talent@ejoy.com 招聘邮箱，双休 福利齐全 珠江新城 13薪 项目奖金  最高薪酬15-20K 欢迎来M
+
+
+
+apktool dex2jar gui反编译套装
+
+畅游
+工作内容/职位描述：
+1、参与公司项目组项目制作 
+2、能与人良好沟通，了解与改进参与的项目。 
+3、面对困难具有挑战性，能在面临困难问题的时候有独立解决问题的能力 
+4、较强的学习能力，不断学习新的技术，使项目不断往更好的技术发展。 
+5、熟悉Cocos2D引擎的使用，能够攻克技术难关
+任职资格：
+1、负责Cocos2D游戏的内容模块开发； 
+2、能承担起独立模块的研究与开发工作，并能制作相应工具是相关人员能配合实现效果； 
+3、2年以上游戏开发经验，1年以上Cocos2D开发经验，完整参与过至少一款游戏项目； 
+4、熟悉C++或者C，对lua语言有一定了解，对数据结构、算法、性能优化有一定的了解； 
+5、能承受工作压力，心态积极向上。
+
+cocos键盘事件 lua
+local function onKeyPressed(keyCode, event)
+        --        local buf = string.format("Key %d was pressed!",keyCode)
+        --       ccprint(buf)
+        Dispatcher.dispatchEvent(EventType.KEYBOARD_PRESS, keyCode)
+    end
+
+    local function onKeyReleased(keyCode, event)
+        --        local buf = string.format("Key %d was released!",keyCode)
+        --        ccprint(buf)
+        Dispatcher.dispatchEvent(EventType.KEYBOARD_RELEASE, keyCode)
+    end
+
+
+
+    if self._keyboradListener then
+        eventDispatcher:removeEventListener(self._keyboradListener)
+    end
+    self._keyboradListener = nil
+    local listenerkeyboard = cc.EventListenerKeyboard:create()
+    listenerkeyboard:registerScriptHandler(onKeyPressed, cc.Handler.EVENT_KEYBOARD_PRESSED )
+    listenerkeyboard:registerScriptHandler(onKeyReleased, cc.Handler.EVENT_KEYBOARD_RELEASED )
+
+
+
+-- 元表方式检查新增的全局变量
+-- if GameGlobal.isDebug and GameGlobal.targetPlatform == cc.PLATFORM_OS_WINDOWS then
+-- 	local globalTab = {} 
+-- 	local mt    = {
+-- 	    __newindex =  function (t ,k ,v)
+-- 	        if not globalTab[k] then 
+-- 	            -- if type(v) == "function" then 
+-- 	            --     --gprint("_G->函数：",k)
+-- 	            -- elseif type(v) == "table" then 
+-- 	            --     --gprint("_G->表名：",k)
+-- 	            -- else 
+-- 	                gprint("===== 新增加全局变量名:" .. k ..  "（"  .. type(v) .. "）" )--.. tostring(v))
+-- 	            -- end 
+-- 	        end
+-- 	        globalTab[k] = v 
+-- 	        rawset(t, k, v)
+-- 	    end
+-- 	} 
+-- 	setmetatable(_G,mt)
+-- end
+
+--- windows上调试不同分辨率
+ glview = GLView::createWithRect(title.c_str(), Rect(0,0,viewSize.width,viewSize.height));
+st5中修改config.json的
+    "width": 1280,
+    "height": 720,
+
+s2中修改GameConfig.lua的
+
+wndRect = cc.rect(0,0,1136*0.8, 640*0.8),
+
+一项长线收入，就这样被买断了
+1、定制英语计划
+2、敏成人高考
+3、Unity lua demo
+4、actGame demo
+5、github answer question
+
+2016年新个税起征点3500
+级数	税率(%)	速算扣除数
+3	20	555
+公式：其应缴个人所得税=（工薪收入-个人缴纳的四险一金金额-个人所得税扣除额3500）*税率-速算扣除数
+我的计算： 10000-((10000-270.67-250-3500)*0.2-555)-270.67-250
+
+todo：
+2、kkuu 平台， role_add_tos的时候，发送了"arpg"到后端，可是配置中没有arpg项,  channelNumber的值是arpg 赋值到platform中去了 --\/后端用其他值
+3、扫码的工程 也支持kkuu的接口 和登录方式 -- 不需要
+调试方法：修改channelNumber = "kkuu", config.json中platform = "kkuu"
+4、saomabangding工程的 支付方式 待定
+5、扫二维码 需要加上版本号判断ScanQRCode，ScanLogin 
+6、摄像头权限，要玩家点击允许才能运行。点击“禁止”就没反应或者闪退 ,是否能自定义权限，permission protectionLevel设为普通 -- 陈智在
+
+----- 获取服务器列表的url 格式：
+http://172.22.0.33/debug//newnewserverlists.php?platform=kkuu&channelnumber=all&device=android&version=1.0.1.20140
+
+
+
+---- win显示环境变量 保存到txt文件下
+set >> d:\environment.txt
+
+to review:
+1、xlrd , the server python config tools
+2、build python in sublime (windows set system path/ mac how)
+3、
+
+
+1、收到icon 请求festival
+2、收到festival 处理关闭界面等
+3、收到celebration_toc返回 才创建界面内容
+4、副本中机上元宝炸弹图标 mainui_goldbomb.png
+
+
+
+1、停止重连 --\/ 
+2、账号过期是返回哪一条协议m_role_auth_toc err_code == 3003
+
+看
+
+
+
+
+公司
+svn://svn.kkuu.com:3711/client/android/qrLogin4SDK_release
+
+
+1、图标出现后端加上协议控制 --\/
+2、token超时 返回qr_code  重新扫描 --\/
+3、点击切换账号后，NetManager.停止自动尝试登录账号 --不需要 --\/
+
+
+
+{PlatformName,AccountName,RoleID}={"debug",<<"cyc005">>,10001000061}. 
+rp(mod_qrlogin4sdk:getUrlByAccount(PlatformName,AccountName,RoleID)).
+
+到时你直接转发这两行代码给他们，让他们在debug外服1上帮你执行，把结果发给你。
+
+
+1、保存accountInfo到本地UserDefault.xml --\/
+2、有信息 直接选中服，--\/
+3、无信息或二维码超时，则重新扫码 --\/
+4、可选选服 选服后修改 CommonConfig.ip, CommonConfig.port 登录-- \/
+5、切换账号按钮-- \/
+6、美术资源
+
+
+
+
+接口都放在xxxPlugin 里面
+子模块 创建时 传入xxxPlugin的实例。调用它提供的接口
+
+problems：
+xxxPlugin 等全是全局变量
+没有用到事件，xxxPlugin不是对象，需要提供onEnter/onExit，监听和取消监听只能放在当中去
+使用了很多EventDispatcher
+
+
+全局对象需要统一放在一个地方
+
+接口名字不统一
+互相引用调用
+
+
+
+
+1、serverid 获取服务器信息的方式是正则匹配，不便于测试，newFormatUnpack_2 中直接加上 server_id的字段
+2、下载apk包，放到http服务器
+3、多个平台，新建多个工程 kkuu_qrlogin, qq_qrlogin 不需要，直接用原来工程
+4、登录界面 是否需要将LoginViewQR 分离-- 不需要赋值额外的代码，已改回来，都写在loginView中好 --\/
+
+
+根据版本号等 获取 服务器列表
+扫码 获得serverid
+从服务器列表中匹配对应 服务器信息，
+获得并保存 服务器的ip 和端口
+连接socket
+发送登录协议
+
+
+if not self.serverList or #self.serverList <= 0 then
+            gprint("=== no self.serverList ")
+            return
+        end
+        printTable(self.serverList)
+
+
+
+if not pcall(function()
+                    local num = string.gsub(self.severNameStr, "%D", "")
+                    GameGlobal.server_name = self.currentServerInfo[1]
+                    CommonConfig.serverId = tonumber(num)
+                end) then
+                    CommonConfig.serverId = 0
+                    gprint("服务器名称错误，分离不出服务器id")
+                end
+
+
+["Functions.lua":1816]	== if AndroidMessageQueue then ==
+table: 0x79f7c680 = {
+	[1] = 11,
+	[2] = debug,
+	[3] = cyc005,
+	[4] = 1,
+	[5] = 10001000061,
+	[6] = jytk_87ef4fc98f9d4db5a6675319824fb7da,
+	[7] = 1457756257,
+}
+["LoginController.lua":549]	======================  onQRLoginHandler 
+ble: 0x79f06150 = {
+sdk_channel = ,
+client_version = 1.0.1.9999,
+os_type = 0,
+fac_no = A08354CA4C9DF02E583BE52976297443,
+	iostoken = ,
+	login_platform = debug,
+	extra_params = {
+	}
+	ccencode = function: 0x79ed8258,
+	channel_tag = debug,
+}
+
+测试代码 -- for tesing
+
+
+
+新建android工程： s3
+拷贝已有工程，并在主版本上的res/platform/目录中 加上工程名字的对应目录, 
+e.g. proj.android_qrlogin 需要加上res/platform/qrlogin目录
+编译成功
+
+
+在android工程目录下 运行命令
+F:\cocos\ADT\sdk\tools\android update project --path .
+生成build.xml文件
+
+
+lua中json串
+json.encode()
+json.decode()
+
+element拥有一个状态机，记录要切换的动作，当前、下一状态 , 向AnimNode执行
+AnimNode提供接口给element，得到当前状态，return model.name ( attack、stand、skill )
+当前帧的状态：1、是否可以马上切换
+
+animNode
+
+
+tab = {0, 1, 0, 1, 4, 3, 0, 1, 0}
+for i = 1, 100000 do
+    local isRet = true
+    for j = 1, 9 do
+        if i % j ~= tab[j] then
+            isRet = false
+            break
+        end
+    end
+    if isRet then
+        print(i)
+        break
+    end
+end
+
+
+todo: changAction; walk path; set key frame and do collision test etc
+todo:关键帧 处理碰撞和连招 (连续处理attack123的动作)
+
+todo:
+实现一个链表(循环接口)用于 （增删更快）
+EventManager(有调用顺序要求) 目前用的是ipairs
+FightView(elementList) 循环中多次清空( = nil), 会引起for循环是key-value出错的问题
+TimeManager -- 不用生成timerKey了
+
+
+element
+role -> animSpr
++ skill(target, data)
++ attack(target, data)
++ stand()
++ walk(pos)
+- onLoop()
+****
++ data (hp mp)
+
+AnimManager(1)->(n)animSpr
+animSpr
++ curFrame
++ curIndex
++ maxIndex
++ loopTime
+
+
+
+
+
+
+
+连接字符串使用table.concat(t)，速度快
+
+完善TimerManager,  AnimManager增加loop，用Role创建一个角色
+状态机
+
+
+0、整理资源
+每一帧动画处理
+
+
+1、帧动画AnimManager
+负责帧动画播放
+接口：
+create(resName) return anim
+play(actionType)
+setCallback(callback)
+
+内部实现：
+2、架构
+Element 包含 一个 AnimManager创建的anim实例
+Element:
+onFrame
+hurt
+attack
+move
+releaseSkill
+
+
+
+
+
+
+==== 粒子
+local function newParticle(param)
+    if type(param) == "string" then
+        param = {path=param}
+    end
+    local par = cc.ParticleSystemQuad:create(param.path)
+    par:setAutoRemoveOnFinish(true)
+    if nil ~= param.time then
+        par:setDuration(param.time)
+    end
+    if nil ~= param.num then
+        par:setTotalParticles(param.num)
+    end
+    return par
+end
+gui.newParticle = newParticle
+
+
+memery leak 内存泄露检测工具:
+valgrind或者bounder checker
+
+
+
+
+--- module的实现， 相当于以下代码
+local modname = “mymodule”     – 定义模块名  
+local M = {}                               -- 定义用于返回的模块表  
+_G[modname] = M                      -- 将模块表加入到全局变量中  
+package.loaded[modname] = M    -- 将模块表加入到package.loaded中，防止多次加载  
+setfenv(1,M)                               -- 将模块表设置为函数的环境表，这使得模块中的所有操作是以在模块表中的，这样定义函数就直接定义在模块表中  
+
+
+
+$(OutDir)../arpg/runtime/win32/$(TargetFileName)
+$(OutDir)../arpg/runtime/win32
+
+
+编译s3工程时报错
+LINK : fatal error LNK1104: cannot open file 'pthreadVCE2.lib'
+解决方法：项目》属性》链接器》常规》附加库目录》把cocos2d的Debug.win32目录加入进去，之后就能编译过去了。
+pthreadVCE2.lib在以下目录:
+F:\s3_svn\frameworks\runtime-src\Classes\lib
+
+========== lua 的继承extend
+function MyPlayer.extend(target)
+    local t = tolua.getpeer(target)
+    if not t then
+        t = {}
+        tolua.setpeer(target, t)
+    end
+    setmetatable(t, MyPlayer)
+    return target
+end
+local layer = MyPlayer.extend(cc.Node:create())
+layer:init()
+
+
+
+s2本地保存了上次的服务器地址（id 端口）
+合服活动 多扣会发生变化
+改为只记录上次服务器id，其他信息每次从服务器重新获取
+http://dszy.jooyuu.com/api/app.php?p=huawei&v=19854&s=3
+-- s=3表示本地记录上次登录的是3服
+
+["UpdateFirstView.lua":70]      http://s2release.jooyuu.com/api/app.php?p=window
+s&gameEnName=other&v=888888
+thread start...
+
+["Function.lua":544]    table: 0x01eefea0 = {
+["Function.lua":533]            surl = http://s2release.jooyuu.com/api/server_li
+st.php?p=windows,
+["Function.lua":533]            iurl = ,
+["Function.lua":533]            server_status = 1,
+["Function.lua":515]            defaultServer = {
+["Function.lua":533]                    [1] = 1,
+["Function.lua":533]                    [2] = debug,
+["Function.lua":533]                    [3] = 1,
+["Function.lua":533]                    [4] = 172.22.0.29,
+["Function.lua":533]                    [5] = 443,
+["Function.lua":518]            }
+["Function.lua":533]            uurl = http://s2release.jooyuu.com/,
+["Function.lua":533]            lua_ver = 20510,
+["Function.lua":533]            aurl = ,
+["Function.lua":533]            cpp_ver = 2,
+["Function.lua":548]    }
+
+
+
+
+amreabi
+amreabi-v7a
+
+当乐sdk:
+com.jooyuu.dszy.dangle
+登录成功把userName 和loginToken都传到lua
+
+有玩sdk： --\/
+重新登录的时候
+先注销实例
+1、有玩工程名字
+2、和后端调试支付
+3、测试自动化
+
+语音问题：
+"你查一下你的语音参数 8k/16k 采样率 16bit 位深的单声道语音"
+看换一换amr的参数，是否能识别成功
+音频参数改成显式的AMR_NB就成功识别了（之前是DEFAULT） --\/
+
+
+
+
+1、语音识别错误 ，看看录音功能，和录音文件播放是否正确 --\/
+录音路径再
+10-20 19:45:50.555: D/s3arpg(14537):  record voice start path = /storage/emulated/0/voice/5.amr
+
+2、识别语音上传问题？
+10-21 10:21:39.082: I/System.out(13335):     "err_msg": "recognition error.",
+
+10-21 10:21:39.082: I/System.out(13335):     "err_no": 3301
+
+语音文件上传参数不对？
+10-21 14:49:25.096: E/voiceUrl =(31205): http://vop.baidu.com/server_api?lan=zh&cuid=357357050960759&token=24.b22b9202a6c190c57624d7da2c604769.2592000.1445591389.282335-6495230
+ -- 还是不行
+
+3、cuid的问题？ --\/ 三星的正常
+s3的
+10-21 11:11:05.277: E/voiceUrl =(14807): http://vop.baidu.com/server_api?cuid=null&token=24.b22b9202a6c190c57624d7da2c604769.2592000.1445591389.282335-6495230
+
+s2的
+小米平板上
+10-21 12:15:02.817: E/voiceUrl =(15617): http://vop.baidu.com/server_api?cuid=null&token=24.2b3406d26e420a95a74c966d6eea6be1.2592000.1447985831.282335-6483221
+
+三星s4上
+10-21 13:04:29.396: E/voiceUrl =(6124): http://vop.baidu.com/server_api?cuid=357357050960759&token=24.7115fdb9a921c97134d4843fef6ce0f4.2592000.1447993874.282335-6483221
+
+仍然失败
+
+4、账号问题 过期 问康姐
+
+
+
+2、将config目录下的gameCore 赋值到 src目录下的 gameCore
+
+1、修正s3的语音功能
+2、
+看s3代码
+获取条件
+新手引导
+全局变量赋值 gameConfig 、Dispatcher 、AnimationManager、NotifyOnScreen、 DataGlobal/
+manager初始化： src\gamecore\manager\__init__.lua --Dispatcher，PanelManager, EventType
+controller初始化： \src\gamecore\modules\__init__.lua
+gameconfig.itemVO赋值： src\gamecore\config\auto\itemVO.lua
+
+enter.lua
+最开始加载的 ：src\gamecore\__init__.lua
+util初始化：src\gamecore\common\__init__.lua
+ui初始化“ gamecore/ui/__init__
+LayerManager.alertLayer
+
+
+LoadingView里面加载资源 部分文件 配置等
+Test模块
+GameView layer层的架构
+template目录下 很多xml文件 用于加载资源？
+
+GameGlobal.director = cc.Director:getInstance()
+GameGlobal.application = cc.Application:getInstance()
+--GameGlobal.scheduler = cc.Director:getInstance():getScheduler()
+GameGlobal.astar = ccarpg.MCAstar:getInstance()
+GameGlobal.msd = ccarpg.MessageDispatcher:getInstance()
+GameGlobal.mcm = ccarpg.CcarpgMcm:getInstance()
+
+战斗相关，飘字
+
+layerout 布局工具 ui.newLayoutUtil
+
+
+改进与不同：
+1、目录结构 s2的独立work目录，开发运行exe不需要编译c++
+2、s3数据model是class ，s2是xxData 是module
+3、s3的控制台用tools输出
+
+请相关人员收藏s6相关信息
+添加hosts
+172.22.0.44 s6debug.serverlists.com
+113.107.166.234  s6.svn.com
+172.22.0.10  s6.cqsvn.com
+172.22.0.44 s6.serverdebug.com
+115.236.47.104 s6.serverrelese.com
+
+策划svn://s6.cqsvn.com:8012/cehua
+配置svn://s6.svn.com:3712/config/trunk
+客户端代码(策划权限)svn://s6.svn.com:3712/mobile/trunk
+服务器代码(策划不用管这个)svn://s6.svn.com:3712/server/trunk
+
+debug开服后台http://s6debug.serverlists.com/index.php/Admin/Login/login.html
+
+前端发布地址
+http://172.22.0.44/publish/
+
+debug服后台地址
+http://s6.serverdebug.com/admin/index.php
+管理员账号密码
+root
+dpcqCP9NVCq
+
+
+release服后台地址
+http://s6.serverrelese.com/admin/index.php
+管理员账号密码
+root
+dpcqCP9NVCq
+
+S3的svn
+svn://s3.svn.com:3693/config
+svn://s3.svn.com:3693/mobile
+svn://s3.cqsvn.com:8011/cehua
+svn://s3.svn.com:3693/release  （分支，现在分支没有采用svn库标准的方式，而是一个新的库）
+113.107.166.234  s3.svn.com
+
+
+MD5 : C8:22:48:7C:9D:8C:B6:FA:40:4C:69:6A:72:BA:21:1B
+SHA1: F3:55:4B:EF:13:7F:36:48:E1:64:73:BB:A9:FC:CD:5B:CF:70:81:C7
+
+
+    <permission android:name="me.haima.www.permission.READ_BASICDATA" />
+	<permission android:name="me.haima.www.permission.WRITE_BASICDATA" />
+	
+    <uses-permission android:name="me.haima.www.permission.READ_BASICDATA" />
+    <uses-permission android:name="me.haima.www.permission.WRITE_BASICDATA" />
+
+    <uses-permission android:name="me.haima.www.permission.READ_BASICDATA" />
+    <uses-permission android:name="me.haima.www.permission.WRITE_BASICDATA" />
+
+1、妖兽排序
+助战：
+可激活-未激活（按目录规则）
+目录：
+人物上阵(上阵顺序)-神将上阵(上阵顺序)-人物助战(助战顺序)-神将助战(助战顺序)-品质(星级-等级)
+
+1、ios oc语法， 可以看ios教学的blog
+2、用cocos2dx 3.5创建项目，与enjoyWords对比， 看lua binding的代码
+3、妖兽 获取途径 dontCloseView--\/
+5、学python
+
+
+1、=底框颜色不对 --\/
+2、缘分激活提示 -- 后端改为助战+助战 不激活
+3、缘分进度 --\/
+4、可激活数量 不包括 “助战+助战的” --\/
+5、优化：出战助战的 列表更新后只获取一次
+6、助战有n 外面图标需要n --\/
+7、不会自动适应宽度吗 技能界面 --\/
+
+
+
+0、看用新版本的cocos2dx 还是当前项目的3.2
+1、加入sqlite的4个文件
+2、lua绑定文件
+3、lua绑定sql
+4、在appDelegate中调用绑定的sql方法，加载sql lua的全局变量
+5、lua中调试
+
+
+netSession 中334  self.sendtab[1] = proto.encode(self.sendtab[1])
+Pb.lua 中 encode
+复制数据的最后两个字节（2*8 = 16位）做抑或运算， 添加到数据最后，再发送到后端
+
+-- 参考Pb.lua中的读取4个字节并进行位处理
+local function read4byte()
+	local b1 = string.byte(msg, pos)
+	local b2 = string.byte(msg, pos+1)
+	local b3 = string.byte(msg, pos+2)
+	local b4 = string.byte(msg, pos+3)
+	if b1 and b2 and b3 and b4 then
+		pos = pos + 4
+		local value = b1*(2^24)+b2*(2^16)+b3*(2^8)+b4
+		if b1 >= 1*(2^7) then
+			---negative number
+			return -((2^32)-value)
+		else
+			---positive number
+			return value
+		end
+	end
+	assert("read4byte error")
+end
+
+
+
+
+--- toPython
+使用Python生成配置文件的工具：
+1.Python环境要求：
+	Python（2.7）
+	py2exe (0.6.9)
+	Tenjin (1.1.1)
+	XlsxWriter (0.5.5)
+	xlwt (0.7.5)
+	xlrd (0.9.3)
+
+2.GUI库使用的是wxPython（3.0.0）
+
+3.工程使用的是py2exe来打包的，打包脚本为：setup.py，重新打包后需要复制dist目录下的文件到ConfigTool目录下
+
+4.因为打包环境是win64位系统，因此应该只能在64位系统上运行
+
+5.这个工具需要放在和Excel配置文件相同的目录下，增加要生成的配置要在config/cfg.xml里加上配置项，然后增加对应的配置模板
+
+6.运行工具下的main.exe开始使用！
+
+
+toLearn:
+1、动画管理器
+2、战斗逻辑， 距离、轨迹(抛物线)、速度、受力等数值计算, AI
+3、cocos2dx-3d
+4、财务管理数据库
+5、python编写工具 （数据处理， 导出excel, python AES模块 加密）
+
+
+1、活跃度的开发条件 主界面和标签页的分开配置
+
+1、收到cmd_toc 弹出选择框 改变xml文件 的developName字段
+2、判断是否开发者  读取developName字段 ~=""
+3、获取服务器信息时  如果是开发者，则使用developName 拼装url获取
+4、进入游戏后， 如果是开发者，重新获取充值列表tos
+t2_developer=1
+
+
+
+9.25要热更内容：
+1、招财界面 CaishenView CaishenController ----\/ 合并
+2、签到界面 --\/ 合并
+3、提交两个资源 --\/ 合并
+svn://s2.svn.com:3694/mobile/trunk/work/res/items/bigitems/equips/shenqi/13.jpg
+svn://s2.svn.com:3694/mobile/trunk/work/res/items/bigitems/equips/shenqi/14.jpg
+4、引导任务 --\/ 合并
+
+【开发】增加13、14的神器道具图片 （res/items/bigitems/equips/shenqi/13.jpg）
+【开发】招财10次有勾选“自动使用招财符”时加上提示：“（优先使用招财符）”
+【开发】任务“踏上旅程”引导配置修正
+【开发】登录奖励显示优化，自动翻到未领取的，最少保留4条奖励--\/ AchievementController AchievementView 后端也需要
+
+【测试】修复挑战秘境任务，战斗开始了 任务箭头仍存在的问题
+【开发】副本开始提示弹窗只有开启到X关才弹
+【测试】背包中打开装备才有展示按钮， 展示按钮放中间
+【开发】主界面任务按钮的文字调整；主界面左边的活跃度21关才出现 -- \/ MainUIView TaskData ActiveConfig
+
+大声捉妖问题
+
+1、战斗第二回合定住 --\/
+dbf28182b9d46da9d0121f50c18146b6
+release打25关，普通难度，
+2484 srcElement:changeAction(actions[1],dir,false,true,callback,loopFrame)
+的callback没有成功调用
+某技能需要播放attack动作， 某怪物的资源没有attack的动作帧，所以战斗停住
+
+2、UC充值sdk取消返回 提示了充值成功 --\/
+3、updateConfig的 code  review， 围剿神魔点击领奖按钮爆粗，应该是other更新问题？ --\/ 是lua代码报错的问题
+4、手机上首冲没有弹出首冲奖励 --\/
+
+5、安卓5.1，系统广播不显示内容
+6、从后台返回资源加载失败问题， html变黑
+7、扫荡关卡vip不足的弹窗错误，很多文字
+
+
+s = "2015-09-05 10:35:37"
+for w in string.gmatch(s, "%d+") do
+print(w, type(w))
+end
+lua stirng.gmatch获取字符串中的日期
+
+审核中的sdk:
+haima coolpad vivo anzhi wandoujia
+
+
+战斗界面上方ui出现而且变灰， 新号用gm命令可以重现 t2_fb=30, t2_lv=80
+
+1、妖兽材料获得，YaoshouView上的小+号也要刷新
+
+PFileUploader.cpp
+PFileUploader.h
+以上两个文件编译失败是因为没有添加虚拟目录, (.vcxproj.filters 和 vcxproj)需要提交到svn 
+浩浩交接时说加个空格强制编译 呃
+
+*.sln：(Visual Studio.Solution) 通过为环境提供对项目、项目项和解决方案项在磁盘上位置的引用,可将它们组织到解决方案中。
+比如是生成Debug模式,还是Release模式,是通用CPU还是专用的等
+
+*.suo: (solution user opertion) 解决方案用户选项记录所有将与解决方案建立关联的选项，
+以便在每次打开时，它都包含您所做的自定义设置
+
+
+
+1、cocos2dx 从后来返回有问题（黑框等）
+2、调整游戏的格斗,不挤在一堆
+
+1、看看神将传记挑战后的可激活数
+2、buff飘字效果调整
+3、释放技能时候抬头动画
+4、夺宝任务没有自动触发
+5、buff等级
+6、妖兽不跟随
+
+
+
+华为sdk：
+0、当前是注销并重启游戏,切换手机账号而不是子账号
+1、直接重启游戏(在自动登录的界面中，让玩家自行点击"切换"按钮)
+["UpdateFirstView.lua":70]      http://s2release.jooyuu.com/api/app.php?p=developer&gameEnName=other&v=888888
+
+
+2、调用sdk的切换子账号接口，登录成功后重启游戏, (会自动登录的)
+
+1、一键装备
+2、华为问题
+3、coolpad闪退，提早解决好
+4、技能再妖兽头上飘字FightAction.showNumber
+fightAc.showNumber(srcElement, destElement,aResult.result_value, AttackEffect.ATTACK_EFFECT_ADD_HP)
+fightAc.showEffectType(destElement,aResult.result_value,6)
+
+effect_type的地方 hurt startStepAttack pvpHurt skillResult
+.attk_result
+2546
+elseif aResult.result_type == 9 then-- 减伤 未处理
+
+
+
+乔米米 kelvin账号
+白瑶瑶 默认账号
+kelvin2 huawei2
+
+妖兽技能配置
+
+出面试题：
+lua和c++交互 class实现类 
+lua元表 _G 模块module require preload[] lua的闭包 continue实现
+c++事件机制
+触摸事件传递
+常用类 cc.Sprite 和 cc.Layer（继承了事件) cc.Node CCAction cc.Scene CCApplication AppDelegate 
+常用控件ScrollView的封装
+常用控件进度条 圆形的进度条怎么实现
+设计模式 单例 工厂 MVC 
+算法 
+动画 图片处理 帧动画
+内存管理机制 引用计数
+网络模块
+新的动作类继承CCActionInterval ，实现update方法
+
+
+框架：功能系统 mvc 协议收发、数据处理（配置、后端)、界面更新， 
+事件监听 
+网络 协议解析、上传下载、
+声音
+动画 模型动画，特效动画
+scrollView，tableView
+UI布局，资源打包
+战斗逻辑
+多颜色字体换行表情动画
+sdk
+策划美术资源
+
+
+令狐竹玉 百度手机账号
+xx花 多酷账号
+
+
+
+确认切换账号问题：
+华为 -- \/
+安智 -- \/
+UC -- \/不存在问题
+海马 -- \/
+百度 --\/ 切换平台账号，没有重登，游戏内还是老账号 --\/
+
+豌豆荚 登录两次 -- \/
+
+-- 问题
+1.oppo的apk包在测试机（阿尔卡特）上登录会闪退 --ok
+2.oppo的apk包在小米平板上不显示浮标 --\/
+3.酷派语音识别失败 --\/ 新建线程来请求识别
+4、百度多酷对外QA-焦旭鹏
+问题：1.后台icon与安装包iocn不符，后台icon无角标；2.启动游戏后未显示异常公告。要求在启动游戏后先显示百度logo之后显示异常公告；3.进入游戏后无百度悬浮窗，要求百度悬浮窗正常使用；4.敏感字未屏蔽，请按照百度敏感字表格添加。 --\/
+5、海马部分手机一键注册失败 --ok 运营商的问题
+
+
+-- 再线程中运行
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// 识别返回结果
+				String resultStr = VoiceHttpRequest.getInstance().requestRecognizeHide(file, len);
+				VoiceManagement.getInstance().getVoiceCallBackListener().onResult(resultStr);
+			}
+		}).start();
+
+
+TODO:
+2、问运营酷派的 支付APP_ID和APP_KEY， -- 调试后没问题 \/
+4、酷派充值后台失败  -- \/
+5、360的切换账号重启会闪退 --\/
+6、酷派的充值返回失败黑屏
+7、百度的浮标 -- \/
+8、百度登陆很久 -- sdk问题 \/
+10、酷派个人信息黑屏闪退，资源变黑框，而且回来后 输入框无法使用
+09-04 18:30:57.586: E/cocos2d-x assert(21097): /data/cocos/s2_dev/trunk/frameworks/runtime-src/proj.android_release_test/../../cocos2d-x/cocos//./base/CCEventDispatcher.cpp function:dispatchEventToListeners line:736
+09-04 18:30:57.606: A/libc(21097): Fatal signal 11 (SIGSEGV) at 0xdeadbaad (code=1), thread 21280 (Thread-12907)
+
+11、360的容易登陆无反应 -- ok
+12、oppo的闪退 阿尔凯撒机型 -- 部分非常规问题可能也是不适配导致
+
+
+
+-- 酷派充值
+09-03 21:38:17.618: D/cocos2d-x debug info(26714): ["Function.lua":544]	table: 0x79316b88 = {
+09-03 21:38:17.618: D/cocos2d-x debug info(26714): ["Function.lua":533]		pay_gold = 1,
+09-03 21:38:17.618: D/cocos2d-x debug info(26714): ["Function.lua":515]		pay_arg_list = {
+09-03 21:38:17.619: D/cocos2d-x debug info(26714): ["Function.lua":515]			[1] = {
+09-03 21:38:17.619: D/cocos2d-x debug info(26714): ["Function.*lua":533]				callback_url = http://s2release.jooyuu.com/api/pay_coolpad.php,
+09-03 21:38:17.619: D/cocos2d-x debug info(26714): ["Function.lua":533]				class = p_payment_arg,
+09-03 21:38:17.619: D/cocos2d-x debug info(26714): ["Function.lua":533]				sub_type = 0,
+09-03 21:38:17.620: D/cocos2d-x debug info(26714): ["Function.lua":515]				args = {
+09-03 21:38:17.620: D/cocos2d-x debug info(26714): ["Function.lua":533]					[1] = 1.51c2a973c9e850e4294e6372cf05dbe2.49d3708e2e73a5937cf48f401a68110e.1441286990218,
+09-03 21:38:17.620: D/cocos2d-x debug info(26714): ["Function.lua":518]				}
+09-03 21:38:17.620: D/cocos2d-x debug info(26714): ["Function.lua":518]			}
+09-03 21:38:17.621: D/cocos2d-x debug info(26714): ["Function.lua":518]		}
+09-03 21:38:17.621: D/cocos2d-x debug info(26714): ["Function.lua":533]		order_id = 10101022767_1441287496687,
+09-03 21:38:17.621: D/cocos2d-x debug info(26714): ["Function.lua":533]		pay_type = 0,
+09-03 21:38:17.621: D/cocos2d-x debug info(26714): ["Function.lua":533]		class = m_payment_request_toc,
+09-03 21:38:17.621: D/cocos2d-x debug info(26714): ["Function.lua":548]	}
+
+
+
+
+09-03 21:38:17.628: D/luajc(26714): LuaJavaBridge::callJavaStaticMethod("com/jooyuu/sdk/CoolpadSdk", "pay", args, "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V") EXECUTE FAILURE, ERROR CODE: -4
+
+
+【开发】jooyuu_lib_src工程BaseGameUtil中增加退出弹窗方法，libcocos2dx删去相关代码。（本次修改后，为了响应sdk的退出弹窗，需要再AppActivity中重写onKeyDown方法,再其中调用GameUtil.exitGameConfirm）
+
+没有退出弹窗的工程
+baidu
+
+有的：
+360
+anzhi
+lenovo
+
+java 反射、映射机制 可以不依赖AppActivity中的库文件、资源等
+
+android api版本更新 直接android-17文件夹复制到 f:\cocos\ADT\sdk\platform\android-17中,就是安装成功了
+
+
+再appActivity.java中重写override Cocos2dxGLSurfaceView的onKeyDown方法
+todo:
+调用sdk的退出接口，否则默认调用游戏现有的推出界面
+1、问huangpeng
+2、查看s3 anzhi的工程代码 GameUtil中的doSdkQuit
+3、查看jooyuu_lib_src的工程代码 BaseGameUtil中的ExitDialgView？
+
+MessageDispatcher.cpp调用java的
+
+360的GameUtil.doSdkQuit只调用360sdk退出
+anzhi的GameUtil.doSdkQuit都是游戏的退出
+sina17g的GameUtil.doSdkQuit中有判断使用游戏的还是sdk的退出
+
+Cocos2dxActivity.arpgexit 和 GameUtil.onDestroy是一样的
+
+s2这边目前是：
+java直接调用onKeyDown
+Cocos2dxGLSurface中onKeyDown拦截了back的按钮, onExitDialog(Cocos2dxActivity.getContext()).show();
+onExitDialog中用了try catch的方式来判断是否有com.jooyuu.GameAlertDialog这个类, 就是默认游戏的退出
+
+
+todo: --
+09-02 19:22:21.531: D/cocos2d-x debug info(8589): ["Function.lua":819]	javaCallLuaGlobalFun == init#0#()
+
+09-02 19:22:21.533: D/cocos2d-x debug info(8589): ["AndroidMessageQueue.lua":48]	enqueue3333333333
+
+有时候就没有往下调用xxxSdk.lua中的sdkJavaListener了
+
+
+09-02 19:24:24.671: D/cocos2d-x debug info(8814): ["AndroidMessageQueue.lua":46]	enqueue22222222222
+09-02 19:24:24.672: D/cocos2d-x debug info(8814): ["AndroidMessageQueue.lua":48]	enqueue3333333333
+09-02 19:24:24.672: D/cocos2d-x debug info(8814): ["AndroidMessageQueue.lua":60]	init	0	
+09-02 19:24:24.673: D/cocos2d-x debug info(8814): ["AndroidMessageQueue.lua":61]	==== funcType, code, msg === 
+
+才是对的
+看来是funciotn 的require "gamecore/modules/sdkPlat/AndroidMessageQueue"放到了函数javaCallLuaGlobalFun里面了，每次从都会清空AndroidMessageQueue中的内存, -- \/细想不会的，没用
+
+
+提交sdk的lua修改，合并到branch, 不提交金星等其他修改 -- \/
+
+config:
+PlatformConfig -\/
+
+
+res:
+res/plaform/haima -- \/
+
+
+src/app: 
+data/LoginData -- \/
+data/PlatformData -- \/
+scenes/WelcomScene -- \/
+GameEntrance -- \/
+
+src/manager: 
+CtlManager --\/
+
+src/modules:
+src/modules/login -- \/
+src/modules/platform --\/
+
+src/util:
+src/util/Function --\/
+
+删除了的文件：
+Android360PlatformController --\/
+Android360PlatformLayer --\/
+
+
+
+
+
+
+
+
+
+360 --\/ 充值返回两个结果，成功和失败各一次
+huawei --\/
+
+jinli --\/
+anzhi 支付宝方式没反应、银联方式报错 --\/ 包冲突了， 把jooyuu_lib的代码放到另一个工程jooyuu_lib_src，导出jar包, 再由jooyuu_lib引入就可以了 --\/ 
+
+uc
+vivo -- AndroidCommon --需要加上传入accessToken  充值报错
+
+wandoujia -- 充值没到账 后端处理了，-- \/  sdk中 账号密码修改后， 登录不上游戏 --
+lenovo  -- multi dex file in Lcom.lenovo 删掉了重复的jar包 --\/ 充值银联在线的报错， 换新的sdk后，登录失	败,xml的app填写错了，-- \/
+haima --\/  需要显示海马的图片(闪屏) --\/
+baidu -- 权限问题？ 资源问题？
+09-02 14:59:39.375: D/statsdk(32571): java.io.FileNotFoundException: /data/data/com.jooyuu.dszy.baidu/files/vxy2qAawmhPTUWvsU5FAcIabgame__local_stat_cache.json: open failed: ENOENT (No such file or directory)
+
+真的是很奇怪，s3使用的是baidu3.1.3版本的sdk，我换成渠道提供的最新的3.2.2就可以了
+
+
+渠道参数位置通常在：sdk的配置文件中，GameUtil.java接口中，调用初始化的位置，或AndroidManifestXml.lua中
+
+s3这边是先播了动画，闪屏后，到了选服界面，用lua调初始化sdk的代码然后有些渠道有回调初始化成功就调登陆的
+视频出现的时候，sdk初始化之前 点击多次，会造成sdk初始化失败， 可能是初始化放在xxxSdk.lua中ctor导致，可能是
+
+
+修改android工程的 右键工程->Android Tools -> Rename Application Package
+
+-- java的替换：
+AndroidManifest.xml 中包名 activity的包名
+	加上权限： <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+资源 res 
+图标 icons
+库 libs libcocos2dxlua.so从test工程拷贝过来
+
+DataGlobal中判断平台名称 
+s3打包生成的配置文件 "src/gamecore/config/config.json";， 里面有平台名称
+
+-- lua的替换：
+hjprint 替换成 gprint --\/
+myRole替换成s2的 gData.RoleData.model --\/
+GameGlobal.real_server_id 改成 gData.LoginData.getModel().nowServer.serverid
+GameGlobal.isLogined 切换账号用 ，并修改动 sdkInterface 中的 exitGame处理 --\/
+AndroidAiPaiSdk 里面还有GameGlobal.server_name, -- \/ gData.LoginData.getModel().nowServer.name
+CommonConfig.serverId
+ui.createAlertView
+"changeAccount" "logout"处理
+
+s3的CommonConfig是打包是后脚本生成的
+
+先接入 huawei  360 
+
+multi dex file 的报错， 是引入了相同的包导致的，像anzhi工程中的与s2 jooyuu_lib中的 Android_private_lib冲突
+
+m_payment_request_tos
+
+
+sdk:getLoginToken()
+sdk登陆后 返回accessToken
+
+ctl.LoginController:openView() ->
+
+s3这边是先播了动画，闪屏后，到了选服界面，用lua调初始化sdk的代码然后有些渠道有回调初始化成功就调登陆的
+侯伟韬 2015/8/27 15:31:47
+有些渠道没有回调初始化成功不成功就延迟1~2秒默认初始化成功调登陆
+
+
+在platformLayer中
+
+GameUtil的通用接口 
+setChannel
+initSDK
+login
+getAccountName
+getAccessToken
+
+
+PlatformView -》 AndroidCommonPlatformLayer- >getCommonUtilClass -> "com/jooyuu/GameUtil" 
+	-> initSdk --s3的代码
+PlatformCOntroller - > ctor -> if gData.PlatformData.isNewSdkVersion() -> self.platformController_ = ctl.CommonPlatformController 新版本通用的 
+	-> payMent -> sdk:pay() --s3的代码
+	-> loginConnect -> sdk:login --s3的代码
+
+平台的判断:
+Sdk.lua -> getCurSdk()中
+
+s2这边loginConnect都是发送协议 m_qq_auth_tos 或 m_role_auth_tos 不是等于sdk:login()
+s3的login是调用sdk的login 
+
+----明天看 s2的平台登录login 放在了 platformLayerde  initSDK（360）/ kkuuInit(kkuu) / platformInit(tencent) 当中？？
+
+
+
+self.platformController_:payMent(param)
+loginConnect
+afterLogin
+getOSInfo
+setAppState
+getAppState
+
+-- 新加的
+-- 通用的
+
+GameUtil继承BaseGameUtil中的alipayPay（支付宝） 和jooyuuPay（易宝）
+
+sdk事项:
+1、合并s3的lua代码 
+a、AndroidUtil.lua java调用lua的唯一借口
+Sdk.lua中 getCurSdk获取当前平台的sdk类 如AndroidJinliSdk").new()
+
+b、sdk.lua SdkInterface是基类，提供login、logout等接口
+c、java中被lua调用的接口在 com/jooyuu/GameUtil 有:initSdk、login、submitExtendInfo、pay
+	s2中loginConnect()、payment()、
+都调用initSdk
+
+
+
+
+1、确认resource的 x, y是否生效
+2、妖兽战斗
+3、sdk
+4、测试上阵的位置， 先上a b 再下 b， 再上a -- \/
+5、妖兽的动画位置一动一动
+
+1、跟随功能
+2、整理妖兽动画资源
+3、测试战斗播放技能效果, 用已有技能测试
+
+
+
+优化：
+加一个GoodsItemBtn控件， 只需要显示
+
+
+gData.GrabData.getExchangeList(nil)
+
+
+妖兽系统todo：
+1、背包增加妖兽分页
+2、妖兽列表界面
+3、出战列表界面
+4、信息界面
+5、妖兽装备弹出的 合成、途径界面
+6、战斗技能特效 和buff的触发相似？ NewFightView 中effectClass Effect.lua技能动画 
+showSkill( 播放技能名字tips
+7、阶位、等级提升后弹出的属性展示界面  收到升星或升阶成功toc后，用新数据和老数据对比 ，弹出属性变化窗口
+8、妖兽的形象展示 资源
+9、妖兽配置 ： 名字 属性 描述
+星级-》 成长属性
+总属性 = 基础 + 等级 * 成长属性 + 阶位属性
+
+netsh wlan set hostednetwork mode=allow ssid=kelvin_wifi key=11111111
+netsh wlan start hostednetwork
+netsh wlan stop hostednetwork
+
+playPart回合
+playStep步骤
+
+10001000341
+1411065749
+
+20008001049
+
+NewFightView.startStepAttack->
+MofApi.getHurt- > 
+MofSkillAttack.doAttack  -> missResult -> 
+MofAttackRule.checkmiss -> casterFighter.sec_attr is nil
+
+
+08-14 20:17:12.044: D/cocos2d-x debug info(27501): [LUA ERROR] ASSERT FAILED ON LUA EXECUTE: Invalid spriteFrameName: pvpPlay/rankAward.png
+
+这个bug是other目录优先搜索，该目录下的pvpPlay.plist文件缺失图片
+
+UpdateSecondView.lua 165 deleteFile 函数找不到
+c++的函数丢失等错误 是c++编译失败造成，直接将正常（最新）的apk包解压 ，拷贝 libs/libcocos2d.so文件到android目录下的libs目录下覆盖 就解决了
+
+
+1、整理res/equipFosterAnim下面的动画资源 张数和开始索引 --\/
+2、排行积分奖励
+3、ui.newAnimFile 也改成读取配置
+4、首次杀怪任务对话没有了
+
+08-13 11:47:57.781: E/jooyuu doPutVoice Exception(22696): Protocol not found: put_voice.php?guid=GUID10024011439437679825&tstamp=1439437679&sign=61e932a645a9c8e28103f16b86484ea8
+
+这报错是因为debug上不能语音聊天 --\/ release上正常
+
+updateFirstView更新之后，在线进入游戏没有重新加载：data、图片资源
+
+从java/ios/deploy.xml中获取getServerURL 
+-> 加上版本号等信息
+
+动画有黄色 setColor? FightAction.lua  startMask 由于ui.color.white不是纯白，调用了element:setColor(ui.color.white)导致 --\/
+
+1、检验副本 cur / max --\/
+2、MsgBox加上npc图片--\/
+3、战神殿的排名
+
+SELF_TO_LEARN:
+
+一、快速制作横版arpg格斗游戏，用s2代码：封装好的ui控件，管理类，场景架构等， 项目名s201
+考虑手操和自动，考虑动画和技能的单独播放（和战斗逻辑无关），考虑配置使用工具维护，考虑使用骨骼动画
+1、创建cocos3.2工程
+2、合并控件、架构、工具类、封装等代码
+3、
+
+二、接入s3的sdk，参考360平台
+1、拷贝brwtest创建新工程，
+2、从接口入手GameUtil， 拷贝sdk的代码和jar包
+3、调通lua中平台登录，
+3、调通lua中平台充值
+
+三、s2项目的内存优化，可能的闪退问题
+1、问浩号优化方案
+2、资源释放、函数调用、内存调用、报错的地方（战斗、动画、底层java）
+
+
+
+1、看notice推送的java代码 在哪里xml配置中的判断param和type -- \/
+NotifyManager.doNotification -> RegisterNotifyUtil.parseNotify -> NotifyManager.parseNotify
+
+-- 解析json串，比xml方便快捷：NotifyManager.readNotificationConfig
+InputStream is = context.getAssets().open("config/Notification.json");
+			String strJson = FileUtil.readFileContent(new InputStreamReader(is, "UTF-8"));
+			return new JSONObject(new JSONTokener(strJson));
+
+-- 从inputStream中读取字符串(json串): FileUtil.readFileContent
+StringBuffer sb = new StringBuffer();
+		BufferedReader br = new BufferedReader(reader);
+		String line = "";
+		while ((line = br.readLine()) != null) {
+			sb.append(line);
+		}
+		br.close();
+
+		return sb.toString();
+
+
+-- 读取json中变量 getJSONObject、getString、getLong
+jsonResult.getJSONArray("RegisterNotify");
+for (int i = 0; i < jsonArray.length(); i++) {
+					JSONObject jsObj = jsonArray.getJSONObject(i);
+					//JyLog.e(TAG, "config hhmm=" + jsObj.getString("hhmm"));
+					//JyLog.e(TAG, "config diffDays=" + jsObj.getLong("diffDays"));
+					if (diffDays == jsObj.getLong("diffDays") && curHourMinute.equals(jsObj.getString("hhmm"))) {
+						Notify notify = new Notify();
+						notify.setId(Integer.valueOf(jsObj.getString("id")));
+						notify.setTitle(jsObj.getString("title"));
+						notify.setContentTitle(jsObj.getString("title"));
+						notify.setContentText(jsObj.getString("content"));
+
+						return notify;
+					}
+				}
+
+
+2、看dialog是否支持多颜色换行 DialogData.lua -- 剧情对话、引导对话支持个别词语用不同的颜色 --\/
+3、扫荡花果山 -- \/
+4、季卡状态 --\/
+
+
+
+MainFbAI.lua:
+Player.lua:
+JingjieSkillView.lua:
+
+
+-- 用.keystore文件打包apk,平台授权登录
+http://jingyan.baidu.com/article/15622f247bdd1bfdfcbea5fd.html
+
+
+	-- require "sqlite3"
+	-- ctl.SetupController:openMemView()
+
+ c++增加了类 文件 ，需要手动在Android.mk中 LOCAL_SRC_FILES 增加
+
+1、合并sdk工程
+
+解决方法：
+1、java中获取UserDefault.xml的路径 
+a、lua中传入，可是变量被回收
+b、java获取内存目录，
+2、lua在android中写入文件,路径可访问
+3、用c++提供的写入方法，cc.FileUtils:getInstance():writeToFile({create_time = "10086"}, "config/NoticeConfig.xml"); ，但是java解析失败
+08-03 16:56:00.126: W/System.err(18068): org.xml.sax.SAXParseException: expected: '>' actual: '/' (position:DOCDECL  plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"@2:102 in java.io.InputStreamReader@420ab0a0) 
+
+
+
+java调用c++
+
+java保存xml路径失败 why？
+
+------ eclipse没有log打印输出
+adb kill-server
+adb start-server
+
+
+-- bug：
+1、q325 朱雀神将打小怪时候 不会攻击，走来走去 --\/新加的神将没有配置MonsterAIConfig.lua
+2、神器续费成功 左边标签栏仍然没有增加
+3、先赠送 后放入帮派 背包没刷新
+4、帮派的按钮变灰问题 
+5、精英副本加上 功能途径 -- \/
+
+这个是jsp.java用Calendar 计算两个时间差多少天（时间相减）的代码，详细如下
+SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+Calendar cal1=Calendar.getInstance();
+cal1.setTime(sdf.parse(str1));
+Calendar cal2=Calendar.getInstance();
+cal2.setTime(sdf.parse(str2));
+long l=cal2.getTimeInMillis()-cal1.getTimeInMillis();
+int days=new Long(l/(1000*60*60*24)).intValue();
+System.out.println("2个日期之间相差："+days+"天。");
+
+
+
+07-31 11:23:23.179: D/cocos2d-x debug info(15871): ["LoginView.lua":180]	xml path ==== /data/data/com.jooyuu.tjww/UserDefault.xml
+
+
+xml的路径获取失败
+cc.UserDefault:getInstance():getXMLFilePath()
+[LUA ERROR] [string "src/modules/login/LoginView.lua"]:180: error in function 'l
+ua_cocos2dx_UserDefault_getXMLFilePath'.
+     argument #1 is 'cc.UserDefault'; 'cc.UserDefault' expected.
+改成lua创建xml文件试试
+
+
+07-30 19:49:05.719: D/cocos2d-x debug info(32621): ["LoginView.lua":179]	path = /data/data/com.jooyuu.tjww/files/
+
+
+
+NotificationConfig.xml文件中增加类型配置
+
+
+游戏数据保存数据在userdefault.xml中:
+1、注册时间 时间戳
+2、<noticeId101>true</noticeId101> id对应的消失推送是否可推送
+
+Service每次检查userdefault.xml, 
+1、当前天数时间是注册时间的七天内，
+2、<noticeId101>的是否为true
+以上满足出现推送
+
+
+MyReceiver -> 创建MyService->
+
+
+Service 
+
+
+1/getAndoirdWritePath
+
+1、json解析字符串去掉"[]" -- \/
+2、识别过程卡住，改成异步执行
+3、改用android的上传下载
+4、屏蔽字 --\;/
+
+
+上传文件不存在 可能writePath改变了
+
+1、播放amr文件--\/
+2、httpClient POST 方式
+3、获取client_token --\/
+
+4、svn://s2.cqsvn.com:8006/cehua/美术/UI/Z主界面（新）/新功能弹窗 ,振键，弹窗的美术资源提交了~
+
+setAudioSamplingRate
+the sampling rate supported by AMRNB is 8kHz, and the sampling
+     * rate supported by AMRWB is 16kHz.
+
+MediaPlayer 报错"IllegalStateException if the internal player engine has not been initialized or has been released."
+不使用static的MediaPlayer对象，就能解决此问题 -- \/
+
+
+先试试0.amr文件 能否语音识别 -- 失败 sdk不支持amr文件
+
+开始录制 录制成功，
+
+使用离在线上传本地amr格式文件识别
+
+在appActivity中增加start接口，来确保运行在主线程中-- \/
+
+下载停止了， 先看lua的函数（例如成功回调）是否有执行成功，再在c++中断点查看curl操作返回的值，  和后端确认
+战斗停止了 看技能时间  打印数据看
+元素的显示问题
+
+------交接TODO：
+1、网络模块 TCP 连接 发送 接收  重连--\/ 断网--\/ 心跳（丢失协议大于10就爆粗, 暂时值用作后端判断是否在线）--\/
+2、更新 版本对比信息 下载 解压 cocos2dx 中的 luaExtension AssetManager有原子功能接口 unCompress download等,Plfileloader再次封装 增加task流，提供lua接口
+3、语音 上传 下载 http
+4、战斗模块 buff 技能 攻击命令流 帧动画
+5、整体架构 ui 场景 modules touchEvent
+线程锁 添加tjwwUpdate搜索路径 
+
+
+1、网络模块  一堆字节码 
+都是使用tcp链接
+
+netSession:项目中的gSender（
+
+初始化在LoginController:connectToServer中链接
+gSender = require(GameConfig.netMod or "net/netSession").new(100*1024, 16*1024)）
+PLSocket提供接口asyncConnect 端口信息,和服务器建立tcp链接 , socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+Plsocket对象 connect的时候需要retain一次
+
+协议解析
+32 位  第1位标识是否有压缩，发送接受的时候用
+压缩zlib.deflate()
+解压zlib.inflate() 
+
+lua onErrHandler 的时候提示重连
+
+两个缓冲区
+b、GL主线程：lua中
+gSender loop 
+self.sendtab  Plsocket:asyncSend
+
+接收decodePacket->dispatchMsg->gNet.handleProto(msg)->调用controller
+接受后 Plsocket:asyncClearBufNum 清理已读的缓冲区数据
+
+c、socket线程Plsocket::thread_worker 循环: c++中
+asyncConnect 开始线程Plsocket::thread_worker  接受socket_recv recv 发送socket_send send
+asyncSend 加入缓存_outbuf 
+asyncRecv 加入到缓存 _inbuf
+asyncClose socket_close
+asyncClearBuf 错误时调用  memset(_inbuf, 0, _inbufsize); memset(_outbuf,0, _outbufsize);
+socketState
+asyncGet
+asyncClearBufNum 每次lua收发后调用 memmove(_inbuf, _inbuf+num, _inbuflen);
+
+m_system_heartbeat_tos 发送心跳 保证网络长链接?
+
+
+
+
+2、更新libcurl
+登录流程 ：
+WelcomScene (-> UpdateScene -> UpdateFirstView 强制更新other) -> GameScene -> LoginView -> connectToServer ->m_role_auth_tos -> m_role_choose_toc (-> UpdateSecondView 更新tjwwUpdate并解压) -> LoginController:loadingRes() ->
+
+登录打开updateFirstView检查更新内容，LuaFileLoader.getContent(self.serverUrl, handler(self, self.onReturnServerInfo)) == 5 下载 到 tjwwUpdate下
+updateView 中处理 检查结果  
+
+serverInfo 从serverConfigURL = "http://s2release.jooyuu.com/api/app.php?p=" ..平台 + luaVersion获取内容 
+serverInfo.updateFile后端发来 1_to_3.change_list.zip的更新包
+
+UpdateSecondView
+
+
+a、c++下载功能 PlFileLoader 单例getInstance() curl库
+curl_easy_setopt(_curl, CURLOPT_RESUME_FROM, 0);  断点下载
+cc.PlFileLoader:setCallback传入lua函数
+cc.PlFileLoader:getLength 和本地的getFileLength对比长度， <0 的时候表示下载成功
+
+操作类型	/// get file length 获取长度
+		TYPE_GETLENGTH,
+		/// download file from server下载
+		TYPE_DOWNlOAD,
+		/// get content of file from server读取内容到内存中
+		TYPE_GETCONTENT,
+		/// uncompress 解压
+
+b、c++线程，线程锁
+_loadingThread = new std::thread(&PlFileLoader::loader, this); //创建线程
+_loadingThread->detach(); //执行线程
+loader(task){
+// 根据task结构体中的操作类型和传入参数执行
+}
+
+
+c、差异化包更新 
+文件命名 [当前版本号]_to_[更新版本号].zip  16870_to_16890.zip
+cc.PlFileLoaderL:unCompress 解压缩 到tjwwUpdate目录下
+更新文件都放在tjwwUpdate目录下面， 目录结构和work一直，tjwwUpdate加入到搜索路径中(applicationDidFinishLaunching中)，优先级更高 
+
+登录时UpdateFirstView 根据玩家等级关卡检查，强制更新（boss资源）,
+
+
+UpdataThirdView:
+UpdateHelper逐个下载任务进行
+
+
+
+3、语音上传 curl库
+a、 c++上传功能 PlFileUploader 当中上传下载接口 ,其中下载接口doPutTask 调用 PlFileLoader:getInstance() 
+
+
+4、战斗模块
+starFight -> doStarFight 
+一场完整战斗turns 有多个回合part 有多个战斗步骤step 每个步骤有多个伤害结果results
+
+step中播放战斗skillResult(step) step数据中 处理 伤害， buff， 位移
+ -> pvpAttack
+
+后端发送part， 前端playPart 中playStep, 如果前端part没有播放完，后端发送多次part来，前端根据_gIndex旧的part将不执行
+
+
+playStep -> skillResult -> pvpStartStepAttack -> 下一次 skillResult 
+
+
+出问题了 在NewFightView swapFighterData中打印看看数据
+
+5、整体架构
+
+
+
+c++编译时卡了一下 没有编译成功，没有导出deleteFile的函数，可是编译成功
+
+
+1、预研上传amr录音文件
+2、看Plsocket代码
+3、文字自适应聊天背景
+4、秒数
+
+1、合并voice的 java工程
+GameData.java
+GameUtil.java
+AppActivity.java
+AndroidManifest.xml
+AndroidManifest.xml.template
+
+
+
+
+
+c++中的Plsocket:
+
+
+
+
+
+
+
+
+
+-- Voice TODO:
+1、计算录音时长（界面打开到关闭的间隔）-- \/ 后面优化：加上判断如果是静音结束的 扣去静音时间 
+2、录音开始消除声音,现在战斗的声效没有停掉-- \/ 一开始还是会播放
+3、加上红点,-- \/ 保存在内存中先，重登的不处理
+4、上移取消的图标没有 --\/
+5、测试新lua代办 java旧版本 是否会出现问题
+6、预研使用amr文件上传
+
+
+
+1、开始录音 到录音完成计算时长 在lua实现 --\/
+2、录音倒计时 --\/
+3、生成唯一的local_voice_id --\/
+4、保存录音完成时的频道索引 -- \/
+5、语音识别网络延时的处理 ，有结果返回(收到onError onResult onEndOfSpeech) 才关掉 语音界面VoiceView
+ 为了确保识别过程localVoiceId唯一性
+6、播放需要加上判断正在播放  -- \/
+7、手指放开综合频道切换到世界频道 -- \/
+8、播放语音时的下载加上 正在下载的状态 --\/
+9、红点功能 --\/ 
+
+//		Log.i(TAG, "appActivity onDestroy..... "); // 退出程序删掉录音文件
+//		 File file = new File(VoiceManagement.getInstance().getVoiceDirPath()); 
+//		 if (file != null && file.exists() && file.isDirectory()) { 
+//			for (File item : file.listFiles()) { 
+//				Log.i(TAG, "file to delete name : " + item.getName());
+//			   item.delete();
+//			} 
+//		 	file.delete();
+//		 } 
+
+
+1、所有和语音有关的入口都加上以下判断:
+if gData.VoiceData.isVoiceSupported() then
+2、消除录音时候的声音
+3、识别完成onVoiceResult 或者 onError才关掉界面 并调用stopRecognize ，否则手动点掉调用cancelRecognize
+4、识别完成马上显示到本地， 再次收到channel是判断是否语音且是自己发送的 --(发送channel_tos还是等待上传完成)
+5、用户操作优化，按住才录音，放开停止，滑动取消
+
+6、要版本判断是否java有语音的函数，不能让老用户奔溃掉
+GameUtil.getParam函数中读取GameData的值， 在GameData.java中配置该函数名
+e.g.
+local channelInfo = gData.PlatformData.getParam("setChannel")
+        if type(channelInfo) == "string" and channelInfo ~= "" then
+            -- 传递渠道号
+            local javaClassChannel = "com/jooyuu/GameUtil"
+            require"src/gamecore/config/ChannelNumber"
+            local isok, ret = luaj.callStaticMethod(javaClassChannel, "setChannel", {ChannelNumber}, "(Ljava/lang/String;)V")
+        end
+        
+        local javaClass = gData.PlatformData.getKKUUUtilClass()
+        local isok, ret = luaj.callStaticMethod(javaClass, "kkuuInit", {})
+
+
+
+
+Android的线程
+
+其他界面打开 mirrorView 会空
+
+聊天界面爆粗 不要在close中调用stop
+
+java现在调用lua会爆粗 fatal signal 这是因为调用lua函数 需要保证在GL线程中执行，否则报错
+
+fatal signal 11 (SIGSEGV) 0xfffffff0
+fatal signal 11 (SIGSEGV) 0x00000001d (code=1)
+
+JNI WARNING : threadid=13 using env from threadid=1
+JIN ERROR: env->self != thread-self :auto-correcting
+
+File file = new File(oldPath);
+file.renameTo(new File(newPath));
+
+
+SoundManager.pauseSound() -- 停止所有声音
+SoundManager.resumeSound()-- 继续所有声音
+
+hh的上传模块
+F:\s2_svn\mobile\trunk\work\src\update\LuaPutLoader.lua:
+
+
+--[[ 
+录音完成 生成本地唯一的local_voice_id 和对应名字的录音文件
+发送m_chat_req_voice_tos 字段有local_voice_id
+m_chat_req_voice_tosc获得guid,stamp,sign, 根据local_voice_id将本地的录音文件重命名为guid
+ if succ then
+ 	上传录音文件(guid,stamp,sign)
+ 	上传成功回调中： 发送m_chat_in_channel_tos ：文字,voice_guid,voice_len
+
+ 	收到m_chat_in_channel_toc 
+ 	查找guid对应的本地录音文件是否存在
+ 	if exists then --是本人接收
+ 		显示在界面中，没红点
+ 	else --其他玩家接收
+ 		请求下载
+ 		下载成功回调： 显示在界面中，读取本地的红点记录
+	end
+ end
+
+ 上传/下载所需参数
+ http://s2release.jooyuu.com/api/
+..  "put_voice.php"
+..  "get_voice.php"
+"?guid=xxxx&stamp=xxx&sign=xxx"
+
+]]--
+
+1、计算文件的长度_voice_len
+2、红点记录文件，-- 先不做
+
+-- 新增加的文件
+LoginView
+VoiceData
+src/modules/voice/
+src/modules/voice/VoiceController
+function
+CtlManager
+src/gamecore/config/VoiceAppId.lua
+
+
+svn://s2.cqsvn.com:8006/cehua/美术/UI/L聊天/聊天语音
+这是语音的美术资源
+svn://s2.cqsvn.com:8006/cehua/策划文档/L聊天/s2语音聊天功能需求文档.docx
+这是语音的文档
+
+android:theme="@android:style/Theme.NoDisplay"
+
+        <activity android:name="com.jooyuu.voice.IatActivity"
+                  android:label="@string/app_name"
+                  android:screenOrientation="sensorLandscape"
+                  android:theme="@style/myCustom"
+                  android:configChanges="orientation"
+                  android:hardwareAccelerated="false">
+        </activity>
+
+1、删除本地文件 -- 没有调用appActivity 的onDetroy方法 -- 先不做
+2、IatActivity改为layout, 而不是另一个Activity
+3、处理VoiceDataCenter逻辑
+4、Voice的界面需求(等策划)
+5、生成本地唯一的录音文件名 voiceId, 用时间
+
+1、神器图标上加上可替换的n提示 --\/
+2、UI在lua中创建，不实用IatDemo中的UI资源了
+
+m_chat_req_voice_tos 请求上传录音
+
+打印异常 堆栈信息
+try{ //do something.
+}catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+
+
+can't create handler inside thread that has not called looper.prepare 
+报错是因为在子线程中不能改变UI控件的值
+建议使用AsnyTask比这种方法要好用，而且方便
+
+
+
+本地命名id保存文件名，后面上传成功后, 根据后端的全局id重新命名本地名字
+
+语音识别的activity需要建立在appActivity中， 若对话显示失败，增加一个layout试试
+
+参考kkuu的平台登录 lib回调lua createLoginView函数 --\/
+public interface JyCallbackListener {
+	public void callback(int statuscode, String msg);
+}
+new JyCallbackListener() {
+					@Override
+					public void callback(int statuscode, String msg) {
+						}
+					}
+				});
+
+
+is_library中case 不能用 R.id.iat_recognize
+
+pcm_to_amr pcm文件和amr格式转换
+pcm文件压缩
+recog_params 
+
+
+Iat的接口封装参考MainPaymentActivity.java, xml文件 activity_main.xml
+AppActivity onCreate中调用PayManagement.createManagement( GameMiscInfo.getInstance() , instance);
+PayManagement.createManagement 负责缓存activity
+GameUtil中调用 PayManagement.jooyuuPay 
+PayManagement.jooyuuPay中new Intent(); 并startActivity
+MainPaymentActivity 也extends Activity implements click， 
+背景设置为透明 xml 修改android:background="@android:color/transparent" 
+MainPaymentActivity 类onCreate 显示界面（相当于讯飞的录音开始）
+onDestroy 调用ActivityCollector.removeActivity(this);
+
+
+1、任务统计的修改，GuideMissionConfig也要合并16402, 和16400去掉打印， 16405, 16398
+2、用wdcq的工程 lua调用java 的new RegconizeDialog
+3、技能界面调整, 非选中 缩小，拖动的先选中
+
+-- 单例
+public class GameMiscInfo {
+	private static GameMiscInfo theInstance = new GameMiscInfo();
+	private String kefuInfo = null;
+	
+	public static GameMiscInfo getInstance(){
+		return theInstance;
+	}
+
+	public String getKefuInfo() {
+		return kefuInfo;
+	}
+
+	public void setKefuInfo(String info) {
+		this.kefuInfo = info;
+	}
+
+}
+
+todo: 
+1、运行s2的android工程 -- 编译失败  -- BUILD SUCCESS\/
+解决方法：
+a、需要拷贝cocos.py , project_compile.py, cocos_project.py, cocos_project.py 到引擎目录f:\cocos\cocos2d-x-3.2\cocos2d-x-3.2\tools\cocos2d-console\bin中
+b、运行trunk中的compile_android.bat -- 这里运行失败，运行了trunk中的cocos.py了
+c、直接全路径运行引擎中的cocos.py -- 失败，提示importError no module named build_web 
+
+2、IatDemo功能 --\/
+
+3、提供java的api给lua调用 -\/
+SpeechUtility.create 需要传入Activity实例
+Activity实例 需要Intent封装， 并startActivity, 但是Intent没有Iat的接口
+
+接口包括：开始(返回bool成功)、结束回调(返回bool成功、string字符串)
+方法一：java保留lua传入的函数，待完成多次录音后调用
+方法二：每次onResult调用lua传入的函数
+方法三：lua调用语音开始，onResult时java调用lua的全局函数
+
+实现类IatDemo：
+开始：类的onClick
+结束：调用lua中全局函数， lua函数判断那个按钮按下了, 文字保存到lua缓存中
+
+ luaj.callStaticMethod
+4、保存录音
+.pcm转换.wav格式, 使用sdk播放，提供给lua播放录音接口
+退出游戏删除录音文件  ,加上读写权限后，直接file.delete
+
+
+// 设置音频保存路径，保存音频格式仅为pcm，设置路径为sd卡请注意WRITE_EXTERNAL_STORAGE权限
+mIat.setParameter(SpeechConstant.ASR_AUDIO_PATH, Environment.getExternalStorageDirectory()+"/iflytek/wavaudio.pcm");
+
+5、上传给服务器
+
+
+
+1、SpeechApp.java中
+SpeechUtility.createUtility(SpeechApp.this, "appid=" + getString(R.string.app_id));
+2、MainActivity.java 中创建类IatDemo
+// 语音转写
+intent = new Intent(this, IatDemo.class);
+startActivity(intent);
+3、实现类IatDemo 
+//使用UI听写功能
+mIatDialog = new RecognizerDialog(IatDemo.this, mInitListener);
+
+onClick函数中 case R.id.iat_recognize:
+setParam();
+mIatDialog.setListener(recognizerDialogListener);
+				mIatDialog.show();
+
+-- 听写的回调
+private RecognizerDialogListener recognizerDialogListener = new RecognizerDialogListener() {
+		public void onResult(RecognizerResult results, boolean isLast) {
+			printResult(results);
+		}
+
+		/**
+		 * 识别回调错误.
+		 */
+		public void onError(SpeechError error) {
+			showTip(error.getPlainDescription(true));
+		}
+
+	};
+
+
+---- ext:
+采用Intent在不同的Activity之间传递对象
+findViewById  和cocosStudio的获取对象方式类似, 都在xml文件中定义好了
+
+Android Problem Solved:
+Could not find ＊.apk, 从console中看不出是什么样的问题，搜索万能的Stack over flow，找到以下答案：
+方法1、右键选择properties -> Android -> 去除Is Library的勾选。
+方法2、删除gen目录下的包的 R.java文件
+此为问题解决之一，记下地址http://stackoverflow.com/questions/4778113/android-eclipse-could-not-find-apk
+
+
+
+1、语音聊天
+2、参考游戏：神武 一步之遥
+-- 发送
+3、本地录制语音  压缩 上传服务器
+4、离线/在线转化成文字 
+-- 接收
+5、收到语音和文字 显示出来
+
+难点
+6、调用java voice api录制 ，保存到本地，自动删除
+7、上传到服务器
+8、lua调用(c++ 调用)java
+9、
+
+
+1、引导传记的一直有引导，是gData.MainUIdata.mainUIState 为true的原因 -- 不能重现 \/
+
+
+打开界面需要传入的参数 改成保存到ViewData中，然后界面打开后访问一次后清空
+
+-- 集成sdk教程 
+http://www.xfyun.cn/default/doccenter/doccenterInner?itemTitle=YXdk
+KelvinYu's Demo_android Appid： 55890409
+
+-- 参考例子
+http://www.it165.net/pro/html/201407/17349.html
+
+
+--  luatest1工程
+-- hello.jni工程
+
+autoHotKey -- 按键
+
+1、点将台 自动熔炼神将 点将历史会发两次 --\/等后端调通 --\/
+2、铜币抵用卷 等后端增加字段 --\/
+3、重铸 --\/
+4、定义一个功能系统的id，对应id的功能跳转函数，对应id的开放条件判断
+5、sql new project
+6、c++代码
+7、通过神器推送图标打开界面，默认选中可以升级的神器
+8、领奖任务提前领取了 会再引导一次 -- 可忽略 --X
+9、夺宝的引导 加上合成,, 现在界面不关闭不出来  --X
+10、引导增加功能 判断当前只有一个界面 无界面否则跳过，有不止一个界面 重复执行 --X
+11、引导增加功能 任务引导在界面打开，战斗界面中 也可以触发 "grab_hecheng" --X
+12、神器推送图标触发的神器 如果在背包不存在了 删除推送图标
+
+1、关卡图标的n提示 要加上检验副本的开启判断 --\/
+2、聊天天内容中功能链接当玩家名字有"$"符号时，不能正常显示， --\/
+
+
+1、神器升星升级 选择装备限制6个 参考技能SkillSelectView  --\/ 把勾选和selectItem暴露updateState接口，在selectView中调用
+2、精英副本、境界提升那些神将条件的颜色要改成星级 -- \/
+3、function isCanJinHua(model)可以进化的接口先屏蔽了，包括所有n提示 -- 已加上\/
+4、精英副本、(检验副本) -- \/ -- \/
+境界config， --\/ --\/
+境界技能，--、\/ --\/
+powerRecommend， --\/ --\/
+获得宠物(checkColorUp) --\/ --\/
+-- 颜色要改成星级  gData.PetData.getGrade(v.color,v.quality) --\/ 
+5、神将是没有基础属性的，只有成长属性，基础属性通过神将传获得，前端根据神将获得的属性条数来显示 --\/
+6、神器助战怎么回事?不能用 --\/已屏蔽
+7、点将台只显示一页 --\/
+8、检验副本加上宝石条件 --\/
+9、神将属性只有升级的时候飘
+10、神将PetBaseTip的属性显示 --\/
+11、副本推荐实力界面爆粗， --\/
+12、对比销售 领取了右边，左边也自动领取 --\/ 后端改
+13、宝石界面 增加等级提示 --\/
+14、神器传记n提示 (上方标签和主界面神将图标) --\/
+15、检验副本第一次打开界面时候协议m_exam_fb_chapter_info_tos发送了两次
+16、传记的控件滑动一下,翻一页
+17、神器传记的战斗提示修正 搜索NewFightView == 15 的地方来修改  结算界面加上属性getPetAttr(typeid) -- 后端hanging_result_toc没有 神将typeid返回 --\/
+18、传记星级grade低在前面,再排职业 --\/
+
+-- // 宝石系统
+1、攻击1 三角， 防御2菱形， 生命3 钻石 -- \/
+2、查看其他玩家神将的宝石 PetEquipDataOther --\/
+3、宝石属性显示 -- \/
+4、开放状态判断 --\/
+5、检查官印的宝石镶嵌 --\/
+6、宝石界面更换图标，用clippingNode裁剪宝石的道具资源 --\/
+7、EquipView 338行 的宝石详情显示， 按照openState显示孔位， 显示8个宝石的附加属性和宝石属性 --\/
+8、查看玩家的逻辑(PetEquipDataOther) 放到StoneData中去  --以后
+9、宝石升级界面 的属性显示 -- \/
+10、宝石开放条件的显示   -- \/
+11、宝石 装备详情界面中 增加套装属性的显示（附加属性） --\/
+12、图标上的孔位，没开启的就不显示吧。比较容易识别哪些部位是开启了，又没镶嵌宝石的。 --\/
+
+-- // 神将系统
+阶位是固定的 starLevel
+进化可以升颜色 color
+
+
+
+3、夺宝加上vip次数上限配置 --\/
+4、技能加上引导n --\/
+5、战神殿  挑战玩选择当前的 --\/
+
+6、神将星级  名字颜色增加新的配置项、名字头衔与原品质对应（颜色+ 品质）
+
+
+num = 1.45
+print(string.format("%.1f", math.ceil(num * 100 -  (num % 100))/ 100))
+
+
+
+1、增加绑定sqlite3到lua的类 lsqlite.h和lsqlite.c , 参考EnjoyWords
+2、在lua中require ("lsqlite3") --失败 ，lua找不到模块lsqlite3, 参考vs工程 要全局ctrl+shift+f搜索才搜完整..
+	enjoyWords中加入了文件lua_extensions_more.c来加载额外绑定到lua的内容
+	luaopen_lua_extensions_more 在 lua_module_register.h 中调用
+3、F:\GitProject\EnjoyWords\frameworks\runtime-src\Classes\lua_extensions\lsqlite3
+ F:\s2_svn\mobile\trunk\frameworks\runtime-src\Classes\sqlite
+4、用sql工具生成 xxx.db数据库文件
+
+无法解析的外部符号 "int __cdecl luaopen_lsqlite3(struct lua_State *)" 
+
+
+--    local btn = gui.easyBtn("进阶", 1, function()
+--        require("src/manager/SqlManager")
+--        SqlManager.init()
+--    end)
+--    btn:setLocalZOrder(101)
+--    ui.addChildEx(btn, self)
+
+1、手指加上帧 -- \/
+2、更换技能后 选中该技能-- \/
+3、优化更换技能 的协议发送 --\/
+4、requestFinish 在计时器中执行，延时可能 在点击按钮后未立刻执行， 执行在了guide_info_toc之后, 使得引导数据和任务图标删掉了
+3xxf t2_guide=1000030
+5、加上直接执行的步骤配置，测试流程 83k --\/ 流程对的，帐号不对已经gm命令跳到很多fb关了 
+6、领取奖励的任务有问题， 没有出现引导手指，应该是界面动作使得引导手指位置不对 -- \/
+
+-- intellij IDEA 快捷键
+
+File | Settings | File Templates 修改默认注释名字等
+点击两次alt 显示所有周边的隐藏界面
+Alt+Shift+Inert 列选择
+Alt+F1 跳到文件目录下
+ALT+9打开 版本控制界面
+alt -/- 折叠部分代码
+alt shift  -/+ 全部折叠
+ctrl + G 跳到指定行
+CTRL+SHIFT+Z 恢复操作
+删除当前行改为CTRL+Y
+CTRL+D到IDEA之后变为了复制当前行
+ctrl + D 查看svn diff
+代码不全 ctrl 空格
+ctrl n 打开class
+ctrl shift n 打开文件
+
+
+1、神器升星完了 神器界面选中第一个bug，需要选中原来的索引 --\/
+2、SkillItemDrag 加上拖动切换位置功能 --\/
+3、节点加上虚线 --\/
+4、显示技能属性 --\/
+5、升级的时候界面全部更新了 -- 代码混乱
+
+1、振健~圣女胜利界面的字不见了
+
+1、内嵌活动美术资源已上传
+地址：svn://s2.cqsvn.com:8006/cehua/美术/UI/H活动/内嵌活动
+ActivitySchedule 模块
+
+
+
+3、圣女守护， buff图标上层 用setGlobalZOrder，右边界面调整， 个人排行的奖励登记改成战力值
+4、熔炼的 铜币和经验放在下一行
+
+1、神器筛选排序 3xx 按颜色排错 -\/
+2、境界进阶对应阅历界面修改 -- \/
+3、熔炼界面调整	svn://s2.cqsvn.com:8006/cehua/策划文档/Z装备/熔炼系统优化.xlsx -- \/
+
+
+其他游戏是
+1、资源路径统一在文件中用变量保存
+2、texturePacker 打包成多张图片
+方便加载？
+
+
+1、82k 领取副本奖励的任务需要选中最大关卡 --\/选中第三关了
+2、圣女守卫 buff图标放最上层
+
+
+1、shopbuyItem里面道具数量显示错误，和vip界面中一样
+2、检验副本难度中全部通关的话选中3星
+3、大闹天宫的N应该改成数字，剩余次数！
+
+updateBossHead 调用的地方:
+createElements -- 创建精灵
+skillResult	-- 加血 --\/
+pvpHurt 	-- dest_type 被攻击方类型, 1=人 2=怪物 3=神将 -- \/ dead_actors
+startStepAttack -- 加血
+hurt --受伤
+
+
+if destElement._sceneType == SceneTypeConstant.GUARD_TYPE then
+						self:updateGuardHead(nil,destElement._model.curHp , destElement._model.max_hp)
+					end
+
+：m_hanging_change_toc
+：m_hanging_round_start_toc
+t2_reset_guard=1
+t2_open=16
+t2_attr=13=12312322
+
+
+
+1、提品按钮发光（提品材料条件足够就有） -\/
+2、滑动功能CircleLayer  --\/
+
+数据处理是用的时候取(A)， 还是全部取出来(B)，再用好（混合用最好，可维护性差）
+A的话，使用数据的才去获取，数据接口多，占用内存较少、函数调用次数多 
+B的话，等待数据全部就为但是需要统一解析数据，数据接口少，占用内存较大、函数调用次数少
+ A情况固定使用的数据接口较多，增加处理的复杂
+ B情况最后优化，界面和数据接口也是增多， 但不是必定的， 数据接口增多是因为其他模块需要，A则是本模块需要（固定使用）
+ A情况由于数据不完整，可能需要等待后来数据重复更新前面界面, 例如需要点击x索引章节 获得章节数据，然后才得到正确的x索引
+
+
+配置读取后 都会保存在_G中，会浪费内存，而且卡
+
+
+todo
+语音聊天
+安卓调AudioRecord。iOS调AVAudioRecorder
+1、优化聊天，翻页后加载数据 addNode
+
+1、神器
+2、境界界面列表每次代开顺序变化 --\/
+3、c++ lua 底层 (lua的局部变量是怎么实现的)
+
+1、人物经验满了推送一次 境界提升 --\/
+2、整理资料 -- \/ FAILed
+3、
+
+
+F:\mobile\运营
+
+1、神器提品 界面和吞噬一样EquipSelectView加一个多选类型
+2、神器提品 名字加上 + 1， 属性分开品质属性显示 
+
+1、神器过期 --海飞做
+2、对比销售流程 --\/
+3、每日充值 登录时候的弹窗
+4、vip界面上的N
+VIP特权有奖励可领就N --- \/
+VIP限价有未购买的就加N，点完消失
+金卡月卡用数字标记几个未领取奖励 -- \/
+成长基金加N，点完消失 --\/
+招财加数字标记次数 --\/
+
+
+tagButton中处理
+1、创建一个guideNoticeManager
+2、register要监听n的对象 和返回数量的函数 -1 N， 0 取消， >0 number
+
+
+work_todo:
+1、锁定道具 已锁定的显示解锁按钮， 其余的显示按配置来  --\/
+
+* lua 尾递归 直接返回function ，消除递归栈耗损
+* lua用局部变量保存全局变量，性能更好
+print(os.clock())
+sin = math.sin
+num = 0
+for i=1,9000000 do
+  num = num + sin(i)
+end
+print(os.clock()) --2.353(s)
+print(num) 
+
+num = 0
+for i=1, 9000000 do
+num = num + math.sin(i)
+end
+
+print(os.clock()) --4.539(s)
+print(num)
+
+
+*享元模式：地形
+
+*命令模式：  
+1、始于用户输入  
+2、游戏的AI来驱动
+	command->execute(AI对象)
+
+*中心事件总线
+
+*batchNode
+3、但是项目中总不可能局限于一张贴图上，所以你可以把多张贴图合并成一张大贴图（合并的工具很多，我不介绍了）。所以利用合成后的大贴图创建一个CCSpriteBatchNode。
+然后创建CCSprite的时候，设置贴图的区域就可以了。
+auto sprite1 = Sprite::createWithTexture(batch->getTexture(), Rect(85*0, 121*1, 85, 121));
+
+*pcall(func) 函数正确执行返回true
+
+*使用table.concat连接大量字符串 效率++
+
+*clippingNode的用法
+http://cocos2d-x.org/docs/manual/framework/native/v3/ClippingNode/zh
+e.g.
+--    local tAnim = ui.newAnim("caishenEff1")
+--    local stencil = ui.newSpr("res/defImage.png")
+    local stencil = gui.newLabel("你好呀")
+    local clipper = cc.ClippingNode:create(stencil)
+    clipper:setLocalZOrder(100)
+    clipper:setAlphaThreshold(0.2)
+    clipper:setInverted(true)
+    ui.addChildEx(clipper, self)
+
+    local layer = ui.newLayer(cc.c4b(255, 255, 0, 255))
+    layer:setContentSize(cc.size(300, 300))
+    ui.addChildEx(layer, clipper)
+
+* 文件处理 CCFileUtils::sharedFileUtils()->getFileData(file, "rb", &size);
+
+
+1、整理resume
+2、学习EnjoyWords框架设计 和更新功能
+3、更新git代码
+4、a* demo
+5、c++语法
+6、c++在cocos2dx的底层
+7、整理新手引导代码 交接 
+8、ios真机  查看s1 s2 的mac工程代码
+9、复习排序、链表、寻路等算法
+
+
+1、七圣的奖励 加上数值的 铜币 经验 -- \/
+2、q32打开夺宝人物界面报错 应该是model为{}导致的 -- \/
+3、引导加上打开界面的任务 --\/
+
+
+1、七圣争霸 战斗  回合数的endfight  和 人物死亡的endfight会各调用一次 
+2、战斗 人物动画 和上发给血量 调转了
+3、重登后 只剩一个玩家在打
+
+
+ 扫荡小怪任务  checkSweepBtnState
+
+1、神器界面加上积分
+2、道具锁定功能 不能熔炼\/、吞噬\/、兑换、售出\/
+
+
+
+1、详情加上神器吞噬界面 --\/
+2、详情界面加上穿戴按钮 --\/
+3、推送bug
+4、吞噬双属性神器提示加上
+
+
+1、神器吞噬界面没有更新 --\/
+2、筛选神器后  经验条增加--\/
+3、获取途径 每日充值  登录奖励  跳转不准确 --\/
+
+
+bug:
+1、宝石镶嵌界面 共享装备列表中没有 --\/
+2、聊天打开界面刷得太猛 --\/
+
+1、筛选：低颜色不能吞噬高颜色的 --\/
+2、打开界面默认选中可以吞噬的最高等级神器
+3、穿戴的n提醒 逐个逐个出来 --\/
+4、都没有穿戴提醒，吞噬按钮才发光 - \/
+
+
+1、测试神器吞噬功能
+2、卸下神器操作还会出现背包没有数据bug
+3、
+
+1、封装按钮类 供lua调用
+
+1、pvpAttack 坐骑pvp技能 showSkill 
+
+1、道具tip不显示数量 --\/
+2、坐骑界面的竖线挡住形象了
+3、神将装备孔位开启条件
+
+优先级：
+1、命名
+2、注释
+//TODO：改用更高效的算法
+getXXX通常是轻量级函数， 如果不轻量，请用其他单词 parse..
+start_ms 变量可用下划线加上具体意思
+//Example: function(a, b) return true
+//尤达表示法 已过时
+最小化嵌套 (最小化思维栈)  可用多个return来减少 /for中用continue /lua中可用do break while （不好）
+可以考虑用变量作为注释
+
+
+
+1、vip功能开启加上月卡金卡配置  -- \/
+2、称号系统功能 -- \/
+3、称号配置支持多个类型放在同一标签页中 --\/
+4、聊天界面加上战报
+5、聊天界面换背景图 -- \/
+6、vip的配置加上职业划分 -- X不用
+
+开源项目 
+
+1、称号 -- 缺配置 黑榜、竞技场、 人物形象上图片资源
+2、聊天 -- 缺气泡图片
+4、单属性神器不能吞噬双属性神器，双属性神器吞噬双属性神器弹出确定取消界面 \/
+
+1、在线更新
+2、lua调用java函数
+3、elements类3个碰撞框检测
+4、viewManager BasePanel BaseButton
+
+1、cocos2dx 游戏热更新 （搭建服务器环境 assetsManager）
+2、动作游戏demo （帧处理、 碰撞框 、用户输入）
+3、微信分享/微博分享 导入库
+
+
+1、新手引导 引导之前完成了的任务 剧情对话也不出现 (现在是除了剧情对话 再由前端判定跳过任务，要改成后端跳过咯)
+2、装备的N点一次就没有，刷新规则，获得对应部位的装备只刷新该对应部位的N
+3、副本N，先显示秘境N，再主副本次数，再大闹天宫次数 --\/
+
+--  cocos2dx触摸事件 监听函数
+addEventListenerWithSceneGraphPriority  -- ZOrder 大的先被触发
+addEventListenerWithFixedPriority -- Priority 小的先被触发
+
+1、查看别人身上 自己的共享装备时，判定是自己的装备了 -- \/
+
+1、神将的属性通过函数获取， 更多属性里面要修改
+2、伙伴装备更换 上出现共享装备了  --\/
+3、神器 自动翻到有n的那里
+
+4、强化属性显示在成长分处
+5、套装只显示5个
+6、人物界面中装备位置调整
+7、装备穿戴 更换有问题，没返回
+8、神将套装按钮
+9、这里的标签提供下开启限制配置
+
+
+
+1、传承界面加到factory中，判断非神器默认放在右边 -- \/ （equipView 和EquipSysView分开处理）
+2、吞噬界面重做一份，下面放经验条 按钮跳转到对应装备在EquipView的devour页
+3、列表显示神器/非神器
+4、非神器的且身上有同部位神器的 加个n
+
+
+1、宝石界面调整 按神将界面属性 --\/
+2、获得神器推送
+3、vip界面调整
+
+-- 开启关卡改成通过关卡后，需要改动
+获取途径配置
+聊天链接配置 （就是主界面）
+引导不自动触发的配置
+
+
+GameSalad
+GameMaker
+
+把引导优化成添加到按钮上
+
+
+有的swf，要用闪客反编成fla，然后库列表最后一个元件就是完整那个角色的动画
+
+
+
+1、穿了2件镜像装备，不提示n
+2、镜像装备加上卸下按钮 --\/
+3、自己的装备不在选择列表 --\/
+
+
+
+
+str="你好"
+print(string.sub(str,1,1))
+
+1、聊天 --\/ 之前的记录会删掉
+2、引导对话狂加上场景判断 -- \/ 和引导一齐出来
+3、人物属性加上公式配置， 可写公式函数，描述，颜色 传入当前属性 -- \/
+
+
+    前端——战斗场景中，除了挂机，其他时候不要出现引导
+    后端—— 当夺宝战斗结束后，下一个战斗必须等5秒后才能出现
+
+1、上一局是小怪 开始打小怪 引导 -- \/
+2、上一局是小怪 开始打其他 不引导  --开始打其他之前已经关闭界面触发了引导  
+解决方法一：前端开始打其他的协议发送时 setCurFightState(8) 对应的类型，且要在触发条件之前设置(会的，因为协议返回才关界面)
+3、上一局是其他 不引导 -- \/
+
+
+battleFbName = {
+        [1] = "挂机副本",
+        [2] = "BOSS关卡", --\/  m_main_fb_select_tos--后端返回实现	
+        [3] = "战神殿", --\/	m_rnkm_challenge_tos GuideManager.updateCurFightType(3)
+        [4] = "帮派争霸",
+        [5] = "帮派BOSS",
+        [6] = "秘境副本",
+        [7] = "帮派魔神",
+        [8] = "夺宝战", -- \/m_grab_challenge_tos	GuideManager.updateCurFightType(8)
+        [100] = "开房野战",
+	},
+
+xxtea加密
+
+1、装备属性变化提示 m_equip_update_toc  -- m_role2_base_reload_toc 人物变化
+2、不是4个孔的装备 宝石和宝石属性显示有误 --\/
+3、背包里面的装备传承是，装备列表没有身上的	ctl.EquipController:openSelectView( -- \/
+4、大拇指和N提示只算初始评分， 装备列表排序按 初始评分 颜色 来 --\/
+5、神器套装属性 灰色的没有显示 -- 后端superSuit没有该数据 
+6、boss对话框之后才出三元相克界面  m_hanging_round_start_toc --\/
+
+
+-- 测试 addToQueue功能
+GuideManager.addToQueue("DialogController", "openGuideDialogView", 1000004)
+            GuideManager.addToQueue("GrabController", "grabResultHandler", {
+                is_win = true,
+                class = "m_grab_result_toc",
+                can_fast_fight = false,
+                weiwang = 10,
+                silver = 2000,
+                mirror_id = 1000025,
+                wanted_item = {
+                    prop_id = 10600035,
+                    prop_num = 1,
+                },
+                grab_item = "undefined",
+            })
+
+-- 测试引导的reload功能
+		  if btn.model.ctl ~= "FightController" then
+		          GuideManager.reloadMissionBuff()
+--                ctl.DialogController:openGuideDialogView(1000004)
+--                gEvent:call(EventType.u_func_open, gData.MainUIData.getModelByTag("SkillController"))
+            else
+--- 任务引导mission
+    local guideInfo = {     {"checkChangeBtn", true,{3,"点这里展开隐藏面板"}}, {1,"MainUIView", "SkillController",{1,"点这里查看与更换技能"}},{1, "SkillView", 1,{1,"恭喜你获得新技能，请点击更换"}},
+        {1, "SkillSelectView", 1,{2,"选择技能"}},{"viewLimit"},{"requestFinish"}}
+
+
+
+
+local node = cc.CSLoader:createNode("ActionTimeline/DemoPlayer.csb")
+    local action = cc.CSLoader:createTimeline("ActionTimeline/DemoPlayer.csb")
+
+    node:runAction(action)
+    action:gotoFrameAndPlay(0, 40, true)
+
+    node:setScale(0.2)
+    node:setPosition(VisibleRect:center())
+
+    self:addChild(node)
+
+
+local  proxy = cc.CCBProxy:create()
+local  node  = CCBReaderLoad("cocosbuilderRes/ccb/HelloCocosBuilder.ccbi",proxy,HelloCocosBuilderLayer)
+local  layer = node
+
+1、试下用ide生成的目录可以改引擎代码不
+2、luarocks install luaProfiler 查看lua函数的时间
+3、查找解析ccb文件的coco库和api
+4、查看战斗逻辑
+5、查看update模块c++
+6、神器属性显示灰色的
+
+    local lblContent = ccui.RichText:create()
+    lblContent:pushBackElement(ccui.RichElementText:create(1, cc.c3b(255, 0, 0), 255, "比你好", "Arial", 22))
+    lblContent:setAnchorPoint(cc.p(0, 0))
+    lblContent:setVerticalSpace(10)
+    self:addChild(lblContent)
+
+
+1、骨骼动画
+
+local function showNumber(srcElement, target, num,effects)
+战斗飘雪太乱
+
+		  if btn.model.ctl == "EquipBuildController" then
+		      ctl.DialogController:openView(3)
+		  else
+                ctl.DialogController:openGuideDialogView(1000004)
+		  end
+
+1、功能开启  --\/
+2、任务图标和夺宝 加上tag -- \/
+4、点击任务按钮慢是因为 加上了openGuideDialogView 0.15s, viewLimit 0.15s， sceneState 0.15s，  --\/ 调快成0.05每次
+5、通关boss任务之前没有领取成就获得boss挑战卷 -- \/
+6、选择技能中断了，在执行引导操作是错的 --\/后端判断了
+7、装备穿戴 已穿戴了，中断，要点击任务按钮才能完成 -- \/ 加上了关闭界面或者切换主城自动触发引导的功能
+8、保存检测到的装备 -- X 看不出要改什么了
+9、竞技场的图标加个次数角标  -- \/
+10、那个活跃度14级才开，没开的时候完成了一些获得了活跃度，它就闪，但是活跃度没有出来啊，不能领奖啊，不能闪 --\/
+11、通关奖励 1行写两个 --\/
+
+
+
+--  任务引导
+1、任务解析成 guideManager数据 -- \/
+2、加上firstMark ，noFightLimit等  -- \/
+3、手指引导加上不锁屏类型 ，isMission = true  --\/
+4、手指点不中，重新读取该引导数据 -- \/
+5、点击任务按钮， reloadBUffer并重新addToBuffer,  即调用startMissionGuide() -- \/
+6、完成任务判断 -- \/
+7、guideConfig也配置成监听器驱动, GuideListenerConfig中
+8、startMissionGuide中加上 寻找中间的可执行步骤（例如当执行到打开界面的引导时， 点击任务按钮，此时界面没有关闭，也不需要重新引导） 
+	解决1 界面做成模态 -- 违背策划需求
+	解决2 
+9、任务类型(isMission = true), 不自动关闭界面 --\/  不自动切换到副本 -- X
+10、关闭界面、切换主城时，重新开始引导 -- 已解决  --\/ 
+	因为： 这些操作后，tip关闭，引导会reloadBUff重新开始，条件符合是，会自动重新开始引导
+11、增加引导的开关控制， （当存在：任务对话--\/、boss对话、功能开启、） 
+
+
+
+
+1、GuideConfig.lua key改为监听器类型
+2、停止任务引导的情况：
+	剧情对话、
+	功能开启、
+	boss对话、
+	事件引导、
+
+打开剧情对话
+
+ 关闭所有界面
+
+结束剧情对话
+
+ 
+
+--
+
+保存本任务所有步骤的界面 saveView
+
+
+
+regist的时候 
+
+ 关闭tip，优先检查该界面是否包含在saveView中
+
+
+
+unregister时
+
+ check
+
+ 重置记录 record，并按步骤顺序检查
+
+
+
+点击任务按钮
+
+ 重置记录 record，
+
+
+点击任意位置
+
+ 关闭tip
+
+--
+
+
+
+
+
+
+
+
+
+1、功能开启 统一记录
+2、引导
+bug:
+3、免费猎豹 次数提示 不见了 --\/
+4、装备普通打造， 装备职业 适合职业的就改成白色吧，不适合在红色 -- \/
+5、大拇指 当装备有n时才显示 --\/ 伙伴的没有判断
+
+
+
+1、功能开启 在副本不飘动画， 直接添加 --\/
+2、快速战斗按钮  按关卡开启 --\/
+3、月卡特权界面顶上去  --\/
+4、推送点击错乱 t2_item=10100006 16 --\/
+5、基金领取提示 --\/
+
+
+1、用新号测试副本开启
+2、询问策划 功能开启是否要在主城中，还是可配置
+
+if btn.model.ctl ~= "RnkmController" then
+		      gprint("=====  if btn.model.ctl ~= RnkmController then")
+              ctl.RnkmController:openResultView({
+                silver = 70000,
+                is_win = true,
+                    class = "m_rnkm_result_toc",
+                score = 3,
+                    grab_item = {prop_id=10100001,prop_num=2},--"undefined",
+              })
+		  else
+			controller:openView()
+		end
+
+
+bug
+1、装备界面看见的图标跟详情里面的图标不一样 (更换装备时)
+2、成就通关boss领奖好按钮状态没变
+3、夺宝战斗结束打开竞技场界面，抽奖
+4、夺宝的兑换列表
+5、更换装备检测
+
+ctl.ExchangeController:askExchangeDealItem(model, 1)
+gData.ExchangeData.getStoreGoodsCf(idx)
+getGoodsByIdxServerId
+
+
+1、装备打造 N --\/
+2、副本界面 好友列表 查看  选中 整理 --\/
+3、引导副本的 加上自动跳转offset --\/
+4、引导锁屏 --\/
+5、猎宝谷 加上次数显示 -- \/
+6、背包有满字状态时，打开背包同时弹出开启背包的提示给他 --\/
+
+--		  self.index = self.index or 0
+--		  self.index = self.index + 1
+--            self.index = (self.index + 6) % 7 + 1
+--           ctl.MainFbController:openView(self.index)
+
+1、如果是android平台的 请求payment_request_tos
+
+
+dpcq_work
+
+D:\yzrj\org.eclipse.koneki.ldt.product-win32.win32.x86_64\workspace
+
+
+-- n提示bug
+RoleView:updateRolePutOnHd(self, model) 
+
+1、装备界面 换美术资源 --\/
+2、切换装备功能系统时 筛选models --\/
+
+-- 战斗界面
+self._container:addNode
+
+function tClass:updateView(msg)		NewFightView:updateFightStat(msg)
+function tClass:addAutoSellMsg(str)
+function tClass:showResult(msg)		NewFightView:showResult(msg)
+function tClass:createFightItem(result,sid)	FightStatView:addItemMsg(result,sid)	NewFightView:skillResult(step,srcElement,dir,index)
+
+
+1、聊天加上战斗界面
+	svn://s2.cqsvn.com:8006/cehua/策划文档/Z主界面，战斗界面，聊天系统界面/聊天优化12.6.xlsx
+2、副本加上快速战斗按钮 --\/
+
+Animate3DTest
+
+
+-- 比较排序（稳定 O(n2)）
+function ui.compareSort(tab, compFunc)
+    assert(type(compFunc) == "function", "ui.bubbleSort compFunc must be function type!")
+    
+    for i, v in ipairs(tab) do
+        local index = i
+        for i2 = i + 1, #tab do
+            local v2 = tab[i2]
+            if not compFunc(tab[index], v2) then
+                index = i2
+            end
+        end    
+        if index ~= i then
+            local temp = tab[i]
+            tab[i] = tab[index]
+            tab[index] = temp
+        end
+    end
+    return tab
+end
+
+
+1、使用礼包 背包控件不足 没有弹窗啊
+
+
+1、打boss下方加上文字  svn://s2.cqsvn.com:8006/cehua/美术/UI/战斗/战斗场景标题文字/BOSS挑战下方文字.png  --X
+	updateFightChange  
+2、单人副本 排序调整
+等级&时间都未开启：按开放等级排序
+等级开启，时间未开启：按开放等级排序
+等级未开启，时间开启：按开放等级排序
+等级&时间均开启：按开放等级排序
+开启&未开启：开启排序优先
+
+3、竞技场增加挑战次数 加个二次确认弹窗 --\/
+
+5、充值 点击月卡、周卡 打开特权界面 
+6、熔炼自动筛选 --\/
+7、选择装备界面的装备主人要放两行 --\/
+
+炉石传说 
+刀塔传奇
+coc
+
+1、boss对话框用动画形象
+2、竞技场排名奖励界面更换 --\/
+
+getMonsterWalkPath
+
+1、装备界面 有n提示更换 
+2、招财界面调整 -- \/
+3、竞技场排名标签没有数据不显示--X 不改
+
+
+@【开发】余振健 
+	装备tips/宝石镶嵌--效果图.jpg --\/
+	引导相关/游戏提示/玩法介绍--效果图.jpg -- \/
+	装备tips/获得途径--效果图.jpg --\/
+svn://s2.cqsvn.com:8006/cehua/美术/UI/熔炼/效果图/特殊打造2--效果图.jpg -\/
+
+
+1、 竞技场数据问题
+2、竞技场积分奖励改成手动领取 ，外加推送
+
+、tab = {1,2,3,4,5,6}
+for i, v in ipairs(tab) do
+print("--- " .. i .." ----")
+print(i, v)
+if i % 2 == 0 then
+table.remove(tab, i)
+end
+print(i, v)
+end
+
+-- 跳过了 3 3 的元素
+--- 1 ----
+1       1
+1       1
+--- 2 ----
+2       2
+2       2
+--- 3 ----
+3       4
+3       4
+--- 4 ----
+4       5
+4       5
+
+1、离线战报
+2、
+
+, 14, 34
+
+
+textBg10
+--冷却时间
+好友friendItem
+mirrorView
+equipShare
+skillitem
+
+
+传承 选择列表加上当前装备
+
+
+1、副本加上基金特权 （单人副本3个，帮派神魔副本、竞技场冷却）
+2、单人副本美术资源
+3、道具功能莫夸 effectType
+4、竞技场读形象
+
+
+2、装备选择换界面
+
+--人物动画
+	ui.removeNode(self.playerAnim)
+	local tab = {
+		animName = tonumber(self.model.image),
+		actionName = "stand",
+		direction  = 2,
+	}
+
+	local tAnim = SimpleAnim.create(tab)
+	self.playerAnim = tAnim
+--	tAnim:setScale(0.9)
+	ui.addPosTo(tAnim, self.petBgLayer, cc.p(0, 0), cc.p(450, 120))
+-- FightView适配
+ui.addPosTo(self._view, app.scene.mapLayer, cc.p(0.5, 0), cc.p(0, ui.autoSizes.y0))
+
+
+self._view:updateView(msg)
+self._view:showResult(msg)
+self._view:updateHangingStat(msg)
+self._view:addItemMsg(result,result.skill_id)
+
+
+
+技能选择记录
+
+
+1、查看别人玩家，有更换按钮 -- \/
+
+1、引导更换装备时加上比较--\/
+2、功能开启和新手引导分开，--X  不能中断 -- \/
+3、引导重登继续 -- X 不用
+
+shaderLabe的书
+
+
+
+1、剧情boss对话 --\/
+2、新手引导中断后 跳过
+3、红包名字问题 --\/
+4、加上主界面切换按钮判断 --\/
+5、熔炼召唤卡 --\/
+6、熔炼保存选择记录 --\/
+
+请问各位如果做面片树, 在IOS上, 用Transparent Vertex Lit 跟Particle Alpha Blended哪个较吃资源呢?
+\
+Evernote -- mac笔记
+
+
+
+链接: http://pan.baidu.com/s/1zRmoU 密码: w8yn
+
+1、提示框阻碍新手引导 --\/ 除了断网提示 其他不弹出来
+2、粒子加上算法 闪电效果
+
+1、熔炼值显示--\/
+
+1、vip特权 招财 -- \/
+2、装备洗炼、更换装备属性显示成 基础（成长）
+3、换引导箭头 --\/
+4、招财特效--\/
+5、道具cd
+
+
+btn:setGuideTag(self.__cname, 2)
+
+
+1、查看玩家装备可以打开详情 
+
+1、红包积分 --\/
+2、获取途径 -\/
+3、聊天广播 --
+4、公会红包状态  按钮换成图片--\/
+
+%% 打开红包获得元宝的比例{消耗VIP积分的比例,消耗VIP积分获得元宝比例,不消耗VIP积分获得元宝比例}
+use_bonus_add_gold_prop() -> {0.1, 0.1, 0.01}.
+
+
+1、宝石镶嵌前没有装备先引导穿上装备
+2、宝石镶嵌界面的宝石名字颜色不对
+3、道具过期转圈冷却效果 --\/
+
+1、block 住的非first项 直接全部删除  （重新添加全部到buffer后面去 -- 不需要，会引起一直引导的问题）
+2、在GuideTip开始到结束，创建挡板阻止用户操作--\/
+3、引导项 --\/
+7、registerbtn(self,tag,btnorbtntable,subbtnname),界面名字，和btn register tag
+8、功能开启
+9、触摸事件拖动的时候流程中断
+10、缩放后坐标变化
+
+4、招财的vip功能 看御姐记录
+5、宝石镶嵌成功消耗提示
+6、装备熔炼保存上次选择记录
+
+装备共享不可卸下 和操作
+
+
+1.篮球队     QQ群：289216347
+2.足球队     QQ群：289216244
+3.乒乓球     QQ群：298523086
+4.羽毛球     QQ群：289216203
+5.游泳        QQ群:137793103
+6.台球队     QQ群：73050992
+7.自行车兴趣队  QQ群：31754233
+8.摇滚乐队        QQ群：252221562
+9.苍穹-轮滑队   QQ群：315261543
+
+tab={7,3,4, 5, 6}
+print(next(tab)) --返回 k, v 或 i, v
+print(select(2, next(tab))) --返回 v
+
+-- 新手引导
+
+-- 指定等级引导 
+-- 功能开启引导 
+-- 打开界面引导一次
+
+
+
+一、强引导内容
+1、创建角色后第一次进入
+1、第一次达到等级
+
+引导类型：
+1、弹出说明modal界面
+2、箭头
+强制引导点击位置（左右上下） 、 是否有说明内容
+
+
+二、弱引导内容
+获得高评分装备:
+提示标记（点击后消失（）
+
+userdata记录上一次新手引导步骤
+			
+			
+需要后端的部分：			
+8熔练前，产出的装备必须是最挫的
+9玩家开放第二个技能时（暂定人物5级开放
+
+--装换为世界坐标
+	local anchorPoint = target:getAnchorPoint()
+	local targetPosition = ccp(0, 0)
+	if anchorPoint.x == 0 then
+		targetPosition = ccp(self.targetSize.width/2, self.targetSize.height/2)
+	end
+	local position = target:convertToWorldSpaceAR(targetPosition)
+	local size = target:getContentSize()
+	local tipPosition = GameView.tipLayer:convertToNodeSpace(position)
+
+
+
+
+
+3、熔炼 多选记录保存， 限制选6个
+
+
+-- 用ipairs 或者 pairs 不调用元表中的__index
+
+tab = {}
+setmetatable(tab, {
+__index=function()
+print("world ni hao")
+end
+})
+for k, v in pairs(tab) do
+end
+tab[1] = tab[1]
+
+
+
+1、加入黑名单  移除黑名单--\/
+2、最近联系人--\/
+3、查看玩家 装备--\/
+4、好友列表改为横向 --\/
+后端5、从好友列表加入到黑名单有处理吗？
+3、熔炼 多选记录保存， 限制选6个
+
+
+-- 熔炼 多选记录保存， 限制选6个
+
+// 获得r2的世界坐标，两种方法  
+// 方法1：以r2坐标系为起点，向根节点(世界坐标)变换，坐标必须为(0,0)  
+Point p2world = r2->convertToWorldSpace(Point(0, 0));  
+  
+// 方法2：以r1坐标系为起点，向根节点(世界坐标)变换,坐标为r2在父节点r1内的坐标  
+p2world = r1->convertToWorldSpace(r2->getPosition());  
+  
+// 获得r2在r0坐标系中的坐标  
+// convertToNodeSpace要传入的坐标为世界坐标  
+Point pt = r0->convertToNodeSpace(p2world); 
+
+
+-- 长度检测
+sdfgds弗格森的鬼地方$03$18sdfgds弗格森的鬼地方
+
+
+神器吞噬 装备数据没有更新
+
+t2_add_item=13000075=1
+
+
+925: [13000075]={"红包",14,4,0,0,1,1,317,0,0,0,0,"可赠送给公会其它成员或放入公会红包库","/libao/sanshijilibao.jpg"}, 
+
+
+更换装备后 提示属性变化
+
+平面格斗（动画控制）， rpg地图（地图计算）
+
+msg.pet_id = goodsModel.isPetPutOn
+
+加pet_id的协议
+m_equip_load_tos
+m_equip_load_toc
+m_equip_unload_tos
+m_equip_unload_toc
+m_equip_del_toc
+m_equip_update_toc
+m_equip_reinforce_tos
+m_equip_reinforce_toc
+m_equip_foster_transfer_tos
+m_equip_foster_refresh_tos
+m_equip_foster_refresh_toc
+m_equip_foster_save_tos
+m_shenqi_transfer_tos
+m_shenqi_eat_tos
+
+宝石的使用原有字段：ID
+m_stone_opt_tos
+m_stone_opt_toc
+m_stone_eat_tos
+m_stone_eat_toc
+
+
+强化属性会变为负数
+强化提示 境界不足
+
+
+onTouchBegan: function (touch, event) { 
+            var pos = touch.getLocation();
+            var target = event.getCurrentTarget();  
+            if ( cc.rectContainsPoint(target.getBoundingBox(),pos)) {
+                cc.log("touched")
+                return true;
+            }
+            return false;
+        }
+
+addTouchEventListenser:function(){
+    this.touchListener = cc.EventListener.create({
+        event: cc.EventListener.TOUCH_ONE_BY_ONE,
+        // When "swallow touches" is true, then returning 'true' from the onTouchBegan method will "swallow" the touch event, preventing other listeners from using it.
+        swallowTouches: true,
+        //onTouchBegan event callback function                      
+        onTouchBegan: function (touch, event) { 
+            var pos = touch.getLocation();
+            var target = event.getCurrentTarget();  
+            if ( cc.rectContainsPoint(target.getBoundingBox(),pos)) {
+                cc.log("touched")
+                return true;
+            }
+            return false;
+        }
+    cc.eventManager.addListener(this.touchListener,this);
+    });
+
+
+
+1、上移
+2、选择数量限制 -- \/
+
+
+3b287
+--selectType:
+--1、更换装备 (单选)
+--2、神器传承 (单选) 
+--3、熔炼 (多选)
+--4、神器吞噬 (多选)
+--5、熔炼传承（单选）
+
+ 传承 同部位 同颜色
+
+
+
+//设置描边的颜色，第二个参数可以传入描边的大小，大小不能为0，否则的话就看不到描边的效果了，描边和荧光只适用使用createWithTTF创建的文本
+label_two->enableOutline(Color4B(255,0,0,255),5);
+//荧光的效果,distanceFieldEnabled需要设置为true,outlineSize为0
+label_three->enableGlow(Color4B(255,0,0,255));
+//阴影效果,第一个参数是影子的颜色，默认是黑色，第二个参数是偏移量， 第三个参数是模糊半径
+label_four->enableShadow(Color4B(0,0,255,255),Size(3,10),0);
+
+
+
+t2_add_item=30102305=1
+
+
+图片宽高尽量切成偶数 2
+
+todo：
+1:viewManager
+
+
+
+lua 调用GLProgramState创建shader显示失败（为全黑），可能与windows系统有关，可能引擎有关，而c++正常
+解决方法1：shader都用c++绑定，lua再调用
+2：不用GLProgramState， 改用GLProgram:create()方法，将已有例子里面的shader加一个文件
+
+
+-- svn忽略 windows->prefference->svn-->ignore Resources
+.setting
+.project
+
+--提交c++目录
+1、拷贝生成的Debug.win32中的 .exe和.ilk 到work项目运行目录
+2、工程文件 .suo不能提交
+
+--qq
+2244359910
+songgao
+
+113.107.166.234 s2.svn.com
+
+svnurl:
+svn://s2.svn.com:3694/client
+svn://s2.svn.com:3694/server
+svn://s2.svn.com:3694/mobile
+svn://s2.svn.com:3694/doc
+svn://s2.svn.com:3694/cehua
+
+
+
+手机防水套、电脑架
+怪坡现象
+
+
+1、装备选择界面 保存parent 调用parent:updateFuncTable[1](selfequipIdTable)  getBagGoods --\/
+2、特殊打造的配置 --\/
+3、打造所需熔炼值 所需威望值 配置  普通打造按装备的阶位和颜色  特殊打造按阶位 --\/
+4、装备信息 （属性）--\/
+
+5、普通打造会刷新出同一件装备 --\/
+6、熔炼金色不删去 --\/
+7、普通打造爆粗 --\/
+
+local equipeAttribute = EquipStrengthDataCenter.getEquipReinforceAttributeData(equipeData)
+for i = 1,  #equipeAttribute do
+		local name = equipeAttribute[i].name
+		local value = equipeAttribute[i].value
+		local reinforceValue = equipeAttribute[i].reinforceValue
+		
+		--------------------------------------
+		-- 强化前的属性
+		--------------------------------------
+		local font = ComponentFactory.createLabel(name..":", fontSize)
+		font:setColor(ccc3(0, 0, 0))
+		font:setAnchorPoint(ccp(1, 0.5))
+		addChildLazy(layer, font, 125, height - count * gap)
+		
+		local valueFont = ComponentFactory.createLabel("+"..value, fontSize)
+		valueFont:setColor(ccc3(107, 48, 0))
+		valueFont:setAnchorPoint(ccp(0, 0.5))
+		addChildLazy(layer, valueFont, 130, height - count * gap)
+
+
+svn://s1.cqsvn.com:8004/cehua/策划文档/D锻造/装备的重铸和打造系统.xlsx
+
+
+
+Android SDK更新 Connection to http://dl-ssl.google.com refused 解决方法
+
+C:\WINDOWS\system32\drivers\etc
+最好的方法还是改hosts文件的方法，更新速度较快。Windows在
+C:\WINDOWS\system32\drivers\etc
+目录下，Linux用户打开/etc/hosts文件。
+打开文件后添加以下内容。
+
+#Google主页
+203.208.46.146 www.google.com
+#这行是为了方便打开Android开发官网 现在好像不翻墙也可以打开
+74.125.113.121 developer.android.com
+#更新的内容从以下地址下载
+203.208.46.146 dl.google.com
+203.208.46.146 dl-ssl.google.com
+
+
+-- 读取plist中的内容
+wordDic = CCDictionary::createWithContentsOfFile("config/ChineseConfig.plist");
+	wordDic->retain();
+
+
+const char* StringUtil::getString(const char* key)
+{
+	CCString* text = (CCString*)wordDic->objectForKey(key);
+	if(text)
+	{
+		return text->getCString();
+
+
+
+
+
+
+
+void ColorUtil::AddColorGray(CCSprite * spr) 
+{ 
+
+    spr->setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureGray)); 
+
+} 
+
+void ColorUtil::RemoveColorGray(CCSprite * spr) 
+{ 
+    spr->setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureColor)); 
+} 
+
+
+【测试】没有伙伴时打开招募界面；伙伴增加手指儿引导(t2_miss=10210013）
+
+JAVA_HOME=F:\Program Files\Java\
+
+ANDROID_NDK_ROOT=F:\Cocos2dxDev\ADT\NDK-r9c
+ANDROID_SDK_ROOT=F:\Cocos2dxDev\ADT\sdk
+ANDROID_HOME=%ANDROID_SDK_ROOT%
+
+
+svn://s1.cqsvn.com:8004/cehua/策划文档/H伙伴/伙伴优化v9-11.xlsx
+
+
+1、伙伴预览界面 
+2、伙伴训练界面加上缘分
+
+1、伙伴名字加上星星
+
+1、伙伴名字去掉无双 --\/
+2、突飞后伙伴不出战的经验没有增加 --\/
+
+1、境界升级界面弹出bug --\/
+2、武帝之路葫芦加发光 --\/
+3、家族申请界面bug -- \/
+4、招募1倒计时放在按钮上面 --\/
+5、逐个显示伙伴
+6、战力值问题
+
+
+1、逐个显示伙伴 ---\/
+2、整理PanelManager.showView（界面兼容、界面关闭、界面缓存）
+3、shader 外发光
+6、预研Unity3d 的架构，用于cocos2dx项目
+5、预研cocos2dx 3.0(使用cocostudio，实现传奇项目部分功能（地图、人物动画、寻路、主界面、面板控制、战斗、任务、）)
+
+
+
+-- 主界面
+1、配置图标位置分类（功能入口上下左右、固定大图标（斗帝、任务、人物头像、聊天等）、定时器更新状态的按钮（战力、打坐、））
+2、二级界面
+3、model记录按钮状态（发光等）
+4、战斗切换
+5、不同地图不同的主界面布局
+6、功能开启条件（任务（服务器数据）、人物等级、境界等）
+7、刷新是同一件装备
+
+Eclipse快捷键 preferrence->keys
+expand all
+collapse all
+show in (script explorer)
+
+
+t2_reset_pet_employ=1
+
+
+http://gd.qq.com/a/20140917/014711.htm
+手机党的各种死法
+9:40:53
+【开发】吴泽森
+2014/9/17 9:40:53
+svn://s1.cqsvn.com:8004/cehua/dpcqRelease/B_1.9.1/dpcq_17892_tencent.apk
+
+
+1、合并招募到petView标签上方 --\/
+2、成长属性读配置petBasicConfig（后端未导出--\/）
+3、基础属性读配置，在dataCenter.setRolePetBagInfo初始化  --\/
+4、petXunlianView中出战伙伴才有突飞 --\/
+5、petInfoView中增加“成长”、“缘分”按钮
+6、招募协议改动、获得伙伴表现参照刀塔传奇
+
+1、伙伴系统
+2、resume for 4399、腾讯
+3、学习u3d
+
+
+svn://s1.cqsvn.com:8004/cehua/策划文档/H伙伴/伙伴优化v9-11.xlsx
+
+
+http://www.kankanews.com/ICkengine/archives/100073.shtml
+1、本文采用的就是第二种方式。具体步骤如下：写好一个图像变灰的shader程序，并放入到cocos2dx引擎下面的shader文件夹中。
+2、ccShaders.h中添加
+
+extern CC_DLL const GLchar * ccPositionTextureGray_frag;
+3、ccShaders.cpp中添加
+
+const GLchar * ccPositionTextureGray_frag =
+#include "ccShader_PositionTextureGray_frag.h"
+4、CCShaderCache.cpp中添加枚举类型
+	  CCShaderCache::loadDefaultShaders()中添加
+	  CCShaderCache::reloadDefaultShaders()中添加
+	  CCShaderCache::loadDefaultShader(CCGLProgram *p, int type)中添加
+5、CCGLProgram.h中添加
+6、新建一个灰度转换调用类（以便扩展其他的颜色转换）
+
+
+
+void ColorUtil::AddColorGray(CCSprite * spr) 
+{ 
+
+    spr->setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureGray)); 
+
+} 
+
+
+响应android退出按钮
+void CCLayer::keyBackClicked(void)
+{
+    if (m_pScriptKeypadHandlerEntry || m_eScriptType == kScriptTypeJavascript)
+    {
+        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeLayerKeypadEvent(this, kTypeBackClicked);
+    }
+	
+	#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) //判断当前是否为Android平台 
+		JniMethodInfo minfo;//定义Jni函数信息结构体 
+		//getStaticMethodInfo 次函数返回一个bool值表示是否找到此函数 
+		bool isHave = JniHelper::getStaticMethodInfo(minfo,"com/dpcq/dpcq","openBackView","()V");  
+  
+		if (!isHave) { 
+			//CCLog("jni:此函数不存在"); 
+		}else{ 
+			//CCLog("jni:此函数存在"); 
+			//调用此函数 
+			minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID); 
+		} 
+		//CCLog("jni-java函数执行完毕"); 
+	#endif 
+}
+
+
+
+virtual void ignoreAnchorPointForPosition  ( bool  ignore )  
+ virtual  
+
+Sets whether the anchor point will be (0,0) when you position this node. 
+
+This is an internal method, only used by CCLayer and CCScene. Don't call it outside framework. The default value is false, while in CCLayer and CCScene are true
+
+
+
+协议整理
+-- 未加到NetMsgHandler里面的
+function DayBurnTowerController:m_romm_self_toc(param)
+function BlackRankFBController:m_cd_clear_toc(param)
+
+1、看objc代码
+2、封装CTScrollView
+3、OpenGL中shader使用 cocos2d-x中shader的使用
+F:\cocos2d-x-2.2.2\cocos2d-x-2.2.2\samples\Cpp\TestCpp\Resources\Shaders
+
+
+
+1、封装ScrollView
+2、controller封装 只需要协议名
+
+今天发现：判断一个 lua 函数是在当前文件定义出来的，还是从别的地方 require 引入的。用 debug.upvalueid 去查 _ENV 基本可以判断出来。
+
+
+1、伙伴召唤左边的数据没有更新
+
+
+
+1、伙伴界面数据调整
+2、高级界面合并到属性界面
+3、任务增加根骨
+
+
+--
+--                       _oo0oo_
+--                      o8888888o
+--                      88" . "88
+--                      (| -_- |)
+--                      0\  =  /0
+--                    ___/`---'\___
+--                  .' \\|     |-- '.
+--                 / \\|||  :  |||-- \
+--                / _||||| -:- |||||- \
+--               |   | \\\  -  --/ |   |
+--               | \_|  ''\---/''  |_/ |
+--               \  .-\__  '-'  ___/-. /
+--             ___'. .'  /--.--\  `. .'___
+--          ."" '<  `.___\_<|>_/___.' >' "".
+--         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+--         \  \ `_.   \_ __\ /__ _/   .-` /  /
+--     =====`-.____`.___ \_____/___.-`___.-'=====
+--                       `=---='
+--
+--
+--     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+--               佛祖保佑         永无BUG
+--				 法外无天         心外无法 
+
+
+大武师 以上加上武器发光
+
+DA网
+ http://dvtv.deviantart.com/
+
+黑榜倒计时界面：BattlegroundLayer - >BattleGroundEnterCountdown
+npc入口function funLinkHandler(self, param)
+
+
+基金周卡月卡图片
+等级礼包没有弹窗
+
+5000-(5000/26)*1-(5000/26)*0.1*4  = 4730.769
+4500-(4500/26)*1-(4500/26)*0.1*4 = 4257.69
+
+
+翻看lua程序设计
+GameScene的实现
+c++网络socket字节传送机制
+
+Unity3d 视频 书本，做一个demo
+
+
+
+
+str = "sa$fasasdfas"
+print(string.find(str, "%$.+%$"))
+
+
+ps:
+windows上路径是大小写不敏感的
+linux上路径大小写敏感
+
+移动设备上图片打包最大2048x2048,否则加载动画失败
+大的资源打包需要拆分、太多的动画需要异步加载
+
+
+1、战力值职业划分
+2、
+
+
+-- 字符串匹配
+for w in string.gmatch(zlzConfig.base.zlzBaseKeyStr,"[%a_]+") do
+--			baseKeyInfo[#baseKeyInfo + 1] = w
+--		end
+
+
+1. 活跃度匪分类bug  -- \/ offset bug -- \/
+2。广播前端配置 -- \/
+3、vip弹窗
+
+
+1、每日签到换ui
+2、小助手换ui
+3、vip换ui
+4、vip动画打包
+
+
+12345循环公式
+区间公式 步长
+		  self.index = self.index or 0
+		  self.index = self.index + 1
+            self.index = (self.index + 6) % 7 + 1
+
+
+
+svn合并
+svn://s1.svn.com/mobile/branch/B_0.7.4/work
+
+
+
+backCompleteOneDailyMissionHandler
+-- 斩魔令完成
+
+mapChangePosHandler(self, param) --\/
+--同地图传送完毕
+
+SceneController:backJumpToMapResultHandler(param) --\/
+-- 跳转地图完毕
+
+
+isCanFly() ---按按钮的时候
+
+--寻路完毕
+EventDispatcher.addEventListener(EventType.I_WALK_END, iWalkEndHandler, self) --\/
+
+-- 自动战斗
+throwEvent(EventType.OPEN_AUTO_HANG_UP, false)
+
+
+99669999996669999996699666699666999966699666699
+99699999999699999999699666699669966996699666699
+99669999999999999996699666699699666699699666699
+99666699999999999966666999966699666699699666699
+99666666999999996666666699666699666699699666699
+99666666669999666666666699666669966996699666699
+99666666666996666666666699666666999966669999996
+
+
+
+todo:
+1、研究项目核心功能实现（寻路，地图处理、人物资源处理、任务引导、C++功能）
+2、整理简历（c++，d3d, lua, as, cocos2dx）
+3
+
+
+1、世界地图
+2、人物行走
+
+
+1、世界地图
+2、武帝秘境 按钮文字不添加
+
+1、黑榜兑换 换UI 
+2、客栈换迦南学院、一星伙伴、高级邀请 --\/
+3、黑榜 战力积分 --\/
+4、这个处理一下，冷却为零的时候，显示绿色字体：“当前可挑战 --\/
+5、成就推送报错
+
+panelOpenCloseSwtich(PanelId.vipRechargeView)
+PanelManager.setLastView(self.panelId)
+
+1、黑榜兑换功能 --\/
+4、黑榜兑换 UI  --XX
+2、乐透 历史信息--\/
+3、乐透 换UI
+t2_lotto_times=1
+message m_rnkm_score_deal_tos{
+    optional int32 op_type = 1; // 1:请求已兑换的列表 2:请求领取兑换
+    optional int32 deal_id = 2; // 要兑换的物品的编号
+}
+message m_rnkm_score_deal_toc{
+    optional int32 op_type     = 1; // 1:请求已兑换的列表 2:请求领取兑换
+    optional int32 deal_id     = 2; // 兑换的物品的编号
+    repeated int32 dealed_list = 3; // 已兑换的列表
+}
+
+
+
+1、黑榜加上兑换功能，冷却时间按钮位置调整
+m_rnkm_match_end_toc
+
+2、vip到达顶级之后界面处理
+3、鸿运当头  
+
+
+管理不是雇佣军。这里是交流平台，不是教学培训机构。没有义务，没有责任！是大家共同的圈子，是大家的努力营造起来的学习氛围。我们也有工作，也需要做很多事。不能尽心
+
+
+-- 成就
+1、服务器返回数据不全， （应返回 不可领取和可领取的， 数据或者配置不对 12/6）
+2、领取返回删去对应id的成就，查看nextDataId并替换下一成就
+3、更新返回 弹出图标，
+
+luaSocket CCLuaObjcBridge
+
+classUtil
+
+1、vip充值界面不是用panelManager打开
+
+【测试】福利界面调整（增加成就入口，删去设置界面中的成就入口）
+
+1、成就福利界面的图标 --\/
+2、福利界面中打开二级界面关闭后重新打开福利界面
+3、设置中删去成就按钮 --\/
+4、聊天综合改为公告，势力改成全部聊天内容 -- \/
+5、成就界面换版，成就获得是推送方式提醒 -- 周一再做
+6、开场退出按钮 --\/
+
+// vip返还礼包
+message m_vip_gift_tos {
+    required int32              vip_level  =1;    
+}
+
+message m_vip_gift_toc {
+    required bool               succ = 1;
+    optional string             reason = 2;
+    required int32              type = 3; /// 1：推送info 2：请求领取礼包
+    repeated int32              fetched_list = 4;
+}
+
+
+server holds the player's information
+client faces the player's operation
+
+m_shop_shops_tos 请求商品类别
+-> updateShopTitleScrollView  
+-> REQUEST_SHOP_ALL_GOODS 
+-> m_shop_all_goods_tos 更新某类别商品
+-> updateShopAllGoods 更新第一类型界面 -》updateShopPageGoods（1）
+
+
+
+
+【测试】vip功能加上限制判断、描述（购买体力、黑榜失败冷却、猎宝50次、猎火30次、默契技能一键满级、坐骑一键提阶、神器一键全[颜色]、强化冷却、）
+
+
+createPerfectLayer(model, isShowBtnLayer, isTempStorage, noShowSellLayer, touchEnable)
+
+--7.4开发
+1、伙伴招募加上tips --	\/
+	GoodsTip.showGoodsTip(goodsItem.model, false, false, false)
+	local rolePets = PetDataCenter.getRolePetsInfo()
+	if not rolePets or #rolePets < 1 then return end
+	local currentPage = self:getParent():getCurrentPage()
+	local pet = rolePets[currentPage]
+	
+	pet.tricks
+	local model = getPetSkillModel(tSkills[1])
+	SkillDataCenter.getModelDiscription(model.id)
+2、商城伙伴兑换商店 -- m_shop_all_goods_toc
+3、对比销售加上坐骑 -- \/
+4、vip功能限制 --\/
+
+30112111
+30112170
+
+--			local str = "<font face=\"font15\">使用<font color=\"#ffff00\">1万铜*1</font>，获得<font color=\"#ffff00\">铜币10000铜</font></font>"
+--			TipMsg.showPlayerInfo(str)
+
+
+--外发光
+ CCCallFunc:create(function()
+    						if not tolua.isnull(item) then
+                        		local param = {}
+                        		param.orgNode = item
+                        		param.justLightOnce = true
+                        		param.yuHuaRange = 5
+                        		EffectFactory.feather(param)
+                        	end
+    					end),
+
+
+//宠物酒馆
+message m_pet_bar_call_tos{
+    required int32  bar_id    = 1;//酒馆id，即酒馆的星级
+    required int32  call_type = 2;//操作方式: 1:普通点将 2:高级点将
+}
+
+message m_pet_bar_call_toc{
+    required int32  bar_id       = 1;//酒馆id，即酒馆的星级
+    required int32  call_type    = 2;//操作方式: 1:普通点将 2:高级点将
+    required bool   is_email     = 3;//奖励是否是由于背包空间不足而通过邮件发送的
+    repeated p_reward_prop items = 4;//获得的道具
+}
+//宠物普通招募
+message m_pet_bar_employ_tos{
+    required int32  op_type  = 1;//操作方式: 1:获取雇佣宠物信息列表 2:雇佣
+    required int32  pet_item = 2[default=0];//宠物召唤符id(op_type=2时有效)
+}
+
+message m_pet_bar_employ_toc{
+    required int32  op_type            = 1;//操作方式: 1:获取雇佣宠物信息列表 2:雇佣
+    required p_pet_employ  employ_list = 2;//雇佣宠物的列表
+    required int32  pet_item           = 3[default=0];//宠物召唤符id
+}
+
+message p_pet_employ{
+    required int32 pet_item_id = 1; //宠物召唤符id
+    required int32 times       = 2; //可雇佣次数
+}
+
+【开发】狄曾荣 2014/6/28 11:48:10
+message p_pet_employ{
+    required int32 pet_item_id = 1; //宠物召唤符id
+    required int32 times       = 2; //可雇佣次数
+}
+
+t2_add_item=12301006=1
+--突飞令
+t2_add_item=12300134=5999
+
+
+
+-- 伙伴进阶后的滚动条更新 --、\/
+--伙伴进阶快速购买后所需品位置 -- \/
+
+-- 封测改动
+1、伙伴酒馆 -- \/
+2、伙伴进阶界面 --\/  雅菲最高阶配置有问题
+3、苍穹秘境换肤 --\/
+4、经验找回 --\/
+
+--重置苍穹密境进入次数
+t2_reset_secret_fb_times=1
+
+
+
+-- 购买商品成功更新
+	EventDispatcher.addEventListener(EventType.NOTICE_SHOP_BUY, noticeShopBuy, self)
+    
+
+--todo
+1、自动挂机
+2、技能特效
+3、超链接工厂
+4、对话框不空两格
+5、聊天框添加的层修改
+6、扫荡停止扫荡显示问题 --\/
+
+--host
+C:\Windows\System32\drivers\etc
+
+F:\work\mobile\trunk\cocos2d-2.1rc0-x-2.1.2\template\multi-platform-cpp\proj.android\README.md
+
+最好等到回暖的一瞬间出手，不要等到下跌时出手
+
+--系统环境路径
+F:\Cocos2dxDev\cygwin\bin
+
+F:\Cocos2dxDev\cygwin\bin;F:\Python27\;F:\Python27\Scripts;F:\Python27\Lib;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;F:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;f:\Program Files (x86)\Lua\5.1;f:\Program Files (x86)\Lua\5.1\clibs
+
+
+F:\cocos2d-x-2.2.2;F:\cocos2d-x-2.2.2\cocos2d-x-2.2.2\cocos2dx\platform\third_party\android\prebuilt
+
+MY_FILES_PATH	:=	$(LOCAL_PATH) \
+			$(LOCAL_PATH)/../../Classes
+
+
+ if string.utf8len(str) > 6 then
+                self.editBox:setText("")
+                TipMessage.show("长度不能超过6个汉字或英文")
+                return
+            end
+
+
+--调用游风步
+myRole:requestFlashTo(clickPixselPoint)
+
+
+local function checkIsOpenModule(self, model)
+    --------------------------------------
+    -- 检查是否直接打开某个模块界面
+
+--平台判断
+if GameConfig.androidPlatformLogin then
+		if GTargetPlatform == kTargetAndroid then
+			Log.info("andriod平台充值")
+		end
+	elseif GameConfig.iosPlatformLogin then
+		if GTargetPlatform == kTargetIphone
+			or GTargetPlatform == kTargetIpad
+			or GTargetPlatform == kTargetMacOS
+		then
+	--调用object-c函数
+			CCLuaObjcBridge.callStaticMethod("PlatformMethods", "Payment", {payURL = GameConfig.paymentLink})
+		end
+	else
+		Log.info("没有对应的充值平台")
+	end
+
+GameScene:initMapArrow(mapid)
+
+
+苍穹秘境
+1、退出倒计时 
+2、战场界面的显示跳层信息 ---\/
+3、界面默认选中某页 --\/
+
+CountdownLabel
+
+-- travelling
+http://www.douban.com/note/334886787/
+http://www.douban.com/group/topic/41539920/
+-- 客栈
+http://bnb.qunar.com/city/yangshuo/#fromDate=2014-06-15&from=kezhan_listSearch&toDate=2014-06-18&QHFP=KZL__52E9EA5
+
+
+http://weibo.com/1920566282/profile? topnav=1&wvr=3.6&sudaref=bnb.qunar.com
+
+http://kezhan.trip.taobao.com/hotel_detail2.htm? spm=181.7025333.1.1.1_181.7087309.0.0.wd99Az&searchBy=tbsearch&shid =10080081&city=450321&checkIn=2014-06-15&checkOut=2014-06- 16#hotel-desc
+
+0773-8812336
+
+
+
+--svn密码
+yuzhenjian
+new：
+1BYq4aZYIXc190Xd20
+
+old:
+50J0fdaMeDkvdSTVK
+yuzhenjian=50J0fdaMeDkvdSTVK
+
+//=======================苍穹秘境=================================
+message m_secret_fb_info_tos{}
+message m_secret_fb_info_toc{
+    required int32       left_times =1; //剩余进入次数
+    repeated p_secret_fb reward_fb  =2; //未领奖的副本
+    required int32       fb_id      =3[default=0]; //刚刚打完哪一关出来的
+}
+
+message p_secret_fb{
+    required int32 id    = 1; //哪一关
+    required int32 score = 2; //评分
+}
+
+message m_secret_fb_enter_tos{
+    required int32 fb_id    =1; //哪一关
+}
+
+// 退出
+message m_secret_fb_exit_tos{}
+
+
+//每次进入一层收到
+message m_secret_fb_report_toc{
+    required bool  succ        =1[default=true]; //是否成功
+    required int32 failed_code =2; //失败的原因: 1:死亡  2:时间到期
+    required int32 next_layer  =3; //接下来打第几层，为0表示打完所有层了
+}
+
+// 领取奖励
+message m_secret_fb_fetch_tos{
+    required int32 fb_id    =1; //哪一关
+}
+message m_secret_fb_fetch_toc{
+    required int32 fb_id    =1; //哪一关
+}
+
+
+local eventParam = EventParam.create()
+		eventParam.from	= PanelId.vipView
+		eventParam.switch = "off"
+		EventDispatcher.dispatchEvent(EventType.REQUEST_SECRET_INFO, eventParam)
+
+GameMusic.playEff("music/effectMusic/fightEff/dianji"..math.random(1, 4)..".mp3")
+GameMusic.playEff("music/effectMusic/fightEff/nu5.mp3")
+
+GameMusic.playEff("music/effectMusic/fightEff/ice"..math.random(1, 4)..".mp3")-- 暴风雪
+
+1、开服活动时间格式倒计时 --\/ gctime2stime() -- 获取当前时间(与服务器同步)
+4、苍穹俸禄加上明日奖励
+2、坐骑幸运值表现
+3、开服活动活动数量可配置
+
+
+-- 截图
+function screenshot(filePath, exFunc)
+	
+	local winSize = CCDirector:sharedDirector():getWinSize()
+	local filePath = filePath or "screenshot.png"
+	
+	local texture = CCRenderTexture:create(winSize.width, winSize.height)
+    texture:begin()
+	local scene = CCDirector:sharedDirector():getRunningScene()
+	scene:visit()
+	
+	if exFunc then
+		exFunc(texture, winSize)
+	end
+	
+    texture:endToLua()
+	texture:saveToFile(filePath, kCCImageFormatPNG)
+end
+
+
+小助手、坐骑
+
+代码风格
+xhj：经常将变量、函数等的作用域增大，多个位置传参,防错判断，粘帖代码。导致：实现功能但架构逻辑混乱, 维护难
+
+-- 好友功能能开启
+t2_miss=10210043 --taskId
+
+--lua迭代
+function list_iter (t)
+    local i = 0
+    local n = table.getn(t)
+    return function ()
+      i = i + 1
+      if i <= n then return t[i] end
+    end
+end
+
+
+t = {10, 20, 30}
+for element in list_iter(t) do
+    print(element)
+end
+
+ {name = "头盔", loadposition = 1},
+    {name = "护甲", loadposition = 3},
+    {name = "武器", loadposition = 4},
+    {name = "护腕", loadposition = 9},
+    {name = "戒指", loadposition = 12},
+    {name = "项链", loadposition = 2},
+    {name = "腰带", loadposition = 11},
+    {name = "靴子", loadposition = 6},
+    {name = "护腕", loadposition = 10},
+    {name = "戒指", loadposition = 13},
+
+
+
+yf2d采用as3 api 简单易用， 引擎没有自带动画系统 需要使用者自己 根据 Sprite 创建动画 原理就是 Sprite.setBitmap();来不断切换动画 
+
+
+
+---批处理
+CCBatchNode处理骨骼动画的渲染节点
+性能优化、框架
+
+
+--去掉礼包背景
+
+运营活动加上等级境界限制
+
+limit
+getModel时拦截判断条件
+
+返回model是空的话 弹出提示
+不是空才打开view
+
+--世界boss
+1、取消未出生三个字
+2、如果不是刷新时间点，传送按钮变灰，按钮上写“等待开启”
+
+
+-- 区间
+for index = 1 , 100 do
+print((index + 4) % 5 + 1)
+end
+
+//打开礼包获得新物品的接口
+message m_item_gift_toc{
+	repeated p_reward_prop         goods_list    = 1; //礼包打开获得的物品列表
+}
+
+message p_reward_prop {
+    required int32         prop_id         = 1;    //道具类型ID，唯一值
+    required int32         prop_type         = 2;    //道具类型:1=道具，2=宝石，3=装备
+    required int32         prop_num         = 3;    //数量
+    required bool          bind             = 4;    //是否绑定
+    optional int32        color            = 5;    //颜色
+}
+
+
+
+
+	local viewSize = CCSize(452, 440)
+	local contentSize = stoneLayer:getContentSize()
+	
+	local scrollView = CCScrollView:create()
+	scrollView:setViewSize(viewSize)
+	scrollView:setContainer(stoneLayer)
+	scrollView:setContentSize(contentSize)
+	scrollView:setDirection(kCCScrollViewDirectionVertical)
+	scrollView:ignoreAnchorPointForPosition(false)
+	scrollView:setAnchorPoint(ccp(0.5, 0.5))
+	scrollView:setContentOffset(ccp(0, 440 - stoneLayer:getContentSize().height))
+	
+	scrollView:setTag(998822)
+	parentNode:removeChildByTag(998822, true)
+	addChildLazy(parentNode, scrollView, 730, 230)
+	
+	local line
+	local function newLine()
+		local offset = scrollView:getContentOffset()
+		line = newScrollViewLine(viewSize, contentSize, offset)
+		line:setPosition(ccp(730, 230))
+		parentNode:addChild(line)
+	end
+	
+	newLine()
+	
+	local function scrollViewDidScroll()
+--		local offset = scrollView:getContentOffset()
+--		Log.info("offset: " .. offset.x .. "  " .. offset.y)
+		removeNodeQ(line)
+		newLine()
+	end
+	scrollView:registerScriptHandler(scrollViewDidScroll, CCScrollView.kScrollViewScroll)
+	
+
+
+ENABLE_PHYSICS_BOX2D_DETECT // CCArmatureDefine.h
+
+--骨骼动画
+ CCPoint p = armature->getBone("Layer126")->getDisplayRenderNode()->convertToWorldSpaceAR(ccp(0, 0));
+
+\\172.22.0.88
+公司分享公司共享
+
+
+-- FashionEquipConfig 时装前端【配置
+
+typeid 道具id
+itemType = 14
+
+model.goodsType = goods.itemSign and goods.itemSign or goods[1]  -- 1, 2
+model.equipType = goods.itemSign and goods.equipType or goods[4] -- 23, 24, 31
+
+elseif model.equipType == 31 then -- 官印
+            	loadposition = 14
+            elseif model.equipType == 21 or model.equipType == 22 then
+            	 loadposition = 20
+            elseif model.equipType == 23 then -- 扳指
+            	 loadposition = 20
+            elseif model.equipType == 24 then -- 玉佩
+                loadposition = 20
+            end
+
+
+
+ armature = cocos2d::extension::CCArmature::create("Knight_f/Knight");
+    armature->getAnimation()->playWithIndex(0);
+    armature->setPosition(ccp(VisibleRect::center().x, VisibleRect::center().y - 100));
+    ++currentTag;
+    armature->setScale(0.6f);
+    addChild(armature, currentTag, currentTag);
+
+
+ armature = cocos2d::extension::CCArmature::create("Cowboy");
+    armature->getAnimation()->play("Fire");
+    armature->setScaleX(-0.24f);
+    armature->setScaleY(0.24f);
+    armature->setPosition(ccp(VisibleRect::left().x + 50, VisibleRect::left().y));
+
+
+TestAnimationEvent
+
+TestArmatureNesting2 --
+
+TestColliderDetector
+
+
+CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("armature/Cowboy.ExportJson", this, schedule_selector(TestAsynchronousLoading::dataLoaded));
+
+ CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("armature/knight.png", "armature/knight.plist", "armature/knight.xml", this, schedule_selector(TestAsynchronousLoading::dataLoaded));
+
+
+场景对象批处理BatchNode
+
+
+1、世界boss不能传送时寻路测试 --\/
+2、对比销售光效	--\/
+3、每日充值BUG --\/
+4、付清学费 --X
+
+
+--对比销售 -- 46k
+1、主界面图标加上光效，打开一次后消失
+2、主界面同时存在两个以上的对比销售图标
+
+-- 对比销售任务id
+19920022披风 10310022
+10210013伙伴
+
+-- 对比销售测试数据
+
+ if not self.compareInfo then
+--    	   self.compareInfo = {freeGetGoodsId = 12300032,
+--            purchaseGoodsId = 12300033,
+--            price = 0,
+--            salePrice = 88,
+--            status = false,
+--            id = 5}
+			self.compareInfo = {freeGetGoodsId = 37000001,
+            purchaseGoodsId = 37000057,
+            price = 0,
+            salePrice = 88,
+            status = false,
+            id = 1}
+        end
+
+RecommendPurchaseDataCenter.setBuyId()
+
+
+
+
+//boss群活动接口 op_type: 1.获取列表, 2.传送到Boss地图,  3.通知boss出现
+message m_activity_boss_group_tos{
+    required int32        op_type              =1;
+    optional int32        boss_id              =2;
+}
+message m_activity_boss_group_toc{
+	required int32         err_code         = 1[default = 0];//错误码
+	optional string     	 reason            = 2;               //错误原因
+    required int32        op_type              =1;
+    repeated p_boss_group boss_group_list      =2;
+}
+
+
+// ================= boss群 ===============================
+message p_boss_group{
+    required int32        boss_id              =1;
+    optional int32        start_time           =2;
+    optional int32        end_time             =3;
+    optional int32        map_id               =4;
+    optional int32        tx                   =5;
+    optional int32        ty                   =6;
+}
+
+
+
+--战斗力
+--	RoleViewUtil.setRoleFightingPower(myModel)
+RoleModel:setAttribute(field, value)
+RoleModel:setAttribute("fighting_power", value)
+
+m_role2_base_reload_toc
+原来在p_map_role
+
+
+--- VIP
+'t2_active_vip=1' => "GM:开通体验VIP",
+	't2_expire_time=N' => "GM:设置体验VIP N秒后失效",
+);
+
+
+
+-- 添加项目目录
+local function setLuaPath(filePath)
+	local targetPlatform = CCApplication:sharedApplication():getTargetPlatform()
+	if targetPlatform == kTargetWindows then
+		package.path = package.path .. ";./" .. filePath .. "/?.lua"
+		CCFileUtils:sharedFileUtils():addSearchPath(filePath)
+	elseif targetPlatform == kTargetAndroid then
+		CCFileUtils:sharedFileUtils():addSearchPath(filePath)
+	else
+		CCFileUtils:sharedFileUtils():addSearchPath(filePath)
+		package.path = package.path .. ";" .. CCFileUtils:sharedFileUtils():fullPathForFilename(filePath) .. "/?.lua"
+	end
+end
+
+setLuaPath("config")
+setLuaPath("luaScript")
+setLuaPath("luaScript/extensions")
+
+
+
+
+		if not tolua.isnull(MainUIDataCenter.mainUIView) and MainUIDataCenter.mainUIView.bShowItem then
+			MainUIDataCenter.mainUIView:exchangeButtonClicked(true)
+		end
+
+2、collectgarbage (opt [, arg])
+　　功能：是垃圾收集器的通用接口，用于操作垃圾收集器
+　　参数：
+　　opt：操作方法标志
+　　"Stop": 停止垃圾收集器
+　　"Restart": 重启垃圾收集器
+　　"Collect": 执行一次全垃圾收集循环
+　　"Count": 返回当前Lua中使用的内存量(以KB为单位)
+　　"Step": 单步执行一个垃圾收集. 步长 "Size" 由参数arg指定　(大型的值需要多步才能完成)，如果要准确指定步长，需要多次实验以达最优效果。如果步长完成一次收集循环，将返回True
+　　"Setpause": 设置 arg/100 的值作为暂定收集的时长
+　　"Setstepmul": 设置 arg/100 的值，作为步长的增幅(即新步长=旧步长*arg/100)
+
+
+collectgarbage("setpause", 100)
+    collectgarbage("setstepmul", 5000)
+
+
+
+
+show in (project 
+
+
+//====================== 成长基金 ==================
+message m_fund_info_tos{
+}
+
+message m_fund_info_toc{
+    repeated    p_role_fund             fund_info       = 1; // 成长基金信息
+}
+
+message m_fund_active_tos{
+    required    int32                   fund_type       = 1; // 基金类型 1周卡 2月卡
+}
+
+message m_fund_active_toc{
+    required    p_role_fund             info            = 1;
+}
+
+message m_fund_fetch_tos{
+    required    int32                   fund_type       = 1; // 基金类型
+}
+
+message m_fund_fetch_toc{
+    required    p_role_fund             info            = 1; 
+}
+
+【开发】陆礼锦 2014/4/24 10:25:05
+message p_role_fund {
+		required int32                  type	                        = 1;
+        required int32                  end_time                        = 3; // VIP失效时间
+        required int32                  reset_time                 		= 4; // 上一次重置次数的时间
+        required int32                  return_gold          			= 6; // 当天可返还元宝数 0为已领取
+}
+
+没有数据 -》 立即开通  endTime==0 续费    return_gold== 0 已领取
+
+--苍穹基金推迟
+t2_fund_day = 10
+
+
+
+
+关于2014届毕业生实习返校后各项工作安排的通知
+2014届各位同学：
+　　 为了使你们顺利地完成大学期间的最后学业，现将你们实习返校后的有关工作安排通知如下，希望全体同学积极主动的配合。
+　　 1、2014年5月4日上午10：30分所有辅导员助理、班长、党支部书记在信工楼3-8会议室开会。
+　　 2、2014年5月4日晚上9点前全体同学到信工楼3-8会议室各班班长处报到，注册学生证并提交分散实习任务书、实习鉴定表、毕业生登记表、已签订的三方协议或就业合同复印件。
+　　 3、2014年5月5日8:30分所有同学在图书馆前毕业照大合照。
+　　 4、2014年5月5日15:00分在信工楼3-8会议室召开所有贷款同学、就业困难同学会议，并按照省教育厅、韶关学院和国家开发银行要求签订《还款承诺书》和《还贷记录卡》。
+　　 5、2014年5月5日16：30分在信工楼3-8会议室召开全体党员会议。
+　　 6、2014年5月7日前各党支部完成毕业生党员发展及转正的所有材料并上报，并提前做好毕业生党员组织关系转出的准备工作。
+　　 7、2014年5月4日-10日未进行毕业体检的同学请自行联系校医院进行毕业体检。
+　　 8、2014年5月5日-10日，未答辩的同学按照各系的安排参加毕业答辩。
+　　 9、2014年5月5日-10日，未缴清学费的同学务必在此时间段缴清学费。
+　　 10、2014年6月中下旬办理离校手续、参加毕业生座谈会、毕业典礼、发放报到证、毕业证及学位证，具体安排另行通知。
+    11、所有同学务必要遵守法纪法规、校纪校规，严禁夜归、夜不归宿、校内外酗酒闹事、打架围观，不得到校外游泳玩水，做到文明有序，爱护公共财物，防火防盗，注意人身和财产安全。
+
+    12、学生党员和学生干部要尤其关注毕业生中极可能出现的各种心理疾病问题，协助辅导员及早发现各种事故苗头并上报处理。
+　　　 凡不能按期完成上述各项工作的同学，不能正常毕业，责任后果自负。
+    韶关学院计算机科学学院
+2014年4月24日
+
+local eventParam = EventParam.create()
+		eventParam.isGlobal	= true
+		eventParam.newValue	= true
+	    EventDispatcher.dispatchEvent(EventType.NO_LIMIT_CHANGE, eventParam)
+
+
+
+1/成长基金排版
+2/天焚塔buff
+
+GM命令
+t2_open_activity=1 --排序
+t2_open_activity=2 --奖励
+
+
+天焚塔胜利界面在主ui不显示
+
+
+m_collect_get_grafts_info_tos
+
+
+t2_super_buff=2=99999
+t2_tianfenta=1
+
+
+--优先级排序
+local function sortListeners(a, b)
+	if a.priority == b.priority then
+		return a.key < b.key
+	else
+		return a.priority > b.priority
+	end
+end
+
+
+table.sort(self.eventDic[name], sortListeners)
+
+
+	[PanelId.growFundView] = {"mainUI/chengchangjijinName.png", "mainUI/chengchangjijin.png"},
+
+
+每日充值，
+成长基金，
+
+
+时间戳转化成时间
+ print(os.date("%Y-%m-%d (%X)",1398045600))
+
+1.更新前三名
+2.
+
+
+
+大招换冰冻效果--\/
+战斗逻辑--\/
+主界面的小图标改成福利--X
+
+MsgDispatcher.addEventListener(MsgType.M_PVE_FB_BUFF_LIST_TOC, backBuffListHandler, self)
+
+
+keyStr=[[<cs id=\"$18\"/>hahah<cs id="$18"/>hahah<cs id="$18"/>hahah<cs id=\"$18\"/>hahah]]
+for a,b,c in string.gfind(keyStr,"(<.->)") do
+print(a,b,c)
+end
+
+主界面改为用scrollView
+行走速度变慢问题
+
+NewHandGuideController收到事件-》triggerCommandBySpecifyTaskId-》saveCommand
+NewHandGuideController-》定时器checkAndExecuteGuide-》NewHandGuideDataCenter.getMatchInfo()获得currentCommand->>
+	->>shortcutUseHandler->>triggerNextCommandStep
+
+GoodsDataCenter(bagGoodsChanged(position))-->>NewHandGoodsUseManager(function bagGoodsChangeHandler(self, param))
+
+self.newHandNeedShowList = {}
+
+
+local bagGoodsDic = {}
+
+if model.type == 3 then
+		if not goodsCountDic[model.typeid] then
+			goodsCountDic[model.typeid] = 1
+		else
+			goodsCountDic[model.typeid] = goodsCountDic[model.typeid] + 1 
+		end
+	end
+
+
+
+
+---当前人物身上的装备
+local putOnEquipDic = {}
+
+
+
+
+REGISTER_NEED_SHOW_VIEW_TO_NEW_HAND
+
+
+
+
+  CCProgressTo *to1 = CCProgressTo::create(2, 100);
+
+    CCProgressTimer *left = CCProgressTimer::create(CCSprite::create(s_pPathSister1));
+    left->setType( kCCProgressTimerTypeRadial );
+    addChild(left);
+    left->setPosition(ccp(100, s.height/2));
+    left->runAction( CCRepeatForever::create(to1));
+
+
+--是否开启屏幕帧频显示
+if not GameConfig.debug then
+	CCDirector:sharedDirector():setDisplayStats(false)
+else
+	CCDirector:sharedDirector():setDisplayStats(true)
+end
+
+
+
+副本stateChecking问题
+
+
+1、开场副本技能调整
+2、聊天小游戏
+3、聊天小板收起
+4、频道名字改为可已配置的
+
+
+计算人物属性的战斗力z1		public  function getFighting_power(rb:p_role_base = null):int
+将装备属性转换成人物属性，public function getEquipzlz(equipVo:EquipVO):int	,计算战斗力z2			
+返回(z2 - z1)
+
+
+keyStr= [[max_hp, max_mp, physic_att, magic_att, physic_def, magic_def, blood_resume_speed, magic_resume_speed, move_speed, attack_speed, poisoning, dizzy, freeze, dizzy_resist, freeze_resist, luck, double_attack, miss, hit_rate, no_defence, phy_hurt_rate, magic_hurt_rate, phy_anti, magic_anti, block, wreck, tough, vigour, week, molder, hunger, bless, crit, counter, combos, bloodline, poisoning_resist]]
+
+s = "hello world from Lua"
+for w in string.gmatch(keyStr,"[%a_]+") do
+print(w)
+end
+
+63k
+新手引导getTarget测试号
+
+
+吴泽森
+2014/3/27 21:22:22
+大家最迟周六之前记得提交 季度考核的Excel表。
+21:26:18
+吴泽森
+2014/3/27 21:26:18
+这个季度的大家发到 wanghaohao@jooyuu.com 
+
+
+
+S1这边的无线路由器的密码：
+SID： jooyuu_1
+密码： jiayouwangluo2014
+
+
+VisibleRect:center()
+self.viewSize
+
+t2_miss=10620082
+t2_miss=10210010
+t2_miss=10210037 --寻找药引
+
+mission_list_toc
+mission_do_toc
+mission_update_toc
+
+
+for key, listener in pairs(taskModel.taskListener) do
+				if listener.type == 1 then
+					monsterId = listener.value
+				elseif listener.type == 2 then
+					monsterId = listener.int_list[2]
+				end
+				local monsterModel = MonsterDataCenter.getMonsterById(monsterId)
+				local monsterName = monsterModel and monsterModel.name or "@"
+				
+				local mapModel = MapDataCenter.getMapModelById(listener.int_list[1])
+				local sceneName = mapModel and mapModel.name or ""
+				
+				textTable = {
+					{"到", ccc3(0, 0, 0)}, 
+					{sceneName, UIColor.green}, 
+					{"击杀", ccc3(0, 0, 0)}, 
+					{monsterName, UIColor.green}, 
+					{"(", ccc3(0, 0, 0)}, 
+					{listener.current_num, ccc3(0xc4, 0, 0)}, 
+					{"/" .. listener.need_num .. ")", ccc3(0, 0, 0)}
+				}
+				break
+			end
+
+
+当前节点（或它的子界面）调用回调函数删除当前节点，需要延时等待（到下一帧），否则程序奔溃
+
+
+song:
+single day  i gonna get away
+
+
+for i = 1, 40 do 
+str = string.format("$%02d", i)
+print(str)
+end
+
+
+-- 替换表情字符成html格式<cs id = "$%d%d"/>
+retStr = ""
+gotStr = false
+originStr = "a$12sdf$15sdfkl"
+	index = 1
+	tail = ""
+	repeat
+		begPos, endPos = string.find(originStr , "$%d%d", index)
+		if begPos then
+			head = string.sub(originStr, index, begPos - 1)
+			middle = string.sub(originStr, begPos, endPos)
+			tail = string.sub(originStr, endPos + 1)
+			originStr = tail
+			retStr = retStr .. head .. "<cs id=\"" .. middle .. "\"/>"
+gotStr = true
+		else
+			retStr = retStr .. tail
+			break
+		end
+	until begPos == nil
+if gotStr then print(retStr)
+else
+print(originStr)
+end
+
+-- 替换表情成html格式	--->>正解
+originStr = "a$121213$1sdf$1$15sdfkl"
+originStr = string.gsub(originStr, "($%d%d)", "<cs id=\"%1\"/>")
+print(originStr)
+
+
+--模式匹配gsub
+str = "     你好啊 ！！       是吗？       ！！"
+print(str)
+str = string.gsub(str, " +", " ")
+print(str)\
+
+TMDs苏打粉是TMDTMDsadfsf
+str = "<fm>aa</bbbb\>aa<asd>"
+wordTable = {["<"] = "", [">"] = ""}
+str = string.gsub(str, ".", wordTable)
+print(str)
+
+
+-- 模式匹配gmatch
+t = {}
+s = "from=this=world, to=that=Lua"
+for k, m,v in string.gmatch(s,"(%w+)=(%w+)=(%w+)") do
+print(k,m, v)
+end
+
+function joinBtnHandler(self)
+	local eventParam = EventParam.create()
+	eventParam.isGlobal = true
+	eventParam.newValue	 		= {tag = "joinTeam", id = self.teamModel.id}
+	EventDispatcher.dispatchEvent(EventType.REQUEST_SEND_MESSAGE_TO_SERVER, eventParam)
+end
+
+多个鼠标操控一台计算机
+
+eventName = "event:viewPlayer#10080#使唤天性"
+info = {}
+idPos = string.find(eventName, "#")
+if idPos then
+subPos = string.find(eventName, "#", idPos + 1)
+				if subPos then
+					info.id = string.sub(eventName, idPos + 1, subPos - 1)
+					info.subId = string.sub(eventName, subPos + 1)
+				else
+					info.id = string.sub(eventName, idPos + 1)
+				end
+end
+print(info.id, info.subId)
+
+
+-- 获取字符串后半部分
+str = "gotoNpc#10086"
+idPos = string.find(str, "#")
+print(string.sub(str, idPos + 1))
+
+tbl = {
+1,nil,nil,4, 5
+}
+
+for k, v in ipairs(tbl) do
+print(k,v)
+end
+1 1
+print(tbl[4])
+4
+
+！！配置中尽量不用整型，使用openVipView,goto_arenaBattleField...等标记
+
+
+tolua函数重载：addChild
+CTGroup* self = (CTGroup*)  tolua_tousertype(tolua_S,1,0);
+CCNode* child = ((CCNode*)  tolua_tousertype(tolua_S,2,0));
+int tag = ((int)  tolua_tonumber(tolua_S,3,0));
+
+	//tolua_function(tolua_S,"addChild",tolua_Cocos2d_CTGroup_addChild00); 
+self->addChild(child);
+	//tolua_function(tolua_S,"addChild",tolua_Cocos2d_CTGroup_addChild01);
+self->addChild(child,tag);
+
+
+
+
+
+
+TOLUA_API void tolua_function (lua_State* L, const char* name, lua_CFunction func)
+
+{
+    lua_pushstring(L,name);
+  
+  lua_pushcfunction(L,func);
+  
+  lua_rawset(L,-3);
+
+}
+
+会发现注册回调函数的接口，都会调用toluafix_ref_function函数，将lua函数转换为一个LUA_FUNCTION（int），并调用响应的注册回调函数的cocos2dx api
+
+tolua_pushusertype(tolua_S,(void*)htmllabel,"CCHTMLLabel"); //压栈
+			return 1;	//返回1个参数
+
+tolua_isusertype
+tolua_isstring
+toluafix_isfunction
+
+c++中 return 0 //false
+	return 1// true
+
+1个字节是由8个二进制数位组成  ps： 0x00为一个字节
+
+lua栈：
+以栈底为参考物：api使用“索引”来引用栈中的元素。第一个压入栈中的元素索引为1；第二个压入的元素索引为2依此类推。 
+以栈顶为参考物：使用负数的索引来访问栈中的元素。此时，-1表示栈顶元素（最后一个压入的元素），-2表示栈顶下面的一个，依此类推。
+
+
+
+--模式匹配
+str = "我也要组队{1112}{123}"
+str2 = "......"
+len = string.len(str)
+s = string.sub(str, 1, len - 6)
+s = s .. str2
+print(s)
+
+
+EventDispatcher.addEventListener(EventType.REQUEST_SEND_ROOM_JOIN, sendRequestRoomJoin, self, self)
+
+function sendRequestRoomJoin(self, param)
+	local param = param.newValue
+	local msg = Proto.create("m_room_join_tos")
+	msg.room_type = roomType
+	msg.owner = param.owner
+	self:sendMsg(msg)
+end
+
+RoomListView
+
+天焚塔1
+狮王2
+
+
+local function onStartButtonClicked()
+		local eventParam = EventParam.create()
+		eventParam.from	= PanelId.teamView
+		eventParam.newValue	= 1
+		EventDispatcher.dispatchEvent(EventType.PANEL_OPEN_CLOSE_SWITCH, eventParam)
+	end
+
+
+chatRecord= {
+
+}
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+table.insert(chatRecord, "hello1")
+table.insert(chatRecord, "hello2")
+table.insert(chatRecord, "hello3")
+table.insert(chatRecord, "hello4")
+
+for i = 1, #chatRecord do
+	print(chatRecord[i])
+end
+
+print("=====")
+
+
+table.remove(chatRecord, 1)
+
+for i = 1, #chatRecord do
+	print(chatRecord[i])
+end
+print("=====" .. #chatRecord)
+
+
+chatRecord= {
+"a",
+"b",
+}
+buffer = chatRecord[1]
+table.remove(chatRecord, 1)
+table.insert(chatRecord, "hello5")
+for i = 1, #chatRecord do
+	print(chatRecord[i])
+end
+
+print("=====" .. #chatRecord)
+print(buffer)
+
+table.insert(chatRecord, "hello6")
+table.insert(chatRecord, 1,"hello7")
+table.insert(chatRecord, 1,"hello8")
+
+for i = 1, #chatRecord do
+	print(chatRecord[i])
+end
+
+print("=====" .. #chatRecord)
+
+
+
+for i = 1, #chatRecord do
+	print(chatRecord[i])
+end
+print("=====" .. #chatRecord)
+
+local sharedScheduler = CCDirector:sharedDirector():getScheduler()
+scheduleId = sharedScheduler:scheduleScriptFunc(function() startPlaying(self, 0.01) end, 0.001, false)
+sharedScheduler:unscheduleScriptEntry(scheduleId)
+
+
+-- 多消息时动作延时
+local msgText = msg.msg
+		local count = 0
+		if msg.role_info.rolename == myRole.model.name then
+			local startPlaying = function()
+				
+				msg.msg = msgText .. count
+				count = count + 1
+				
+				local msgEx = msg
+				ChatDataCenter.addChatRecord(msgEx)
+				local isMainUIUpdate = true
+				local chatLabel = ChatDataCenter.getChatLabelByMsgData(self, msgEx, isMainUIUpdate)
+				if chatLabel then
+					
+					--主界面的聊天信息
+			        local eventParam = EventParam.create()
+				    eventParam.newValue	= chatLabel
+					EventDispatcher.dispatchEvent(EventType.UPDATE_MAINUI_CHAT_INFO, eventParam)
+				end
+			end
+		
+			local scheduleId = CCDirector:sharedDirector():getScheduler():scheduleScriptFunc(function() startPlaying(self, 0.3) end, 0.3, false)	
+		end
+
+
+
+
+
+
+--用聊天记录缓存处理主界面刷屏问题
+	local loadCount = 0
+	local addUpTime = 0
+--	local loadPertime = 5
+	local loadChatRecord = function(self, dt)
+		addUpTime = addUpTime + dt
+--		for i = 1, loadPertime do
+			loadCount = loadCount + 1
+			if tolua.isnull(self) or loadCount > #self.chatRecord then
+				if scheduleId then
+					sharedScheduler:unscheduleScriptEntry(scheduleId)
+					scheduleId = nil
+				end
+			else
+				local msg = self.chatRecord[loadCount]
+				local chatLayer = ChatDataCenter.getChatLabelByMsgData(self.controller, msg)
+				if chatLayer then
+					self:addString(chatLayer)
+					Log.info("----->> record index = " .. loadCount .. ", addUpTime = " .. addUpTime)
+				end
+			end
+--		end
+	end
+	
+	if scheduleId then
+		sharedScheduler:unscheduleScriptEntry(scheduleId)
+		scheduleId = nil
+	end
+	
+	if #self.chatRecord > 0 then
+		scheduleId = sharedScheduler:scheduleScriptFunc(function() loadChatRecord(self, 0.001) end, 0.001, false)
+	end
+
+
+
+---监听道具展示事件
+	EventDispatcher.addEventListener(EventType.SEND_GOOD_TO_CHAT, self.showGood, self) --X
+// 物品炫耀
+message m_goods_show_goods_tos {
+        optional string                 channel_sign    = 1; //频道标记
+        optional string                 to_role_name    = 2; //发给哪位
+        optional int32                  show_type       = 3; //0频道 1密聊 2对话
+        required int32                  goods_id        = 4;
+}
+msg = {【优质的神·玄武刀(6阶)】,205}
+
+
+if self.view.pageIndex == 1 then--世界频道
+		channelSign = "channel_world"
+	elseif self.view.pageIndex == 2 then--势力频道
+		channelSign = "channel_faction_"..myRole.model.faction_id
+	elseif self.view.pageIndex == 3 then--家族频道
+		channelSign = "channel_family_"..myRole.model.family_id
+	end
+
+
+
+		msg.channelIndex = self.view.pageIndex
+
+
+	
+
+
+
+
+
+--聊天：
+m_chat_in_channel_tos --世界 家族 势力	type:2910:聊天频道消息 	subType:2915世界
+m_chat_in_pairs_toc --私聊
+
+m_broadcast_general_toc --系统广播 
+
+m_chat_in_channel_tos={{"channel_sign","msg"}},
+m_chat_in_channel_toc={{"succ","reason","channel_sign","msg","role_info","tstamp"},{[1]=true}},
+m_chat_in_pairs_tos={{"msg","to_rolename","show_type"},{[3]=1}},
+m_chat_in_pairs_toc={{"succ","show_type","reason","msg","from_role_info","to_role_info","tstamp","error_code","to_role_id"},{[1]=true,[2]=1,[8]=0,[9]=0}},
+	
+--type  	消息类型 2905:操作消息(预留接口),2906:系统消息,2907:倒计时消息,
+	   	--			2908:喇叭消息,2909:中央广播消息,2910:聊天频道消息,2911:弹窗消息
+	   	--sub_type	消息子类型 2912:表示没和消息子类型,
+		--			倒计时消息子类型:2913副本时间消息,2914任务时间消息
+		--			聊天频道消息子类型：2915世界,2916国家,2917家族,2918组队
+
+
+--使用cocos2dx-extensions扩展包
+#include "cocos-ext.h"
+USING_NS_CC_EXT; 
+
+ 刘宇(503724994) 10:35:59 
+大家怎么在安卓里实现软键盘出来后屏幕上推的？
+
+android:windowSoftInputMode="adjustResize"
+❦-平常心(676633979) 10:40:15 
+配置文件 activity中配置上面那个 就OK
+
+
+没有setFlipX 函数的类实现翻转
+background:setAnchorPoint(ccp(1, 1))	-- background:setAnchorPoint(ccp(0, 1))
+background:setScaleX(-1)
+
+-- 刷出来的效果
+CCProgressTo *to1 = CCProgressTo::create(2, 100);
+    
+    CCProgressTimer *left = CCProgressTimer::create(CCSprite::create(s_pPathSister1));
+    left->setType(kCCProgressTimerTypeBar);  --    left->setType(kCCProgressTimerTypeRadial);
+
+
+    //    Setup for a bar starting from the bottom since the midpoint is 0 for the y
+    left->setMidpoint(ccp(0,0));
+    //    Setup for a vertical bar since the bar change rate is 0 for x meaning no horizontal change
+    left->setBarChangeRate(ccp(0, 1));
+    addChild(left);
+    left->setPosition(ccp(100, s.height/2));
+    left->runAction( CCRepeatForever::create(to1));
+
+
+
+#define CC_SYNTHESIZE_READONLY(varType, varName, funName)\
+protected: varType varName;\
+public: virtual varType get##funName(void) const { return varName; }
+
+
+    CC_SYNTHESIZE_READONLY(GameOverLayer*, _layer, Layer);
+
+-- getLayer是用宏定义的方法
+gameOverScene->getLayer()->getLabel()->setString("You Lose :[");
+
+
+
+7：45到6：30
+
+
+tolua的强制转换类型
+local texture = tolua.cast(texture, "CCTexture2D")
+
+-- CCRenderTexture
+virtual CCSprite* getSprite  ( void   )  
+
+tex = CCRenderTexture:create(winSize.x , winSize.y)
+local texSprite = CCSprite:createWithTexture(tex:getSprite():getTexture())
+-- CCRenderTexture 就可以项CCSprite一样runAction了
+
+
+-- 学校通知：
+毕业离校：报到证和学籍档案知多少  微信朋友圈1535042487
+
+【主席】李宸坤（李导）(1535042487) 2014-05-29 9:17:19
+各位同学：经院领导研究决定，大家第二次返校时间定在6月14日，回校期间注意安全。祝大家端午快乐。
+
+
+关于做好2014届毕业生户口迁移工作的通知
+发布时间：2014/5/8
+浏览次数：158
+户口关系迁来我校的2014届毕业生：
+        为做好户口关系在我校的2014届毕业生户口迁移工作，现将有关事项通知如下：
+        1、考取研究生的毕业生，请将入学通知书或调档函的复印件交保卫处办理户口关系转迁手续。
+        2、落实了工作单位，且单位又同意接收户口关系的毕业生，请将报到证或调档函的复印件交保卫处办理户口关系转迁手续。
+        3、办理了暂缓就业的毕业生，请将暂缓就业协议书的复印件交保卫处，以便将户口关系按国家政策在学校保留2年（未交暂缓就业协议书复印件的，公安派出所将按迁回原籍处理），2年的暂缓就业时间到期后，请自行回学校保卫处办理户口关系迁出手续。
+        4、办理户口关系迁回原籍的毕业生，户口迁移地址信息一定要详细、准确，不能出现差错，并于2014年5月8至6月6日自行到保卫处登记，保卫处将在6月7日至6月18日统一到大塘路派出所办理迁出手续,逾期请自行到大塘路派出所办理。
+        5、办理地址：学校南区行政楼104      室咨询电话：8120077
+
+关于对2014届本科学生毕业论文（设计）抄袭检测的工作通知http://www.sgu.edu.cn/News_Details1.aspx?id=42322
+
+#就业通知# 请签了约的同学尽快把三方协议的第三联交给李导，如果没有签订三方协议只签订了就业合同或者劳动合同的，请邮寄一份合同复印件给李导。以便报到证的打印。PS：地址广东省韶关市大学路韶关学院北区信工楼3-9办公室 李宸坤 收 邮编512005 电话13602901525
+【主席】李宸坤（李导）(1535042487) 2014-03-05 15:51:36
+#就业通知#   最早下个月开始就可以打印报到证了，已签三方协议的同学请及时将第三联（黄色的那张）交给李导，没有签订协议的同学要抓紧落实单位签订三方协议或就业合同，签订就业合同的同学则需要交一份合同到3-9办公室。
+
+地址 广东省韶关市大学路韶关学院北区信工楼3-9办公室 李强 收  邮编512005  电话13602901525
+
+
+
+-- box2d:
+class Test : public b2ContactListener
+
+m_test = m_entry->createFcn(); 
+
+m_test->Step(&settings);
+
+
+
+-- GLSL:
+do
+    {
+		CC_BREAK_IF(!CCSprite::initWithTexture(pTexture, rect, rotated));
+
+        CCGLProgram* pProgram = CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureGray);
+		setShaderProgram(pProgram);
+		CHECK_GL_ERROR_DEBUG();
+
+		getShaderProgram()->addAttribute(kCCAttributeNamePosition, kCCVertexAttrib_Position);
+		getShaderProgram()->addAttribute(kCCAttributeNameColor, kCCVertexAttrib_Color);
+		getShaderProgram()->addAttribute(kCCAttributeNameTexCoord, kCCVertexAttrib_TexCoords);
+		CHECK_GL_ERROR_DEBUG();
+
+		getShaderProgram()->link();
+		CHECK_GL_ERROR_DEBUG();
+
+		getShaderProgram()->updateUniforms();
+		CHECK_GL_ERROR_DEBUG();
+
+		return true;
+	} while (0);
+
+"                                           \n\
+#ifdef GL_ES                                \n\
+precision mediump float;                    \n\
+#endif                                      \n\
+\n\
+uniform sampler2D u_texture;                \n\
+varying vec2 v_texCoord;                    \n\
+varying vec4 v_fragmentColor;               \n\
+\n\
+void main(void)                             \n\
+{                                           \n\
+// Convert to greyscale using NTSC weightings               \n\
+vec4 col = texture2D(u_texture, v_texCoord);                \n\
+float grey = dot(col.rgb, vec3(0.299, 0.587, 0.114));       \n\
+gl_FragColor = vec4(grey, grey, grey, col.a);               \n\
+}                                           \n\
+";
+
+
+
+---lua中的寻路
+function LivingElement:moveToPoint(tilePoint, moveDoneCallBack)
+	local myTile = self:getTilePosition()
+	local simplePath
+	if myTile.x == tilePoint.x and myTile.y == tilePoint.y then
+		return
+	end
+	
+	
+	if MapUtil.canReachPos(tilePoint.x, tilePoint.y) then
+		local path = SceneDataCenter.getFindPath():find(myTile.x, myTile.y, tilePoint.x, tilePoint.y) 	--c++
+		if #path == 0 then
+			return
+		end
+		simplePath = MapUtil.simplePath(path)			-- 存放到数组
+		simplePath = MapUtil.toPixelPath(simplePath)		--像素点e.g.（3000， -2000）
+		self:moveTo(simplePath, moveDoneCallBack)
+	end
+	return true, simplePath
+end
+	
+unction LivingElement:moveTo(path, moveDoneCallBack)		--动作
+	if not self.moveEnable then
+		return
+	end
+	--存下当前路径
+	self.model.path = path
+	local p1
+	local p2
+	
+	local actionArr = CCArray:create()
+	actionArr:addObject(CCCallFuncN:create(function()self:beforeMove()end))
+	local direction = 1
+	local moveSpeed = self.model.move_speed
+	if self.model.type == ElementType.monster then
+		moveSpeed = moveSpeed - 3
+	end
+	
+	local moveNeedTime = 0
+	
+	for index = 1, #path - 1 do
+		p1 = path[index]
+		p2 = path[index + 1]
+		if self.model.type == ElementType.monster or self.model.type == ElementType.pet then
+			direction = MapUtil.judgeDir4(p1, p2)
+		else
+			direction = MapUtil.judgeDir(p1, p2)
+		end
+		local dis = MapUtil.distance(p1, p2)
+		local callFunc = CCCallFuncN:create(function(_, direction)self:directionChange(direction)end);
+		callFunc:setTag(direction)
+		actionArr:addObject(callFunc)
+		
+		local duration = dis / moveSpeed
+		moveNeedTime = moveNeedTime + duration
+		actionArr:addObject(CCMoveTo:create(duration, p2))
+	end
+	local callFun = CCCallFuncN:create(function()self:afterMove(direction)end)
+	actionArr:addObject(callFun)
+	---------行走结束的回调------------
+	if moveDoneCallBack then
+		actionArr:addObject(CCCallFuncN:create(moveDoneCallBack))
+	end
+	-------------------------------
+	local sequence = CCSequence:create(actionArr)
+	sequence:setTag(moveToActionTag)
+	self:stopActionByTag(moveToActionTag)
+	self:stopActionByTag(rushActionTag)
+	self:runAction(sequence)
+	
+	
+	return moveNeedTime
+end
+
+
+bug:6904
+表操作可以删除表
+tab = {
+[1] = "a",
+[2] = "b",
+[5] = "c",
+job = 4,
+}
+tab = {
+{},
+{},
+}
+print(#tab)
+for i1,v1 in ipairs(tab) do
+	print(v1)
+tab[i1] = nil
+print(#tab)
+end
+print(#tab)
+
+
+
+
+开场动画：
+contentType = 2,
+{所有图片Id},
+{
+｛
+动作（出现动作、持续动作、消失动作） MoveTo,Shake,Rain,Float,Rotate,FadeIn,FadeOut,ScaleTo, MoveToScale,MoveToFadeOut,MoveToScaleTo
+时间（出现时间、持续时间、消失时间）
+坐标（出现坐标、持续动作坐标、消失坐标） VisibleRect.getContentSize().leftBottom
+每帧延时playingGap,
+{图片Id1，图片Id2}，
+｝,
+ ... -- 60+个动作
+}
+
+
+
+1、设置环境变量
+NDK_ROOT
+F:\Cocos2dxDev\ADT\NDK-r9c
+
+2、把最新的代码资源(svn的debug中通常最新)拷贝进去F:\work\mobile\trunk\dpcq\proj.android\asset目录中
+config/extentsions/fonts/images/luaScript/music
+
+3、批处理文件，用来编译工程
+运行F:\work\mobile\trunk\dpcq\proj.android
+中的build_native_nocopy.bat
+	
+4、bin目录下得到apk
+
+Android SDK Manager 检查更新
+
+
+1战斗
+2冰系伤害
+3拉宽
+4幻灯片配置加上字体大小
+
+
+--		{18, {数据},{值}} --开场剧情专用
+--			ps:数据   1名字, 2x, 3y, 4职业（1剑/2箭/3法），5行走速度,}
+
+平面双人过关游戏
+
+放技能时弹出半身像
+
+调整模拟战斗
+
+坐标条件
+
+
+    m_emitter = new CCParticleSystemQuad();
+    std::string filename = "Particles/SpookyPeas.plist";
+    m_emitter->initWithFile(filename.c_str());
+
+
+
+长大以后，只能奔跑
+
+t2_call_unit=100=1
+
+#define CF(className) create##className
+-- ##把字符串连接起来
+
+this->scheduleUpdate()
+
+
+update()
+
+moved
+
+
+
+
+
+
+
+--- 场景边界雾霾
+-- 设置场景的边缘位置（四个点）
+SceneDataCenter.getFindPath():find(myTile.x, myTile.y, tilePoint.x, tilePoint.y)
+simplePath = MapUtil.simplePath(path)  --格子坐标
+		-- simplePath = MapUtil.toPixelPath(simplePath) --像素坐标
+
+在路径中的每个点的坐标上添加烟雾（烟雾利用CCSpriteBatchNode）
+
+
+CCTMXTiledMap* map = CCTMXTiledMap::create("level01.tmx");
+    CCTMXLayer* groundLayer = map->layerNamed("ground");
+    this->addChild(map);
+
+/* 加载对象层 */
+    CCTMXObjectGroup* objGroup = map->objectGroupNamed("objects");
+
+    /* 加载玩家坐标对象 */
+    CCDictionary* playerPointDic = objGroup->objectNamed("PlayerPoint");
+    float playerX = playerPointDic->valueForKey("x")->floatValue();
+    float playerY = playerPointDic->valueForKey("y")->floatValue();
+
+    /* 设置玩家坐标 */
+    mPlayer->setPosition(ccp(playerX, playerY));
+    mPlayer->run();
+
+
+
+
+sorry, the number you dial is busy now, please redial later
+
+开年活动通知
+时间：本周六（2/15）下午
+地点：花城广场
+队长电话：15018439993 黄腾鑫13631408390 肖文聪
+
+{8, 需要控制true/false, 移动时间, {移动类型(1格子坐标，2人物身上 ),X/目标类型（主角为1，npc4，怪物2）, Y/目标id}} 
+{8,true,2,{1,19,17}},
+			{13,2},
+			{8,true,2,{1,13,11}},
+			{13,2},
+			{8,true,2,{1,7,17}},
+			{13,2},
+			{8,true,1,{2,1,0}},
+			{13,1},
+			{8,true,1,{2,2,1090700901}},
+			{13,1},
+			{8,false},
+			{13,1},
+local file
+file = io.open("debug.lua", "w")
+local str = ""
+file:write(str)
+file:close()
+
+2014年2月15,16,21,22号广东人才市场在大学城北亭广场进行“广东新春大型招聘会”诚邀您参与祝您求职成功。广东人才网-千里马校园网
+
+单机横版农场
+
+怪物受击后击飞效果在：
+-- function LivingElement:playAttack(fightVo)
+代码
+local dest_tile = result.dest_tile
+if dest_tile.tx and dest_tile.ty then
+	local point = MapUtil.getPixelPoint(ccp(dest_tile.tx, dest_tile.ty))
+	target:runAction(CCEaseSineOut:create(CCMoveTo:create(0.2, point)))
+end
+
+local directionVector = {{-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}}
+
+local dirXY = {directionVector[4], directionVector[6], directionVector[3], directionVector[7], directionVector[5], directionVector[2], directionVector[8], directionVector[1]}
+
+
+
+10021101
+t2_cmonster=10021101=1
+
+-- 新添的代码
+SceneDataCenter ;isHaveElementInMyRect
+afterSkillReleaseCallback
+
+
+local point = MapUtil.getPixelPoint(ccp(dest_tile.tx, dest_tile.ty))
+			target:runAction(CCEaseSineOut:create(CCMoveTo:create(0.2, point)))
+-- simulateFightHandler中改为使用原本的击飞效果
+
+-- 使用cocosStudio创建场景
+-- Extensions Test -> CocoStudioSceneTest
+ CCNode *pNode = SceneReader::sharedSceneReader()->createNodeWithSceneFile("scenetest/LoadSceneEdtiorFileTest/FishJoy2.json");
+ cocos2d::extension::ActionManager::shareManager()->playActionByName("startMenu_1.json","Animation1");
+ this->addChild(pNode, 0, 1); --addChild (CCNode *child, int zOrder, int tag)
+
+-- TextureCache Test
+CCTextureCache::sharedTextureCache()->addImageAsync("Images/grossini_dance_01.png", this, callfuncO_selector(TextureCacheTest::loadingCallBack));
+
+local plistPath = "images/plistAnim/" .. self.model.resWeaponURL .. ".png"
+Log.debug("==========开始异步加载：%s", plistPath)
+CCTextureCache:sharedTextureCache():addImageAsync(plistPath, function(eventName, texture)self:doUpdateWeapon(eventName, texture)end, true)
+
+self.weaponAnimation = AnimManager.create("stand_d4", self.model.resWeaponURL)
+self.model:changeWeaponColor(self.weaponAnimation)
+
+
+1、持续学习cocos2dx引擎（lua、C++、box2d、openGL）
+2、学习cocos2dx常用工具
+3、学习游戏架构、设计模式、数据结构
+
+
+1、持续学习cocos2dx引擎（lua、C++、box2d、骨骼动画、资源管理、网络编程、多线程编程、openGL）
+2、学习cocos2dx常用工具
+3、学习游戏架构、设计模式
+
+4、学习cocos2dx开源游戏项目
+5、关注cocos3d
+
+
+
+1、精通c/c++、lua等语言，能独立设计手游客户端架构；
+2、熟悉opengl、cocos2dx、socket、多线程编程及游戏网络协议；
+3、熟悉手游辅助工具，如地图，特效工具等；
+3、具备手机网游成功产品的开发经验，完整经历过大型网络游戏的开发过程者优先；
+4、有棋牌游戏开发经验者优先。
+
+
+-- Spine Test -- 骨骼动画
+skeletonNode = CCSkeletonAnimation::createWithFile("spine/spineboy.json", "spine/spineboy.atlas");
+    skeletonNode->setMix("walk", "jump", 0.4f);
+    skeletonNode->setMix("jump", "walk", 0.4f);    
+    skeletonNode->setAnimation("walk", true);
+
+
+-- lua中for循环代替continue的方法
+
+for i = 1, 10 do
+repeat
+if i % 2 == 0 then
+break
+end
+print("print: " .. i)
+until true 	-- 条件为真就结束
+end
+
+print: 1
+print: 3
+print: 5
+print: 7
+print: 9
+
+
+
+创建自己的lua项目，和常用lua类
+
+assetsmanager
+
+Scene:createWithPhysics()，3.0版本可以这样直接使用物理引擎了
+
+
+--获取部分图片 
+setTextureRect  ( const CCRect &  rect )  
+
+--截屏
+CCSprite::create("Icon-72.png",CCRect(spriteSize.width/2, spriteSize.height/2, spriteSize.width/2, -spriteSize.height/2));
+
+
+CCSprite  setBlendFunc()
+
+--[[描边]]
+function display.createStroke(label , size , color)
+    local label_size = label:getTexture():getContentSize()
+
+    local x = label_size.width * 2 + size * 2
+    local y = label_size.height * 2 + size * 2
+
+
+    local originalPosX , originalPosY = label:getPosition()
+    local originalColor = label:getColor()
+
+    local rt = CCRenderTexture:create(x, y)
+    label:setColor(color)       -- ccc3数据
+
+    local originalBlend = label:getBlendFunc()
+    local bf = ccBlendFunc:new()
+
+    bf.src = 768
+    bf.dst = 1
+
+    label:setBlendFunc(bf)
+    local center = ccp(label_size.width / 1 + size , label_size.height / 1 + size)
+
+    rt:begin()
+    for i = 0 , 360 , 15 do
+        local _x = center.x + math.sin(math.rad(i)) * size
+        local _y = center.y + math.cos(math.rad(i)) * size
+        label:setPosition(ccp(_x , _y))
+        label:visit()
+    end
+    rt:endToLua()
+
+    label:setPosition(originalPosX , originalPosY)
+    label:setColor(originalColor)
+    label:setBlendFunc(originalBlend)
+
+    --[[
+    local rtX = originalPosX - size
+    local rtY = originalPosY - size
+    ]]
+
+    rt:setPosition(originalPosX , originalPosY)
+
+    return rt
+end
+
+
+
+CCSpriteBatchNode* batchNode = CCSpriteBatchNode::create("Icon.png", 1000);batchNode->setPosition(CCPointZero);
+this->addChild(batchNode); 
+for(int i = 0;i < 1000;++i){ 
+int x = arc4random()%960; 
+int y = arc4random()%640;
+CCSprite* testIcon = CCSprite::createWithTexture(batchNode->getTexture()); 
+testIcon->setPosition( ccp(x, y) ); 
+batchNode->addChild(testIcon);
+}
+
+江高镇江村站2月12、13号上班，2天班2天休
+
+F:\Cocos2dxDev\cygwin\bin;F:\Python27\;F:\Python27\Scripts;F:\Python27\Lib;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;F:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;f:\Program Files (x86)\Lua\5.1;f:\Program Files (x86)\Lua\5.1\clibs
+
+F:\cocos2d-x-2.2.2;F:\cocos2d-x-2.2.2\cocos2d-x-2.2.2\cocos2dx\platform\third_party\android\prebuilt
+
+时间
+CCTime::gettimeofdayCocos2d(&now, NULL)
+
+创建cocos2dx 项目:
+
+F:\cocos2d-x-2.2\cocos2d-x-2.2\tools\project-creator>python ./create_project.py -project MyProject_1 -package Kelvin -language cpp
+
+python ./create_project.py -project cpp_Proj_1 -package com.Kelvin.game -language cpp
+python ./create_project.py -project KProj2 -package com.Kelvin.game -language lua
+
+.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe
+
+.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.PY;.PYM
+
+
+cd F:\cocos2d-x-2.2.2\cocos2d-x-2.2.2\tools\project-creator
+
+Usage: create_project.py -project PROJECT_NAME -package PACKAGE_NAME
+-language PROGRAMING_LANGUAGE
+
+
+F:\Python27\;F:\Python27\Scripts;F:\Python27\Lib;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;F:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;f:\Program Files (x86)\Lua\5.1;f:\Program Files (x86)\Lua\5.1\clibs
+
+F:\Python33\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;F:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;f:\Program Files (x86)\Lua\5.1;f:\Program Files (x86)\Lua\5.1\clibs
+
+
+在选择角色时候重新连接还没加载SceneController，无法处理requestEnterGame
+扇形火360度喷火
+人物和怪物遮挡问题
+
+
+---女法师 弓箭
+        player213
+
+--男飞刀 法师
+        player112
+
+
+猎人：法术能力弱,随从群发性爆发力强，卡牌组包陷阱多
+法师：高输出，控制多，消耗法力值高，卡牌组包弥补防御力
+刺客：低消耗，单秒能力强，团伤弱，因为低消耗卡牌占据大量卡牌位置，需要有召唤能力的随从
+萨满祭祀：buff多，可以使用血高的随从，前期爆发低，需要阻止对方建立前期优势，嘲讽可以集中对方火力；团伤少
+牧师：回复力强，buff多，卡牌组包的生命之泉必备，需要有嘲讽的随从挡住攻势
+战士：单调
+圣骑士：战士+牧师
+德鲁伊：无爆发，buff（法力值，攻击力，补血）
+术士：消耗大（血量和随从）的法术
+
+
+6012
+13724094
+67 + 2蚊自助餐/位  16:30 -- 19:30  中房 8 ~ 10人
+CZ3102 
+
+
+package.loaded["Role"] = nil
+		_G["Role"] = nil
+--把加载过的模块去掉，下次重新加载
+
+
+公司电话37095432
+
+--self.loadinTTF 和labelTTF 是同一对象共用内存
+local labelTTF = ComponentFactory.createLabel("0 %", 22)
+    self.loadingTTF = labelTTF
+    labelTTF:setColor(ccc3(255, 255, 255))
+	labelTTF:setPosition(ccp(x, y+85))
+    bgSpr:addChild(labelTTF)
+
+for key, goodsItem in pairs(self.goodsItemArr) do
+			if goodsItem.pageIndex == pageIndex then
+				goodsItem:setClickEnable(true)
+			else
+				goodsItem:setClickEnable(false)
+			end
+		end
+
+
+10320022
+对话框适配
+
+do
+        return
+    end
+
+CCRotateBy* rot1 =  CCRotateBy::create(1, 360);
+    CCRotateBy* rot2 = (CCRotateBy*)rot1->copy()->autorelease();
+
+
+-- copy  返回copy后的CCObject
+CCObject *  copy (void) 
+
+-- 返回CCObject
+CCObject *  autorelease (void) 
+
+
+
+	child:ignoreAnchorPointForPosition(false)--防止层设置锚点无效
+
+CCParticleSystemQuad
+-- 循环播放
+setDuration(-1)
+
+
+-- 表情
+createAnimation("1/frame_%03d.png", 4, 0.8, true, 1, true)
+
+what's in your head? -- song
+
+-- 贝塞尔曲线
+	local bezierConfig = ccBezierConfig()
+	bezierConfig.endPosition = rushPos
+	local cp = ccpAdd(myPos, ccp((targetPos.x - myPos.x) / 2, 100))
+	bezierConfig.controlPoint_1 = cp
+	bezierConfig.controlPoint_2 = cp
+	actAry:addObject(CCEaseSineOut:create(CCBezierTo:create(0.5, bezierConfig)))
+
+table: 1B38A080 = {
+    newValue = {
+            goods_id = 12400001,
+            shop_id = 80115,
+            goods_num = 1,
+            price_id = 1,
+    },
+    enablePriority = false,
+    isGlobal = false,
+    from = userdata: 1B2BE8E8,
+    stopEvent = false,
+    eventName = ,
+    propertyName = ,
+    oldValue = 0,
+}
+【掌柜】余振健
+
+月卡
+
+table: 1B32E8A8 = {
+    newValue = {
+            goods_id = 12400002,
+            shop_id = 80115,
+            goods_num = 1,
+            price_id = 1,
+    },
+    enablePriority = false,
+    isGlobal = false,
+    from = userdata: 1B2BE8E8,
+    stopEvent = false,
+    eventName = ,
+    propertyName = ,
+    oldValue = 0,
+}
+
+
+-- 季卡
+
+table: 1B3AD648 = {
+    newValue = {
+            goods_id = 12400003,
+            shop_id = 80110,
+            goods_num = 1,
+            price_id = 1,
+    },
+    enablePriority = false,
+    isGlobal = false,
+    from = userdata: 1B2BE8E8,
+    stopEvent = false,
+    eventName = ,
+    propertyName = ,
+    oldValue = 0,
+}
+
+--半年卡
+table: 1B355FB0 = {
+    newValue = {
+            goods_id = 12400004,
+            shop_id = 999999999,
+            goods_num = 1,
+            price_id = 1,
+    },
+    enablePriority = false,
+    isGlobal = false,
+    from = userdata: 1B2BE8E8,
+    stopEvent = false,
+    eventName = ,
+    propertyName = ,
+    oldValue = 0,
+}
+
+
+--年卡
+table: 1B361E28 = {
+    newValue = {
+            goods_id = 12400006,
+            shop_id = 999999999,
+            goods_num = 1,
+            price_id = 1,
+    },
+    enablePriority = false,
+    isGlobal = false,
+    from = userdata: 1B2BE8E8,
+    stopEvent = false,
+    eventName = ,
+    propertyName = ,
+    oldValue = 0,
+}
+
+
+day 13480221782
+
+
+
+ccColor4B RGBA字节颜色结构体, 构造方法
+
+typedef struct ccColor4B{r,g,b,a}
+static inline ccColor4B ccc4(r,g,b,a) 
+
+ccColor4F RGBA浮点颜色结构体, 构造方法
+
+typedef struct ccColor4F{r,g,b,a}
+static inline ccColor4F ccc4f(r,g,b,a)
+static inline ccColor4F ccc4FFromccc3B(ccColor3B c)
+static inline ccColor4F ccc4FFromccc4B(ccColor4B c)
+static inline BOOL ccc4FEqual(ccColor4F a, ccColor4F b) 
+
+
+
+
+--毒绿
+						powerEmitter:setStartColor(ccc4f(0.3, 1, 0, 1))
+					else
+					--冰蓝
+						powerEmitter:setStartColor(ccc4f(1, 1, 1, 1))
+						powerEmitter:setEndColor(ccc4f(0, 0, 1, 1))
+
+
+Windows -> Preferences -> Keys -> 设置/查找快捷键
+贝塞尔曲面花瓶函数
+
+trie数查找单词
+
+--索引，值  /域，值
+
+tab = {
+[3] = "a",
+[4] = "b",
+[5] = "c",
+job = 4,
+}
+tab = {
+[1] = "a",
+[2] = "b",
+[5] = "c",
+job = 4,
+}
+
+print(tab.job)	--4
+print(tab.job1) --nil
+
+
+for i, v in ipairs(tab) do
+	print(i,v)
+end
+print(#tab) -- 3
+
+--[[
+1       a
+2       b
+3       c
+
+]]--
+
+for k, v in pairs(tab) do
+	print(k,v)
+end
+
+--[[
+1       a
+2       b
+3       c
+job     4
+]]--
+
+
+-- math计算
+deltaX = 20
+deltaY = 20
+abs= math.abs(deltaX / deltaY)
+atan = math.atan(abs)
+deg = math.deg(atan)
+x = math.sin(deg) * 35
+y = math.cos(deg) * 35
+print("abs" .. abs.. "," .. "atan" .. atan.. "," .. "deg" .. deg.. ",".. "x"..x .. ",".."y"..y)
+
+
+function getSectorAreaElements(srcElement, sectorParam, elementType, attackerDirection)
+
+
+雾霾
+
+
+--			local emitter = CCParticleGalaxy:create()
+	--			emitter:setTexture(CCTextureCache:sharedTextureCache():addImage("images/fire_.png"))
+	--		--	local  emitter = CCParticleSystemQuad:create("images/Comet.plist")
+	--			emitter:setStartSize(80)
+	--			emitter:setEndSize(160)
+	--			emitter:setPosition(480, 320)
+	--			local x,y = myRole:getPosition()
+	--			Log.info("主角位置(" .. x.. "," .. y .. ")")
+	--			local pos = self.view:convertToNodeSpace(ccp(480, 320))
+				
+				
+	--			local array = CCArray:create()
+	--		--	array:addObject(CCMoveTo:create(3, pos))
+	--			array:addObject(CCDelayTime:create(skillDuration))
+	--			array:addObject(CCCallFunc:create(function()
+	----					self.view:removeChildByTag(10000, true)
+	--				end))
+	--			local action = CCSequence:create(array)
+	--			emitter:runAction(action)
+	--			emitter:setTag(10000)
+				
+	--		    self.view:addChild(emitter, 10)
+
+
+
+setTextureRect
+
+_ (:3」∠)_
+
+
+是否需要死亡动画
+7切换人物状
+态
+
+--		{7, 状态,方向,持续时间}  (状态：0站立1死亡2攻击姿态4坐10走11受伤12技能)
+{1, 2, 20, 15},
+			{7,0,1},
+			{7,0,2},
+			{7,0,3},
+			{7,0,4},
+			{7,0,5},
+			{7,0,6},
+
+
+
+ElementStateName = {}
+ElementStateName[0] = "stand"
+ElementStateName[1] = "die"
+ElementStateName[2] = "attack"
+ElementStateName[3] = "exchange"
+ElementStateName[4] = "sit"
+ElementStateName[5] = "stall"
+ElementStateName[6] = "training"
+ElementStateName[7] = "collect"
+ElementStateName[8] = "ybcFamily"
+ElementStateName[9] = "stallSelf"
+ElementStateName[9] = "stallAuto"
+ElementStateName[10] = "walk"
+ElementStateName[11] = "hurt"
+ElementStateName[12] = "skill"
+
+--场景元素状态
+ElementState = reverseTable(ElementStateName)
+
+function Role:updateState(state, dir)
+
+self:updateState(ElementState.stand, direction or self.model.dir)
+
+
+ CCParticleGalaxy 毒雾
+CCParticleRain
+CCParticleMeteor 金光
+
+
+
+屏幕分辨率设置
+ChineseConfig.plist
+
+visibleRect 	frameSize 		autoFontSize
+(853, 640)	(1024, 768)(iPad)	21.375
+(960,640)	(960,640)(iphone4s)	19
+(960, 540.8)	(1136,640)(iphone5)	18.9
+
+-- 1个UT-F8字符约等于3个字符
+
+local visibleSize = VisibleRect:getVisibleRect().size
+fontScale = 960 - visibleSize.width > 0 and 6.1 or (640 - visibleSize.height > 0 and 2.1 or 3)
+local dialogLen = fontScale ~= 6.1 and (640 - visibleSize.height > 0 and 93 or 86) or 71
+
+-- -- 1024x768(iPad) / 960x640(iphone4s) / 1136x640(iphone5)
+-- 19字体 	80  101  107
+--	fontScale 3  5.6  3
+
+-- 22字体 	71	86  93
+--	fontScale 3  6.1   2.1
+
+
+2人物攻击
+
+
+--
+CCScale9Sprite:
+self.bg = CCScale9Sprite:createWithSpriteFrameName(self.unselectedBgPath)
+	if state then
+		self.bg:setSpriteFrame(CCSpriteFrameCache:sharedSpriteFrameCache():spriteFrameByName(self.selectedBgPath))
+	else
+		self.bg:setSpriteFrame(CCSpriteFrameCache:sharedSpriteFrameCache():spriteFrameByName(self.unselectedBgPath))
+	end
+self.lastBtn.buttonImg:setPreferredSize(itemSize)
+--
+CCSprite:
+self.bg = CCSprite:createWithSpriteFrameName(self.bgPath)
+self.bg:setDisplayFrame(CCSpriteFrameCache:sharedSpriteFrameCache():spriteFrameByName(self.selectedBgPath))
+
+--self.bg:setSpriteFrame 换成了self.bg:setDisplayFrame
+
+
+
+
+
+记得设置速度move_speed
+
+可以执行行走动作
+--local findPath	
+--	findPath = FindPath:create()
+--	findPath:setMapData(currentSceneModel.tileMatrix, currentSceneModel.tileRow, currentSceneModel.tileColumn)
+	
+--		local fromX, fromY = monster.model.tileX, monster.model.tileY
+--		local path = findPath:find(fromX, fromY, toX, toY)
+--		local simplePath = MapUtil.simplePath(path)
+--		simplePath = MapUtil.toPixelPath(simplePath)
+
+
+--					monster:moveTo(simplePath)
+
+
+
+加载场景是看动画配置文件是那一个
+
+
+dir 的方向
+
+
+
+--[[
+	--				monster:updateState(ElementState.stand, 1)
+--					monster:beAttack()
+--					monster:stopMove()
+					local fightVo = FightVo.new()
+					fightVo.src_type = ElementType.monster
+					fightVo.skillid = 1
+					fightVo.dir = MapUtil.judgeDir(ccp(monster:getPosition()), ccp(myRole:getPosition()))
+					fightVo.result = {
+						dest_type = myRole.model.type,
+						dest_id = myRole.model.id,
+						result_type = 1,
+						result_value = 10,
+					}
+					monster:playAttack(fightVo)
+					
+--					Log.info("TILE POSITION:"..monster.model.tileX..",".. monster.model.tileY)
+					monster:updateState(ElementState.attack, 1)
+					]]--
+
+
+ipairs()访问1，2，3，4...
+pairs（）访问key
+
+
+\\172.22.0.88\学习资料\新人培训
+
+
+--------------剧情副本-------------
+----------攻击：
+function LivingElement:fightRequest(target, skillId)
+
+requestFightHandler
+m_fight_attack_tos
+
+function playFightHandler(self, param)
+
+
+livingElement-> player- >role
+playAttack	--	 playAttack
+
+----------移动：
+
+
+findPathMove
+	-->根据指定路径移动主角到目标点GameScene
+	function moveToPoint(self, point)
+
+
+function MapElement:updateState(state, dir)
+
+Player:rushTo(aimPos)
+--角色移动过程中执行的方法
+function LivingElement:updateTile()
+
+EventType.I_PASSED_A_TILE	-->	"m_move_walk_tos"
+
+
+function Player:rushTo(aimPos)
+--存下当前路径
+	local path = {}
+	path[1] = ccp(self:getPosition())
+	path[2] = aimPos
+	self.model.path = path
+	
+	
+	--根据指定路径移动主角到目标点GameScene
+function moveToPoint(self, point)
+	self:updateState(ElementState.walk, MapUtil.judgeDir(path[1], path[2]))
+
+-- 屏幕位置转换成地图位置
+function doubleClicked(self, x, y)
+	local clickPoint = gameScene:convertToNodeSpace(ccp(x, y))
+	local myTilePos = MapUtil.getTilePoint(ccp(clickPoint.x, clickPoint.y))
+	if not MapUtil.canReachPos(myTilePos.x, myTilePos.y) then
+		return
+	end
+	Log.info("双击了地面")
+	myRole:stopMove()
+	
+	
+	myRole:rushTo(clickPoint)
+	
+end
+
+--获得主角身边最近的一个场景元素
+function getNearestElement(elementType, radius)
+
+
+
+-----------------添加npc-----------
+---创建元素GameScene
+function createElement(self, model)
+
+
+352, 317
+620, 434
+
+
+---------------------
+t2_miss=10210058
+
+
+
+--GameScene.lua
+--根据指定路径移动主角到目标点
+function moveToPoint(self, point)
+
+-- 头上飘字
+local allElements = SceneDataCenter.getAllElements()
+	SceneDataCenter.getElementById(ElementType.monster, param.newValue.monster_id)
+--	local role = allElements[ElementTypeName[ElementType.player] .. msg.role_info.roleid]
+	if allElements then 
+		for _, role in pairs(allElements) do
+			role:say("你好啊")
+		end
+	end
+
+
+--更新
+void schedule  ( SEL_SCHEDULE  selector,  
+  float  interval  
+ )   
+
+Schedules a custom selector with an interval time in seconds. 
+
+See Also
+schedule(SEL_SCHEDULE, float, unsigned int, float)
+Parameters
+selector -- A function wrapped as a selector  
+interval -- Callback interval time in seconds. 0 means tick every frame, 
+
+
+
+
+
+quick-cocos2dx
+
+猫咪抱大腿
+
+
+
+Log.info("FONT size rate:----".. (19/defaultFontSize - 1).. "[19/".. defaultFontSize.."]")
+	local str = "丶·丶不过传闻魔兽山脉深处栖息着六阶紫晶翼狮王，实力堪"
+	local str2 = "丶·丶不过传闻魔兽山脉深处栖息着六阶紫晶翼狮王，实力堪比斗皇，切记不"
+	local str3 = "丶·丶不过传闻魔兽山脉深处栖息着六阶紫晶翼狮王，实力堪比斗皇，切记不要踏"
+	Log.info(string.len(str)..str)
+	Log.info(string.len(str2)..str2)
+	Log.info(string.len(str3)..str3)
+	Log.info("DIalog Length:------ ".. dialogLen)
+
+
+剧情表现逐字显示：	
+--			if tolua.isnull(self.wordLabel) then
+--				self.wordLabel = CCLabelTTF:create("", fontName, 35)
+--				self.wordLabel:setPosition(self.pos)
+--				self:addChild(self.wordLabel)
+--			end
+--			--逐字显示
+--			self.showWord = showWordOneByOne(
+--				self.wordLabel, 
+--				self.model.dialog[self.index], 
+--				self.model.dialogSpeed, 
+--				function()
+--					if not tolua.isnull(self.wordLabel) then
+--						self.wordLabel:removeFromParentAndCleanup(true)
+--					end
+--					fadeOut(self)
+--				end
+--			)
+--			self.showWord(true)
+
+
+
+local array = CCArray:create()
+	array:addObject(dialogAction)
+	
+	local delay = string.len(self.model.dialog[self.index]) * self.model.dialogSpeed * 2 + self.model.duration
+	array:addObject(CCDelayTime:create(delay))
+
+
+CTRadioGroup
+
+
+
+--	local roles = SceneDataCenter.getAllElements()
+--	SceneDataCenter.getElementById(ElementType., param.newValue.monster_id)
+--	if roles then 
+--		for _, role in pairs(roles) do
+--			role:say(self.model.dialog[self.index])
+--		end
+--	end
+
+NPC头顶说话
+
+
+str = "擦`！真是气人，这把武器送给你当做防身用吧！防身用吧！防身用吧！防身"
+print(string.len(str))
+
+
+str = "hello\tnanihao"
+index, posIndex = string.find(str, "\n")
+print(index, posIndex)
+
+--[[任务对话框的按钮去掉了
+	self.operaButton = CTButton.new(" ", 0, "task/yuanBtn.png")
+	self.operaButton:setPosition(VisibleRect:right().x - 124, 80)
+	self.operaButton:setCallback(self, onButtonClicked)
+	self.contentLayer:addChild(self.operaButton)
+
+	self.stateImg = CCSprite:create()
+	self.stateImg:setPosition(40, 50)
+	self.operaButton:addChild(self.stateImg)
+
+	self.stateLabel =  ComponentFactory.createLabel("确定", 22)
+	self.stateLabel:setPosition(ccp(VisibleRect:right().x - 124, 33))
+	self.stateLabel:setColor(ccc3(0, 0, 0))
+	self.contentLayer:addChild(self.stateLabel)
+]]--
+
+通用拉伸xuanzheban1.png（现在common.plist中）
+
+通用 已穿戴、未穿戴（现在forge.plist中）
+
+
+--拉伸设置preferredSize
+local splitImg = CCScale9Sprite:createWithSpriteFrameName("common/fenxian1.png")
+splitImg:setPreferredSize(CCSizeMake(700, 14))
+
+
+init 需放在所有代码运行之前
+
+
+
+tabl = {"a", 2, function() end,}
+print(unpack(tabl))
+
+
+--变长参数
+tabl = {"a", 2, function() end,}
+function unpackage(...)
+--local a,b,c = ...
+print(type(...))
+for k, v in ipairs{...} do
+print(k, v)
+end
+end
+
+unpackage("a", 2, function() end)
+
+
+
+
+addT = {1,2,3}
+function add(...)
+local a,b,c = ...
+print(a,b,c)
+end
+function addFunc(...)
+add(...)
+end
+--addFunc(unpack(addT))		--1 2 3
+addFunc()			--nil nil nil
+
+
+-- 使用模板建立的裁剪图像
+void NestedTest::setup()
+{
+    static int depth = 9;
+    
+    CCNode *parent = this;
+    
+    for (int i = 0; i < depth; i++) {
+                
+        int size = 225 - i * (225 / (depth * 2));
+
+        CCClippingNode *clipper = CCClippingNode::create();
+        clipper->setContentSize(CCSizeMake(size, size));
+        clipper->setAnchorPoint(ccp(0.5, 0.5));
+        clipper->setPosition( ccp(parent->getContentSize().width / 2, parent->getContentSize().height / 2) );
+        clipper->setAlphaThreshold(0.05f);
+        clipper->runAction(CCRepeatForever::create(CCRotateBy::create(i % 3 ? 1.33 : 1.66, i % 2 ? 90 : -90)));
+        parent->addChild(clipper);
+        
+        CCNode *stencil = CCSprite::create(s_pPathGrossini);
+        stencil->setScale( 2.5 - (i * (2.5 / depth)) );
+        stencil->setAnchorPoint( ccp(0.5, 0.5) );
+        stencil->setPosition( ccp(clipper->getContentSize().width / 2, clipper->getContentSize().height / 2) );
+        stencil->setVisible(false);
+        stencil->runAction(CCSequence::createWithTwoActions(CCDelayTime::create(i), CCShow::create()));
+        clipper->setStencil(stencil);
+
+        clipper->addChild(stencil);
+        
+        parent = clipper;
+    }
+
+}
+
+--		local drawNode = CCDrawNode:create()
+--		local clipper = CCClippingNode:create()
+--		clipper:addChild(labelTexture)
+--		clipper:setStencil(drawNode)
+--		clipper:setPosition(self.pos)
+--		self.bgLayer:addChild(clipper)
+
+
+
+游爱、菲音、XX、XX
+
+--已穿戴装备
+	local wareEquipes = {}
+	for i, data in pairs(self.equipeData) do
+		if data[2] then
+			table.insert(wareEquipes, data[1])
+		end
+	end
+	
+	
+	--如果无已穿戴装备就显示大字
+	if #wareEquipes == 0 then
+		local title = ComponentFactory.createLabel("没有穿戴的装备", 36)
+		title:setColor(ccc3(196, 0, 0))
+		addChildLazy(self, title, nil, 366)
+	end
+
+--未穿戴装备
+	local equipes = {}
+	for i, data in pairs(self.equipeData) do
+		if not data[2] then
+			table.insert(equipes, data[1])
+		end
+	end
+	
+	--如果无未穿戴装备就显示大字
+	if #equipes == 0 then
+		local title = ComponentFactory.createLabel("没有装备", 36)
+		title:setColor(ccc3(196, 0, 0))
+		addChildLazy(self, title, nil, 168)
+	end
+
+
+
+#2832 小世界地图ui
+
+dailyRewardDic
+stateTableDic
+
+CCEaseBounceInOut卡顿的移动
+
+还是波浪效果
+local shakeAction = CCShaky3D:create(2, CCSizeMake(15,10), 5, false)
+GameView.sceneLayer:runAction(shakeAction)
+GameView.sceneLayer:setGrid(nil)
+
+
+books, 皮靴
+
+CCClippingNode
+
+CCGridAction
+CCTiledGrid3DAction
+CCSplitCols
+
+t2_miss=10210052
+
+MotionStreakTest issue 1358
+
+CCOrbitCamera
+
+qNUmber2066564173
+
+
+onTouchBegan 
+return true拦截触摸事件
+
+不要重复计算，e.g.定时器、触摸事件函数
+
+
+#929 
+消耗的元宝是前端计算玩发送协议去后端处理的
+self.maxEnergy = 0
+self.maxSpendGold = 0
+
+
+print(math.modf(3.5))
+
+电脑架子
+
+#730 倒计时失败
+
+DataCenter、Controller里面存放表数据，游戏开始时加载，生命周期一直存在
+
+#740自动攻击的时候没有选中事件，所以没有显示怪物的血条
+
+
+i = 1
+j = 0
+
+while io.read() do
+i = (i + 1)
+--i = (i ) % 5 + 1
+j = (i - 1) % 5
+print(i,j)
+
+end
+
+
+
+
+#1386黑榜
+backMsgUpdateRoleView
+backMsgInitView
+
+message p_rnkm_history{
+	optional int32					chlg_id				= 1;				//挑战方ID
+	optional int32					enemy_id			= 2;				//敌方ID
+	optional string					enemy_name			= 3;				//敌方名称
+	optional bool					is_winner			= 4;				
+	optional bool					change_rank			= 5[default=true];	//是否修改名次
+	optional int32					result_rank			= 6;				//胜利方获得名次
+	optional int32					add_bonus			= 7;				//增加总奖金
+	optional int32					time				= 8;				//记录时间
+
+
+VIP
+斩魔令DailyMission
+任务对话框DialogView
+每日奖励DailyReward
+每日活动DailyActivity
+
+
+	tableView = CCTableView:create(CCSizeMake(620,485))
+    tableView:setDirection(kCCScrollViewDirectionVertical)
+    tableView:setPosition(CCPointMake(40, 48))
+    tableView:setVerticalFillOrder(kCCTableViewFillTopDown)
+    self.bg:addChild(tableView)
+    tableView:registerScriptHandler(scrollViewDidScroll,CCTableView.kTableViewScroll)
+    tableView:registerScriptHandler(scrollViewDidZoom,CCTableView.kTableViewZoom)
+    tableView:registerScriptHandler(tableCellTouched,CCTableView.kTableCellTouched)
+    tableView:registerScriptHandler(cellSizeForTable,CCTableView.kTableCellSizeForIndex)
+    tableView:registerScriptHandler(tableCellAtIndex,CCTableView.kTableCellSizeAtIndex)
+    tableView:registerScriptHandler(numberOfCellsInTableView,CCTableView.kNumberOfCellsInTableView)  
+    tableView:reloadData()
+    self:onTableViewSliding()
+
+
+
+不是CCNode对象计时器使用
+	CCDirector:sharedDirector():getScheduler():scheduleScriptFunc(function()	
+					Log.info("schedule")
+					if vipEndTime <= 0 then
+						Log.info("schedule--<=0")
+						sharedScheduler:unscheduleScriptEntry(scheduleId)
+						scheduleId = nil
+						local function onMsgButtonClickedHandler(tSelf, button)
+							local tag = button:getTag()
+							if tag then
+								TipMessage.show("好的，续费")
+								tSelf:removeFromParentAndCleanup(true)
+							end
+						end
+						local hint = "你的VIP已经到期，失去以下特权：\n1、每日VIP奖励\n2、免费传送\n3、远程仓库\n\n"
+						local msgView = MessageBoxView.new("", hint, {"续费"}, onMsgButtonClickedHandler, true, true)
+						GameView.windowLayer:addChild(msgView)
+					else
+						Log.info("schedule-->0")
+						vipEndTime = vipEndTime - 1
+						Log.info("VIP 到期剩余时间：%d", vipEndTime)
+					end
+				end, 1, false)
+CCNode对象可以使用ccaction来模拟计时（这里需要传递self，self:runAction())
+			local countDownAction = schedule(self, function()	
+			Log.info("schedule")
+			if vipEndTime <= 0 then
+				Log.info("schedule--<=0")
+				self:stopActionByTag(10086)
+				local function onMsgButtonClickedHandler(tSelf, button)
+					local tag = button:getTag()
+					if tag then
+						TipMessage.show("好的，续费")
+						tSelf:removeFromParentAndCleanup(true)
+					end
+				end
+				local hint = "你的VIP已经到期，失去以下特权：\n1、每日VIP奖励\n2、免费传送\n3、远程仓库\n\n"
+				local msgView = MessageBoxView.new("", hint, {"续费"}, onMsgButtonClickedHandler, true, true)
+				GameView.windowLayer:addChild(msgView)
+			else
+				Log.info("schedule-->0")
+				vipEndTime = vipEndTime - 1
+				Log.info("VIP 到期剩余时间：%d", vipEndTime)
+			end
+		end, 1)
+
+------
+
+
+lua中对象用 tolua.isnull()判断，对象要实现为self.
+普通变量if  then 就可以
+
+weinan
+你好 请问一下 怎么实现 CClabelTTF 里面的文字走马灯效果
+
+8月29日回复顶转发举报
+.Devil_方
+高性能的做法是一次用CCLabel生成之后，拿出来CCTexture, 然后使用CCClipNode，其实就是glScissor去裁剪这块纹理，来达到逐字显示的动画效果。
+
+-----CCClippingNode
+
+
+
+t2_vip_expire=5
+
+贝塞尔曲线
+
+static CCBezierTo *  create (float t, const ccBezierConfig &c) 
+
+ccBezierConfig Struct {
+CCPoint  endPosition 
+CCPoint  controlPoint_1 
+CCPoint  controlPoint_2 
+};
+
+self.expLabel
+local wordTable = {
+		{"击败" .. self.monster.name, ccc3(255, 255, 255)},
+		{tostring(self.monster.num), ccc3(198, 0, 0)},
+		{"/" .. self.monster.totalNum, ccc3(255, 255, 255)},
+	}
+	local label = ComponentFactory.createMulColorLabel(wordTable)
+	label:setPosition(330, 164)
+	contentLayer:addChild(label)
+setStarNum
+
+local allFinishBtnClicked
+
+if tolua.isnull(self.alertView) then
+		local hint = string.format("一键最优完成%d环需要消耗[%d]个元宝？", self.data.remainTimes, self.data.allFinishCost)
+		self.alertView = AlertView.new(hint, )
+		self.alertView:setPosition(VisibleRect:center())
+		GameView.windowLayer:addChild(self.alertView)
+	end
+
+
+
+一键完成
+dataCenter 
+	得到全部信息，包括多个info表
+	在info表中得到单个info
+
+
+(150, 180)
+(350, 500)
+
+
+--message p_daily_mission_monster {
+--	required	int32		monster_level	=4[default=0];//怪物难度星级
+--	required	int32		monster_typeid	=5[default=0];//怪物类型
+--	required	int32		monster_mapid	=5[default=0];//怪物所在地图
+--	required	int32		monster_map_tx	=6[default=0];//怪物所在地图TX
+--	required	int32		monster_map_ty	=7[default=0];//怪物所在地图TX
+--	required	int32		monster_total_num	=8[default=0];//怪物总数量
+--	required	int32		kill_monster_num	=9[default=0];//已击杀怪物数量
+--}
+
+
+自己定制cocos2dx触屏事件
+
+"不再提示" 保存在userdefault。xml中
+
+----配置文件config
+--总体
+总环数
+额外奖励物品ID table
+各难度概率 table
+难度刷新元宝数
+一键全部完成元宝数 
+开放境界 
+
+保底次数
+
+
+
+--单项任务
+难度：怪物数关系 table  奖励物品ID table
+怪物ID table
+直接完成元宝数 * （剩余数量/总数量）
+
+
+----数据模型model
+当前
+任务进度
+任务数
+已斩杀数 table
+怪物Id 和 当前需要斩杀数  table  
+
+
+
+SlayEnemyOrder
+
+星星"common/start.png"
+
+
+
+
+
+每日奖励
+登录奖励后台模板重写
+摇钱树数据不正确
+
+
+
+
+
+--沿着边框跑
+p = {{},{},{},{}}
+p[1].x = 1
+p[1].y = 1
+
+p[2].x = 1
+p[2].y = 0
+
+p[3].x = 0
+p[3].y = 0
+
+p[4].x = 0
+p[4].y = 1
+
+
+for i = 1,4 do
+	local sum = p[i].x + p[i].y
+local sum = sum % 2
+if sum == 0 then
+print("横着走")
+elseif sum == 1 then
+print("数着走")
+end
+end
+
+
+
+有色的layer用来帮助调整坐标
+	local icon  = CCLayerColor:create(ccc4(0, 0, 40, 40))
+	icon:setContentSize(CCSizeMake(463, 208))
+	icon:ignoreAnchorPointForPosition(false)
+	icon:setAnchorPoint(ccp(0, 1))
+	icon:setPosition(373, 292)
+	self.layer:addChild(icon)
+
+
+
+登录奖励模块
+经验找回
+
+
+EffectFactory.createMagicEff(startSize)
+startSize这个参数可选的
+创建的东西是个CCParticleSystemQuad实例
+跟CCNode那样用就可以了
+可以runAction
+EffectFactory.stopEff(tagetEmitter)
+调用这个就停止发射
+
+
+
+CCSpriteFrameCache:sharedSpriteFrameCache():a2ddSpriteFramesWithFile("images/Daily/Daily.plist")
+CCSpriteFrameCache:sharedSpriteFrameCache():removeSpriteFramesFromFile("images/Daily/Daily.plist")
+
+self.icon = CCSprite:createWithSpriteFrameName("common/start.png")
+
+showWordIndex = 1
+	self:stopActionByTag(showWordAction)
+	isShowing = false
+	
+	if not wordTable then
+		TipMessage.show("wordTable (nil)") 
+		currentLabel:setString(currentWord)
+		return
+	end
+	currentLabel:setString(" ")
+
+
+
+
+currentLabel:setString(currentWord)
+			showWordIndex = 1
+			self:stopActionByTag(showWordAction)
+			isShowing = false
+
+
+
+擦 ！强大才是这个世界的
+33
+生存
+5
+法则！别
+11
+灰
+2
+心，虽然你和
+17
+萧炎
+5
+的
+2
+斗气都
+8
+神秘
+5
+枯竭了
+8
+，但我相信你们一定会恢复斗气，步入斗者
+56
+，踏足斗气大陆每个角落！
+35
+
+
+切换下一句 1、一开始，在表情延迟过后和逐字显示之前
+	2、 按下按钮下一句 not isShowing
+createLabel
+
+currentIndex
+
+subIndex = 1
+for _,len in pairs(lenTable) do
+
+if len > lenTable[subIndex] then
+subIndex ++
+self.currentLabel = labelTable[subIndex]
+self.currentWord = wordTable[index][subIndex]
+end
+
+end
+
+
+使用wholeword的地方需要更改
+
+
+
+
+function spiltWord(w)
+	local wordTab = {}
+	local index = 1
+	local isOver = false
+	local posFinal = 82
+	local posBeg, posEnd = 1, 0
+	while true do
+		posBeg, posEnd = string.find(w, "&.-&", posEnd + 1)	
+		
+		if posBeg then
+			if posEnd <= 82 then 
+				wordTab[#wordTab + 1] = string.sub(w, index, posBeg - 1)
+			print(wordTab[#wordTab])
+				wordTab[#wordTab + 1] = string.sub(w, posBeg + 1, posEnd - 1)
+			print(wordTab[#wordTab])
+				index = posEnd + 1
+			else
+				isOver = true 
+				break
+			end
+		else
+			isOver = true
+			break
+		end
+	end
+	if index == 1 or isOver then 
+		--local _
+		--_, posFinal = ChangeLineUtil:isIndexCanDialog(w, string.len(w))
+		--local word = string.sub(w, index, posFinal)
+		local word = string.sub(w, index, string.len(w))
+		wordTab[#wordTab + 1] = word
+	end
+	return wordTab, posFinal
+end
+
+str = "强大才是这个世界的生存法则！别灰心，虽然你和&萧炎&的斗气都&神秘&&枯竭了&，但我相信你们一定会恢复斗气，步入斗者，踏足斗气大陆每个角落！"
+wt, pos = spiltWord(str)
+print(pos)
+for i = 1, #wt do
+print(i,wt[i])
+if i == 5 then 
+print(string.len(wt[5]))
+end
+end
+
+
+
+v:runAction(CCEaseBackOut:create(CCMoveBy:create(0.5, ccp(0, addY))))
+
+for _, goodsItem in pairs(self.goodsItemArr) do
+		goodsItem:setScrollView(self.scrollView)
+	end
+goodsItem = GoodsItem.new(model)
+						goodsItem:setPosition(ccp((column - 1) * (gridWidth + gridColumnGap) + (page - 1) * (self.pageWidth + pageGap), (self.rowNum - row) * (gridWidth + gridRowGap)))
+						goodsItem:setEnable(true, true, false, true)
+						goodsItem:setSwallowEvent(false)
+						goodsItem.pageIndex = page
+						goodsItem.position = pos
+						goodsItem.row = (page - 1) * 4 + row
+						goodsItem:setIsShowNum(true)
+						goodsItem:setIsOpen(pos <= gridNum)
+						if self.gridType then
+							goodsItem:setGridType(self.gridType)
+						end
+						self.goodsItemArr[pos] = goodsItem
+						self.goodsContainer:addChild(goodsItem)
+self.scrollView = CTPageScrollView:create();
+	self.scrollView:setViewSize(CCSizeMake(self.pageWidth, self.pageHeight));
+	self.scrollView:setContainer(self.goodsContainer);
+	self.scrollView:setDirection(kCCScrollViewDirectionHorizontal);
+	self.scrollView:setPosition(ccp(219, 344));
+	self.scrollView:ignoreAnchorPointForPosition(false);
+	self.scrollView:setAnchorPoint(ccp(0.5, 0.5));
+	self.scrollView:setPageSize(CCSizeMake(self.pageWidth + pageGap, self.pageHeight));
+	self.scrollView:setPageChangedCallBack(function(index)pageChangedHandler(self, index)end);
+--	self.scrollView:setOnMovePageChangedCallBack(function(index)Log.info("move:"..index)end);
+	self:addChild(self.scrollView);
+	self.scrollView:scrollToPage(self.currentPage, 0)
+	setScrollView(self)
+str = "强大才是这个世界的生存法则！别灰心，虽然你和&萧炎&的斗气都&神秘&枯竭了，但我相信你们一定会&恢复&斗气，步入斗者，踏足斗气大陆每个角落！"
+posBeg ,posEnd = string.find(str, "&.+&")
+print(posBeg ,posEnd, string.sub(str, posBeg+1, posEnd-1))
+str = string.gsub(str, "&.+&", "")
+print(str)
+
+str = "强大才是这个世界的生存法则！别灰心，虽然你和&萧炎&的斗气都&神秘&枯竭了，但我相信你们一定会&恢复&斗气，步入斗者，踏足斗气大陆每个角落！"
+for word, posB, posE in string.gmatch(str, "&.-&") do
+print(word, posB, posE)
+end
+
+
+posBeg, posEnd = 0, 0
+str = "强大才是这个世界的生存法则！别灰心，虽然你和&萧炎&的斗气都&神秘&枯竭了，但我相信你们一定会&恢复&斗气，步入斗者，踏足斗气大陆每个角落！"
+while true do
+posBeg ,posEnd = string.find(str, "&.-&", posEnd + 1)
+if posBeg == nil then break end
+print(posBeg ,posEnd - 2, string.sub(str, posBeg+1, posEnd-1))
+end
+print(str)
+print(string.gsub(str, "&.-&", ""))
+
+
+for i = 1, 50 do
+print(string.sub(str, 1, i))
+end
+
+string.find(
+
+
+local totalX, totalY
+
+str = "擦 ！哼，哪里冒出来的家伙，打伤了护卫，差点坏了穆少爷好"
+print(string.len(str))
+
+
+str = "&"
+print(string.len(str))
+
+
+--------次数
+传送次数，英雄副本重置,体力购买次数,摇钱树每日元宝次数,击杀经验加成,人物培养上限,
+--------类型
+登陆福利,伙伴,晶矿加成,猎宝,副本强力附体
+--------是否
+远程仓库,黑榜 ,强化自动购买,创建家族,异火,斩魔令一键完成,时装,境界技能
+
+
+
+
+str = "擦 ！你要找萧炎哥哥么？嘻嘻，他现在应该在后山呢，沿着这"
+print(string.len(str))
+--55
+600
+
+
+
+
+摇钱树 （财神到）
+m_caishen_info_tos
+
+登陆奖励 （连续登录）
+m_conlogin_fetch_tos		--T2QQ
+
+炼丹炉
+m_liandan_operate_tos
+
+经验找回
+m_activity_exp_back_info_tos
+
+VIP模块
+m_vip_info_toc
+
+1、Bag
+2、EffectFactory
+3、BasLayer class(CCLayer)
+4、lua+
+5、DialogView DialogBox
+6、Map
+
+,reward_daily=170,reward_daily_info=17000,reward_daily_fetch=17001,
+
+--int2time
+num = 4000
+hour = math.floor(num / 3600)
+num = num - hour * 3600
+if hour< 10 then 
+hour = "0"..hour
+end
+minute = math.floor(num / 60)
+num = num - minute * 60
+if minute < 10 then 
+minute = "0"..minute
+end
+sec = num
+if sec < 10 then 
+sec = "0"..sec
+end
+print(hour..":"..minute..":"..sec)
+
+
+currentWord = "aslfdjal   alsdfj dsfs"
+print(currentWord)
+currentWord = "         "..string.gsub(currentWord, " ", "")
+print(currentWord)
+
+
+--trim
+currentWord = "aslfdjal   alsdfj dsfs"
+print(currentWord)
+currentWord = "         "..string.gsub(currentWord, " ", "")
+print(currentWord)
+
+if currentSceneModel.sceneId == 11100 then--主城
+
+if config[4] > myRole.model.level then--等级不够就不传送
+				TipMessage.show("此地图需要超过"..config[4].."级才能进入")
+				return 
+			end
+
+			Log.info("飞向的"..name.."地图ID："..config[3])
+			
+			local aimSceneModel = MapUtil.getMapMCMData(config[3])
+			local mapTitlePos
+			for _, mapElementModel in pairs(aimSceneModel.mapElementArr) do
+				if mapElementModel.type == 3 then
+					mapTitlePos = ccp(mapElementModel.tileX, mapElementModel.tileY)
+				end
+			end
+			
+
+if self:isHaveTransfer() then
+				local key = mapTitlePos.x .. "," .. mapTitlePos.y
+				local findPathParam = FindPathParam.create()
+				findPathParam.type = FindPathType.point
+				findPathParam.point = mapTitlePos
+				findPathParam.flyType = 0
+				findPathParam.scene = config[3]
+				local eventParam = EventParam.create()
+				eventParam.isGlobal			= true
+				eventParam.newValue			= findPathParam
+				EventDispatcher.dispatchEvent(EventType.FIND_PATH_EVENT, eventParam)
+			--寻路过去
+			else
+				local findPathParam = FindPathParam.create()
+				findPathParam.type = FindPathType.point
+				findPathParam.point = mapTitlePos
+				findPathParam.scene = config[3]
+				local eventParam = EventParam.create()
+				eventParam.isGlobal			= true
+				eventParam.newValue			= findPathParam
+				EventDispatcher.dispatchEvent(EventType.FIND_PATH_EVENT, eventParam)
+			end
+
+11100888
+
+Touch处理函数 "Began" 中任一项都不能够直接返回true ，不然会屏蔽其他项接受点击事件
+pathConfig.lua
+	setLuaPath("luaScript/modules/vip")
+gameconfig.lua
+gameController.lua
+
+num = 14.5
+--assert(type(num) == "number","错误：非数值型不能转换成时间格式")
+	intPart = math.floor(num)
+print(intPart)
+	intPart = intPart % 24
+print(intPart)
+	floatPart = num - intPart
+print(floatPart)
+timeStr = string.format("%d:%2.0f", intPart, floatPart * 60)
+print(timeStr)
+
+
+[2001] = {"英雄副本",	2, {1, 1, 23},	"摇一摇，铜钱快到碗里来",		"heroFB.png"},
+	[2002] = {"屠龙战场",	2, {2, 11, 18},	"摇一摇，铜钱快到碗里来",		"battleFieldOfDrogonDeath.png"},
+	[2003] = {"北龙岛",	2, {3, 1, 5},	"摇一摇，铜钱快到碗里来", 		"northDragonIsland.png", },
+	[2004] = {"斗破良缘",	2, {1, 1, 23}, 	"摇一摇，铜钱快到碗里来", 		"breakUp.png"},
+	[2005] = {"蛇人帮",	2, {3, 1, 3}, 	"摇一摇，铜钱快到碗里来", 		"snakeManGang.png"},
+	[2006] = {"熔岩洞穴",	2, {3, 1, 3}, 	"摇一摇，铜钱快到碗里来", 		"flamingCave.png"},
+	[2007] = {"古龙岛",	2, {3, 1, 5}, 	"摇一摇，铜钱快到碗里来", 		"ancientDrgonIsland.png"},
+	[2008] = {"远古战场",	2, {3, 1, 3}, 	"摇一摇，铜钱快到碗里来", 		"ancientBattleField.png"},
+}
+
+[2001] = {"英雄副本",	2, {1, 1, 23},	"摇一摇，铜钱快到碗里来",		"heroFB.png"},
+	[2002] = {"屠龙战场",	2, {2, 11, 18},	"摇一摇，铜钱快到碗里来",		"battleFieldOfDrogonDeath.png"},
+	[2003] = {"斗破良缘",	2, {1, 1, 23}, 	"摇一摇，铜钱快到碗里来", 		"breakUp.png"},
+	[2004] = {"古龙岛",	2, {3, 1, 5}, 	"摇一摇，铜钱快到碗里来", 		"ancientDrgonIsland.png"},
+	[2005] = {"远古战场",	2, {3, 1, 3}, 	"摇一摇，铜钱快到碗里来", 		"ancientBattleField.png"},
+	[2006] = {"北龙岛",	2, {3, 1, 5},	"摇一摇，铜钱快到碗里来", 		"northDragonIsland.png", },
+	[2007] = {"蛇人帮",	2, {3, 1, 3}, 	"摇一摇，铜钱快到碗里来", 		"snakeManGang.png"},
+	[2008] = {"熔岩洞穴",	2, {3, 1, 3}, 	"摇一摇，铜钱快到碗里来", 		"flamingCave.png"},
+
+-define(hero_fb,2001).
+-define(tulong_fb,2002).
+-define(doupo_fb,3).
+-define(gulong_fb,4).
+-define(yuangu_fb,5).
+
+-define(beilong_fb,6).
+-define(snake_fb,7).
+-define(yanjiang_fb,8).
+
+
+Controller中self.view是面板的实例
+
+背景故事、人物装束多样
+
+1、stateName 和stateWord的关系
+2、state的颜色 
+3、onTouch点击后不同的处理方法  利用事件发送到控制器
+4、根据状态不同决定：是否接受onTouch点击事件
+
+ps1：拖动scrollView
+ps2：scrollView的上下页方向问题
+
+
+	self.scrollView:setPageSize(CCSizeMake(self.pageWidth + pageGap, self.pageHeight));
+
+
+	self.scrollView:scrollToPage(self.currentPage, 0)
+
+self.titlePath = "images/daily/dailyRewardTitle.png" 
+
+--[[任务配置格式
+[id] = 
+{
+     1：logoPath, 		图标路径
+     2：title, 			标题
+     3：stateName, 		状态名字  可领取/已领取
+     4：stateWord{ 
+     		type (1为铜钱，2为元宝，3为绑定元宝,4为exp, 5每日活动) （什么都没有填写nil） 
+     		word (奖励数量, 若type为5，则word为 "开启"/"关闭")
+     		}
+     5：desc	 			描述
+
+
+	self.expLabel = MoneyLabel.new(4, 0, ccc3(51, 51, 51))
+	self.expLabel:setPosition(xOffset, 117)
+	self.rightView:addChild(self.expLabel)
+
+MoneyLabel = CCclass("MoneyLabel", BaseLayer)
+
+--type:1为铜钱，2为元宝，3为绑定元宝,4为exp
+
+--     1：logoPath, 图标路径
+--     2：title, 	标题
+--     3：stateName, 状态名字  可领取/已领取
+--     4：littleLogo, 奖励内容的小图标	（没有是填写nil） 
+--     5：stateWord  奖励数量	（没有是填写nil） 
+--     6：desc	 	描述
+
+
+model.logoPath = dailyRewardDic[1]
+		model.title = dailyRewardDic[2]
+		model.stateName = dailyRewardDic[3]
+		model.littleLogo = dailyRewardDic[4]
+		model.stateWord = dailyRewardDic[5]
+		model.desc = dailyRewardDic[6]
+
+--DataCenter 与TaskModel
+local taskArr
+	if tabIndex == 1 then
+		taskArr = TaskDataCenter.getTaskByStates({2, 3})
+	else
+		taskArr = TaskDataCenter.getTaskByStates({1})
+	end
+	onTaskItemClicked(self, taskArr[1])
+	local len = #taskArr
+	local model = false
+	local index = 0
+	local taskItem
+	self.group:clear()
+	for taskId, taskModel in pairs(taskArr) do
+		taskItem = TaskListItem.new(taskModel)
+		taskItem:setPosition(0, 313 - index * 100)
+		taskItem:setGroup(self.group)
+		taskItem:setCallback(self, onTaskItemClicked)
+		index = index + 1
+		self.container:addChild(taskItem)
+	end
+
+--右边改变的面板
+self.taskName
+self.taskDesc
+self.taskTarget
+
+self.copperLabel
+self.expLabel
+self.reputationLabel 
+self.goodsLayer
+
+
+//修改PK模式
+
+m_role2_pkmodemodify_tos{
+required int32                  pk_mode         = 1;
+}
+message m_role2_pkmodemodify_toc {
+required bool                   succ            = 1 [default = true];
+        
+optional string                 reason          = 2;
+        
+optional int32                  pk_mode         = 3 [default = 0];
+}
+服务器dispatch-> 
+skillController listen->
+	setAttribute(SkillModel : dispatch(SKILL_MODEL_PROPERTY_CHANGE)) ->
+ProfessSkillView listen (model = param.from )
+
+
+
+
+--Dispatcher.lua
+--[[
+添加事件侦听
+@name			事件名
+@handleFun		处理方法
+@theSelf		self对象，为了传递给处理方法的
+@listenerObj	监听对象，为了实现只有发送者监听到事件的功能
+@priority		权重，值越大越先被执行，为0时按添加的先后顺序执行(默认为0)
+--]]
+function Dispatcher:addEventListener(name, handleFun, theSelf, listenerObj, priority)
+
+
+
+--[[
+	发布事件
+	@name			事件名
+	@eventParam		事件参数
+--]]
+function Dispatcher:dispatchEvent(name, eventParam, ...)
+
+
+--ProfessSkillView
+onEnter
+
+---根据data center的数据，修改快捷技能栏的显示
+function ProfessSkillView:setShortcutSkillList(skillList)
+	local length = #skillList
+	if length > 3 then
+		length = 3
+	end
+	for i=1, length do
+		local shortCutSkill = shortCutSkillList[i]
+		if skillList[i] ~= 0 then
+			local skill = SkillDataCenter.getSkillInfoById(skillList[i])
+			shortCutSkill:setModel(skill)
+			shortCutSkill:setAttributeEnable(true, false)
+		end
+	end
+end
+
+--skillItem.lua
+eventParam.newValue     	= self.model
+eventParam.isGlobal			= true
+EventDispatcher.dispatchEvent(EventType.SKILL_ITEM_CLICKED, eventParam)
+
+
+skillItem(click->dispatch param.newValue(self.model))--> ProfessSkillView(listen param.model-> dispatch eventParam) -->
+	-> SkillController(lisen param,skillInfoView(Open or Close))
+
+
+--ProfessSkillView.lua
+---技能单元点击处理
+function itemClickedHandler(self, param)
+	local eventParam = EventParam.create()
+	eventParam.newValue     	= param.newValue
+	eventParam.from	= PanelId.skillInfoView
+	eventParam.switch = "on"
+	EventDispatcher.dispatchEvent(EventType.PANEL_OPEN_CLOSE_SWITCH, eventParam)
+	
+	self.currentHighLightId = param.newValue.id 
+end
+
+
+--SkillController.lua
+
+EventDispatcher.addEventListener(EventType.PANEL_OPEN_CLOSE_SWITCH, openAndCloseSkillInfoView, self, PanelId.skillInfoView)
+--打开或者关闭技能信息面板
+function openAndCloseSkillInfoView(self, param)
+	local switch = self:getSwitchState(param, self.skillInfoView)
+--	if switch == nil then
+--		return
+--	end
+	if switch then
+		local model = param.newValue
+		self.skillInfoView = SkillInfoView.new(model)
+		self.skillInfoView:ignoreAnchorPointForPosition(false)
+		self.skillInfoView:setAnchorPoint(ccp(0.5, 0.5))
+		self.skillInfoView:setPosition(VisibleRect:center())
+		self.skillInfoView:setTag(SKILL_INFO_VIEW)
+		GameView.windowLayer:addChild(self.skillInfoView)
+	else
+		local view = GameView.windowLayer:getChildByTag(SKILL_INFO_VIEW)
+		if not tolua.isnull(view) then
+			view:removeFromParentAndCleanup(true)
+		end
+	end
+end
+
+
+协议：
+p_actor_buf
+--FightController.lua
+function FightController:init()
+	EventDispatcher.addEventListener(EventType.REQUEST_FIGHT_EVENT, requestFightHandler, self)
+end
+
+function requestFightHandler(self, param)
+	
+	local now = math.abs(os.clock() - lastFightTime)
+	if now < 1 then
+		return
+	end
+	lastFightTime = os.clock()
+	
+	local newValue = param.newValue
+	local msg = Proto.create("m_fight_attack_tos")  --m_fight_attack_tos={{"tile","skillid","targets","src_type","dir"},{[4]=1}},
+	local tile = Proto.create("p_map_tile")		--p_map_tile={{"tx","ty"}},
+	tile.tx = newValue.tileX
+	tile.ty = newValue.tileY
+	msg.tile = tile
+	msg.skillid = newValue.skillId or 0
+	msg.targets = newValue.targets
+	msg.src_type = newValue.attackerType
+	msg.dir = newValue.direction
+	self:sendMsg(msg)
+	youHaveToDoTaskNow = false
+end
+
+
+MsgDispatcher.addEventListener(MsgType.M_FIGHT_ATTACK_TOC, playFightHandler, self)
+
+function  playFighthandler()
+end
+
+--game.proto
+//---------------------------------
+//函数：attack        攻击
+//---------------------------------
+//  
+  单对单，发起攻击操作
+
+message m_fight_attack_tos {
+   
+ required p_map_tile     	tile                                    = 1;    
+  
+  required int32            	skillid                                 = 2;    //技能ID
+  
+  repeated int32              targets                                 = 3;//0 代表宠物 1代表人 2代表怪物
+   
+ optional int32            	src_type                                = 4 [default = 1]; //攻击者类型  
+  
+    required int32          	dir                                     = 5; //攻击时的方向
+}
+
+--Proto.lua
+local Proto = require("all_pb")
+function create(class)
+	local itab = Proto[class]
+	if not itab then
+		error(string.format("proto not exist:%s", class))
+	end
+	
+	local tab = {}
+	tab.itab = itab[1]
+	tab.class = class
+	-- 初始化
+	local dtab = itab[2] or {}
+	
+	for k ,v in pairs(itab[1]) do
+		tab[v]=dtab[k] or "undefined"
+	end
+	--setmetatable(tab, meta)
+	return tab	
+end
+--all_pb.lua
+return {
+m_fight_attack_tos={{"tile","skillid","targets","src_type","dir"},{[4]=1}},
+}
+
+
+
+
+CCSpriteFrameCache:sharedSpriteFrameCache():addSpriteFramesWithFile("images/partner/partner.plist") --sprite加载到内存中
+
+local spr = CCSprite:createWithSpriteFrameName("common/fenxian1.png")  --使用已加载的png图片创建CCSprite
+
+CCSpriteFrameCache:sharedSpriteFrameCache():removeSpriteFramesFromFile("images/partner/partner.plist")  --删除内存中的图片素材
+
+协议m_vip
+
+
+--全局可见  不用require "TipMessage"
+module("TipMessage", package.seeall)
+
+self.closeButton
+
+
+	local _,j  = string.find(currentWord, "%$%d%d", iter)
+	if j == iter + 2 then	iter  = iter + 2	end	
+
+str = "helooworldhelo"
+print(string.find(str,"dhelo",1,4))
+
+
+iExpr= string.find(dialog[i],"%$%d%d")
+					if iExpr ~= nil then 
+						strExpr = string.sub(dialog[i],iExpr,iExpr + 2)
+						dialog[i] = string.gsub(dialog[i],"%$%d%d","")
+					end	
+
+if iExpr then	self.contentLabel:removeChildByTag(EXPRESSIONTAG) end
+
+--printTable(msg, true, "a")
+
+bgFrame:setTag(6677)
+addChildLazy(btn, exps)
+self.expressionBtn:removeChildByTag(6677, true)
+
+
+
+currentWord =  (1,currentWord = lovelyWords;2,unscheduleEntry ;label:setString())
+
+检查字符串
+i = string.find(currentWord,pattern)
+if i~=nil then hasExpression = true end
+
+if hasExpression then self:addExpression() end
+
+function addExpression()
+	local len = 24 --string.len(currentWord)
+	local numWidth = 600 / 23
+	local x =  math.ceil(len % numWidth)
+	local y =  math.ceil(len / numWidth)
+	
+	local posx = oringinX + x * 23
+	local posy = oringinY + y * 23
+	local expression = createAnimation()
+	expression:setPosition(posx,posy)
+	self:add(Child)
+end
+
+len = 50 --string.len(currentWord)
+numWidth = 600 / 23
+x =  len % numWidth
+y = len / numWidth
+print(math.ceil(x),math.ceil(y))
+
+str = "asdfgagasd$02$03fasdfsdfa！$01"
+pattern = "%$%d%d"
+tabl = {}
+i = 0
+while true do
+i = string.find(str,pattern,i+1)
+if i == nil then 
+break
+end
+tabl[#tabl + 1] = i
+end
+print(unpack(tabl))
+
+
+str = "asdfgagasd$02$03fasdfsdfa！$01"
+pattern = "%$%d%d"
+i,j= string.find( str,pattern)
+print(i,j)
+newstr2 = string.gsub(str,pattern,"xxx")
+print(newstr2)
+newstr = string.sub(str,i,j)
+print(newstr)
+敌不动我不动，我这边将会与蒙力耗着！刚刚我好像发现了药老的踪迹，你去看看
+
+
+s = "hello world"
+local i, j = string.find(s, "hello")    --> 1    5
+string.sub(s, i, j)        --> hello
+
+
+
+
+local exps = createAnimation(expressionData[3], expressionData[1], expressionData[2], true)
+addChildLazy(btn, exps)
+
+
+str = "helllo wljsldf"
+for i= 1,string.len() do
+print(string.sub(str,i,i))
+end
+
+
+stringUtil 
+ ChangeLineUtil
+  ChatController 
+ChatView	
+
+ExpressionConfig
+
+
+插入表情、表情快捷键、逐个显示文字、表情停顿0.5s
+
+
+
+str = "whatthefu ckdoyouwant$88hup?"		--匹配$88 表情符号
+pattern = "%$%d%d"
+
+print(string.match(str,pattern))
+
+t2_miss=10410034
+
+
+str = "123,456,789"
+desStr = string.match(str, ",(%w+),")
+print(desStr)
+
+
+str = "123,456,789,012,345,678"
+for w in string.gmatch(str, "%w+") do
+print(w)
+end
+
+
+
+
+（1）.看背包模块代码
+（2）.背包是怎么打开，显示，关闭（熟悉模块间如何交互，通知）
+（3）.背包整理的逻辑流程，包括点击整理按钮后如何通知控制器，控制器如何接收，如何处理，协议发送，协议接收，显示新数据。
+（4）.了解GoodsDataCenter，GoodsModel，他们在背包中的作用。GoodsItem和GoodsModel的关系
+（5）.学习背包模块MVC的结构，清楚他们的分工。
+（6）.学习基础控件的使用，CTButton, GamePanel。学习TestPanel中的控件使用例子。
+
+
+
+
+self:createBagItems()
+initSelectMenu(self)
+updatePageGoods
+
+
+
+
+物品类型:1道具 ，2 宝石 ， 3 装备，4材料
+
+
+isSwallowEvent?
+
+	local myBtn = CTButton.new("",4,"images/attriIcon1.png")
+	myBtn:setTag(PanelId.myBtn)
+	btn
+
+
+
+
+
+Log.info("点击可拉伸按钮")
+
+
+ -- schedule
+    layer:scheduleUpdateWithPriorityLua(doStep, 0)
+	layer:setTouchEnabled(true)
+    layer:registerScriptTouchHandler(onTouch)
+
+
+
+
+
+
+registerScriptHandler（）   -onEnter(),onExit()
+registerScriptTouchHandler()   onTouchBegan(),onTouchMoved(),onTouchEnded()
+
+	local function onEnterOnExitHandler(tag)
+		if tag == "enter" then
+			self:onEnter()
+		elseif tag == "exit" then
+			self:onExit()
+		end
+	end
+	
+	self:registerScriptHandler(onEnterOnExitHandler)
+
+
+layerForWorld.__CCTouchDelegate__:registerScriptTouchHandler(cocos2d.CCTOUCHBEGAN, "btnTouchBegin")
+layerForWorld.__CCTouchDelegate__:registerScriptTouchHandler(cocos2d.CCTOUCHMOVED, "btnTouchMove")
+layerForWorld.__CCTouchDelegate__:registerScriptTouchHandler(cocos2d.CCTOUCHENDED, "btnTouchEnd")
+
+cocos2d.CCScheduler:sharedScheduler():scheduleScriptFunc("prForHimi", 1, false)
+
+
+--15.6 to 15:36
+float2time = function (num)
+	if not num or type(num) ~= "number" then return "--:--" end
+	local intPart = math.floor(num)
+	intPart = intPart % 24
+	local floatPart = (num - intPart) * 60
+	if floatPart < 10 then 
+		return string.format("%d:0%.0f", intPart, floatPart) 
+	else 
+		return string.format("%d:%2.0f", intPart, floatPart)
+	end
+end
+
+
+* 您好，欢迎您来到美年大健康，美年大健康为您提供健康体检、健康管理、临床检验、
+特色诊疗、中医养生等全方位的医疗健康服务。您本次体检结果如下:
+
+* 一般检查:
+体重指数:19.80,体重正常范围。
+血压:110/63mmHg，血压正常范围。
+
+* 耳鼻喉检查结果:
+慢性咽炎；建议耳鼻喉科门诊治疗，忌刺激性食物、忌烟限酒。
+
+* 心电图检查结果:
+窦性心动过缓（58次/分）伴不齐；大多为生理性，多见于经常进行体育锻炼、体力劳动者、老年人、迷走神经张力增高及药物影响，少数见于窦房结功能障碍。请关注心率变化，如心率持续<50次/分、且有心慌不适等相关症状时，建议到医院心内科诊治。
+
+* 颈椎侧位（DR）:
+颈椎生理曲度变直；是颈椎病的早期改变，形成原因有：颈部肌肉损伤，长期坐姿不良、受凉等。请避免相关因素，坚持做颈部保健操，适度颈肌锻炼。
+
+* 尿酸（UA）(589)偏高：建议您少食贝类、动物内脏等高蛋白饮食富含嘌呤的食物以及精肉、浓肉汤、豆类、蘑菇、糖类等食品，多吃蔬菜、水果。血尿酸测定对痛风诊断很有帮助，请定期复查，必要时内分泌科诊治。
+
+* 血常规检查：
+红细胞压积(0.516)偏高、平均红细胞体积(99.6)偏高；轻微改变，无临床意义，建议复查。
+
+* 您好！美年大健康提醒您：用心关爱健康，定期健康体检！祝您健康快乐!
+
+
+检查项目名称	结果	单位	正常范围值
+身高  	179	Cm	
+体重  	63.3	kg	
+体重指数  	19.80
+口咽悬雍垂  	咽后璧淋巴滤泡增生
+小结  	窦性心动过缓（58次/分）伴不齐
+描述  	颈椎生理曲度变直。
+尿酸（UA）(S-UA)  	589 ↑	umol/L	210-430
+平均红细胞体积(MCV)  	99.6 ↑	fl	80.00-99.00
+平均红细胞血红蛋白含量(MCH)  	29.0		26-32
+
+
+-- needToDo
+做饭，打拳，画画，吉他
+
+SD9-移动终端游戏前台开发工程师（深圳）
+工作地点：深圳
+职位类别：技术类
+招聘人数：5人
+ 工作职责：
+负责移动前台基础框架的开发;
+
+负责移动前台通用系统（网络、SNS接入系统、基本UI系统等等）的开发;
+
+负责相关工具的开发和流程的建设。
+
+
+工作要求：
+本科及以上学历，计算机相关专业;
+
+3年以上C++编程经验，2年以上网络游戏 客户端开发经验（端游、手游不限），有移动游戏开发经验者优先;
+
+精通C/C++语言，精通面向对象技术和设计模式，熟悉UML建模工具;
+
+理解客户端框架和核心模块的实现，有主导过相关核心模块的开发经验者优先;
+
+具有cocos2d-x开发经验，有iOS、Android成功上线产品经验者优先;
+
+熟悉一般常用的2D、3D图形算法，能熟练运用lua脚本语言者优先;
+
+热爱游戏和软件开发，有良好的独立分析和解决问题的能力;
+
+具有高度的责任心，良好的自我管理能力和执行能力;
+
+善于沟通，有良好的团队合作精神。
+
+
+堆、A*、DPS/BFS
+
+
+工作职责：
+负责手机游戏客户端开发，实现各种功能并进行相关的测试与优化;
+与策划、美术密切配合，进行各种必要的探索与尝试，以使功能达到设计要求并体验良好;
+正确、客观评估工作量，与pm共同制定合理进度并保证进度的达成。
+工作要求：
+熟练使用C++语言;
+熟练使用C#语言;
+有Unity3D开发经验;
+熟悉3D编程原理和各种概念;
+有移动平台游戏开发经验; --cocos2dx, MFC
+对游戏开发充满热情，能够与他人良好配合、协作;
+态度认真、严谨，责任心强。
+
+1) 半年以上Unity3D开发经验；
+2）1年以上游戏开发经验
+3) 熟练使用C# 语言，熟悉U3d工具；
+4) 熟练掌握ngui；
+
+
+
+SD7-手机游戏客户端开发工程师（深圳）
+工作地点：深圳职位类别：技术类招聘人数：10人
+工作职责：
+负责手机客户端整体架构设计和技术方案的规划;
+使用unity3d开发手机游戏;
+负责引擎优化及逻辑开发;
+根据产品需求，完成功能模块的设计，编码和测试工作;
+制作维护相关开发工具。
+工作要求：
+本科及以上学历，计算机相关专业;
+精通C、C++、或者C#编程语言，了解java、ObjectC语言;
+熟练应用unity3d引擎或者熟悉任意一款游戏引擎;
+熟悉DirectX或OpenGL，有计算机图形学知识;
+热衷于钻研技术，工作踏实认真，责任心强，抗压能力强;
+善于沟通，有良好的团队合作精神和独立分析解决问题的能力;
+精通手机机型适配、UI布局优化等问题;
+精通面向对象设计、熟悉UML建模工具;
+热爱游戏，热爱软件开发，勇于接受挑战。
+
+玩蟹
+http://www.playcrab.com/job.php?aid=1819
+Cocos2d-x开发工程师
+岗位职责:
+1. 手机游戏客户端游戏逻辑、UI和动画的开发。
+2. 客户端框架的设计开发和核心功能的实现。
+3. 维护引擎，解决技术难点问题。
+任职资格：
+1. 本科及以上，计算机相关专业
+2. 精通C/C++或lua脚本 
+3. 熟练掌握cocos2d-x引擎；熟悉相关的动画，粒子，UI编辑
+4. 具备扎实的编程功底，如数据结构、算法、设计模式等，了解ios和android开发
+5. 拥有一年以上手机应用客户端的开发经验
+6. 有团队管理经验优先，有个人技术博客优先
+7. 了解objective-c，java的优先
+8. 拥有手机作品或独立在AppStore发布过产品者优先
+
+
+
+
+1、下载cocos2dx引擎, python可用版本
+2、打开sln工程文件用vs编译 ,setup.py
+3、确保环境变量path中加上目录F:\cocos\cocos2d-x-3.0rc0\cocos2d-x-3.0rc0\tools\cocos2d-console\bin;;
+4、新建项目、创建项目
+c  cocos new DeathSpank -p com.kelvindesus.www -l cpp -d F:\cocos\workspace
+cocos new sqlTest -p com.kelvindesus.www -l lua -d F:\cocos\workspace
+
+5、配置好java环境 adt (ndk-android-r9c-windows-x86_64 、android-ndk-r9d)
+ANDROID_NDK F:\cocos\ADT\android-ndk-r9d
+ANDROID_SDK F:\cocos\ADT\sdk
+ANT_ROOT F:\cocos\apache-ant-1.9.3\apache-ant-1.9.3\bin
+
+6、mobile\trunk\frameworks\runtime-src\proj.android 目录下
+-- 命令行编译android项目 
+cocos compile -p android -m release
+cocos compile -h 帮组
+或者在上一级目录：
+cocos compile -p android -m release  -user proj.android_jinli  --ndk-mode release -j 2 --compile-script 0 
+10:12 2016/4/19
+a、python cocos.py文件放在 F:\cocos\cocos2d-x-3.2\cocos2d-x-3.2\tools\cocos2d-console\bin
+b、build_android.py project_compile.py 两个文件放在 F:\cocos\cocos2d-x-3.2\cocos2d-x-3.2\tools\cocos2d-console\plugins\project_compile
+c、把trunk目录下的cocos.py文件删掉，控制台运行trunk下的compile_android.bat, 开始编译
+
+BUILD SUCCESSFUL 编译成功
+
+附：cocos compile 参数 -user proj.android_qq_brw 工程名字
+--compile-script 0  加上不编译脚本成luac 
+--ap 17  编译平台api版本(去掉)
+project.properties 中 target=android-17 不能大于工程的
+黑屏的原因应该是编译失败
+android api版本更新 直接android-17文件夹复制到 f:\cocos\ADT\sdk\platforms\android-17中,就是安装成功了
+
+or
+F:\cocos\cocos2d-x-3.2\cocos2d-x-3.2\tools\cocos2d-console\bin\cocos.py compile -p android -m release --ndk-mode release -j 2 --ap 17 --compile-script 0
+
+7、--打包apk
+A import android 目录
+B import android code  -- \frameworks\cocos2d-x\cocos\platform\android\java
+A properties -> Android -> Add -> B
+debug A as Android Application
+ok bin目录下生成了apk,链接手机运行可调试
+
+ex额外:
+--支持重力翻转 AndroidManifest.xml
+landscape-->sensorLandscape
+
+系统环境变量
+== ANDROID_NDK_ROOT:
+F:\cocos\ADT\android-ndk-r10c
+== NDK_ROOT:
+F:\cocos\ADT\android-ndk-r10c
+
+== COCOS_CONSOLE:
+F:\s3_svn\frameworks\cocos2d-x\tools\cocos2d-console\bin
+
+== PATH:
+F:\Cocos2dxDev\cygwin\bin;F:\Python27\;F:\Python27\Scripts;F:\Python27\Lib;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;F:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;f:\Program Files (x86)\Lua\5.1;f:\Program Files (x86)\Lua\5.1\clibs;F:\Program Files\Java\jdk1.7.0_21\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;F:\Git\bin;F:\Git\libexec\git-core;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;%JAVA_HOME%\jre\bin;%JAVA_HOME%\bin;f:\Cocos\cocos\tools\Python27;%NDK_ROOT%;F:\s3_svn\frameworks\cocos2d-x\tools\cocos2d-console\bin;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;
+
+
+公司名称：甲游网络科技有限公司
+公司地址：广州市天河区棠下涌西路69号 天辉大厦601室
+
+\\172.22.0.88\共享软件\其他游戏\S2\
+
+EventListenerTouchAcceleration
+EventListenerTouchCustom
+EventListenerTouchFocus
+EventListenerTouchKeyboard
+EventListenerTouchMouse
+
+EventListenerTouchAllAtOnce
+EventListenerTouchOneByOne
+
+
+
+addEventListenerWithFixedPriority
+给一个事件添加一个固定优先级的时间侦听器.
+addEventListenerWithSceneGraphPriority
+给一个指定的事件添加一个事件侦听器，该侦听器带有基于场景图的优先级 .
+
+
+
+现在获取的设备信息 M045/mx2/Flyme-Mz/JRO03H/16/16/4.1.1/REL/Meizu/Meizu
+型机/硬件HARDWARE/硬件 HOST/硬件ID/SDK/SDK_INT/固件版本RELEASE/固件版本CODENAME/生产厂家/运营商
+
+
+toBuy:迪卡隆速干衣、运动紧身衣
+
+
+1.   熟悉Ojbective-C或Swift，Cocoa框架及iOS SDK，计算机、软件或相关专业本科或者本科以上的学历,
+2.  扎实的计算机基础知识，丰富的实际代码编写经验：
+、良好的数据结构和算法基础；逻辑思维条理、清晰！
+3.   有ios或者android Java编程经验，
+4.   3-5年手机app或者apk开发经验；
+6.   能够独立完成apk或者app软件开发工作；担任过产品经理者为佳。
+7.   面向招聘原生App开发工程师，Web-App工程师请勿投递；
+8、有良好面向对象编程意识；
+9、有团队合作精神；
+
+
+Cocos2d-x程序
+             1、 熟练使用c++语言（至少1年以上），熟悉lua，Objective-C或者java等;
+             2、 有良好的编程风格及面向对象编程经验,对数据结构、基本算法熟练掌握，并具备基本的算法设计能力,有良好的表达、沟通交流技巧，团队协作能力;有良好的适应能力和学习能力。
+            3、 熟悉cocos2d-x， Box2D，能编写高质量代码，至少熟悉一款游戏引擎2d或者3d技术，能够编写游戏工具
+            4、 熟悉android或IOS体系结构，熟悉多线程，http协议，SOCKET等;
+            5、 有客户端战斗系统设计经验优先。
+            6、 开发过一个完整mmorpg，回合，slg等游戏优先。
+
+
+tolua c++绑定luabind
+tolua_function
+lua_cocos2dx_custom_manual.cpp --项目里绑定lua的文件
+lua_cocos2dx_auto.cpp  引擎里绑定的文件
+
+
+人际交往 最重要的是清晰定位自己
+
+阿里影业 TCL
+==============
+=S2 TO LEARN:
+==============
+
+* 游戏动画点击跳过的修改  F:\s2_svn\mobile\trunk\frameworks\runtime-src\proj.android_qq_brw\src\com\tencent\tmgp\sdbrw\VideoView.java.
+*【开发】Android版本号修改 F:\s2_svn\mobile\trunk\frameworks\runtime-src\proj.android_qq_brw\AndroidManifest.xml
+	    android:versionCode="11310770"
+    android:versionName="1.13.10770"
+*删除目录文件 cc.PlFileLoader:deleteDirectory(resPath)
+
+* lua调用java函数  local luaj = require "cocos/luaj"
+        luaj.callStaticMethod("com/jooyuu/GameUtil", "openUrl", {urlStr})
+
+* 新创建的动作可以放到ActionInterval.cpp里面
+
+==== enjoyWords
+准备工具:
+* Git 开源
+* trello 项目进度管理
+* Youdao云协作 文档
+* cocos 引擎 + cocos ide + cocos FrameWork 3.5
+* git pwd : kelvin_yu@126.com	84014702yzJ
+
+splash screen
+
+
+ios sdk交接
+密码：123
+1、阅读文档
+2、对应sdk直接拷贝proj.ios来新建工程，例如改名为proj.ios-xy
+3、用u盘从windows的svn拷贝过来
+4、c++工程要先编译(lib.xproj)，在编译项目工程(ios-xy.xproj)
+5、编译成功生成的products下的 app，拖进itunes 里面的应用程序下，生成ipa
+6、SdkBase.h 是通用接口 (如获取平台信息、登录、充值等接口)
+
+PlatformBridge类 提供给lua的接口 
+lua调用ios的接口 luaoc.callStaticMethod(self.bridgeClass, methodName, args)
+
+TODATE：
+1、8月16号 中午准备好酒店，里面放两人吃的蛋糕，用炼奶写18岁字再蛋糕上，香薰。晚上吃完饭邀请。8月17号请事假一天。 --我们太早了 先别
+
+
+TOPREPARE:
+1、buy pregnancy test kit
+pregnant:
+	2、ask for marriage
+	3、told my parent
+	4、told her parent
+	util agree:
+		5、to get a pregancy permission
+		6、move my census register to guangzhou
+		7、schedule a life plan, prepare tonic clothes etc
+		8、my mom take care kimi
+		9、buy a house at march by the time when the investment fund come back my bank account (60,000 yuan)
+		10、told relatives and friends (mine and hers)
+		11、marriage
+not pregnant:
+	2、carfully use c every time
+
+1、报名考车 (需要哪些证件 身份证、居住证/暂住证、)
+2、准备去玩几天
+3、合并元宵活动功能
+4、整理resu
+5、准备
+
+正则表达式
+图 寻路算法
+堆
+栈
+排序算法
+查找算法 二分法
+字符串模式匹配
+二叉树
+c++
+sql 增删查改
+
+南湖国旅
+中旅
+广之旅
+网上旅行社看看
+周六 报名考车，去旅行社看看，
+一天能去的：长隆欢乐世界，动物世界，广州鳄鱼公园，白水寨，宝墨园
+两天：新银盏温泉，动感小西关水疗馆
+三天：桂林阳朔
+4天和以上；广州暴走团，旅行社看
+
+http://www.gzl.com.cn/b2c-web/grouptour/112BC2C1C9141169E0532429030AAAE0.html
+http://www.gzl.com.cn/b2c-web/grouptour/112BC2C1CB011169E0532429030AAAE0.html
+http://www.nanhutravel.com/tour/20068637,185_.html
+
+
+127.0.0.1是回送地址，指本地机，一般用来测试使用
+
+
+http://www.eeagd.edu.cn/portal/bizdesk/PortaluserAction.do?dispatch=preLogin
+
+
+
+
+---------------------- skynet -----------------
+
+服务的启动和退出
+
+skynet.init(function() ... end)
+
+skynet.start(function() ... end)
+
+skynet.kill(address) 可以用来强制关闭别的服务。
+
+skynet.exit()
+退出当前的服务
+
+skynet.newservice(name, ...) 用于启动一个新的 Lua 服务
+
+
+时钟和线程
+
+skynet.fork(func, ...) 从功能上，它等价于 skynet.timeout(0, function() func(...) end)
+
+skynet.sleep(ti) 将当前 coroutine 挂起 ti 个单位时间。一个单位是 1/100 秒
+
+skynet.now() 将返回 skynet 节点进程启动的时间
+
+skynet.time() 返回以秒为单位（精度为小数点后两位）的 UTC 时间。它时间上等价于：skynet.now()/100 + skynet.starttime()
+
+
+manager
+部分 API 只在搭建框架时用到，普通服务并不会使用
+
+skynet.launch 启动一个 C 服务。
+skynet.kill 强行杀掉一个服务。
+skynet.abort 退出 skynet 进程。
+skynet.register 给自身注册一个名字。
+skynet.name 为一个服务命名。
+skynet.forward_type 将本服务实现为消息转发器，对一类消息进行转发。
+skynet.filter 过滤消息再处理。（注：filter 可以将 type, msg, sz, session, source 五个参数先处理过再返回新的 5 个参数。）
+skynet.monitor 给当前 skynet 进程设置一个全局的服务监控。
+
+
+
+技术需求：
+1、游戏玩法
+游戏内地图编辑器
+ai（障碍物、怪物、机关）
+热更新（上传下载、解压缩）
+
+2、数据
+后端下载
+web 服务器 使用http下载
+skynet http
+接入腾讯open sdk
+
+http上传下载 android和ios分开实现， 也可以c++的curl(个人感觉麻烦)
+
+
+=========== 
+kimi appId 账号:
+帐号  abc123737260357@qq. com
+密码  13433393601zkM
+
+九龙湖欧陆小镇公主酒店
+韶关大学 丹霞山南华寺
+湖南凤凰古城
+桂林阳朔
+
+======== gmail邮箱账号
+kelvindesus@gmail.com
+kelvinyzj
+
+有道翻译API申请成功
+API key：1147521808
+keyfrom：KelvinDemo-001
+创建时间：2016-08-10
+网站名称：KelvinDemo-001
+网站地址：http://weibo.com/kelvinshere
