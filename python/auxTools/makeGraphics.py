@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
 import os
-import translateUtils
+# import translateUtils
 
 readmeName = 'readme.txt'
 # currpath = os.getcwd() #当前目录
-# currpath = 'E:\st5_svn\mobile\src'
-currpath = 'I:\Dont.Starve.Shipwrecked.CHS.HD\dont_starve\data\scripts'
+currpath = 'E:\st5_svn\mobile\src'
+# currpath = 'I:\Dont.Starve.Shipwrecked.CHS.HD\dont_starve\data\scripts'
 fileName = 'graphics_'+os.path.basename(currpath)+'.txt'
 
 
 def genMultiChar(count):
   tab = []
-  for i in range(1, count - 1):
+  for i in range(1, count):
     tab.append('│')
     tab.append('  ')
   tab.append('├')
@@ -23,9 +23,7 @@ def genMultiChar(count):
 
 
 def parseDirStr(dirPath):
-  # tab = {}
   level = 1
-  # readme = {}
   lineStr = ''
   readme = ''
   # print dirPath
@@ -39,11 +37,10 @@ def parseDirStr(dirPath):
         filestream = open(parent+'\\'+fileName,"r")
         readme = filestream.read().replace('\n', '')
         filestream.close()
-        break
 
     if not readme:
-      # readme = baseParentName
-      readme = translateUtils.translate(baseParentName)
+      readme = baseParentName
+      # readme = translateUtils.translate(baseParentName)
 
     if not baseParentName in dirLevels.keys():
       dirLevels[baseParentName] = level
@@ -52,12 +49,22 @@ def parseDirStr(dirPath):
       if not dirName in dirLevels.keys():
         dirLevels[dirName] = dirLevels[baseParentName] + 1
 
-    lineStr = lineStr + genMultiChar(dirLevels[baseParentName]) + baseParentName + '\t#' + readme+ '\n'
-    print "----------------------------------",baseParentName
-       
-  # print tab
-  # print readme
+    lineStr = lineStr + genMultiChar(dirLevels[baseParentName]) + baseParentName + '\n' # + '\t#' + readme+ '\n'
+    print "----------------------------------",baseParentName, dirLevels[baseParentName]
+
+    if len(fileNames) > 0 :
+      filesChars = genMultiChar(dirLevels[baseParentName]+1) 
+      limitCount = 0
+      for fileName in fileNames:
+        limitCount = limitCount + 1
+        if limitCount>3:
+          lineStr = lineStr + filesChars + '...' + '\n'
+          break
+        else:
+          lineStr = lineStr + filesChars + fileName + '\n'
+
   print lineStr
+  # print dirLevels
   return lineStr
 
 
