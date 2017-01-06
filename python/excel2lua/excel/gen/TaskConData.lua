@@ -1,0 +1,20 @@
+TaskConData = {
+{task_id = 10000,condition_id = 0,condition_type = 21,task_target = "摆脱海难中的困境",control_field1 = 10000,control_field2 = 1,is_need = 1},
+{task_id = 10001,condition_id = 0,condition_type = 2,task_target = "装上新获得的装备",control_field1 = 22031,control_field2 = 1,is_need = 1},
+{task_id = 10002,condition_id = 0,condition_type = 21,task_target = "夺回道具三叉戟",control_field1 = 10001,control_field2 = 1,is_need = 1},
+{task_id = 10003,condition_id = 0,condition_type = 13,task_target = "在战斗中击退所有敌人",control_field1 = 1,control_field2 = 3,is_need = 1},
+{task_id = 10004,condition_id = 0,condition_type = 21,task_target = "夺回道具+2攻击",control_field1 = 10002,control_field2 = 1,is_need = 1},
+{task_id = 10005,condition_id = 0,condition_type = 13,task_target = "在战斗中击退铁钩波咕",control_field1 = 6,control_field2 = 2,is_need = 1},
+{task_id = 10006,condition_id = 0,condition_type = 21,task_target = "夺回两种道具",control_field1 = 10003,control_field2 = 1,is_need = 1},
+{task_id = 10007,condition_id = 0,condition_type = 13,task_target = "击败狂暴的飞船啵咕",control_field1 = 7,control_field2 = 1,is_need = 1},
+{task_id = 10008,condition_id = 0,condition_type = 21,task_target = "夺回道具传送",control_field1 = 10004,control_field2 = 1,is_need = 1},
+{task_id = 10009,condition_id = 0,condition_type = 16,task_target = "击退所有敌人，回到空岛",control_field1 = 0,control_field2 = 0,is_need = 1},
+{task_id = 1,condition_id = 0,condition_type = 64,task_target = "完成经典对战",control_field1 = 0,control_field2 = 1,is_need = 1},
+{task_id = 3,condition_id = 0,condition_type = 69,task_target = "尝试挑战“魔蚁秘境”",control_field1 = 1,control_field2 = 1,is_need = 1},
+{task_id = 4,condition_id = 0,condition_type = 9,task_target = "强化武器到1级",control_field1 = 21,control_field2 = 1,is_need = 1},
+{task_id = 5,condition_id = 0,condition_type = 64,task_target = "完成经典对战",control_field1 = 0,control_field2 = 1,is_need = 1},
+{task_id = 7,condition_id = 0,condition_type = 19,task_target = "合成1次",control_field1 = 0,control_field2 = 1,is_need = 1},
+{task_id = 7,condition_id = 1,condition_type = 11,task_target = "熔炼1次",control_field1 = 0,control_field2 = 1,is_need = 1},
+{task_id = 8,condition_id = 0,condition_type = 5,task_target = "参加1场竞技战",control_field1 = 0,control_field2 = 1,is_need = 1},
+{task_id = 9,condition_id = 0,condition_type = 10,task_target = "在商城购买一件物品",control_field1 = 1,control_field2 = 1,is_need = 1}
+};
