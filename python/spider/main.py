@@ -1,5 +1,7 @@
+# encoding: utf-8  
 __author__ = 'CQC'
 # -*- coding:utf-8 -*-
+
 
 import urllib
 import urllib2
@@ -10,11 +12,10 @@ import os,sys
 sys.path.append("..")
 # parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # sys.path.insert(0,parentdir)
-import timer.timer
+# import timer.timer
 
 #抓取MM
-class Spider:
-
+class Spider:    
     #页面初始化
     def __init__(self):
         self.siteURL = 'http://mm.taobao.com/json/request_top_list.htm'
@@ -46,6 +47,7 @@ class Spider:
     def getBrief(self,page):
         pattern = re.compile('<div class="mm-aixiu-content".*?>(.*?)<!--'.decode('utf-8'),re.S)
         result = re.search(pattern,page.decode('utf-8'), re.I | re.U)
+        # result = re.search(pattern,page)
         print pattern, result
         return self.tool.replace(result.group(1))
 

@@ -40,7 +40,6 @@ def GetTranslate(txt):
     
 def Sjson(json_data):
     print json_data
-    print '~~~~'
     query = json_data.get('query','')               # 查询的文本
     translation = json_data.get('translation','')   # 翻译
     basic = json_data.get('basic','')               # basic 列表
