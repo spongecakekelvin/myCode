@@ -13,7 +13,8 @@ import re
 USE_GENERIC = 0
 USE_CUSTOMTREECTRL = False
 
-import wx
+import wx          
+import wx.aui
 import wx.lib.mixins.inspection
 if USE_GENERIC:
     from wx.lib.stattext import GenStaticText as StaticText
@@ -25,13 +26,14 @@ sys.setdefaultencoding('utf-8')
 
 _treeList = [
     ('excel2lua',[]),
+    ('rent',[]),
     ('More',[]),
     
 ]
 
 class MainPanel(wx.Panel):
-    def __init__(self, parent):
-        wx.Panel.__init__(self, parent, size=(1,1))
+    # def __init__(self, parent):
+    #     wx.Panel.__init__(self, parent, size=(1,1))
 
     #     # self.SetBackgroundColour("Gray")
     #     # self.SetBackgroundColour("sky blue")
@@ -42,7 +44,6 @@ class MainPanel(wx.Panel):
     #     self.cmdLabel = wx.TextCtrl(self, -1, "echo 'please input os cmd'", (0, 0),(560,-1))
     #     self.cmdBtn = wx.Button(self, -1, "Execute", (0, 30), (60, 30))
     #     self.Bind(wx.EVT_BUTTON, self.onCmdBtn, self.cmdBtn)
-
     def onCmdBtn(self, evt):
         cmd = self.cmdLabel.GetValue()
         print cmd
@@ -66,7 +67,7 @@ class wxPythonDemoTree(ExpansionState, TreeBaseClass):
             self.SetSpacing(10)
             self.SetWindowStyle(self.GetWindowStyle() & ~wx.TR_LINES_AT_ROOT)
 
-        self.SetInitialSize((100,80))
+        self.SetInitialSize((240,480))
 
     def AppendItem(self, parent, text, image=-1, wnd=None):
         if USE_CUSTOMTREECTRL:
@@ -87,8 +88,9 @@ class wxPythonDemo(wx.Frame):
  
     def __init__(self, parent, title):
         wx.Frame.__init__(self, parent, -1, title, size = (640,480),
-                          style=wx.DEFAULT_FRAME_STYLE | wx.NO_FULL_REPAINT_ON_RESIZE)
+                          style=wx.DEFAULT_FRAME_STYLE| wx.NO_FULL_REPAINT_ON_RESIZE)
         self.SetMinSize((640,480))
+        self.SetMaxSize((640,480))
         self.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
         
         self.dying = False
@@ -99,8 +101,12 @@ class wxPythonDemo(wx.Frame):
         self.ReadConfigurationFile()
         leftPanel = self.pnl = pnl = MainPanel(self)
 
+        self.mgr = wx.aui.AuiManager()
+        self.mgr.SetManagedWindow(pnl)
+
         # Create a TreeCtrl
-        # leftPanel = wx.Panel(pnl, style=wx.TAB_TRAVERSAL|wx.CLIP_CHILDREN)
+        leftPanel = wx.Panel(pnl,-1,size=(240,480),pos=(0,0),style=wx.TAB_TRAVERSAL|wx.CLIP_CHILDREN)
+        rightPanel = wx.Panel(pnl,-1,size=(400,480),pos=(240,0),style=wx.TAB_TRAVERSAL|wx.CLIP_CHILDREN)
         
         # self.tree = wx.TreeCtrl(leftPanel, 1, wx.DefaultPosition, (-1, -1),   
         #                         wx.TR_HAS_BUTTONS|wx.TR_HAS_VARIABLE_ROW_HEIGHT)  
@@ -118,16 +124,28 @@ class wxPythonDemo(wx.Frame):
         self.tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.OnSelChanged)
         self.tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
 
-        self.filter = wx.SearchCtrl(leftPanel, style=wx.TE_PROCESS_ENTER)
-        self.filter.ShowCancelButton(True)
+        # self.filter = wx.SearchCtrl(leftPanel, style=wx.TE_PROCESS_ENTER)
+        # self.filter.ShowCancelButton(True)
 
-        leftBox = wx.BoxSizer(wx.VERTICAL)
-        leftBox.Add(self.tree, 1, wx.EXPAND)
-        leftBox.Add(wx.StaticText(leftPanel, label = "Filter Demos:"), 0, wx.TOP|wx.LEFT, 5)
-        leftBox.Add(self.filter, 0, wx.EXPAND|wx.ALL, 5)
-        if 'wxMac' in wx.PlatformInfo:
-            leftBox.Add((5,5))  # Make sure there is room for the focus ring
-        leftPanel.SetSizer(leftBox)
+        # leftBox = wx.BoxSizer(wx.VERTICAL)
+        # leftBox.Add(self.tree, 1, wx.EXPAND)
+        # leftBox.Add(wx.StaticText(leftPanel, label = "Filter Demos:"), 0, wx.TOP|wx.LEFT, 5)
+        # leftBox.Add(self.filter, 0, wx.EXPAND|wx.ALL, 5)
+        # if 'wxMac' in wx.PlatformInfo:
+        #     leftBox.Add((5,5))  # Make sure there is room for the focus ring
+        # leftPanel.SetSizer(leftBox)
+        # leftPanel.Fit()
+
+        # Use the aui manager to set up everything
+        self.mgr.AddPane(rightPanel, wx.aui.AuiPaneInfo().CenterPane().Name("content"))
+        self.mgr.AddPane(leftPanel,
+                         wx.aui.AuiPaneInfo().
+                         Left().Layer(2).BestSize((240, -1)).
+                         MinSize((240, -1)).
+                         Floatable(self.allowAuiFloating).FloatingSize((240, 480)).
+                         Caption("all modules").
+                         CloseButton(False).
+                         Name("modulesTree"))
 
     def ReadConfigurationFile(self):
         self.expansionState = [0, 1]
@@ -173,8 +191,15 @@ class wxPythonDemo(wx.Frame):
         item = event.GetItem()
         itemText = self.tree.GetItemText(item)
         print itemText
-        # self.LoadDemo(itemText)
-    
+        self.LoadDemo(itemText)
+
+    #---------------------------------------------
+    def LoadDemo(self, moduleName):
+        if os.path.exists(GetOriginalFilename(moduleName)):
+            print("Loading demo %s.py .." % demoName)
+            self.demoModules = DemoModules(demoName)
+            # self.LoadDemoSource()
+
     #---------------------------------------------
     def SetOverview(self, name, text):
         self.curOverview = text
@@ -199,14 +224,37 @@ class MyApp(wx.App, wx.lib.mixins.inspection.InspectionMixin):
         frame.Show()
         return True
 
+import socket
+
+def createSocket():
+    Sockin = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)        #新建socket
+    Sockin.bind(('127.0.0.1',6789))   #socket绑定该主机的ip和端口
+
+    while True:             #循环中执行收发功能
+        text = raw_input('> ')
+        Sockin.sendto(text,(('127.0.0.1',6789)))     #将 'text’ 发送给对方
+        if text == 'q':
+            Scokin.close()  #退出时关闭socket
+            break
+           
+        msg,(addr,port) = Sockin.recvfrom(100)    # 接受数据
+        if msg == 'q':
+            Sockin.close()
+            break
+        print addr,port,msg
+
 def main():
-    try:
-        demoPath = os.path.dirname(__file__)
-        os.chdir(demoPath)
-    except:
-        pass
-    app = MyApp(False)
-    app.MainLoop()
+    # try:
+    #     demoPath = os.path.dirname(__file__)
+    #     os.chdir(demoPath)
+    # except:
+    #     pass
+    # app = MyApp(False)
+    # app.MainLoop()
+
+    createSocket()
+
+
 
 
 if __name__=="__main__":
