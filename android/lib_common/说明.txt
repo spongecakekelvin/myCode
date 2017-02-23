@@ -1,0 +1,2 @@
+1、新版的 jy_fusion_sdk_v2.0.0.pro.jar 已经包含原来 res 文件夹下资源文件，引用时可以直接拷贝jar包到游戏的工程中，不用再通过添加依赖的方式引用（建议将原有res文件夹下的资源文件删除）
+2、原来在 Fusion2SDKRelease 工程中 res 文件下的主题文件移到了 FsCommonDemo 工程中

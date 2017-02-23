@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jooyuu.sdkdemo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="9" />
+
+    <application>
+
+        <!-- FusionSDK Start  FusionSDK启动的Activity -->
+        <activity
+            android:name="com.jooyuu.fusionsdk.SDKLaunchActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+             游戏启动Activity的全名,FusionSDK中默认是org.cocos2dx.lua.AppActivity
+        	如果跟默认相同,可以不设置这个meta-data 
+        -->
+        <meta-data
+            android:name="FS_GAME_ACTIVITY_NAME"
+            android:value="org.cocos2dx.lua.AppActivity" />
+
+        <!-- FusionSDK End -->
+
+
+        <!-- 通用工程的相关配置 START -->
+        <!-- Tell Cocos2dxActivity the name of our .so -->
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="cocos2dlua" />
+
+        <activity
+            android:name="org.cocos2dx.lua.AppActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.cocos2dx.lib.Cocos2dxActivity" 
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="org.cocos2dx.lib.Cocos2dxBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="com.s3arpg.game_receiver" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.jooyuu.qrlogin4game.zxing.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="com.jooyuu.qrlogin4sdk.zxing.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="com.jooyuu.qrlogin4sdk.ui.StartQRActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <!-- 通用工程的相关配置 END -->
+
+    </application>
+
+</manifest>
