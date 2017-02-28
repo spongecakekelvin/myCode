@@ -1,0 +1,89 @@
+{
+    "ndk_module_path" :[
+        "../../cocos2d-x",
+        "../../cocos2d-x/cocos/",
+        "../../cocos2d-x/external",
+        "../../cocos2d-x/cocos/scripting"
+    ],
+    "copy_resources": [
+        {
+            "from": "../../../src",
+            "to": "src",
+            "exclude": [
+                "*.gz"
+            ]
+        },
+		{
+            "from": "../../../config/gamecore",
+            "to": "src/gamecore",
+            "exclude": [
+                "*.gz"
+            ]
+        },
+		{
+            "from": "../../../config/templet",
+            "to": "src/gamecore/config",
+            "exclude": [
+                "*.gz"
+            ]
+        },
+        {
+            "from": "../../../res",
+            "to": "res",
+            "exclude": [
+                "*.gz"
+            ]
+        },
+		{
+            "from": "./additional/assets",
+            "to": "../assets",
+            "exclude": [
+                "*.gz"
+            ]
+        },
+		{
+            "from": "./additional/libs/armeabi-v7a",
+            "to": "../libs/armeabi-v7a",
+            "exclude": [
+                "*.gz"
+            ]
+        },
+		{
+            "from": "../qqNeedResorce",
+            "to": "./",
+            "exclude": [
+                "*.gz"
+            ]
+        },
+        {
+            "from": "./libs/armeabi",
+            "to": "../libs/armeabi-v7a",
+            "exclude": [
+                "*.gz"
+            ]
+        }
+    ],
+	
+	
+	
+	
+    "must_copy_resources": [
+        {
+            "from": "../../cocos2d-x/cocos/scripting/lua-bindings/script",
+            "to": ""
+        },
+        {
+            "from": "../../cocos2d-x/external/lua/luasocket",
+            "to": "",
+            "include": [
+                "*.lua"
+            ]
+        }
+    ],
+	
+	"delete_resources": [
+        {
+            "files": "./libs/armeabi/libcocos2dlua.so"
+        }
+    ]
+}
